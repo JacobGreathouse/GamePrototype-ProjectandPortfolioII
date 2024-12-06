@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamage
 {
     [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
@@ -120,5 +121,14 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(shootRate);
 
         isShooting = false;
+    }
+    public void takeDamage(int amount)
+    {
+        HP -= amount;
+        if(HP <= 0)
+        {
+            //XP Death
+            
+        }
     }
 }
