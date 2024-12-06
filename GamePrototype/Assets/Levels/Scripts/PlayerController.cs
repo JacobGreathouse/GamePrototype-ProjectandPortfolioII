@@ -9,11 +9,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask ignoreMask;
 
     [Header("----- Stats -----")]
-    [SerializeField] [Range(1, 5)]int speed;
-    [SerializeField] [Range(2, 4)]int sprintMod;
+    [SerializeField] [Range(1, 5)]float speed;
+    [SerializeField] [Range(2, 4)]float sprintMod;
     [SerializeField] [Range(1, 3)]int jumpMax;
     [SerializeField] [Range(5, 20)]int jumpSpeed;
     [SerializeField] [Range(15, 40)]int gravity;
+    [SerializeField] [Range(10, 30)]int HP;
 
     [Header("----- Gun Stats -----")]
     [SerializeField] int shootDamage;
