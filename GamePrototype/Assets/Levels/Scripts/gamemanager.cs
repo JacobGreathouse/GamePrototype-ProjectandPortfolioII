@@ -14,7 +14,7 @@ public class gamemanager : MonoBehaviour
 
     float timeScaleOrig;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         instance = this;
         timeScaleOrig = Time.timeScale;
@@ -48,7 +48,7 @@ public class gamemanager : MonoBehaviour
     {
         isPaused = !isPaused;
         Time.timeScale = timeScaleOrig;
-        Cursor.visible = true;
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
         menuActive.SetActive(false);
         menuActive = null;
