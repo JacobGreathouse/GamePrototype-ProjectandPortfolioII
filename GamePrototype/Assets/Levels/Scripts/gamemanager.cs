@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class gamemanager : MonoBehaviour
@@ -9,6 +10,7 @@ public class gamemanager : MonoBehaviour
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin, menuLose;
+    [SerializeField] TMP_Text goalCountText; // Ethan: Added this line
 
     public bool isPaused;
 
