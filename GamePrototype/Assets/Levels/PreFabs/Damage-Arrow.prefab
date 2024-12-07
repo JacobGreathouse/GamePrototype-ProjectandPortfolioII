@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2808864441738590265}
   - component: {fileID: 2808864441738590244}
   - component: {fileID: 6588444442817251349}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Damage-Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

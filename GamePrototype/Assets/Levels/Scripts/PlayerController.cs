@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] int shootDistance;
     [SerializeField] float shootRate;
 
+    //[SerializeField] GameObject lightning;
+    //[SerializeField] Transform shootPos;
+
     Vector3 moveDir;
     Vector3 playerVel;
 
@@ -107,6 +110,7 @@ public class PlayerController : MonoBehaviour, IDamage
         isShooting = true;
 
         // shoot code goes
+
         RaycastHit hit;
         if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDistance, ~ignoreMask))
         {
@@ -119,10 +123,11 @@ public class PlayerController : MonoBehaviour, IDamage
             }
         }
 
-
         yield return new WaitForSeconds(shootRate);
 
         isShooting = false;
+
+
     }
     public void takeDamage(int amount)
     {

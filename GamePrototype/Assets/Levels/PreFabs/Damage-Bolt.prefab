@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4552776121088956283}
   - component: {fileID: 4552776121088956038}
   - component: {fileID: 1264033102438933}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Damage-Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
