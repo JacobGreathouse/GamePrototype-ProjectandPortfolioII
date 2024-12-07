@@ -125,10 +125,22 @@ public class PlayerController : MonoBehaviour, IDamage
     public void takeDamage(int amount)
     {
         HP -= amount;
+        updatePlayerUI();
+        StartCoroutine(flashScreenDamage());
         if(HP <= 0)
         {
             //XP Death
             gamemanager.instance.youLose();
         }
+    }
+
+    IEnumerator flashScreenDamage()
+    {
+        yield return new WaitForSeconds(0.1f);
+    }
+
+    public void updatePlayerUI()
+    {
+
     }
 }
