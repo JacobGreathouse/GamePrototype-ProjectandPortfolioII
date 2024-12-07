@@ -924,7 +924,7 @@ MonoBehaviour:
   agent: {fileID: 7057073014232117833}
   shootPos: {fileID: 6126865058402154400}
   headPos: {fileID: 7057073014241428461}
-  HP: 2
+  HP: 4
   faceTargetSpeed: 30
   FOV: 90
   bullet: {fileID: 0}
@@ -945,7 +945,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 34
   avoidancePriority: 50
   m_AngularSpeed: 700

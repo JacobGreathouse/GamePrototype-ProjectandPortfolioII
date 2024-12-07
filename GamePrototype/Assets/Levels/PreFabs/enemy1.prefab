@@ -247,11 +247,17 @@ MonoBehaviour:
   agent: {fileID: 5151526142830012520}
   shootPos: {fileID: 8897048177028309762}
   headPos: {fileID: 5151526142822571186}
-  HP: 3
+  HP: 7
   faceTargetSpeed: 20
   FOV: 90
   bullet: {fileID: 2808864441738590270, guid: 507caec1a81444c448f66777375ea744, type: 3}
   shootRate: 1
+  isMelee: 0
+  meleeDamage: 0
+  meleeHitDistance: 0
+  ignoreMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!195 &5151526142830012520
 NavMeshAgent:
   m_ObjectHideFlags: 0
