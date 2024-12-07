@@ -11323,7 +11323,11 @@ PrefabInstance:
       objectReference: {fileID: 4552776121088956284, guid: ade57a93dade7274d88942381c4f3e94, type: 3}
     - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: shootDistance
-      value: 7
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
+      propertyPath: ignoreMask.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609177, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: m_RootOrder
