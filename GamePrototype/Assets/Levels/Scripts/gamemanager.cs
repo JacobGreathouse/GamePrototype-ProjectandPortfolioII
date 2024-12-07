@@ -12,6 +12,8 @@ public class gamemanager : MonoBehaviour
     [SerializeField] GameObject menuWin, menuLose;
     [SerializeField] TMP_Text goalCountText; // Ethan: Added this line
 
+    public GameObject player;
+    public PlayerController playerScript;
 
     public bool isPaused;
 
@@ -23,6 +25,8 @@ public class gamemanager : MonoBehaviour
     {
         instance = this;
         timeScaleOrig = Time.timeScale;
+        player = GameObject.FindWithTag("Player");
+        playerScript = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
