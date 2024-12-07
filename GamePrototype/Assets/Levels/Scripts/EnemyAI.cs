@@ -18,8 +18,14 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] GameObject bullet;
     [SerializeField] float shootRate;
 
+    [SerializeField] bool isMelee;
+    [SerializeField] int meleeDamage;
+    [SerializeField] float meleeHitDistance;
+    [SerializeField] LayerMask ignoreMask;
+
     bool playerInRange;
     bool isShooting;
+    
 
     Vector3 playerDir;
 
@@ -41,6 +47,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
            
         }
+        
     }
 
     bool canSeePlayer()
@@ -61,10 +68,21 @@ public class EnemyAI : MonoBehaviour, IDamage
                 {
                     faceTarget();
                 }
-                if (!isShooting)
+                if (isMelee)
                 {
-                    StartCoroutine(shoot());
+                    if (!isShooting)
+                    {
+                        StartCoroutine(meleeHit());
+                    }
                 }
+                else
+                {
+                    if (!isShooting)
+                    {
+                        StartCoroutine(shoot());
+                    }
+                }
+                
                 return true;
             }
         }
@@ -111,6 +129,25 @@ public class EnemyAI : MonoBehaviour, IDamage
         isShooting = true;
 
         Instantiate(bullet, shootPos.position, transform.rotation);
+        yield return new WaitForSeconds(shootRate);
+
+        isShooting = false;
+    }
+
+    IEnumerator meleeHit()
+    {
+        isShooting = true;
+
+        RaycastHit hit;
+        if (Physics.Raycast(shootPos.position, playerDir, out hit, meleeHitDistance, ~ignoreMask))
+        {
+            IDamage dmg = hit.collider.GetComponent<IDamage>();
+            if (dmg != null)
+            {
+                dmg.takeDamage(meleeDamage);
+            }
+        }
+
         yield return new WaitForSeconds(shootRate);
 
         isShooting = false;
