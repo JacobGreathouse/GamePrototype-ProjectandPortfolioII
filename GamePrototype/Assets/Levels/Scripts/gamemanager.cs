@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI; // Ethan: Added this line
 
 public class gamemanager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class gamemanager : MonoBehaviour
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin, menuLose;
     [SerializeField] TMP_Text goalCountText; // Ethan: Added this line
+    public Image playerHPBar; // Ethan: Added this line
+    public GameObject playerDamageScreen; // Ethan: Added this line
 
     public GameObject player;
     public PlayerController playerScript;

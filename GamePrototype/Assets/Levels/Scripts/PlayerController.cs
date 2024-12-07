@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build.Content;
+//using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamage
@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour, IDamage
     Vector3 playerVel;
 
     int jumpCount;
+    int HPOrig;
 
     bool isShooting;
     bool isSprinting;
@@ -33,7 +34,8 @@ public class PlayerController : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        
+        HPOrig = HP;
+        updatePlayerUI(); // Ethan: added this line
     }
 
     // Update is called once per frame
@@ -136,11 +138,14 @@ public class PlayerController : MonoBehaviour, IDamage
 
     IEnumerator flashScreenDamage()
     {
+        gamemanager.instance.playerDamageScreen.SetActive(true); // Ethan: added this line
         yield return new WaitForSeconds(0.1f);
+        gamemanager.instance.playerDamageScreen.SetActive(false); // Ethan: added this line
+
     }
 
     public void updatePlayerUI()
     {
-
+        gamemanager.instance.playerHPBar.fillAmount = (float)HP / HPOrig; // Ethan: added this line
     }
 }
