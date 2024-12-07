@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 
 public class Damage : MonoBehaviour
@@ -13,6 +12,8 @@ public class Damage : MonoBehaviour
     [SerializeField] int damageAmount;
     [SerializeField] float speed;
     [SerializeField] int destroyTime;
+
+    bool hasDamaged;
 
     // Start is called before the first frame update
     void Start()

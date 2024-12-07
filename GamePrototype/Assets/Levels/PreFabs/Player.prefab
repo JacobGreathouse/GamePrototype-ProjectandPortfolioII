@@ -75,7 +75,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 90
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -163,8 +163,6 @@ MonoBehaviour:
   shootDamage: 1
   shootDistance: 10
   shootRate: 0.1
-  lightning: {fileID: 4552776121088956284, guid: ade57a93dade7274d88942381c4f3e94, type: 3}
-  shootPos: {fileID: 0}
 --- !u!143 &6761757263595609191
 CharacterController:
   m_ObjectHideFlags: 0
