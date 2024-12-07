@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour, IDamage
         if(HP <= 0)
         {
             //XP Death
-            
+            gamemanager.instance.youLose();
         }
     }
 }

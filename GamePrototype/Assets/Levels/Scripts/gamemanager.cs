@@ -12,9 +12,12 @@ public class gamemanager : MonoBehaviour
     [SerializeField] GameObject menuWin, menuLose;
     [SerializeField] TMP_Text goalCountText; // Ethan: Added this line
 
+
     public bool isPaused;
 
     float timeScaleOrig;
+    //writing as enemy boss count will be added later
+    int enemyCount;
     // Start is called before the first frame update
     void Awake()
     {
@@ -54,5 +57,23 @@ public class gamemanager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         menuActive.SetActive(false);
         menuActive = null;
+    }
+    public void updateGameGoal(int amount)
+    {
+        enemyCount += amount;
+        goalCountText.text = enemyCount.ToString("F0");
+
+        if (enemyCount <= 0)
+        {
+            statePause();
+            menuActive = menuWin;
+            menuActive.SetActive(true);
+        }
+    }
+    public void youLose()
+    {
+        statePause();
+        menuActive = menuLose;
+        menuActive.SetActive(true);
     }
 }
