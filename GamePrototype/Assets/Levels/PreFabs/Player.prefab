@@ -130,7 +130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6761757263595609181}
   m_LocalRotation: {x: -0, y: 0.4850084, z: -0, w: 0.87450945}
-  m_LocalPosition: {x: -45.75, y: 1, z: -46.125}
+  m_LocalPosition: {x: -45.25, y: 1, z: -46.125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -159,10 +159,12 @@ MonoBehaviour:
   jumpMax: 2
   jumpSpeed: 6
   gravity: 18
-  HP: 15
+  HP: 25
   shootDamage: 1
   shootDistance: 10
   shootRate: 0.1
+  lightning: {fileID: 4552776121088956284, guid: ade57a93dade7274d88942381c4f3e94, type: 3}
+  shootPos: {fileID: 0}
 --- !u!143 &6761757263595609191
 CharacterController:
   m_ObjectHideFlags: 0

@@ -22,9 +22,6 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] int shootDistance;
     [SerializeField] float shootRate;
 
-    //[SerializeField] GameObject lightning;
-    //[SerializeField] Transform shootPos;
-
     Vector3 moveDir;
     Vector3 playerVel;
 
