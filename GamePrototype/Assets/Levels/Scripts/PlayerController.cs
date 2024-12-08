@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 //using UnityEditor.Build.Content;
 using UnityEngine;
 
@@ -17,6 +16,11 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] [Range(15, 40)]int gravity;
     [SerializeField] [Range(10, 30)]int HP;
 
+    [Header("----- Mana Stats -----")] // Ethan: added this line
+    [SerializeField] [Range(50, 200)]int maxMana; // Ethan: added this line
+    [SerializeField] [Range (1, 10)]float manaRegenRate; // Ethan: added this line
+    [SerializeField] [Range (10, 50)] int specialAbilityManaCost = 20; // Ethan: added this line
+
     [Header("----- Gun Stats -----")]
     [SerializeField] int shootDamage;
     [SerializeField] int shootDistance;
@@ -27,15 +31,20 @@ public class PlayerController : MonoBehaviour, IDamage
 
     int jumpCount;
     int HPOrig;
+    int currentMana; // Ethan: added this line
+    int currentHP; // Ethan: added this line
 
     bool isShooting;
     bool isSprinting;
+    bool canRegenMana = true; // Ethan: added this line
 
     // Start is called before the first frame update
     void Start()
     {
         HPOrig = HP;
+        maxMana = currentMana; // Ethan: added this line
         updatePlayerUI(); // Ethan: added this line
+        StartCoroutine(manaRegeneration()); // Ethan: added this line
     }
 
     // Update is called once per frame
@@ -126,6 +135,13 @@ public class PlayerController : MonoBehaviour, IDamage
 
 
     }
+
+    public void AddMana(int amount) // Ethan: added this function
+    {
+        currentMana = Mathf.Min(currentMana + amount, maxMana);
+        updatePlayerUI();
+    }
+
     public void takeDamage(int amount)
     {
         HP -= amount;
@@ -138,6 +154,28 @@ public class PlayerController : MonoBehaviour, IDamage
         }
     }
 
+
+    IEnumerator manaRegeneration() // Ethan: added this function
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+
+            if (canRegenMana && currentMana < maxMana)
+            {
+                currentMana = Mathf.Min(currentMana + Mathf.RoundToInt(manaRegenRate), maxMana);
+                updatePlayerUI();
+            }
+           
+        }
+    }
+
+    void UseMana(int amount) // Ethan: added this function
+    {
+        currentMana = Mathf.Min(currentMana + Mathf.RoundToInt(manaRegenRate), maxMana);
+        updatePlayerUI();
+    }
+
     IEnumerator flashScreenDamage()
     {
         gamemanager.instance.playerDamageScreen.SetActive(true); // Ethan: added this line
@@ -148,6 +186,9 @@ public class PlayerController : MonoBehaviour, IDamage
 
     public void updatePlayerUI()
     {
-        gamemanager.instance.playerHPBar.fillAmount = (float)HP / HPOrig; // Ethan: added this line
+        gamemanager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
+        gamemanager.instance.playerManaBar.fillAmount = (float)currentMana / maxMana; // Ethan: added this line
     }
+
+
 }

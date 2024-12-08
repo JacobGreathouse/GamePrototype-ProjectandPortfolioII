@@ -13,6 +13,7 @@ public class gamemanager : MonoBehaviour
     [SerializeField] GameObject menuWin, menuLose;
     [SerializeField] TMP_Text goalCountText; // Ethan: Added this line
     public Image playerHPBar; // Ethan: Added this line
+    public Image playerManaBar; // Ethan: Added this line
     public GameObject playerDamageScreen; // Ethan: Added this line
 
     public GameObject player;
@@ -23,6 +24,7 @@ public class gamemanager : MonoBehaviour
     float timeScaleOrig;
     //writing as enemy boss count will be added later
     int enemyCount;
+    
     // Start is called before the first frame update
     void Awake()
     {
