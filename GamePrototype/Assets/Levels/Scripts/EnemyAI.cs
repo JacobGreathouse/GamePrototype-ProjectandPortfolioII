@@ -22,10 +22,10 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] int meleeDamage;
     [SerializeField] float meleeHitDistance;
     [SerializeField] LayerMask ignoreMask;
+    [SerializeField] int xpOnKill;
 
     bool playerInRange;
     bool isShooting;
-    
 
     Vector3 playerDir;
 
@@ -120,6 +120,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             // I'm dead
             gamemanager.instance.updateGameGoal(-1);
+            gamemanager.instance.playerScript.SetPlayerXP(xpOnKill);
             Destroy(gameObject);
         }
     }

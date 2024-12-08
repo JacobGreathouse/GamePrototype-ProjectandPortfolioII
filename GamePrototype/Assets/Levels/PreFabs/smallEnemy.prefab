@@ -935,6 +935,7 @@ MonoBehaviour:
   ignoreMask:
     serializedVersion: 2
     m_Bits: 128
+  xpOnKill: 5
 --- !u!195 &7057073014232117833
 NavMeshAgent:
   m_ObjectHideFlags: 0

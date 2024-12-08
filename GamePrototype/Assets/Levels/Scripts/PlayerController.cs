@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] [Range(5, 20)]int jumpSpeed;
     [SerializeField] [Range(15, 40)]int gravity;
     [SerializeField] [Range(10, 30)]int HP;
+    [SerializeField] [Range(5, 15)]int lvlUpCost;
 
     [Header("----- Mana Stats -----")] // Ethan: added this line
     [SerializeField] [Range(50, 200)]int maxMana; // Ethan: added this line
@@ -29,8 +30,11 @@ public class PlayerController : MonoBehaviour, IDamage
     Vector3 moveDir;
     Vector3 playerVel;
 
+    int playerXP;
+    int playerLvl;
     int jumpCount;
     int HPOrig;
+    int HPMax;
     int currentMana; // Ethan: added this line
     int currentHP; // Ethan: added this line
 
@@ -42,7 +46,7 @@ public class PlayerController : MonoBehaviour, IDamage
     void Start()
     {
         HPOrig = HP;
-        maxMana = currentMana; // Ethan: added this line
+        currentMana = 50;
         updatePlayerUI(); // Ethan: added this line
         StartCoroutine(manaRegeneration()); // Ethan: added this line
     }
@@ -190,5 +194,35 @@ public class PlayerController : MonoBehaviour, IDamage
         gamemanager.instance.playerManaBar.fillAmount = (float)currentMana / maxMana; // Ethan: added this line
     }
 
+    private void updatePlayerLevel()
+    {
+        
+        
 
+        playerLvl += 1;
+        playerXP = 0;
+        lvlUpCost += 5;
+
+        HPMax += 2;
+        shootDamage += 1;
+        maxMana += 15;
+        manaRegenRate += 1;
+
+
+        HP = HPMax;
+        currentMana = maxMana;
+
+        updatePlayerUI();
+    }
+
+    public int GetPlayerXP()
+    {
+        return playerXP;
+    }
+    public void SetPlayerXP(int amount)
+    {
+        playerXP += amount;
+        if (playerXP >= lvlUpCost)
+            updatePlayerLevel();
+    }
 }
