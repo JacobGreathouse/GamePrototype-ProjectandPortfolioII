@@ -28,8 +28,8 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] float shootRate;
 
     [Header("----- XP Stats -----")] // Ethan: added this line
-    [SerializeField] int playerXP = 0; // Ethan: added this line
-    [SerializeField] int playerLvl = 1; // Ethan: added this line
+    [SerializeField] int playerXP; // Ethan: added this line
+    [SerializeField] int playerLvl; // Ethan: added this line
 
     Vector3 moveDir;
     Vector3 playerVel;
@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour, IDamage
     void Start()
     {
         HPOrig = HP;
+        HPMax = HP;
         currentMana = maxMana;
         updatePlayerUI(); // Ethan: added this line
         StartCoroutine(manaRegeneration()); // Ethan: added this line
@@ -173,7 +174,6 @@ public class PlayerController : MonoBehaviour, IDamage
         StartCoroutine(flashScreenDamage());
         if(HP <= 0)
         {
-            //XP Death
             gamemanager.instance.youLose();
         }
     }
@@ -212,6 +212,7 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         gamemanager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
         gamemanager.instance.playerManaBar.fillAmount = (float)currentMana / maxMana; // Ethan: added this line
+        gamemanager.instance.playerXPBar.fillAmount = (float)playerXP / lvlUpCost;
     }
 
     private void updatePlayerLevel()
@@ -232,8 +233,9 @@ public class PlayerController : MonoBehaviour, IDamage
         HP = HPMax;
         currentMana = maxMana;
 
+        updatePlayerUI();
         // Update Level text
-        if (gamemanager.instance.playerLevelText != null) // Ethan: added this line
+        /*if (gamemanager.instance.playerLevelText != null) // Ethan: added this line
         {
             gamemanager.instance.playerLevelText.text = $"Level: {playerLvl}"; // Ethan: added this line
         }
@@ -248,9 +250,9 @@ public class PlayerController : MonoBehaviour, IDamage
         if (gamemanager.instance.playerXPText != null) // Ethan: added this line
         {
             gamemanager.instance.playerXPText.text = $"XP: 0/{lvlUpCost}"; // Ethan: added this line
-        }
+        }*/
 
-        updatePlayerUI();
+
     }
 
     public int GetPlayerXP()
@@ -261,19 +263,9 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         playerXP += amount;
 
-        // Update XP text
-        if (gamemanager.instance.playerXPText != null) // Ethan: added this line
-        {
-            gamemanager.instance.playerXPText.text = $"XP: {playerXP}/{lvlUpCost}"; // Ethan: added this line
-        }
-
-        // Update XP progress bar
-        if(gamemanager.instance.playerXPText != null) // Ethan: added this line
-        {
-            gamemanager.instance.playerXPBar.fillAmount = (float)playerXP / lvlUpCost; // Ethan: added this line
-        }
-
         if (playerXP >= lvlUpCost)
             updatePlayerLevel();
+
+        updatePlayerUI();
     }
 }
