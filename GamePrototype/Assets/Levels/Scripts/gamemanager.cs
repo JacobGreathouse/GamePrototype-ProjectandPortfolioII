@@ -12,8 +12,11 @@ public class gamemanager : MonoBehaviour
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin, menuLose;
     [SerializeField] TMP_Text goalCountText; // Ethan: Added this line
+    public TMP_Text playerXPText; // Ethan: Added this line
+    public TMP_Text playerLevelText; // Ethan: Added this line
     public Image playerHPBar; // Ethan: Added this line
     public Image playerManaBar; // Ethan: Added this line
+    public Image playerXPBar; // Ethan: Added this line
     public GameObject playerDamageScreen; // Ethan: Added this line
 
     public GameObject player;

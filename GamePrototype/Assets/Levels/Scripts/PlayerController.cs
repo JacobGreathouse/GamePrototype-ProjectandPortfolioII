@@ -27,11 +27,15 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] int shootDistance;
     [SerializeField] float shootRate;
 
+    [Header("----- XP Stats -----")] // Ethan: added this line
+    [SerializeField] int playerXP = 0; // Ethan: added this line
+    [SerializeField] int playerLvl = 1; // Ethan: added this line
+
     Vector3 moveDir;
     Vector3 playerVel;
 
-    int playerXP;
-    int playerLvl;
+    // int playerXP;
+    // int playerLvl;
     int jumpCount;
     int HPOrig;
     int HPMax;
@@ -46,9 +50,25 @@ public class PlayerController : MonoBehaviour, IDamage
     void Start()
     {
         HPOrig = HP;
-        currentMana = 50;
+        currentMana = maxMana;
         updatePlayerUI(); // Ethan: added this line
         StartCoroutine(manaRegeneration()); // Ethan: added this line
+
+        // Initialize XP UI to start at 0
+        if(gamemanager.instance.playerXPBar != null) // Ethan: added this line
+        {
+            gamemanager.instance.playerXPBar.fillAmount = 0f; // Ethan: added this line
+        }
+
+        if(gamemanager.instance.playerXPText != null) // Ethan: added this line
+        {
+            gamemanager.instance.playerXPText.text = $"XP: 0/{lvlUpCost}"; // Ethan: added this line
+        }
+
+        if(gamemanager.instance.playerLevelText != null) // Ethan: added this line
+        {
+            gamemanager.instance.playerLevelText.text = $"Level: {playerLvl}"; // Ethan: added this line
+        }
     }
 
     // Update is called once per frame
@@ -176,7 +196,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     void UseMana(int amount) // Ethan: added this function
     {
-        currentMana = Mathf.Min(currentMana + Mathf.RoundToInt(manaRegenRate), maxMana);
+        currentMana = Mathf.Max(0, currentMana - amount);
         updatePlayerUI();
     }
 
@@ -212,6 +232,24 @@ public class PlayerController : MonoBehaviour, IDamage
         HP = HPMax;
         currentMana = maxMana;
 
+        // Update Level text
+        if (gamemanager.instance.playerLevelText != null) // Ethan: added this line
+        {
+            gamemanager.instance.playerLevelText.text = $"Level: {playerLvl}"; // Ethan: added this line
+        }
+
+        // Reset XP Bar to 0
+        if (gamemanager.instance.playerXPBar != null) // Ethan: added this line
+        {
+            gamemanager.instance.playerXPBar.fillAmount = 0f; // Ethan: added this line
+        }
+
+        // Reset XP text
+        if (gamemanager.instance.playerXPText != null) // Ethan: added this line
+        {
+            gamemanager.instance.playerXPText.text = $"XP: 0/{lvlUpCost}"; // Ethan: added this line
+        }
+
         updatePlayerUI();
     }
 
@@ -222,6 +260,19 @@ public class PlayerController : MonoBehaviour, IDamage
     public void SetPlayerXP(int amount)
     {
         playerXP += amount;
+
+        // Update XP text
+        if (gamemanager.instance.playerXPText != null) // Ethan: added this line
+        {
+            gamemanager.instance.playerXPText.text = $"XP: {playerXP}/{lvlUpCost}"; // Ethan: added this line
+        }
+
+        // Update XP progress bar
+        if(gamemanager.instance.playerXPText != null) // Ethan: added this line
+        {
+            gamemanager.instance.playerXPBar.fillAmount = (float)playerXP / lvlUpCost; // Ethan: added this line
+        }
+
         if (playerXP >= lvlUpCost)
             updatePlayerLevel();
     }
