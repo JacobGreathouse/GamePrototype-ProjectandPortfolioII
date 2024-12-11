@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour, IDamage
 
     [Header("----- Mana Stats -----")] // Ethan: added this line
     [SerializeField] [Range(50, 200)]int maxMana; // Ethan: added this line
-    [SerializeField] [Range (1, 10)]float manaRegenRate; // Ethan: added this line
+    [SerializeField] [Range (.1f, 10)]float manaRegenRate; // Ethan: added this line
     [SerializeField] [Range (10, 50)] int specialAbilityManaCost = 20; // Ethan: added this line
 
     [Header("----- Gun Stats -----")]
@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour, IDamage
     [SerializeField] float shootRate;
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject lightning;
+    [SerializeField] int spellcost;
 
     [Header("----- XP Stats -----")] // Ethan: added this line
     [SerializeField] int playerXP; // Ethan: added this line
@@ -41,8 +42,9 @@ public class PlayerController : MonoBehaviour, IDamage
     int jumpCount;
     int HPOrig;
     int HPMax;
-    int currentMana; // Ethan: added this line
+    float currentMana; // Ethan: added this line
     int currentHP; // Ethan: added this line
+    
 
     bool isShooting;
     bool isSprinting;
@@ -144,9 +146,10 @@ public class PlayerController : MonoBehaviour, IDamage
 
         // shoot code goes
 
-        // Instantiate(lightning, shootPos.position, transform.rotation);
+        Instantiate(lightning, shootPos.position, transform.rotation);
+        UseMana(spellcost);
 
-        RaycastHit hit;
+        /*RaycastHit hit;
         if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDistance, ~ignoreMask))
         {
             Debug.Log(hit.collider.name);
@@ -156,7 +159,7 @@ public class PlayerController : MonoBehaviour, IDamage
             {
                 dmg.takeDamage(shootDamage);
             }
-        }
+        }*/
 
         yield return new WaitForSeconds(shootRate);
 
@@ -187,11 +190,11 @@ public class PlayerController : MonoBehaviour, IDamage
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
 
             if (canRegenMana && currentMana < maxMana)
             {
-                currentMana = Mathf.Min(currentMana + Mathf.RoundToInt(manaRegenRate), maxMana);
+                currentMana = Mathf.Min(currentMana + manaRegenRate, maxMana);
                 updatePlayerUI();
             }
            
@@ -242,7 +245,7 @@ public class PlayerController : MonoBehaviour, IDamage
         HPMax += 2;
         shootDamage += 1;
         maxMana += 15;
-        manaRegenRate += 1;
+        manaRegenRate += .2f;
 
 
         HP = HPMax;
