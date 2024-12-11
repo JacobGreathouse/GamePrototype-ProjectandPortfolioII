@@ -13,7 +13,7 @@ public class Damage : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] int destroyTime;
 
-    bool hasDamaged;
+    bool hasDamaged = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +31,10 @@ public class Damage : MonoBehaviour
     {
         IDamage dmg = other.GetComponent<IDamage>();
          
-        if(dmg != null )
+        if(dmg != null && hasDamaged == false)
         {
             dmg.takeDamage(damageAmount);
+            hasDamaged = true;
         }
 
         if(type == damageType.moving)

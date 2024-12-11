@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2521476272068865367}
   - component: {fileID: 2521476272068865366}
   - component: {fileID: 2521476272068865371}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Damage-Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
