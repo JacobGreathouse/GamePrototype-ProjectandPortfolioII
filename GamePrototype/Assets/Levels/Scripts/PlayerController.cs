@@ -2,7 +2,7 @@ using System.Collections;
 //using UnityEditor.Build.Content;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IDamage
+public class PlayerController : MonoBehaviour, IDamage, IOpen
 {
     [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
