@@ -924,7 +924,7 @@ MonoBehaviour:
   agent: {fileID: 7057073014232117833}
   shootPos: {fileID: 6126865058402154400}
   headPos: {fileID: 7057073014241428461}
-  HP: 5
+  HP: 6
   faceTargetSpeed: 30
   FOV: 90
   bullet: {fileID: 0}

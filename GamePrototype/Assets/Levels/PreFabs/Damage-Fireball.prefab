@@ -51,14 +51,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   rb: {fileID: -5178138472310541422}
-  damageAmount: 3
+  damageAmount: 5
   speed: 50
   destroyTime: 3
   maxHits: 1
   triggerRadius: 0
   isAOE: 1
-  AOETriggerRadius: 10
-  AOEDamageAmount: 5
+  AOETriggerRadius: 5
+  AOEDamageAmount: 3
 --- !u!33 &2521476272068865364
 MeshFilter:
   m_ObjectHideFlags: 0

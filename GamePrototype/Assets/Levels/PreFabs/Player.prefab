@@ -191,8 +191,8 @@ MonoBehaviour:
   jumpMax: 2
   jumpSpeed: 6
   gravity: 18
-  HP: 30
-  lvlUpCost: 10
+  HP: 20
+  lvlUpCost: 15
   maxMana: 200
   manaRegenRate: 1
   specialAbilityManaCost: 50
