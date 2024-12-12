@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
         // shoot code goes
 
-        Instantiate(lightning, shootPos.position, transform.rotation);
+        Instantiate(lightning, shootPos.position, Camera.main.transform.rotation);
         UseMana(spellcostL);
 
         /*RaycastHit hit;
