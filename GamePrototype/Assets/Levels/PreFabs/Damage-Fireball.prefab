@@ -54,6 +54,11 @@ MonoBehaviour:
   damageAmount: 3
   speed: 50
   destroyTime: 3
+  maxHits: 1
+  triggerRadius: 0
+  isAOE: 1
+  AOETriggerRadius: 10
+  AOEDamageAmount: 5
 --- !u!33 &2521476272068865364
 MeshFilter:
   m_ObjectHideFlags: 0

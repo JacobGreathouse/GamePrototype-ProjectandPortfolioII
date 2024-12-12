@@ -25,10 +25,13 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [Header("----- Gun Stats -----")]
     [SerializeField] int shootDamage;
     [SerializeField] int shootDistance;
-    [SerializeField] float shootRate;
+    [SerializeField] float shootRateL;
+    [SerializeField] float shootRateF;
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject lightning;
-    [SerializeField] int spellcost;
+    [SerializeField] GameObject fireball;
+    [SerializeField] int spellcostL;
+    [SerializeField] int spellcostF;
 
     [Header("----- XP Stats -----")] // Ethan: added this line
     [SerializeField] int playerXP; // Ethan: added this line
@@ -112,7 +115,12 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
         if(Input.GetButton("Fire1") && !isShooting)
         {
-            StartCoroutine(shoot());
+            StartCoroutine(shootLightning());
+        }
+
+        if(Input.GetButton("Fire2") && !isShooting)
+        {
+            StartCoroutine (shootFireball());
         }
     }
 
@@ -140,14 +148,14 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         }
     }
 
-    IEnumerator shoot()
+    IEnumerator shootLightning()
     {
         isShooting = true;
 
         // shoot code goes
 
         Instantiate(lightning, shootPos.position, transform.rotation);
-        UseMana(spellcost);
+        UseMana(spellcostL);
 
         /*RaycastHit hit;
         if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDistance, ~ignoreMask))
@@ -161,7 +169,22 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
             }
         }*/
 
-        yield return new WaitForSeconds(shootRate);
+        yield return new WaitForSeconds(shootRateL);
+
+        isShooting = false;
+
+
+    }
+    IEnumerator shootFireball()
+    {
+        isShooting = true;
+
+        // shoot code goes
+
+        Instantiate(fireball, shootPos.position, transform.rotation);
+        UseMana(spellcostF);
+
+        yield return new WaitForSeconds(shootRateF);
 
         isShooting = false;
 

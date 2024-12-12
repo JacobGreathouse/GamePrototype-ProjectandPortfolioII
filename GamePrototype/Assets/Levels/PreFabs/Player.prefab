@@ -198,9 +198,13 @@ MonoBehaviour:
   specialAbilityManaCost: 50
   shootDamage: 1
   shootDistance: 10
-  shootRate: 0.3
+  shootRateL: 0.5
+  shootRateF: 2
   shootPos: {fileID: 4183586828583343891}
   lightning: {fileID: 4552776121088956284, guid: ade57a93dade7274d88942381c4f3e94, type: 3}
+  fireball: {fileID: 2521476272068865361, guid: 6913212cc25792c4c88bfa8c7d891cde, type: 3}
+  spellcostL: 5
+  spellcostF: 10
   playerXP: 0
   playerLvl: 0
 --- !u!143 &6761757263595609191

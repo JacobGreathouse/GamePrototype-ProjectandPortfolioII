@@ -50,8 +50,13 @@ MonoBehaviour:
   type: 0
   rb: {fileID: 4552776121088956038}
   damageAmount: 2
-  speed: 30
+  speed: 100
   destroyTime: 3
+  maxHits: 3
+  triggerRadius: 15
+  isAOE: 0
+  AOETriggerRadius: 0
+  AOEDamageAmount: 0
 --- !u!135 &4552776121088956283
 SphereCollider:
   m_ObjectHideFlags: 0

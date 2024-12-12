@@ -157,7 +157,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IOpen
     IEnumerator flashRed()
     {
         model.material.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         model.material.color = colorOrig;
     }
 }
