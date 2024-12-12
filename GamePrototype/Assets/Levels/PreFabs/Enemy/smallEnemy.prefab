@@ -922,11 +922,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 7057073014227910479}
   agent: {fileID: 7057073014232117833}
+  anim: {fileID: 7057073014232117837}
   shootPos: {fileID: 6126865058402154400}
   headPos: {fileID: 7057073014241428461}
   HP: 6
   faceTargetSpeed: 30
   FOV: 90
+  roamDist: 6
+  roamTimer: 2
+  animSpeedTrans: 8
   bullet: {fileID: 0}
   shootRate: 1
   isMelee: 1

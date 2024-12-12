@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IOpen
 {
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] Animator anim;
 
     [SerializeField] Transform shootPos;
     [SerializeField] Transform headPos;
@@ -14,6 +15,9 @@ public class EnemyAI : MonoBehaviour, IDamage, IOpen
     [SerializeField] int HP;
     [SerializeField] float faceTargetSpeed;
     [SerializeField] int FOV;
+    [SerializeField] int roamDist;
+    [SerializeField] int roamTimer;
+    [SerializeField] int animSpeedTrans;
 
     [SerializeField] GameObject bullet;
     [SerializeField] float shootRate;
@@ -21,33 +25,69 @@ public class EnemyAI : MonoBehaviour, IDamage, IOpen
     [SerializeField] bool isMelee;
     [SerializeField] int meleeDamage;
     [SerializeField] float meleeHitDistance;
+
     [SerializeField] LayerMask ignoreMask;
     [SerializeField] int xpOnKill;
 
     bool playerInRange;
     bool isShooting;
+    bool isRoaming;
 
     Vector3 playerDir;
+    Vector3 startingPos;
 
     Color colorOrig;
 
     float angleToPlayer;
+    float stoppingDistOrig;
+
+    Coroutine co;
 
     // Start is called before the first frame update
     void Start()
     {
         colorOrig = model.material.color;
         gamemanager.instance.updateGameGoal(1);
+        startingPos = transform.position;
+        stoppingDistOrig = agent.stoppingDistance;
     }
 
     // Update is called once per frame
     void Update()
     {
+        float agentSpeed = agent.velocity.normalized.magnitude;
+        float animSpeed = anim.GetFloat("Speed");
+        anim.SetFloat("Speed", Mathf.MoveTowards(animSpeed, agentSpeed, Time.deltaTime * animSpeedTrans));
+
         if (playerInRange && canSeePlayer())
         {
            
         }
+        else
+        {
+            if (!isRoaming && agent.remainingDistance < 0.01f)
+            {
+                co = StartCoroutine(roam());
+            }
+        }
         
+    }
+
+    IEnumerator roam()
+    {
+        isRoaming = true;
+        yield return new WaitForSeconds(roamTimer);
+
+        agent.stoppingDistance = 0;
+
+        Vector3 randomPos = Random.insideUnitSphere * roamDist;
+        randomPos += startingPos;
+
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomPos, out hit, roamDist, 1);
+        agent.SetDestination(hit.position);
+
+        isRoaming = false;
     }
 
     bool canSeePlayer()
@@ -70,7 +110,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IOpen
                 }
                 if (isMelee)
                 {
-                    if (!isShooting)
+                    if (!isShooting && agent.remainingDistance <= agent.stoppingDistance) //&& distance to player is stopping distance
                     {
                         StartCoroutine(meleeHit());
                     }
@@ -82,10 +122,11 @@ public class EnemyAI : MonoBehaviour, IDamage, IOpen
                         StartCoroutine(shoot());
                     }
                 }
-                
+                agent.stoppingDistance = stoppingDistOrig;
                 return true;
             }
         }
+        agent.stoppingDistance = 0;
         return false;
     }
 
@@ -108,12 +149,17 @@ public class EnemyAI : MonoBehaviour, IDamage, IOpen
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            agent.stoppingDistance = 0;
         }
     }
 
     public void takeDamage(int amount)
     {
         HP -= amount;
+        StopCoroutine(co);
+        isRoaming = false;
+        agent.SetDestination(gamemanager.instance.player.transform.position);
+
         StartCoroutine(flashRed());
 
         if(HP <= 0)
@@ -128,6 +174,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IOpen
     IEnumerator shoot()
     {
         isShooting = true;
+        anim.SetTrigger("Shoot");
 
         Instantiate(bullet, shootPos.position, transform.rotation);
         yield return new WaitForSeconds(shootRate);
@@ -138,6 +185,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IOpen
     IEnumerator meleeHit()
     {
         isShooting = true;
+        anim.SetTrigger("Melee");
 
         RaycastHit hit;
         if (Physics.Raycast(shootPos.position, playerDir, out hit, meleeHitDistance, ~ignoreMask))
