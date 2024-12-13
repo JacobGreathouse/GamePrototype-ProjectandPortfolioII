@@ -59,18 +59,17 @@ public class EnemyAI : MonoBehaviour, IDamage, IOpen
         float animSpeed = anim.GetFloat("Speed");
         anim.SetFloat("Speed", Mathf.MoveTowards(animSpeed, agentSpeed, Time.deltaTime * animSpeedTrans));
 
-        if (playerInRange && canSeePlayer())
-        {
-           
-        }
-        else
+        if(playerInRange && !canSeePlayer())
         {
             if (!isRoaming && agent.remainingDistance < 0.01f)
-            {
                 co = StartCoroutine(roam());
-            }
         }
-        
+        else if (!playerInRange)
+        {
+            if (!isRoaming && agent.remainingDistance < 0.01f)
+                co = StartCoroutine(roam());
+        }
+
     }
 
     IEnumerator roam()
@@ -156,9 +155,11 @@ public class EnemyAI : MonoBehaviour, IDamage, IOpen
     public void takeDamage(int amount)
     {
         HP -= amount;
+
+        agent.SetDestination(gamemanager.instance.player.transform.position);
         StopCoroutine(co);
         isRoaming = false;
-        agent.SetDestination(gamemanager.instance.player.transform.position);
+        
 
         StartCoroutine(flashRed());
 

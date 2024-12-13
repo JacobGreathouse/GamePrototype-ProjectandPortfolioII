@@ -62,10 +62,6 @@ public class Damage : MonoBehaviour
             }
            
         }
-        else if (other.tag == "LevelObject")
-        {
-            Destroy(gameObject);
-        }
      
     }
     public void Chain(Collider previousEnemy)
