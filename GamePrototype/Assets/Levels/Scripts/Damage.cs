@@ -56,10 +56,12 @@ public class Damage : MonoBehaviour
             {
                 Chain(other);
             }
-            if (isAOE)
-            {
-                AOEImpact();
-            }
+            //if (isAOE)
+            //{
+            //    AOEImpact();
+            //}
+            if(other.tag =="LevelObject")
+                Destroy(gameObject);
            
         }
      
@@ -73,7 +75,8 @@ public class Damage : MonoBehaviour
             //check if collider is enemy and not enemy just hit
             if (hitCollider.gameObject != previousEnemy.gameObject && hitCollider.GetComponent<IDamage>() != null && hitCollider.gameObject.tag != "Player")
             {
-                Vector3 direction = (hitCollider.transform.position - transform.position).normalized;
+                Vector3 direction = (hitCollider.transform.position - transform.position);
+                direction.y = 0;
                 transform.rotation = Quaternion.LookRotation(direction);
                 rb.velocity = direction * speed;
                 foundEnemy = true;
@@ -85,16 +88,17 @@ public class Damage : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void AOEImpact()
-    {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, AOETriggerRadius);
-        foreach (var hitCollider in hitColliders)
-        {
-            IDamage dmg = hitCollider.GetComponent<IDamage>();
-            if (dmg != null && hitCollider.gameObject.tag !="Player")
-            {
-                dmg.takeDamage(AOEDamageAmount);
-            }
-        }
-    }
+//    public void AOEImpact()
+ //   {
+//        Collider[] hitColliders = Physics.OverlapSphere(transform.position, AOETriggerRadius);
+//        foreach (var hitCollider in hitColliders)
+//        {
+//            IDamage dmg = hitCollider.GetComponent<IDamage>();
+//            if (dmg != null && hitCollider.gameObject.tag != "Player")
+//            {
+//                dmg.takeDamage(AOEDamageAmount);
+//
+//           }
+//        }
+//    }
 }
