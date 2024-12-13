@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7867286407797336158}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: LevelObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 7867286407797336159}
+  agent: {fileID: 0}
+  anim: {fileID: 0}
+  shootPos: {fileID: 0}
+  headPos: {fileID: 0}
   HP: 3
+  faceTargetSpeed: 0
+  FOV: 0
+  roamDist: 0
+  roamTimer: 0
+  animSpeedTrans: 0
+  bullet: {fileID: 0}
+  shootRate: 0
+  isMelee: 0
+  meleeDamage: 0
+  meleeHitDistance: 0
+  ignoreMask:
+    serializedVersion: 2
+    m_Bits: 0
+  xpOnKill: 0
 --- !u!33 &7867286407797336156
 MeshFilter:
   m_ObjectHideFlags: 0
