@@ -50,8 +50,8 @@ MonoBehaviour:
   type: 0
   rb: {fileID: 4552776121088956038}
   damageAmount: 3
-  speed: 100
-  destroyTime: 3
+  speed: 50
+  destroyTime: 10
   maxHits: 3
   triggerRadius: 15
   isAOE: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 767214408982076097}
   - component: {fileID: 767214408982076096}
   - component: {fileID: 767214408982076159}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lava Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,6 +53,11 @@ MonoBehaviour:
   damageAmount: 9000
   speed: 0
   destroyTime: 0
+  maxHits: 0
+  triggerRadius: 0
+  isAOE: 0
+  AOETriggerRadius: 0
+  AOEDamageAmount: 0
 --- !u!33 &767214408982076098
 MeshFilter:
   m_ObjectHideFlags: 0

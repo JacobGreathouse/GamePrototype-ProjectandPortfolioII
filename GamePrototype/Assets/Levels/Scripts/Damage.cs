@@ -55,6 +55,7 @@ public class Damage : MonoBehaviour
             else
             {
                 Chain(other);
+
             }
             //if (isAOE)
             //{
@@ -63,7 +64,7 @@ public class Damage : MonoBehaviour
             
            
         }
-        if (other.tag == "LevelObject")
+        if (other.CompareTag("LevelObject") && type ==damageType.moving)
             Destroy(gameObject);
     }
     public void Chain(Collider previousEnemy)
@@ -78,7 +79,7 @@ public class Damage : MonoBehaviour
                 Vector3 direction = (hitCollider.transform.position - transform.position);
                 direction.y = 0;
                 transform.rotation = Quaternion.LookRotation(direction);
-                rb.velocity = direction * speed;
+                rb.velocity = direction.normalized * speed;
                 foundEnemy = true;
                 break;
             }
