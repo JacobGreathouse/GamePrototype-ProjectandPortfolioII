@@ -13,6 +13,7 @@ public class gamemanager : MonoBehaviour
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin, menuLose;
     [SerializeField] GameObject allOrbsCol;
+    public GameObject allOrbsNotCol;
     [SerializeField] TMP_Text goalCountText; // Ethan: Added this line
     public TMP_Text playerXPText; // Ethan: Added this line
     public TMP_Text playerLevelText; // Ethan: Added this line
@@ -24,7 +25,7 @@ public class gamemanager : MonoBehaviour
     public GameObject player;
     public PlayerController playerScript;
 
-    public bool isPaused;
+    public bool isPaused = false;
 
     float timeScaleOrig;
     //writing as enemy boss count will be added later
@@ -50,6 +51,7 @@ public class gamemanager : MonoBehaviour
                 statePause();
                 menuActive = menuPause;
                 menuActive.SetActive(true);
+                
             }
             else if (menuActive == menuPause)
             {
@@ -98,4 +100,11 @@ public class gamemanager : MonoBehaviour
 
         allOrbsCol.SetActive(false);
     }
+
+    public int GetOrbCount()
+    {
+        return orbCount;
+    }
+
+  
 }

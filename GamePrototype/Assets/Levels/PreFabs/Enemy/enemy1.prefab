@@ -332,7 +332,7 @@ MonoBehaviour:
   anim: {fileID: 5151526142830012564}
   shootPos: {fileID: 8897048177028309762}
   headPos: {fileID: 5151526142822571186}
-  HP: 10
+  HP: 5
   faceTargetSpeed: 20
   FOV: 90
   roamDist: 5
@@ -360,7 +360,7 @@ NavMeshAgent:
   m_Acceleration: 32
   avoidancePriority: 50
   m_AngularSpeed: 600
-  m_StoppingDistance: 8
+  m_StoppingDistance: 20
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1

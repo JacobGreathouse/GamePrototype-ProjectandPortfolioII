@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
             playerVel = Vector3.zero;
         }
 
-        if(Input.GetButton("Fire1") && !isShooting)
+        if(Input.GetButton("Fire1") && !isShooting && gamemanager.instance.isPaused == false)
         {
             StartCoroutine(shootMagic());
         }
@@ -171,17 +171,17 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
         // shoot code goes
         if (isBolt == true)
-                {
+        {
                      // shoot code goes
-                    Instantiate(lightning, shootPos.position, Camera.main.transform.rotation);
-                    UseMana(spellcost);
-                }
-                else if (isFire == true)
-                {
+              Instantiate(lightning, shootPos.position, Camera.main.transform.rotation);
+              UseMana(spellcost);
+        }
+        else if (isFire == true)
+        {
                 // shoot code goes
-                Instantiate(fireball, shootPos.position, Camera.main.transform.rotation);
-                    UseMana(spellcost);
-                }
+              Instantiate(fireball, shootPos.position, Camera.main.transform.rotation);
+              UseMana(spellcost);
+        }
             
             //i wanted a redundency if the previous two were false
         

@@ -157,9 +157,12 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         HP -= amount;
 
-        agent.SetDestination(gamemanager.instance.player.transform.position);
+        if(agent.destination != gamemanager.instance.player.transform.position)
+            agent.SetDestination(gamemanager.instance.player.transform.position);
 
-        StopCoroutine(co);
+        if(co != null)
+            StopCoroutine(co);
+
         isRoaming = false;
         
 
