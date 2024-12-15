@@ -16,7 +16,7 @@ public class EnemyAI : MonoBehaviour, IDamage, IOpen
     [SerializeField] float faceTargetSpeed;
     [SerializeField] int FOV;
     [SerializeField] int roamDist;
-    [SerializeField] int roamTimer;
+    private float roamTimer;
     [SerializeField] int animSpeedTrans;
 
     [SerializeField] GameObject bullet;
@@ -75,6 +75,8 @@ public class EnemyAI : MonoBehaviour, IDamage, IOpen
     IEnumerator roam()
     {
         isRoaming = true;
+        roamTimer = Random.Range(1, 5);
+
         yield return new WaitForSeconds(roamTimer);
 
         agent.stoppingDistance = 0;
