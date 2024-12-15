@@ -47,7 +47,6 @@ public class EnemyAI : MonoBehaviour, IDamage
     void Start()
     {
         colorOrig = model.material.color;
-        gamemanager.instance.updateGameGoal(1);
         startingPos = transform.position;
         stoppingDistOrig = agent.stoppingDistance;
     }
@@ -159,6 +158,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         HP -= amount;
 
         agent.SetDestination(gamemanager.instance.player.transform.position);
+
         StopCoroutine(co);
         isRoaming = false;
         
@@ -168,7 +168,6 @@ public class EnemyAI : MonoBehaviour, IDamage
         if(HP <= 0)
         {
             // I'm dead
-            gamemanager.instance.updateGameGoal(-1);
             gamemanager.instance.playerScript.SetPlayerXP(xpOnKill);
             Destroy(gameObject);
         }

@@ -8,9 +8,11 @@ public class gamemanager : MonoBehaviour
 {
     public static gamemanager instance;
 
+    [SerializeField] int numOfOrbs;
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin, menuLose;
+    [SerializeField] GameObject allOrbsCol;
     [SerializeField] TMP_Text goalCountText; // Ethan: Added this line
     public TMP_Text playerXPText; // Ethan: Added this line
     public TMP_Text playerLevelText; // Ethan: Added this line
@@ -26,7 +28,8 @@ public class gamemanager : MonoBehaviour
 
     float timeScaleOrig;
     //writing as enemy boss count will be added later
-    int enemyCount;
+    int orbCount;
+    
     
     // Start is called before the first frame update
     void Awake()
@@ -70,22 +73,29 @@ public class gamemanager : MonoBehaviour
         menuActive.SetActive(false);
         menuActive = null;
     }
-    public void updateGameGoal(int amount)
+    public void updateOrbGoal(int amount)
     {
-        enemyCount += amount;
-        goalCountText.text = enemyCount.ToString("F0");
-
-        if (enemyCount <= 0)
-        {
-            statePause();
-            menuActive = menuWin;
-            menuActive.SetActive(true);
+        orbCount += amount;
+        goalCountText.text = orbCount.ToString("F0");
+        if (orbCount <= 0)
+        { 
+            StartCoroutine(showDisplayMessage());
         }
+
     }
     public void youLose()
     {
         statePause();
         menuActive = menuLose;
         menuActive.SetActive(true);
+    }
+
+    IEnumerator showDisplayMessage()
+    {
+        allOrbsCol.SetActive(true);
+
+        yield return new WaitForSeconds(5.0f);
+
+        allOrbsCol.SetActive(false);
     }
 }
