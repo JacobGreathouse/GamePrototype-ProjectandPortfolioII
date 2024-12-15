@@ -221,7 +221,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5151526142822703346}
-  m_LocalRotation: {x: -0, y: -0.63534755, z: -0, w: 0.77222633}
+  m_LocalRotation: {x: 0, y: -0.6353507, z: 0, w: 0.7722238}
   m_LocalPosition: {x: -3.25, y: 0, z: -29.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -248,14 +248,13 @@ MonoBehaviour:
   anim: {fileID: 5151526142830012564}
   shootPos: {fileID: 8897048177028309762}
   headPos: {fileID: 5151526142822571186}
-  HP: 15
+  HP: 10
   faceTargetSpeed: 20
   FOV: 90
   roamDist: 5
-  roamTimer: 4
   animSpeedTrans: 8
   bullet: {fileID: 2808864441738590270, guid: 507caec1a81444c448f66777375ea744, type: 3}
-  shootRate: 1
+  shootRate: 2
   isMelee: 0
   meleeDamage: 0
   meleeHitDistance: 0
@@ -331,7 +330,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 35
   m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!1 &5151526142822708222
 GameObject:

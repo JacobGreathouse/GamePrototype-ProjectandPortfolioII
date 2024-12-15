@@ -20,18 +20,18 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [Header("----- Mana Stats -----")] // Ethan: added this line
     [SerializeField][Range(50, 200)] int maxMana; // Ethan: added this line
     [SerializeField][Range(.1f, 10)] float manaRegenRate; // Ethan: added this line
-    [SerializeField][Range(10, 50)] int specialAbilityManaCost = 20; // Ethan: added this line
 
-    [Header("----- Gun Stats -----")]
+    [Header("----- Staff Stats -----")]
+    [SerializeField] GameObject staffModel;
     [SerializeField] int shootDamage;
     [SerializeField] int shootDistance;
-    [SerializeField] float shootRateL;
-    [SerializeField] float shootRateF;
+    [SerializeField] float shootRate;
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject lightning;
     [SerializeField] GameObject fireball;
-    [SerializeField] int spellcostL;
-    [SerializeField] int spellcostF;
+    [SerializeField] int spellcost;
+    [SerializeField] bool isBolt;
+    [SerializeField] bool isFire;
 
     [Header("----- XP Stats -----")] // Ethan: added this line
     [SerializeField] int playerXP; // Ethan: added this line
@@ -130,12 +130,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
         if(Input.GetButton("Fire1") && !isShooting)
         {
-            StartCoroutine(shootLightning());
-        }
-
-        if(Input.GetButton("Fire2") && !isShooting)
-        {
-            StartCoroutine (shootFireball());
+            StartCoroutine(shootMagic());
         }
     }
 
@@ -163,43 +158,27 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         }
     }
 
-    IEnumerator shootLightning()
+    IEnumerator shootMagic()
     {
         isShooting = true;
-
         // shoot code goes
-
-        Instantiate(lightning, shootPos.position, Camera.main.transform.rotation);
-        UseMana(spellcostL);
-
-        /*RaycastHit hit;
-        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDistance, ~ignoreMask))
+        if (isBolt == true)
         {
-            Debug.Log(hit.collider.name);
+            // shoot code goes
 
-            IDamage dmg = hit.collider.GetComponent<IDamage>();
-            if(dmg != null)
-            {
-                dmg.takeDamage(shootDamage);
-            }
-        }*/
+            Instantiate(lightning, shootPos.position, Camera.main.transform.rotation);
+            UseMana(spellcost);
+        }
+        else if (isFire == true)
+        {
+            // shoot code goes
 
-        yield return new WaitForSeconds(shootRateL);
+            Instantiate(fireball, shootPos.position, Camera.main.transform.rotation);
+            UseMana(spellcost);
+        }
+        //i wanted a redundency if the previous two were false
 
-        isShooting = false;
-
-
-    }
-    IEnumerator shootFireball()
-    {
-        isShooting = true;
-
-        // shoot code goes
-
-        Instantiate(fireball, shootPos.position, transform.rotation);
-        UseMana(spellcostF);
-
-        yield return new WaitForSeconds(shootRateF);
+        yield return new WaitForSeconds(shootRate);
 
         isShooting = false;
 
@@ -319,5 +298,17 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
         isPlayingStep = false;
 
+    }
+    public void getStaffStats(StaffStats staff)
+    {
+        shootDamage = staff.shootDamage;
+        shootDistance = staff.shootDistance;
+        shootRate = staff.shootRate;
+        spellcost = staff.spellcost;
+        isBolt = staff.isBolt;
+        isFire = staff.isFire;
+
+        staffModel.GetComponent<MeshFilter>().sharedMesh = staff.model.GetComponent<MeshFilter>().sharedMesh;
+        staffModel.GetComponent<MeshRenderer>().sharedMaterial = staff.model.GetComponent<MeshRenderer>().sharedMaterial;
     }
 }

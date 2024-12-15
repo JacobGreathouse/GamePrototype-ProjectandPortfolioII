@@ -18,7 +18,6 @@ public class Damage : MonoBehaviour
     private int currentHits = 0;
     //radius of sphere col trig
     [SerializeField][Range(1, 30)] float triggerRadius;
-    [SerializeField] bool isAOE = false;
     [SerializeField][Range(1,10)] float AOETriggerRadius;
     [SerializeField][Range(1,10)] int AOEDamageAmount;
 
@@ -56,13 +55,7 @@ public class Damage : MonoBehaviour
             {
                 Chain(other);
 
-            }
-            //if (isAOE)
-            //{
-            //    AOEImpact();
-            //}
-            
-           
+            }   
         }
         if (other.CompareTag("LevelObject") && type ==damageType.moving)
             Destroy(gameObject);
@@ -89,17 +82,4 @@ public class Damage : MonoBehaviour
             Destroy(gameObject);
         }
     }
-//    public void AOEImpact()
- //   {
-//        Collider[] hitColliders = Physics.OverlapSphere(transform.position, AOETriggerRadius);
-//        foreach (var hitCollider in hitColliders)
-//        {
-//            IDamage dmg = hitCollider.GetComponent<IDamage>();
-//            if (dmg != null && hitCollider.gameObject.tag != "Player")
-//            {
-//                dmg.takeDamage(AOEDamageAmount);
-//
-//           }
-//        }
-//    }
 }

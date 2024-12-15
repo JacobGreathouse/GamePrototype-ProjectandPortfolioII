@@ -53,11 +53,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5151526142822703346, guid: 35daf44e17a99b04e816a361076500b9, type: 3}
       propertyPath: m_Name
-      value: Stationary Turret Variant
+      value: Stationary Turret
       objectReference: {fileID: 0}
     - target: {fileID: 5151526142830012520, guid: 35daf44e17a99b04e816a361076500b9, type: 3}
       propertyPath: m_Speed
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151526142830012520, guid: 35daf44e17a99b04e816a361076500b9, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5151526142830012565, guid: 35daf44e17a99b04e816a361076500b9, type: 3}
       propertyPath: HP
