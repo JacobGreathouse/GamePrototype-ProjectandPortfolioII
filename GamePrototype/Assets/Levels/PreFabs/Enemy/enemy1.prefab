@@ -333,12 +333,12 @@ MonoBehaviour:
   shootPos: {fileID: 8897048177028309762}
   headPos: {fileID: 5151526142822571186}
   HP: 5
-  faceTargetSpeed: 20
+  faceTargetSpeed: 40
   FOV: 90
   roamDist: 5
   animSpeedTrans: 8
   bullet: {fileID: 2808864441738590270, guid: 507caec1a81444c448f66777375ea744, type: 3}
-  shootRate: 2
+  shootRate: 3
   isMelee: 0
   meleeDamage: 0
   meleeHitDistance: 0
