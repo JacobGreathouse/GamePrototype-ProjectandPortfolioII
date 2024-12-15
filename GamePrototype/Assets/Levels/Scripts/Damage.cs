@@ -60,11 +60,11 @@ public class Damage : MonoBehaviour
             //{
             //    AOEImpact();
             //}
-            if(other.tag =="LevelObject")
-                Destroy(gameObject);
+            
            
         }
-     
+        if (other.tag == "LevelObject")
+            Destroy(gameObject);
     }
     public void Chain(Collider previousEnemy)
     {

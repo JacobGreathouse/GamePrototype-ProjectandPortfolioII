@@ -9,18 +9,18 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField] LayerMask ignoreMask;
 
     [Header("----- Stats -----")]
-    [SerializeField] [Range(1, 5)]float speed;
-    [SerializeField] [Range(1, 4)]float sprintMod;
-    [SerializeField] [Range(1, 3)]int jumpMax;
-    [SerializeField] [Range(5, 20)]int jumpSpeed;
-    [SerializeField] [Range(15, 40)]int gravity;
-    [SerializeField] [Range(10, 30)]int HP;
-    [SerializeField] [Range(5, 15)]int lvlUpCost;
+    [SerializeField][Range(1, 5)] float speed;
+    [SerializeField][Range(1, 4)] float sprintMod;
+    [SerializeField][Range(1, 3)] int jumpMax;
+    [SerializeField][Range(5, 20)] int jumpSpeed;
+    [SerializeField][Range(15, 40)] int gravity;
+    [SerializeField][Range(10, 30)] int HP;
+    [SerializeField][Range(5, 15)] int lvlUpCost;
 
     [Header("----- Mana Stats -----")] // Ethan: added this line
-    [SerializeField] [Range(50, 200)]int maxMana; // Ethan: added this line
-    [SerializeField] [Range (.1f, 10)]float manaRegenRate; // Ethan: added this line
-    [SerializeField] [Range (10, 50)] int specialAbilityManaCost = 20; // Ethan: added this line
+    [SerializeField][Range(50, 200)] int maxMana; // Ethan: added this line
+    [SerializeField][Range(.1f, 10)] float manaRegenRate; // Ethan: added this line
+    [SerializeField][Range(10, 50)] int specialAbilityManaCost = 20; // Ethan: added this line
 
     [Header("----- Gun Stats -----")]
     [SerializeField] int shootDamage;
@@ -37,6 +37,15 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField] int playerXP; // Ethan: added this line
     [SerializeField] int playerLvl; // Ethan: added this line
 
+    [Header("----- Player Sounds -----")]
+    [SerializeField] AudioSource audPlayer;
+    [SerializeField] AudioClip[] audJump;
+    [SerializeField][Range(0, 1)] float audJumpVol;
+    [SerializeField] AudioClip[] audDamage;
+    [SerializeField][Range(0, 1)] float audDamageVol;
+    [SerializeField] AudioClip[] audStep;
+    [SerializeField][Range(0, 1)] float audStepVol;
+
     Vector3 moveDir;
     Vector3 playerVel;
 
@@ -51,6 +60,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     bool isShooting;
     bool isSprinting;
+    bool isPlayingStep;
     bool canRegenMana = true; // Ethan: added this line
 
     // Start is called before the first frame update
@@ -92,6 +102,11 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     {
         if(controller.isGrounded)
         {
+            if (moveDir.magnitude > 0.1f && !isPlayingStep)
+            {
+                StartCoroutine(playStep());
+            }
+
             jumpCount = 0;
             playerVel = Vector3.zero;
         }
@@ -130,7 +145,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         {
             jumpCount++;
             playerVel.y = jumpSpeed;
-            
+            audPlayer.PlayOneShot(audJump[Random.Range(0, audJump.Length)], audJumpVol);
         }
     }
 
@@ -202,7 +217,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         HP -= amount;
         updatePlayerUI();
         StartCoroutine(flashScreenDamage());
-        if(HP <= 0)
+        audPlayer.PlayOneShot(audDamage[Random.Range(0, audDamage.Length)], audDamageVol);
+        if (HP <= 0)
         {
             gamemanager.instance.youLose();
         }
@@ -289,5 +305,19 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
             updatePlayerLevel();
 
         updatePlayerUI();
+    }
+    IEnumerator playStep()
+    {
+        isPlayingStep = true;
+
+        audPlayer.PlayOneShot(audStep[Random.Range(0, audStep.Length)], audStepVol);
+
+        if (!isSprinting)
+            yield return new WaitForSeconds(0.5f);
+        if (isSprinting)
+            yield return new WaitForSeconds(0.25f);
+
+        isPlayingStep = false;
+
     }
 }

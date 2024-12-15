@@ -6,6 +6,10 @@ public class Doors : MonoBehaviour
 {
     [SerializeField] GameObject door;
 
+    [SerializeField] AudioSource audDoor;
+    [SerializeField] AudioClip[] audDoorOpen;
+    [SerializeField][Range(0, 1)] float audOpenVol;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +31,7 @@ public class Doors : MonoBehaviour
         if (opn != null)
         {
             door.SetActive(false);
+            audDoor.PlayOneShot(audDoorOpen[Random.Range(0, audDoorOpen.Length)], audOpenVol);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -38,6 +43,7 @@ public class Doors : MonoBehaviour
         if (opn != null)
         {
             door.SetActive(true);
+            audDoor.PlayOneShot(audDoorOpen[Random.Range(0, audDoorOpen.Length)], audOpenVol);
         }
     }
 }
