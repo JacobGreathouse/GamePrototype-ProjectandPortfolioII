@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField][Range(0, 1)] float audDamageVol;
     [SerializeField] AudioClip[] audStep;
     [SerializeField][Range(0, 1)] float audStepVol;
+    [SerializeField] AudioClip[] shootSound;
+    [SerializeField][Range(0, 1)] float shootSoundVol;
 
     Vector3 moveDir;
     Vector3 playerVel;
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     int jumpCount;
     int HPOrig;
     int HPMax;
+    int staffListPos;
     float currentMana; // Ethan: added this line
     int currentHP; // Ethan: added this line
     
@@ -99,6 +102,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
         movement();
         sprint();
+        selectStaff();
     }
 
     void movement()
@@ -164,28 +168,23 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     IEnumerator shootMagic()
     {
         isShooting = true;
-        // shoot code goes
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDistance, ~ignoreMask))
-        {
-            {
-                if (isBolt == true)
-                {
-                    // shoot code goes
 
+        // shoot code goes
+        if (isBolt == true)
+                {
+                     // shoot code goes
                     Instantiate(lightning, shootPos.position, Camera.main.transform.rotation);
                     UseMana(spellcost);
                 }
                 else if (isFire == true)
                 {
-                    // shoot code goes
-
-                    Instantiate(fireball, shootPos.position, Camera.main.transform.rotation);
+                // shoot code goes
+                Instantiate(fireball, shootPos.position, Camera.main.transform.rotation);
                     UseMana(spellcost);
                 }
-            }
+            
             //i wanted a redundency if the previous two were false
-        }
+        
         yield return new WaitForSeconds(shootRate);
 
         isShooting = false;
@@ -320,5 +319,32 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
         staffModel.GetComponent<MeshFilter>().sharedMesh = staff.model.GetComponent<MeshFilter>().sharedMesh;
         staffModel.GetComponent<MeshRenderer>().sharedMaterial = staff.model.GetComponent<MeshRenderer>().sharedMaterial;
+    }
+    void selectStaff()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && staffListPos < staffList.Count -1)
+        {
+            staffListPos++;
+            changeStaff();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && staffListPos > 0)
+        {
+            staffListPos--;
+            changeStaff();
+        }
+    }
+    void changeStaff()
+    {
+        shootDamage = staffList[staffListPos].shootDamage;
+        shootDistance = staffList[staffListPos].shootDistance;
+        shootRate = staffList[staffListPos].shootRate;
+        spellcost = staffList[staffListPos].spellcost;
+        isBolt = staffList[staffListPos].isBolt;
+        isFire = staffList[staffListPos].isFire;
+        AudioClip[] shootSound = staffList[staffListPos].shootSound;
+        float shootSoundVol = staffList[staffListPos].shootSoundVol;
+
+        staffModel.GetComponent<MeshFilter>().sharedMesh = staffList[staffListPos].model.GetComponent<MeshFilter>().sharedMesh;
+        staffModel.GetComponent<MeshRenderer>().sharedMaterial = staffList[staffListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
     }
 }

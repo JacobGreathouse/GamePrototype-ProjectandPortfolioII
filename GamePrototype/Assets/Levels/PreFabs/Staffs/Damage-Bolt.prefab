@@ -49,11 +49,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   rb: {fileID: 4552776121088956038}
-  damageAmount: 5
-  speed: 60
+  damageAmount: 3
+  speed: 80
   destroyTime: 20
   maxHits: 3
-  triggerRadius: 20
+  isAOE: 0
+  triggerRadius: 10
   AOETriggerRadius: 0
   AOEDamageAmount: 0
 --- !u!135 &4552776121088956283
@@ -127,7 +128,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.25
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1

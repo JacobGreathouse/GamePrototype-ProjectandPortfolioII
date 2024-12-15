@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 1853494166779514, guid: 713f90f70ef14794bbdcabcb038f4ae7, type: 3}
   shootDamage: 5
-  shootDistance: 30
+  shootDistance: 50
   shootRate: 1
   lightning: {fileID: 4552776121088956284, guid: ade57a93dade7274d88942381c4f3e94, type: 3}
   fireball: {fileID: 0}
@@ -22,5 +22,6 @@ MonoBehaviour:
   isBolt: 1
   isFire: 0
   hitEffect: {fileID: 0}
-  shootSound: []
-  shootSoundVol: 0
+  shootSound:
+  - {fileID: 8300000, guid: f1b9c6f755ad318409e745211dd49b83, type: 3}
+  shootSoundVol: 0.3
