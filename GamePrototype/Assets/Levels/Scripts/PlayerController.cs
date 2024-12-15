@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+
 //using UnityEditor.Build.Content;
 using UnityEngine;
 
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField][Range(.1f, 10)] float manaRegenRate; // Ethan: added this line
 
     [Header("----- Staff Stats -----")]
+    [SerializeField] List <StaffStats> staffList = new List<StaffStats>();
     [SerializeField] GameObject staffModel;
     [SerializeField] int shootDamage;
     [SerializeField] int shootDistance;
@@ -162,22 +165,27 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     {
         isShooting = true;
         // shoot code goes
-        if (isBolt == true)
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDistance, ~ignoreMask))
         {
-            // shoot code goes
+            {
+                if (isBolt == true)
+                {
+                    // shoot code goes
 
-            Instantiate(lightning, shootPos.position, Camera.main.transform.rotation);
-            UseMana(spellcost);
+                    Instantiate(lightning, shootPos.position, Camera.main.transform.rotation);
+                    UseMana(spellcost);
+                }
+                else if (isFire == true)
+                {
+                    // shoot code goes
+
+                    Instantiate(fireball, shootPos.position, Camera.main.transform.rotation);
+                    UseMana(spellcost);
+                }
+            }
+            //i wanted a redundency if the previous two were false
         }
-        else if (isFire == true)
-        {
-            // shoot code goes
-
-            Instantiate(fireball, shootPos.position, Camera.main.transform.rotation);
-            UseMana(spellcost);
-        }
-        //i wanted a redundency if the previous two were false
-
         yield return new WaitForSeconds(shootRate);
 
         isShooting = false;
@@ -301,6 +309,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     }
     public void getStaffStats(StaffStats staff)
     {
+        staffList.Add(staff);
+
         shootDamage = staff.shootDamage;
         shootDistance = staff.shootDistance;
         shootRate = staff.shootRate;

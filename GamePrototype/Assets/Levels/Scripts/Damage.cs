@@ -17,11 +17,11 @@ public class Damage : MonoBehaviour
     [SerializeField] int maxHits;
     private int currentHits = 0;
     //radius of sphere col trig
+    [SerializeField] bool isAOE;
     [SerializeField][Range(1, 30)] float triggerRadius;
     [SerializeField][Range(1,10)] float AOETriggerRadius;
     [SerializeField][Range(1,10)] int AOEDamageAmount;
 
-    
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +43,13 @@ public class Damage : MonoBehaviour
 
         IDamage dmg = other.GetComponent<IDamage>();
          
+        if (isAOE)
+        {
+            AOEDamage();
+            Destroy(gameObject);
+            return;
+        }
+
         if(dmg != null)
         {
             dmg.takeDamage(damageAmount);
@@ -64,6 +71,10 @@ public class Damage : MonoBehaviour
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, triggerRadius);
         bool foundEnemy = false;
+        if (currentHits >= maxHits)
+        {
+            Destroy(gameObject);
+        }
         foreach (var hitCollider in hitColliders)
         {
             //check if collider is enemy and not enemy just hit
@@ -80,6 +91,20 @@ public class Damage : MonoBehaviour
         if (!foundEnemy)
         {
             Destroy(gameObject);
+        }
+
+    }
+    private void AOEDamage()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere (transform.position, AOETriggerRadius);
+
+        foreach (var hitCollider in hitColliders)
+        {
+            IDamage dmg = hitCollider.GetComponent<IDamage>();
+            if (dmg != null && hitCollider.gameObject.tag != "Player")
+            {
+                dmg.takeDamage(AOEDamageAmount);
+            }
         }
     }
 }
