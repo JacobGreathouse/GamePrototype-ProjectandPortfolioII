@@ -32,6 +32,7 @@ public class Damage : MonoBehaviour
             Destroy(gameObject, destroyTime);
         }
     }
+
     //just type OnTriggerEnter to access what you need for
     //an effect to happen when you enter the trigger area
 

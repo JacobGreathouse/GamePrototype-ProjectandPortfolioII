@@ -159,7 +159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5151526142822703346, guid: 35daf44e17a99b04e816a361076500b9, type: 3}
       propertyPath: m_Name
-      value: Stationary Turret
+      value: Stationary Turret Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5151526142830012520, guid: 35daf44e17a99b04e816a361076500b9, type: 3}
       propertyPath: m_Speed
@@ -175,7 +175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5151526142830012565, guid: 35daf44e17a99b04e816a361076500b9, type: 3}
       propertyPath: shootRate
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35daf44e17a99b04e816a361076500b9, type: 3}
