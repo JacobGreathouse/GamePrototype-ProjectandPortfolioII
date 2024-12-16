@@ -103,6 +103,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             if (hit.collider.CompareTag("Player") && angleToPlayer < FOV)
             {
                 agent.SetDestination(gamemanager.instance.player.transform.position);
+                agent.stoppingDistance = stoppingDistOrig;
 
                 if (agent.remainingDistance < agent.stoppingDistance)
                 {
@@ -122,7 +123,6 @@ public class EnemyAI : MonoBehaviour, IDamage
                         StartCoroutine(shoot());
                     }
                 }
-                agent.stoppingDistance = stoppingDistOrig;
                 return true;
             }
         }
