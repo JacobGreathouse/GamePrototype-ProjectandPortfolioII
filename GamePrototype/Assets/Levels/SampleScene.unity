@@ -568,7 +568,7 @@ Transform:
   - {fileID: 1219818227}
   - {fileID: 573913726}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &49486338 stripped
 Transform:
@@ -8067,7 +8067,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 712107277998745219, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 712107277998745219, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9229,7 +9229,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &725056397
 PrefabInstance:
@@ -21812,7 +21812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 712107277998745219, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 712107277998745219, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29038,10 +29038,10 @@ MonoBehaviour:
   headPos: {fileID: 2691242269662207882}
   HP: 20
   faceTargetSpeed: 50
-  stoppingDist: 5
+  stoppingDist: 2
   xpOnKill: 10
   animSpeedTrans: 8
-  spellObject: {fileID: 0}
+  spellObject: {fileID: 2808864441738590270, guid: 8df5d878e9983b14c80fa7d447fbd42e, type: 3}
   shootRate: 1
 --- !u!135 &2691345930362830160
 SphereCollider:
@@ -29054,7 +29054,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 32.7
+  m_Radius: 45
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &2691345930362830161
 NavMeshAgent:
@@ -29066,7 +29066,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 5
+  m_Speed: 0
   m_Acceleration: 38
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -29285,15 +29285,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609177, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.375
+      value: -78.5
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609177, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.875
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609177, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.875
+      value: 10.7
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609177, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: m_LocalRotation.w

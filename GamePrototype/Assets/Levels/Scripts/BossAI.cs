@@ -46,8 +46,9 @@ public class BossAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
+
         float agentSpeed = agent.velocity.normalized.magnitude;
-        float animSpeed = anim.GetFloat("Speed"); //don't forget to implement "Speed" in animator
+        float animSpeed = anim.GetFloat("Speed");
         anim.SetFloat("Speed", Mathf.MoveTowards(animSpeed, agentSpeed, Time.deltaTime * animSpeedTrans));
 
         if (playerInRange && !canSeePlayer())
@@ -69,17 +70,17 @@ public class BossAI : MonoBehaviour, IDamage
         {
             if (hit.collider.CompareTag("Player"))
             {
-                agent.SetDestination(gamemanager.instance.player.transform.position);
                 if (agent.remainingDistance < agent.stoppingDistance)
                 {
                     faceTarget();
-                }
-                else
-                {
                     if (!isShooting)
                     {
                         StartCoroutine(shoot());
                     }
+                }
+                else
+                {
+                    
                 }
                 return true;
             }
@@ -123,6 +124,8 @@ public class BossAI : MonoBehaviour, IDamage
             // I'm dead
             gamemanager.instance.playerScript.SetPlayerXP(xpOnKill);
             //add death animation here!, then wait for time of animation before destroying object
+            //also want to stop him shooting
+
             Destroy(gameObject);
         }
     }
@@ -130,7 +133,7 @@ public class BossAI : MonoBehaviour, IDamage
     IEnumerator shoot()
     {
         isShooting = true;
-        anim.SetTrigger("Shoot"); //set up shoot in animator
+        anim.SetTrigger("Shoot");
 
         Instantiate(spellObject, shootPos.position, transform.rotation);
 
