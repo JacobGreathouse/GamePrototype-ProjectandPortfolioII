@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField][Range(0, 1)] float audStepVol;
     [SerializeField] AudioClip[] shootSound;
     [SerializeField][Range(0, 1)] float shootSoundVol;
+    [SerializeField] AudioClip[] levelSound;
+    [SerializeField][Range(0, 1)] float levelSoundVol;
 
     Vector3 moveDir;
     Vector3 playerVel;
@@ -288,8 +290,10 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         playerXP += amount;
 
         if (playerXP >= lvlUpCost)
+        {
             updatePlayerLevel();
-
+            audPlayer.PlayOneShot(levelSound[Random.Range(0, levelSound.Length)], levelSoundVol);
+        }
         updatePlayerUI();
     }
     IEnumerator playStep()
