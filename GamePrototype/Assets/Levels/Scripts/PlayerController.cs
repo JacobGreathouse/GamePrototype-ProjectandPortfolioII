@@ -246,20 +246,9 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     public void updatePlayerUI()
     {
-        gamemanager.instance.playerHPBar.fillAmount = (float)HP / HPOrig;
+        gamemanager.instance.playerHPBar.fillAmount = (float)HP / HPMax;
         gamemanager.instance.playerManaBar.fillAmount = (float)currentMana / maxMana; // Ethan: added this line
         gamemanager.instance.playerXPBar.fillAmount = (float)playerXP / lvlUpCost;
-
-        // Update Level text
-        if (gamemanager.instance.playerLevelText != null) // Ethan: added this line
-        {
-            gamemanager.instance.playerLevelText.text = $"Level: {playerLvl}"; // Ethan: added this line
-        }
-        // Reset XP text
-        if (gamemanager.instance.playerXPText != null) // Ethan: added this line
-        {
-            gamemanager.instance.playerXPText.text = $"XP: 0/{lvlUpCost}"; // Ethan: added this line
-        }
     }
 
     private void updatePlayerLevel()
