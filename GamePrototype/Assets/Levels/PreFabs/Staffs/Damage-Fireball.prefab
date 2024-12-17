@@ -51,14 +51,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   rb: {fileID: -5178138472310541422}
-  damageAmount: 0
+  damageAmount: 5
   speed: 30
   destroyTime: 10
   maxHits: 0
   isAOE: 1
   triggerRadius: 0
   AOETriggerRadius: 5
-  AOEDamageAmount: 10
+  AOEDamageAmount: 5
+  audPlayer: {fileID: 0}
+  impactSound: []
+  impactSoundVol: 0
+  playerLvl: 0
 --- !u!33 &2521476272068865364
 MeshFilter:
   m_ObjectHideFlags: 0

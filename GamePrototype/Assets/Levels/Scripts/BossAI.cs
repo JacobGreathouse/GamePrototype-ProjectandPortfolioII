@@ -39,7 +39,7 @@ public class BossAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        colorOrig = model.material.color;
+      //  colorOrig = model.material.color;
 
     }
 

@@ -20,11 +20,10 @@ public class Damage : MonoBehaviour
     [SerializeField] bool isAOE;
     [SerializeField][Range(1, 30)] float triggerRadius;
     [SerializeField][Range(1,10)] float AOETriggerRadius;
-    [SerializeField][Range(1,10)] int AOEDamageAmount;
     [SerializeField] AudioSource audPlayer;
     [SerializeField] AudioClip[] impactSound;
     [SerializeField][Range(0, 1)] float impactSoundVol;
-
+    public int playerLvl;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +34,10 @@ public class Damage : MonoBehaviour
             Destroy(gameObject, destroyTime);
         }
     }
-
+    private void Awake()
+    {
+        playerLvl = GameObject.FindWithTag("Player").GetComponent<PlayerController>().playerLvl;
+    }
     //just type OnTriggerEnter to access what you need for
     //an effect to happen when you enter the trigger area
 
@@ -43,7 +45,7 @@ public class Damage : MonoBehaviour
     {
         if (other.isTrigger)
             return;
-
+        damageAmount = damageAmount + (playerLvl * 2);
         IDamage dmg = other.GetComponent<IDamage>();
          
         if (isAOE)
@@ -110,7 +112,7 @@ public class Damage : MonoBehaviour
             IDamage dmg = hitCollider.GetComponent<IDamage>();
             if (dmg != null && hitCollider.gameObject.tag != "Player")
             {
-                dmg.takeDamage(AOEDamageAmount);
+                dmg.takeDamage(damageAmount);
             }
         }
     }

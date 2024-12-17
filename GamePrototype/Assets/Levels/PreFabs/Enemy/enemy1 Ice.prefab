@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 5151526142830012566}
   - component: {fileID: 5151526142830012567}
   m_Layer: 7
-  m_Name: enemy1
+  m_Name: enemy1 Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -332,20 +332,20 @@ MonoBehaviour:
   anim: {fileID: 5151526142830012564}
   shootPos: {fileID: 8897048177028309762}
   headPos: {fileID: 5151526142822571186}
-  HP: 5
+  HP: 15
   faceTargetSpeed: 40
   FOV: 90
   roamDist: 5
   animSpeedTrans: 3
-  bullet: {fileID: 2808864441738590270, guid: 507caec1a81444c448f66777375ea744, type: 3}
-  shootRate: 0.5
+  bullet: {fileID: 2808864441738590270, guid: 8379857e461f2574b902908479131a76, type: 3}
+  shootRate: 0.25
   isMelee: 0
   meleeDamage: 0
   meleeHitDistance: 0
   ignoreMask:
     serializedVersion: 2
     m_Bits: 0
-  xpOnKill: 5
+  xpOnKill: 15
 --- !u!195 &5151526142830012520
 NavMeshAgent:
   m_ObjectHideFlags: 0

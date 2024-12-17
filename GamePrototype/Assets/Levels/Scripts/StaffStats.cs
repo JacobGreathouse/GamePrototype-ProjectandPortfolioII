@@ -6,8 +6,8 @@ public class StaffStats : ScriptableObject
 {
     [Header("----- Staff Stats -----")]
     public GameObject model;
-    public int shootDamage;
-    public int shootDistance;
+    //public int shootDamage;
+   // public int shootDistance;
     public float shootRate;
     public GameObject lightning;
     public GameObject fireball;

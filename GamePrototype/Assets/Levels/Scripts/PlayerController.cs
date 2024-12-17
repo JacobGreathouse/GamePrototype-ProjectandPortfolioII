@@ -38,10 +38,10 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     [Header("----- XP Stats -----")] // Ethan: added this line
     [SerializeField] int playerXP; // Ethan: added this line
-    [SerializeField] int playerLvl; // Ethan: added this line
+    public int playerLvl; // Ethan: added this line
 
     [Header("----- Player Sounds -----")]
-    [SerializeField] AudioSource audPlayer;
+    [SerializeField] AudioSource audPlayer;  
     [SerializeField] AudioClip[] audJump;
     [SerializeField][Range(0, 1)] float audJumpVol;
     [SerializeField] AudioClip[] audDamage;
@@ -271,7 +271,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         playerXP = 0;
         lvlUpCost += 5;
 
-        HPMax += 2;
+        HPMax += 10 * playerLvl;
         shootDamage += 1;
         maxMana += 15;
         manaRegenRate += .2f;
@@ -316,8 +316,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     {
         staffList.Add(staff);
 
-        shootDamage = staff.shootDamage;
-        shootDistance = staff.shootDistance;
+        //shootDamage = staff.shootDamage;
+        //shootDistance = staff.shootDistance;
         shootRate = staff.shootRate;
         spellcost = staff.spellcost;
         isBolt = staff.isBolt;
@@ -341,8 +341,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     }
     void changeStaff()
     {
-        shootDamage = staffList[staffListPos].shootDamage;
-        shootDistance = staffList[staffListPos].shootDistance;
+        //shootDamage = staffList[staffListPos].shootDamage;
+        //shootDistance = staffList[staffListPos].shootDistance;
         shootRate = staffList[staffListPos].shootRate;
         spellcost = staffList[staffListPos].spellcost;
         isBolt = staffList[staffListPos].isBolt;
