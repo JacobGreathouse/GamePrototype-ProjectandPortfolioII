@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         currentMana = maxMana;
         updatePlayerUI(); // Ethan: added this line
         StartCoroutine(manaRegeneration()); // Ethan: added this line
-
+        
         // Initialize XP UI to start at 0
         if(gamemanager.instance.playerXPBar != null) // Ethan: added this line
         {
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         if(Input.GetButton("Fire1") && !isShooting && gamemanager.instance.isPaused == false)
         {
             StartCoroutine(shootMagic());
-            //audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
+            
 
         }
     }
@@ -176,15 +176,17 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         // shoot code goes
         if (isBolt == true)
         {
-                     // shoot code goes
-              Instantiate(lightning, shootPos.position, Camera.main.transform.rotation);
-              UseMana(spellcost);
+            // shoot code goes
+            audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
+            Instantiate(lightning, shootPos.position, Camera.main.transform.rotation);
+            UseMana(spellcost);
         }
         else if (isFire == true)
         {
-                // shoot code goes
-              Instantiate(fireball, shootPos.position, Camera.main.transform.rotation);
-              UseMana(spellcost);
+            // shoot code goes
+            audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
+            Instantiate(fireball, shootPos.position, Camera.main.transform.rotation);
+            UseMana(spellcost);
         }
             
             //i wanted a redundency if the previous two were false
@@ -249,6 +251,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         gamemanager.instance.playerHPBar.fillAmount = (float)HP / HPMax;
         gamemanager.instance.playerManaBar.fillAmount = (float)currentMana / maxMana; // Ethan: added this line
         gamemanager.instance.playerXPBar.fillAmount = (float)playerXP / lvlUpCost;
+        gamemanager.instance.PlayerLevelUpdate();
     }
 
     private void updatePlayerLevel()
@@ -261,7 +264,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         lvlUpCost += 5;
 
         HPMax += 10 * playerLvl;
-        shootDamage += 1;
+        // shootDamage += 1;
         maxMana += 15;
         manaRegenRate += .2f;
 
@@ -342,5 +345,10 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
         staffModel.GetComponent<MeshFilter>().sharedMesh = staffList[staffListPos].model.GetComponent<MeshFilter>().sharedMesh;
         staffModel.GetComponent<MeshRenderer>().sharedMaterial = staffList[staffListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
+    }
+
+    public int GetplayerLvl()
+    {
+        return playerLvl;
     }
 }

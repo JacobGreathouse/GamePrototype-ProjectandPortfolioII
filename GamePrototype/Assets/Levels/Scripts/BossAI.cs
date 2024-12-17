@@ -25,6 +25,11 @@ public class BossAI : MonoBehaviour, IDamage
     [SerializeField] GameObject spellObject;
     [SerializeField] float shootRate;
 
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource audPlayer;
+    [SerializeField] AudioClip[] audTakeDamage;
+    [SerializeField][Range(0, 1)] float audTakeDamVol;
+
 
     bool playerInRange;
     bool isShooting;
@@ -34,13 +39,12 @@ public class BossAI : MonoBehaviour, IDamage
     float angleToPlayer;
 
     Color colorOrig;
-
+    Coroutine co;
 
     // Start is called before the first frame update
     void Start()
     {
-      //  colorOrig = model.material.color;
-
+        // colorOrig = model.material.color;
     }
 
     // Update is called once per frame
@@ -73,9 +77,9 @@ public class BossAI : MonoBehaviour, IDamage
                 if (agent.remainingDistance < agent.stoppingDistance)
                 {
                     faceTarget();
-                    if (!isShooting)
+                    if (!isShooting && gamemanager.instance.isPaused == false)
                     {
-                        StartCoroutine(shoot());
+                        co = StartCoroutine(shoot());
                     }
                 }
                 else
@@ -114,18 +118,10 @@ public class BossAI : MonoBehaviour, IDamage
     {
         HP -= amount;
 
-        if (agent.destination != gamemanager.instance.player.transform.position)
-            agent.SetDestination(gamemanager.instance.player.transform.position);
-
-        StartCoroutine(flashRed());
-
+        // StartCoroutine(flashRed());
+        audPlayer.PlayOneShot(audTakeDamage[Random.Range(0, audTakeDamage.Length)], audTakeDamVol);
         if (HP <= 0)
         {
-            // I'm dead
-            gamemanager.instance.playerScript.SetPlayerXP(xpOnKill);
-            //add death animation here!, then wait for time of animation before destroying object
-            //also want to stop him shooting
-
             Destroy(gameObject);
         }
     }
@@ -135,17 +131,21 @@ public class BossAI : MonoBehaviour, IDamage
         isShooting = true;
         anim.SetTrigger("Shoot");
 
-        Instantiate(spellObject, shootPos.position, transform.rotation);
+        Quaternion rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y - 1, playerDir.z + 2));
+
+        shootPos.rotation = rotat;
+
+        Instantiate(spellObject, shootPos.position, shootPos.rotation);
 
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
 
-    IEnumerator flashRed()
+   /*IEnumerator flashRed()
     {
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.3f);
         model.material.color = colorOrig;
-    }
+    }*/
 
 }

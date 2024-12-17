@@ -15,6 +15,7 @@ public class gamemanager : MonoBehaviour
     [SerializeField] GameObject allOrbsCol;
     public GameObject allOrbsNotCol;
     [SerializeField] TMP_Text goalCountText; // Ethan: Added this line
+    [SerializeField] TMP_Text PlayerLevel;
     public TMP_Text playerXPText; // Ethan: Added this line
     public TMP_Text playerLevelText; // Ethan: Added this line
     public Image playerHPBar; // Ethan: Added this line
@@ -106,5 +107,8 @@ public class gamemanager : MonoBehaviour
         return orbCount;
     }
 
-  
+    public void PlayerLevelUpdate()
+    {
+        PlayerLevel.text = playerScript.GetplayerLvl().ToString("F0");
+    }
 }

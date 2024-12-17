@@ -9,14 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2808864441738590266}
-  - component: {fileID: 2808864441738590245}
+  - component: {fileID: -2551921077396714806}
   - component: {fileID: 2808864441738590267}
   - component: {fileID: 2808864441738590264}
   - component: {fileID: 2955641680391007120}
   - component: {fileID: 2808864441738590244}
   - component: {fileID: 6588444442817251349}
   m_Layer: 8
-  m_Name: Damage-Basic
+  m_Name: Boss Damage-Basic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &2808864441738590245
+--- !u!114 &-2551921077396714806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,14 +46,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2808864441738590270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59c57df5003ca8249b644944b5a18a48, type: 3}
+  m_Script: {fileID: 11500000, guid: 32aeadc814ebfd64ba9815b776eb95f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
   rb: {fileID: 2808864441738590244}
-  damageAmount: 2
-  speed: 25
-  destroyTime: 2
+  damageAmount: 4
+  speed: 50
+  destroyTime: 6
   maxHits: 0
   isAOE: 0
   triggerRadius: 0
