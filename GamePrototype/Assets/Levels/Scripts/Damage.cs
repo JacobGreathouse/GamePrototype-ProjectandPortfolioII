@@ -29,10 +29,10 @@ public class Damage : MonoBehaviour
     void Start()
     {
        if(type == damageType.moving)
-        {
+       {
             rb.velocity = transform.forward * speed;
             Destroy(gameObject, destroyTime);
-        }
+       }
     }
     private void Awake()
     {

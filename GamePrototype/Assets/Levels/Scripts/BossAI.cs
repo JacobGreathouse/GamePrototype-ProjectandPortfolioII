@@ -22,7 +22,7 @@ public class BossAI : MonoBehaviour, IDamage
     [SerializeField] int animSpeedTrans;
 
     [Header("----- Attack Stats -----")]
-    [SerializeField] GameObject spellObject;
+    [SerializeField] GameObject[] spellObject;
     [SerializeField] float shootRate;
 
     [Header("----- Audio -----")]
@@ -37,6 +37,7 @@ public class BossAI : MonoBehaviour, IDamage
     Vector3 playerDir;
 
     float angleToPlayer;
+    int randSpell;
 
     Color colorOrig;
     Coroutine co;
@@ -57,7 +58,7 @@ public class BossAI : MonoBehaviour, IDamage
 
         if (playerInRange && !canSeePlayer())
         {
-            
+            randSpell = Random.Range(0, 1);
         }
 
     }
@@ -79,6 +80,7 @@ public class BossAI : MonoBehaviour, IDamage
                     faceTarget();
                     if (!isShooting && gamemanager.instance.isPaused == false)
                     {
+                        
                         co = StartCoroutine(shoot());
                     }
                 }
@@ -122,6 +124,7 @@ public class BossAI : MonoBehaviour, IDamage
         audPlayer.PlayOneShot(audTakeDamage[Random.Range(0, audTakeDamage.Length)], audTakeDamVol);
         if (HP <= 0)
         {
+            gamemanager.instance.youWin();
             Destroy(gameObject);
         }
     }
@@ -131,11 +134,13 @@ public class BossAI : MonoBehaviour, IDamage
         isShooting = true;
         anim.SetTrigger("Shoot");
 
-        Quaternion rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y - 1, playerDir.z + 2));
+        Quaternion rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y - 1, playerDir.z + 1.75f));
 
         shootPos.rotation = rotat;
 
-        Instantiate(spellObject, shootPos.position, shootPos.rotation);
+        Instantiate(spellObject[Random.Range(0, spellObject.Length)], shootPos.position, shootPos.rotation);
+                
+        
 
         yield return new WaitForSeconds(shootRate);
         isShooting = false;

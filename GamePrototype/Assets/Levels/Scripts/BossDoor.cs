@@ -6,6 +6,8 @@ public class BossDoor : MonoBehaviour
 {
     [SerializeField] GameObject door;
 
+    bool doorOpen = false;
+
     /*[SerializeField] AudioSource audDoor;
     [SerializeField] AudioClip[] audDoorOpen;
     [SerializeField][Range(0, 1)] float audOpenVol;*/
@@ -18,6 +20,7 @@ public class BossDoor : MonoBehaviour
         IOpen opn = other.GetComponent<IOpen>();
         if (opn != null && gamemanager.instance.GetOrbCount() <= 0)
         {
+            doorOpen = true;
             door.SetActive(false);
             //audDoor.PlayOneShot(audDoorOpen[Random.Range(0, audDoorOpen.Length)], audOpenVol);
         }
@@ -32,12 +35,13 @@ public class BossDoor : MonoBehaviour
             return;
 
         IOpen opn = other.GetComponent<IOpen>();
-        if (opn != null && gamemanager.instance.GetOrbCount() <= 0)
+        if (opn != null && doorOpen == true)
         {
             door.SetActive(true);
+            
             //audDoor.PlayOneShot(audDoorOpen[Random.Range(0, audDoorOpen.Length)], audOpenVol);
         }
-        else if (opn != null && gamemanager.instance.GetOrbCount() > 0)
+        else if (opn != null)
         {
             gamemanager.instance.allOrbsNotCol.SetActive(false);
         }

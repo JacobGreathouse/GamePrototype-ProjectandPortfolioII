@@ -32,6 +32,8 @@ public class gamemanager : MonoBehaviour
     public GameObject player;
     public PlayerController playerScript;
 
+    
+
     public bool isPaused = false;
 
     float timeScaleOrig;
@@ -99,6 +101,13 @@ public class gamemanager : MonoBehaviour
     {
         statePause();
         menuActive = menuLose;
+        menuActive.SetActive(true);
+    }
+
+    public void youWin()
+    {
+        statePause();
+        menuActive = menuWin;
         menuActive.SetActive(true);
     }
 

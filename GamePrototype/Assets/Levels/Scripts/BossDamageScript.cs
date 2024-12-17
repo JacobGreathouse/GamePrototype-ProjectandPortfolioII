@@ -35,7 +35,7 @@ public class BossDamageScript : MonoBehaviour
     }
     private void Awake()
     {
-        playerLvl = GameObject.FindWithTag("Player").GetComponent<PlayerController>().playerLvl;
+        // playerLvl = GameObject.FindWithTag("Player").GetComponent<PlayerController>().playerLvl;
     }
     //just type OnTriggerEnter to access what you need for
     //an effect to happen when you enter the trigger area

@@ -272,6 +272,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         HP = HPMax;
         currentMana = maxMana;
 
+
         updatePlayerUI();
     }
 
