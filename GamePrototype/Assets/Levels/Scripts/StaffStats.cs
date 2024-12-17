@@ -13,7 +13,6 @@ public class StaffStats : ScriptableObject
     public GameObject fireball;
     public int spellcost;
     int maxHits;
-    private int currentHits = 0;
     public bool isBolt;
     public bool isFire;
 

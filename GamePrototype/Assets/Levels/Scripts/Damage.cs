@@ -21,6 +21,9 @@ public class Damage : MonoBehaviour
     [SerializeField][Range(1, 30)] float triggerRadius;
     [SerializeField][Range(1,10)] float AOETriggerRadius;
     [SerializeField][Range(1,10)] int AOEDamageAmount;
+    [SerializeField] AudioSource audPlayer;
+    [SerializeField] AudioClip[] impactSound;
+    [SerializeField][Range(0, 1)] float impactSoundVol;
 
 
     // Start is called before the first frame update
@@ -41,11 +44,12 @@ public class Damage : MonoBehaviour
         if (other.isTrigger)
             return;
 
-
         IDamage dmg = other.GetComponent<IDamage>();
          
         if (isAOE)
         {
+            //audPlayer.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)], impactSoundVol);
+
             AOEDamage();
             Destroy(gameObject);
             return;
@@ -53,6 +57,8 @@ public class Damage : MonoBehaviour
 
         if(dmg != null)
         {
+           // audPlayer.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)], impactSoundVol);
+
             dmg.takeDamage(damageAmount);
             currentHits++;
             if(currentHits >= maxHits)

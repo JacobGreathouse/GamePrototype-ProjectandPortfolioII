@@ -57,6 +57,9 @@ MonoBehaviour:
   triggerRadius: 10
   AOETriggerRadius: 0
   AOEDamageAmount: 0
+  audPlayer: {fileID: 0}
+  impactSound: []
+  impactSoundVol: 0.3
 --- !u!135 &4552776121088956283
 SphereCollider:
   m_ObjectHideFlags: 0

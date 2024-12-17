@@ -140,6 +140,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         if(Input.GetButton("Fire1") && !isShooting && gamemanager.instance.isPaused == false)
         {
             StartCoroutine(shootMagic());
+            //audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
+
         }
     }
 
@@ -346,6 +348,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         isBolt = staffList[staffListPos].isBolt;
         isFire = staffList[staffListPos].isFire;
         AudioClip[] shootSound = staffList[staffListPos].shootSound;
+
         float shootSoundVol = staffList[staffListPos].shootSoundVol;
 
         staffModel.GetComponent<MeshFilter>().sharedMesh = staffList[staffListPos].model.GetComponent<MeshFilter>().sharedMesh;

@@ -23,6 +23,5 @@ MonoBehaviour:
   isFire: 1
   hitEffect: {fileID: 0}
   shootSound:
-  - {fileID: 8300000, guid: fcf6076d21af06440a0eee9b503009a2, type: 3}
-  - {fileID: 8300000, guid: 5595bd6701081684c9be5baa7387ff39, type: 3}
+  - {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
   shootSoundVol: 0.3
