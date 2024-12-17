@@ -23,6 +23,12 @@ public class gamemanager : MonoBehaviour
     public Image playerXPBar; // Ethan: Added this line
     public GameObject playerDamageScreen; // Ethan: Added this line
 
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource audPlayer;
+    [SerializeField] AudioClip[] audAmbient;
+    [SerializeField][Range(0, 1)] float audAmbientVol;
+
+    [Header("----- Player Access-----")]
     public GameObject player;
     public PlayerController playerScript;
 
@@ -40,6 +46,7 @@ public class gamemanager : MonoBehaviour
         timeScaleOrig = Time.timeScale;
         player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<PlayerController>();
+        audPlayer.PlayOneShot(audAmbient[Random.Range(0, audAmbient.Length)], audAmbientVol);
     }
 
     // Update is called once per frame
@@ -59,6 +66,8 @@ public class gamemanager : MonoBehaviour
                 stateUnpause();
             }
         }
+        if(!audPlayer.isPlaying)
+            audPlayer.PlayOneShot(audAmbient[Random.Range(0, audAmbient.Length)], audAmbientVol);
     }
     public void statePause()
     {
