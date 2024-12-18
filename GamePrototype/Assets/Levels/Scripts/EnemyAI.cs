@@ -161,9 +161,11 @@ public class EnemyAI : MonoBehaviour, IDamage
     public void takeDamage(int amount)
     {
         HP -= amount;
-
-        if(agent.destination != gamemanager.instance.player.transform.position)
-            agent.SetDestination(gamemanager.instance.player.transform.position);
+        if (agent != null && agent.isActiveAndEnabled)
+        {
+            if (agent.destination != gamemanager.instance.player.transform.position)
+                agent.SetDestination(gamemanager.instance.player.transform.position);
+        }
 
         if(co != null)
             StopCoroutine(co);

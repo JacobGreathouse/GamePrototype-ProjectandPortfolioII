@@ -2108,6 +2108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1929489166044063706}
   - component: {fileID: 1929489166044063707}
+  - component: {fileID: 5894919372243350914}
   - component: {fileID: 1989708485980637464}
   - component: {fileID: 1958122232451304262}
   - component: {fileID: 1929489166044063685}
@@ -2115,7 +2116,7 @@ GameObject:
   - component: {fileID: 1929489166044063686}
   m_Layer: 7
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2162,12 +2163,29 @@ MonoBehaviour:
   stoppingDist: 2
   xpOnKill: 10
   animSpeedTrans: 8
-  spellObject: {fileID: 2808864441738590270, guid: 2dd946fb32b49da4289c17763b222049, type: 3}
+  spellObject:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   shootRate: 1
   audPlayer: {fileID: 1929489166044063686}
   audTakeDamage:
   - {fileID: 8300000, guid: 693803f7b61ed8946a644f816252680e, type: 3}
   audTakeDamVol: 0.85
+--- !u!114 &5894919372243350914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931608380181928726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b78fb3bb7119f4d92a9d29507edb5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniMapQuad: {fileID: 0}
+  bossHp: {fileID: 0}
 --- !u!95 &1989708485980637464
 Animator:
   serializedVersion: 5
@@ -2236,7 +2254,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 45
+  m_Radius: 32
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &1929489166044063686
 AudioSource:

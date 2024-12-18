@@ -20,6 +20,9 @@ public class Damage : MonoBehaviour
     [SerializeField] bool isAOE;
     [SerializeField][Range(1, 30)] float triggerRadius;
     [SerializeField][Range(1,10)] float AOETriggerRadius;
+    [SerializeField] ParticleSystem hitEffect;
+    [Header("----- Damage Sounds -----")]
+
     [SerializeField] AudioSource audPlayer;
     [SerializeField] AudioClip[] impactSound;
     [SerializeField][Range(0, 1)] float impactSoundVol;
@@ -112,7 +115,17 @@ public class Damage : MonoBehaviour
             IDamage dmg = hitCollider.GetComponent<IDamage>();
             if (dmg != null && hitCollider.gameObject.tag != "Player")
             {
-                dmg.takeDamage(damageAmount);
+                Vector3 directionToTarget = (hitCollider.transform.position - transform.position).normalized;
+                float distanceToTarget = Vector3.Distance(transform.position, hitCollider.transform.position);
+
+                if (Physics.Raycast(transform.position, directionToTarget, out RaycastHit hit, distanceToTarget))
+                {
+                    // Ensure the raycast hits the intended target
+                    if (hit.collider == hitCollider)
+                    {
+                        dmg.takeDamage(damageAmount);
+                    }
+                }
             }
         }
     }

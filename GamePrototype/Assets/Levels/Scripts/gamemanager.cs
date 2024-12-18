@@ -32,7 +32,10 @@ public class gamemanager : MonoBehaviour
     public GameObject player;
     public PlayerController playerScript;
 
-    
+    [Header("----- Boss Access-----")]
+    public GameObject boss;
+    public Image bossHPBar;
+
 
     public bool isPaused = false;
 
@@ -47,7 +50,7 @@ public class gamemanager : MonoBehaviour
         instance = this;
         timeScaleOrig = Time.timeScale;
         player = GameObject.FindWithTag("Player");
-        playerScript = player.GetComponent<PlayerController>();
+        boss = GameObject.FindWithTag("Boss");
         audPlayer.PlayOneShot(audAmbient[Random.Range(0, audAmbient.Length)], audAmbientVol);
     }
 

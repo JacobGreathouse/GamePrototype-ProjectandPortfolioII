@@ -21,6 +21,7 @@ public class BossAI : MonoBehaviour, IDamage
     [SerializeField] int xpOnKill;
     [SerializeField] int animSpeedTrans;
 
+
     [Header("----- Attack Stats -----")]
     [SerializeField] GameObject[] spellObject;
     [SerializeField] float shootRate;
@@ -33,6 +34,7 @@ public class BossAI : MonoBehaviour, IDamage
 
     bool playerInRange;
     bool isShooting;
+    int HPOrig;
 
     Vector3 playerDir;
 
@@ -46,6 +48,8 @@ public class BossAI : MonoBehaviour, IDamage
     void Start()
     {
         // colorOrig = model.material.color;
+        HPOrig = HP;
+        updateUI();
     }
 
     // Update is called once per frame
@@ -119,7 +123,7 @@ public class BossAI : MonoBehaviour, IDamage
     public void takeDamage(int amount)
     {
         HP -= amount;
-
+        updateUI();
         // StartCoroutine(flashRed());
         audPlayer.PlayOneShot(audTakeDamage[Random.Range(0, audTakeDamage.Length)], audTakeDamVol);
         if (HP <= 0)
@@ -145,12 +149,16 @@ public class BossAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
-
-   /*IEnumerator flashRed()
+    void updateUI()
     {
-        model.material.color = Color.red;
-        yield return new WaitForSeconds(0.3f);
-        model.material.color = colorOrig;
-    }*/
+        gamemanager.instance.bossHPBar.fillAmount = (float)HP / HPOrig;
+
+    }
+    /*IEnumerator flashRed()
+     {
+         model.material.color = Color.red;
+         yield return new WaitForSeconds(0.3f);
+         model.material.color = colorOrig;
+     }*/
 
 }
