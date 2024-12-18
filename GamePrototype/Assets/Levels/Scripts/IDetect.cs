@@ -6,10 +6,7 @@ public class IDetect : MonoBehaviour
 {
     [SerializeField] private GameObject miniMapQuad;
 
-    private void Start()
-    {
-        miniMapQuad.SetActive(false);
-    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
