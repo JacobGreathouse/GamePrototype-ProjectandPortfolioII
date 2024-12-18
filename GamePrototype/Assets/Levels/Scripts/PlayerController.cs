@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField][Range(1, 3)] int jumpMax;
     [SerializeField][Range(5, 20)] int jumpSpeed;
     [SerializeField][Range(15, 40)] int gravity;
-    [SerializeField][Range(10, 30)] int HP;
+    [SerializeField] int HP;
     [SerializeField][Range(5, 15)] int lvlUpCost;
 
     [Header("----- Mana Stats -----")] // Ethan: added this line

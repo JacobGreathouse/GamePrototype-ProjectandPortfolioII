@@ -59,19 +59,22 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        float agentSpeed = agent.velocity.normalized.magnitude;
-        float animSpeed = anim.GetFloat("Speed");
-        anim.SetFloat("Speed", Mathf.MoveTowards(animSpeed, agentSpeed, Time.deltaTime * animSpeedTrans));
+        if (agent.isActiveAndEnabled)
+        {
+            float agentSpeed = agent.velocity.normalized.magnitude;
+            float animSpeed = anim.GetFloat("Speed");
+            anim.SetFloat("Speed", Mathf.MoveTowards(animSpeed, agentSpeed, Time.deltaTime * animSpeedTrans));
 
-        if(playerInRange && !canSeePlayer())
-        {
-            if (!isRoaming && agent.remainingDistance < 0.01f)
-                co = StartCoroutine(roam());
-        }
-        else if (!playerInRange)
-        {
-            if (!isRoaming && agent.remainingDistance < 0.01f)
-                co = StartCoroutine(roam());
+            if (playerInRange && !canSeePlayer())
+            {
+                if (!isRoaming && agent.remainingDistance < 0.01f)
+                    co = StartCoroutine(roam());
+            }
+            else if (!playerInRange)
+            {
+                if (!isRoaming && agent.remainingDistance < 0.01f)
+                    co = StartCoroutine(roam());
+            }
         }
 
     }

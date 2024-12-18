@@ -109,7 +109,7 @@ public class BossDamageScript : MonoBehaviour
         foreach (var hitCollider in hitColliders)
         {
             IDamage dmg = hitCollider.GetComponent<IDamage>();
-            if (dmg != null && hitCollider.gameObject.tag != "Player")
+            if (dmg != null && hitCollider.gameObject.tag != "Enemy")
             {
                 dmg.takeDamage(damageAmount);
             }

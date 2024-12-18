@@ -31,6 +31,9 @@ public class BossAI : MonoBehaviour, IDamage
     [SerializeField] AudioClip[] audTakeDamage;
     [SerializeField][Range(0, 1)] float audTakeDamVol;
 
+    
+    
+    
 
     bool playerInRange;
     bool isShooting;
@@ -64,7 +67,6 @@ public class BossAI : MonoBehaviour, IDamage
         {
             randSpell = Random.Range(0, 1);
         }
-
     }
 
     bool canSeePlayer()
@@ -160,5 +162,12 @@ public class BossAI : MonoBehaviour, IDamage
          yield return new WaitForSeconds(0.3f);
          model.material.color = colorOrig;
      }*/
-
+    public int GetHp()
+    {
+        return HP;
+    }
+    public int GetHpOrig()
+    {
+        return HPOrig;
+    }
 }
