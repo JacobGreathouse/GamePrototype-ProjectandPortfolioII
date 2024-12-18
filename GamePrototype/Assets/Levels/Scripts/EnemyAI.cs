@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
+    [SerializeField] Image HPBar;
 
     [SerializeField] Transform shootPos;
     [SerializeField] Transform headPos;
@@ -32,6 +34,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     bool playerInRange;
     bool isShooting;
     bool isRoaming;
+    int HpOrig;
 
     Vector3 playerDir;
     Vector3 startingPos;
@@ -49,6 +52,8 @@ public class EnemyAI : MonoBehaviour, IDamage
         colorOrig = model.material.color;
         startingPos = transform.position;
         stoppingDistOrig = agent.stoppingDistance;
+        HpOrig = HP;
+        updateUI();
     }
 
     // Update is called once per frame
@@ -167,6 +172,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         
 
         StartCoroutine(flashRed());
+        updateUI();
 
         if(HP <= 0)
         {
@@ -212,5 +218,9 @@ public class EnemyAI : MonoBehaviour, IDamage
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.3f);
         model.material.color = colorOrig;
+    }
+    void updateUI()
+    {
+        HPBar.fillAmount = (float)HP / HpOrig;
     }
 }
