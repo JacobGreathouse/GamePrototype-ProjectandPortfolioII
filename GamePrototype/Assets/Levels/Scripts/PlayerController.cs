@@ -308,7 +308,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     public void getStaffStats(StaffStats staff)
     {
         staffList.Add(staff);
-
+        
         //shootDamage = staff.shootDamage;
         //shootDistance = staff.shootDistance;
         shootRate = staff.shootRate;
@@ -318,6 +318,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
         staffModel.GetComponent<MeshFilter>().sharedMesh = staff.model.GetComponent<MeshFilter>().sharedMesh;
         staffModel.GetComponent<MeshRenderer>().sharedMaterial = staff.model.GetComponent<MeshRenderer>().sharedMaterial;
+
+        staffListPos = staffList.Count - 1;
     }
     void selectStaff()
     {
