@@ -27010,10 +27010,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 757256852, guid: 9de58337f310cde4e981273b51d789e1, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1929489166044063706, guid: 9de58337f310cde4e981273b51d789e1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -27058,10 +27054,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1929489166044063707, guid: 9de58337f310cde4e981273b51d789e1, type: 3}
-      propertyPath: spawnPos.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1931608380181928726, guid: 9de58337f310cde4e981273b51d789e1, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -27070,8 +27062,7 @@ PrefabInstance:
       propertyPath: bossHp
       value: 
       objectReference: {fileID: 1600676405}
-    m_RemovedComponents:
-    - {fileID: 757256852, guid: 9de58337f310cde4e981273b51d789e1, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9de58337f310cde4e981273b51d789e1, type: 3}
 --- !u!1001 &6126865059375125188
 PrefabInstance:

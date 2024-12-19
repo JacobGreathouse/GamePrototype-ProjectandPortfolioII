@@ -31,6 +31,11 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] LayerMask ignoreMask;
     [SerializeField] int xpOnKill;
 
+    [Header("----- Hurt Sounds -----")]
+    [SerializeField] AudioSource audEnemy;
+    [SerializeField] AudioClip[] audHurt;
+    [SerializeField][Range(0, 1)] float audHurtVol;
+
     bool playerInRange;
     bool isShooting;
     bool isRoaming;
@@ -174,8 +179,9 @@ public class EnemyAI : MonoBehaviour, IDamage
             StopCoroutine(co);
 
         isRoaming = false;
-        
 
+
+        audEnemy.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
         StartCoroutine(flashRed());
         updateUI();
 

@@ -2170,14 +2170,10 @@ MonoBehaviour:
   shootRate: 0.25
   audPlayer: {fileID: 1929489166044063686}
   audTakeDamage:
-  - {fileID: 8300000, guid: 693803f7b61ed8946a644f816252680e, type: 3}
-  audTakeDamVol: 0.85
-  objectToSpawn: {fileID: 7057073014241750745, guid: 8b838c7a431baa84bb2ced1976be6e53, type: 3}
-  numToSpawn: 6
-  spawnSpeed: 1
-  spawnPos:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 76b989ad021974b6fb385fbaa974e395, type: 3}
+  - {fileID: 8300000, guid: c63f35c55e22d4b2a81f9dbc0eba64e8, type: 3}
+  - {fileID: 8300000, guid: 1dc904b120aea44b58e588234674f5d7, type: 3}
+  audTakeDamVol: 1
 --- !u!114 &5894919372243350914
 MonoBehaviour:
   m_ObjectHideFlags: 0
