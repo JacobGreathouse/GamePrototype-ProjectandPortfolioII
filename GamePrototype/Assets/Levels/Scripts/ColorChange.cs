@@ -5,6 +5,7 @@ using UnityEngine;
 public class ColorChange : MonoBehaviour
 {
     [SerializeField] Light rave;
+    [SerializeField] Renderer target;
     private float lerp = 20f;
 
     void Start()
