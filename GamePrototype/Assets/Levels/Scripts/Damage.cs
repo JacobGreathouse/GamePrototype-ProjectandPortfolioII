@@ -65,6 +65,7 @@ public class Damage : MonoBehaviour
            // audPlayer.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)], impactSoundVol);
 
             dmg.takeDamage(damageAmount);
+            Instantiate(hitEffect, rb.transform.position, Quaternion.identity);
             currentHits++;
             if(currentHits >= maxHits)
             {

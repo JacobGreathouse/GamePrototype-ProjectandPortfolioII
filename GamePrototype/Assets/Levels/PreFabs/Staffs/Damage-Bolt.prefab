@@ -56,7 +56,7 @@ MonoBehaviour:
   isAOE: 0
   triggerRadius: 10
   AOETriggerRadius: 0
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 4033287822461114141, guid: a164e676dbbd6e54587237e619372c98, type: 3}
   audPlayer: {fileID: 0}
   impactSound: []
   impactSoundVol: 0.3
