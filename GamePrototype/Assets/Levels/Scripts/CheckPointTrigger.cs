@@ -21,6 +21,7 @@ public class CheckPointTrigger : MonoBehaviour
         {
             respawnSystem.SetActiveRespawnPoint(transform);
             Debug.Log("Checkpoint reached: " + transform.position);
+            gamemanager.instance.respawnButton.SetActive(true);
         }
     }
 
