@@ -23,11 +23,12 @@ public class RespawnSystem : MonoBehaviour
     public void SetActiveRespawnPoint(Transform newRespawnPoint)
     {
         activeRespawnPoint = newRespawnPoint;
+        Debug.Log("Active respawn point set to: " + activeRespawnPoint.position);
     }
     public void RespawnPlayer(GameObject player)
     {
         if (activeRespawnPoint != null)
-        {
+        {         
             PlayerController playerController = player.GetComponent<PlayerController>();
             if (playerController.enabled == true)
             {
@@ -37,15 +38,17 @@ public class RespawnSystem : MonoBehaviour
             player.transform.rotation = activeRespawnPoint.rotation;
             Debug.Log("Player respawned at: " + activeRespawnPoint);
 
+
             if (playerController != null)
             {
                 playerController.SetHPMPFull();
             }
-
         }
         else
         {
             Debug.LogError("No active respawn point set!");  // Check if it's null
         }
+
+
     }
 }

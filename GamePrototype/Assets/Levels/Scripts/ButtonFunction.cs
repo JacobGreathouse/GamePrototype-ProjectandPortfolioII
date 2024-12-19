@@ -28,6 +28,7 @@ public class ButtonFunction : MonoBehaviour
             }
         }
         gamemanager.instance.stateUnpause();
+
     }
 
     public void Quit() // Ethan: Added this function

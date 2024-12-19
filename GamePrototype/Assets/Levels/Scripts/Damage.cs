@@ -68,7 +68,10 @@ public class Damage : MonoBehaviour
             currentHits++;
             if(currentHits >= maxHits)
             {
-                Destroy(gameObject);
+                if (type == damageType.moving)
+                {
+                    Destroy(gameObject);
+                }
             }
             else
             {
