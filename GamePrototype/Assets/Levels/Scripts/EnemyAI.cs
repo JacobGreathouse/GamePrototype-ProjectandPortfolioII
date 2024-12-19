@@ -184,7 +184,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         isRoaming = false;
 
-
+        
         audEnemy.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
         StartCoroutine(flashRed());
         updateUI();

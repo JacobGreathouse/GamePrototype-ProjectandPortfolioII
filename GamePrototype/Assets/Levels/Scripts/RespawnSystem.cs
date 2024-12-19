@@ -22,6 +22,13 @@ public class RespawnSystem : MonoBehaviour
             Debug.LogError("No respawn points set in the RespawnSystem.");
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            gamemanager.instance.respawnButton.SetActive(true);
+        }
+    }
     public void SetActiveRespawnPoint(Transform newRespawnPoint)
     {
         activeRespawnPoint = newRespawnPoint;

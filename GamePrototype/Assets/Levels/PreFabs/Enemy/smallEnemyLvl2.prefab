@@ -1039,7 +1039,7 @@ GameObject:
   - component: {fileID: 7057073014232117832}
   - component: {fileID: -7005525087230753664}
   m_Layer: 7
-  m_Name: smallEnemy
+  m_Name: smallEnemyLvl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1082,7 +1082,7 @@ MonoBehaviour:
   HPBar: {fileID: 6206933257099695852}
   shootPos: {fileID: 6126865058402154400}
   headPos: {fileID: 7057073014241428461}
-  HP: 10
+  HP: 8
   faceTargetSpeed: 50
   FOV: 90
   roamDist: 6
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   bullet: {fileID: 0}
   shootRate: 1
   isMelee: 1
-  meleeDamage: 1
+  meleeDamage: 2
   meleeHitDistance: 1.5
   ignoreMask:
     serializedVersion: 2

@@ -22,6 +22,7 @@ public class gamemanager : MonoBehaviour
     public Image playerManaBar; // Ethan: Added this line
     public Image playerXPBar; // Ethan: Added this line
     public GameObject playerDamageScreen; // Ethan: Added this line
+    public GameObject respawnButton;
 
     [Header("----- Audio -----")]
     [SerializeField] AudioSource audPlayer;
