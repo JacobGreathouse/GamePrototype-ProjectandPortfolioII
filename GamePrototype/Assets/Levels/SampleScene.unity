@@ -27157,6 +27157,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1106876855}
     - target: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audOrb
+      value: 
+      objectReference: {fileID: 1058368114173612764}
+    - target: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 335784887}
@@ -27169,15 +27173,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1106876861}
     - target: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audPickupVol
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 335784892}
+    - target: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audPickup.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audPickup.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: a58d90e42393f4f1aac75f30e08dc6c4, type: 3}
+    - target: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audPickup.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: a58d90e42393f4f1aac75f30e08dc6c4, type: 3}
     - target: {fileID: 6167635431705034120, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+--- !u!82 &1058368114173612764 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1058368114173612765, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+  m_PrefabInstance: {fileID: 1058368114173612763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4526781597387690579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27232,6 +27257,10 @@ PrefabInstance:
     - target: {fileID: 4526781598433691620, guid: 68ffffc6c35b7f841820cc6eeb578e53, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526781598433691627, guid: 68ffffc6c35b7f841820cc6eeb578e53, type: 3}
+      propertyPath: spawnSpeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68ffffc6c35b7f841820cc6eeb578e53, type: 3}

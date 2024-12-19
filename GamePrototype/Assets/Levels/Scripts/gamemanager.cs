@@ -36,6 +36,11 @@ public class gamemanager : MonoBehaviour
     public GameObject boss;
     public Image bossHPBar;
 
+    [Header("----- Orb Pickup Sounds -----")]
+    [SerializeField] AudioSource audOrb;
+    [SerializeField] AudioClip[] audPickup;
+    [SerializeField][Range(0, 1)] float audPickupVol;
+
 
     public bool isPaused = false;
 
@@ -147,4 +152,8 @@ public class gamemanager : MonoBehaviour
 
     }
 
+    public void pickup()
+    {
+        audOrb.PlayOneShot(audPickup[Random.Range(0, audPickup.Length)], audPickupVol);
+    }
 }

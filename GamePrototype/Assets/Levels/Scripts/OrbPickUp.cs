@@ -14,7 +14,7 @@ public class OrbPickUp : MonoBehaviour
         {
             //Lower orb count by 1 so goal changes to 1 less orb to collect
             gamemanager.instance.updateOrbGoal(-1);
-
+            gamemanager.instance.pickup();
             Destroy(gameObject);
         }
     }
