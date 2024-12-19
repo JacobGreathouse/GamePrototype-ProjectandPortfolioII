@@ -27,20 +27,15 @@ public class RespawnSystem : MonoBehaviour
     public void RespawnPlayer(GameObject player)
     {
         if (activeRespawnPoint != null)
-        {         
+        {
             PlayerController playerController = player.GetComponent<PlayerController>();
-            if (playerController != null)
+            if (playerController.enabled == true)
             {
                 playerController.enabled = false;
             }
             player.transform.position = activeRespawnPoint.position;
             player.transform.rotation = activeRespawnPoint.rotation;
             Debug.Log("Player respawned at: " + activeRespawnPoint);
-
-            if (playerController != null)
-            {
-                playerController.enabled = true;
-            }
 
             if (playerController != null)
             {

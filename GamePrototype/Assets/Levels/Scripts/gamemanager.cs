@@ -42,8 +42,8 @@ public class gamemanager : MonoBehaviour
     float timeScaleOrig;
     //writing as enemy boss count will be added later
     int orbCount;
-    
-    
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -64,14 +64,14 @@ public class gamemanager : MonoBehaviour
                 statePause();
                 menuActive = menuPause;
                 menuActive.SetActive(true);
-                
+
             }
             else if (menuActive == menuPause)
             {
                 stateUnpause();
             }
         }
-        if(!audPlayer.isPlaying)
+        if (!audPlayer.isPlaying)
             audPlayer.PlayOneShot(audAmbient[Random.Range(0, audAmbient.Length)], audAmbientVol);
     }
     public void statePause()
@@ -89,13 +89,17 @@ public class gamemanager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         menuActive.SetActive(false);
         menuActive = null;
+        if (player.GetComponent<PlayerController>().enabled == false)
+        {
+            StartCoroutine(enablePlayer());
+        }
     }
     public void updateOrbGoal(int amount)
     {
         orbCount += amount;
         goalCountText.text = orbCount.ToString("F0");
         if (orbCount <= 0)
-        { 
+        {
             StartCoroutine(showDisplayMessage());
         }
 
@@ -133,4 +137,14 @@ public class gamemanager : MonoBehaviour
     {
         PlayerLevel.text = playerScript.GetplayerLvl().ToString("F0");
     }
+
+    public IEnumerator enablePlayer()
+    {
+
+        yield return new WaitForSeconds(0.1f);
+        
+        player.GetComponent<PlayerController>().enabled = true;
+
+    }
+
 }

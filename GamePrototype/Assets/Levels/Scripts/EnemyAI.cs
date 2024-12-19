@@ -124,13 +124,14 @@ public class EnemyAI : MonoBehaviour, IDamage
                 }
                 if (isMelee)
                 {
-                    if (!isShooting && agent.remainingDistance <= agent.stoppingDistance && agent.destination == gamemanager.instance.player.transform.position) //&& distance to player is stopping distance
+                    if (!isShooting && agent.remainingDistance <= agent.stoppingDistance && co == null) //&& distance to player is stopping distance
                     {
                         float remaining = agent.remainingDistance;
                         float stopping = agent.stoppingDistance;
                         if (remaining < stopping)
                             StartCoroutine(meleeHit());
                     }
+                    co = null;
                 }
                 else
                 {
