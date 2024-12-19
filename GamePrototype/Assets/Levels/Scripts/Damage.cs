@@ -51,37 +51,51 @@ public class Damage : MonoBehaviour
         damageAmount = damageAmount + (playerLvl * 2);
         IDamage dmg = other.GetComponent<IDamage>();
          
-        if (isAOE)
-        {
-            //audPlayer.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)], impactSoundVol);
 
-            AOEDamage();
-            Destroy(gameObject);
-            return;
-        }
 
-        if(dmg != null)
+        if (dmg != null)
         {
-           // audPlayer.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)], impactSoundVol);
+            // audPlayer.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)], impactSoundVol);
 
             dmg.takeDamage(damageAmount);
-            Instantiate(hitEffect, rb.transform.position, Quaternion.identity);
-            currentHits++;
-            if(currentHits >= maxHits)
+            if (hitEffect != null)
+            { 
+            ParticleSystem particleInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            particleInstance.Play();
+            Destroy(particleInstance.gameObject, particleInstance.main.duration);
+            }
+            if (type == damageType.moving)
             {
-                if (type == damageType.moving)
+                currentHits++;
+                if (currentHits >= maxHits)
                 {
-                    Destroy(gameObject);
+                    if (type == damageType.moving)
+                    {
+                        Destroy(gameObject);
+                    }
+                }
+                else
+                {
+                    Chain(other);
+
                 }
             }
-            else
-            {
-                Chain(other);
-
-            }   
         }
-        if (other.CompareTag("LevelObject") && type ==damageType.moving)
+        if (isAOE)
+        {
+            AOEDamage(other);
+        }
+        if (other.CompareTag("LevelObject") && type == damageType.moving)
+        {
+            if (hitEffect != null)
+            {
+                ParticleSystem particleInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);
+                particleInstance.Play();
+                Destroy(particleInstance.gameObject, particleInstance.main.duration);
+            }
+            AOEDamage(other);
             Destroy(gameObject);
+        }
     }
     public void Chain(Collider previousEnemy)
     {
@@ -110,27 +124,31 @@ public class Damage : MonoBehaviour
         }
 
     }
-    private void AOEDamage()
+    private void AOEDamage(Collider directHit)
     {
+        if (hitEffect != null)
+        {
+        ParticleSystem particleInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);
+        particleInstance.Play();
+        Destroy(particleInstance.gameObject, particleInstance.main.duration);
+        }
         Collider[] hitColliders = Physics.OverlapSphere (transform.position, AOETriggerRadius);
 
         foreach (var hitCollider in hitColliders)
         {
+            if (hitCollider == directHit)
+                continue;
             IDamage dmg = hitCollider.GetComponent<IDamage>();
             if (dmg != null && hitCollider.gameObject.tag != "Player")
             {
-                Vector3 directionToTarget = (hitCollider.transform.position - transform.position).normalized;
-                float distanceToTarget = Vector3.Distance(transform.position, hitCollider.transform.position);
-
-                if (Physics.Raycast(transform.position, directionToTarget, out RaycastHit hit, distanceToTarget))
-                {
+     
                     // Ensure the raycast hits the intended target
-                    if (hit.collider == hitCollider)
-                    {
+
                         dmg.takeDamage(damageAmount);
-                    }
-                }
+
+                
             }
         }
     }
+
 }
