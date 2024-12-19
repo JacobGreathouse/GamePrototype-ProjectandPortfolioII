@@ -354,4 +354,10 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     {
         return playerLvl;
     }
+    public void SetHPMPFull()
+    {
+        HP = HPMax;
+        currentMana = maxMana;
+        updatePlayerUI();
+    }
 }

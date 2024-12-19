@@ -15,6 +15,20 @@ public class ButtonFunction : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gamemanager.instance.stateUnpause();
     }
+    public void Respawn()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            RespawnSystem respawnSystem = FindObjectOfType<RespawnSystem>();
+            if (respawnSystem != null)
+            {
+                respawnSystem.RespawnPlayer(player);
+                Debug.Log("Player respawned.");
+            }
+        }
+        gamemanager.instance.stateUnpause();
+    }
 
     public void Quit() // Ethan: Added this function
     {
