@@ -15,6 +15,8 @@ public class BossAI : MonoBehaviour, IDamage
     [SerializeField] Transform shootPos;
     [SerializeField] Transform headPos;
 
+    [SerializeField] bool canTeleport;
+
     [Header("----- Boss Stats -----")]
     [SerializeField] int HP;
     [SerializeField] float faceTargetSpeed;
@@ -184,4 +186,5 @@ public class BossAI : MonoBehaviour, IDamage
     {
         return HPOrig;
     }
+    
 }

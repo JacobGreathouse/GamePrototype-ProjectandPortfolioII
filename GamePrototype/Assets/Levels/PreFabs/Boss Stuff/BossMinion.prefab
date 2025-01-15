@@ -1127,10 +1127,10 @@ MonoBehaviour:
   roamDist: 15
   animSpeedTrans: 8
   bullet: {fileID: 0}
-  shootRate: 1
+  shootRate: 0.5
   isMelee: 1
   meleeDamage: 2
-  meleeHitDistance: 1.5
+  meleeHitDistance: 0.35
   ignoreMask:
     serializedVersion: 2
     m_Bits: 128

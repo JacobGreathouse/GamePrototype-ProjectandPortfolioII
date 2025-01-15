@@ -9,6 +9,7 @@ public class BossSpawning : MonoBehaviour
     [SerializeField] int numToSpawn;
     [SerializeField] int spawnSpeed;
     [SerializeField] Transform[] spawnPos;
+    [SerializeField] int spawngroupSize;
 
     Vector3 playerDir;
 
@@ -49,13 +50,16 @@ public class BossSpawning : MonoBehaviour
         isSpawning = true;
 
         playerDir = gamemanager.instance.transform.position;
-        int spawnInt = Random.Range(0, spawnPos.Length);
-
-        Quaternion rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y, playerDir.z + 1.75f));
+        for(int i = 0; i < spawngroupSize; i++)
+        {
+            int spawnInt = Random.Range(0, spawnPos.Length);
+            Quaternion rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y, playerDir.z + 1.75f));
+            spawnCount += spawngroupSize;
+            Instantiate(objectToSpawn, spawnPos[spawnInt].position, rotat);
+        }
+        
 
         yield return new WaitForSeconds(spawnSpeed);
-        spawnCount++;
-        Instantiate(objectToSpawn, spawnPos[spawnInt].position, rotat);
 
         isSpawning = false;
     }

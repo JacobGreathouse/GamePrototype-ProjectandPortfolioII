@@ -129,7 +129,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                         float remaining = agent.remainingDistance;
                         float stopping = agent.stoppingDistance;
                         if (remaining < stopping)
-                            StartCoroutine(meleeHit());
+                        StartCoroutine(meleeHit());
                     }
                     co = null;
                 }
@@ -237,5 +237,10 @@ public class EnemyAI : MonoBehaviour, IDamage
     void updateUI()
     {
         HPBar.fillAmount = (float)HP / HpOrig;
+    }
+    public void setEnemyStats(int amount)
+    {
+        meleeDamage = meleeDamage + (meleeDamage * amount);
+        HP = HP + (HP * amount);
     }
 }
