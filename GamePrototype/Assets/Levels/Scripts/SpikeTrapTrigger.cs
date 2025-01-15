@@ -17,7 +17,12 @@ public class SpikeTrapTrigger : MonoBehaviour
     {
         if(other != null && other.CompareTag("Player"))
         {
-            _spikeTrapScript.Hurt();
+            
+            if ((!gamemanager.instance.playerScript.Controller.isGrounded) && gamemanager.instance.playerScript.VertMovement < -0.5f)
+            {
+                Debug.Log(gamemanager.instance.playerScript.VertMovement);
+                _spikeTrapScript.Hurt();
+            }
         }
     }
 }

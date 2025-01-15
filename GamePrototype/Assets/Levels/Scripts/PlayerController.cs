@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+
 
 //using UnityEditor.Build.Content;
 using UnityEngine;
@@ -70,6 +72,9 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     bool isSprinting;
     bool isPlayingStep;
     bool canRegenMana = true; // Ethan: added this line
+
+    public CharacterController Controller => controller;
+    public float VertMovement => playerVel.y;
 
     // Start is called before the first frame update
     void Start()
