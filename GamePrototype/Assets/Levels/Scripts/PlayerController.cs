@@ -365,12 +365,12 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     /// Warp the player to a different position on the map.
     /// </summary>
     /// <param name="Pos">Position to warp to.</param>
-    public void WarpPosition(Vector2 Pos)
+    public void WarpPosition(Vector3 Pos, Quaternion Rot)
     {
         // Character controllers can cause conflicts when updating the transform directly.
         controller.enabled = false; 
 
-        transform.position = Pos;
+        transform.SetPositionAndRotation(Pos, Rot);
 
         controller.enabled = true;
     }
