@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField][Range(.1f, 10)] float manaRegenRate; // Ethan: added this line
 
     [Header("----- Staff Stats -----")]
-    [SerializeField] List <StaffStats> staffList = new List<StaffStats>();
+    [SerializeField] List<StaffStats> staffList = new List<StaffStats>();
     [SerializeField] GameObject staffModel;
     [SerializeField] int shootDamage;
     [SerializeField] int shootDistance;
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     public int playerLvl; // Ethan: added this line
 
     [Header("----- Player Sounds -----")]
-    [SerializeField] AudioSource audPlayer;  
+    [SerializeField] AudioSource audPlayer;
     [SerializeField] AudioClip[] audJump;
     [SerializeField][Range(0, 1)] float audJumpVol;
     [SerializeField] AudioClip[] audDamage;
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     int staffListPos;
     float currentMana; // Ethan: added this line
     int currentHP; // Ethan: added this line
-    
+
 
     bool isShooting;
     bool isSprinting;
@@ -79,19 +79,19 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         currentMana = maxMana;
         updatePlayerUI(); // Ethan: added this line
         StartCoroutine(manaRegeneration()); // Ethan: added this line
-        
+
         // Initialize XP UI to start at 0
-        if(gamemanager.instance.playerXPBar != null) // Ethan: added this line
+        if (gamemanager.instance.playerXPBar != null) // Ethan: added this line
         {
             gamemanager.instance.playerXPBar.fillAmount = 0f; // Ethan: added this line
         }
 
-        if(gamemanager.instance.playerXPText != null) // Ethan: added this line
+        if (gamemanager.instance.playerXPText != null) // Ethan: added this line
         {
             gamemanager.instance.playerXPText.text = $"XP: 0/{lvlUpCost}"; // Ethan: added this line
         }
 
-        if(gamemanager.instance.playerLevelText != null) // Ethan: added this line
+        if (gamemanager.instance.playerLevelText != null) // Ethan: added this line
         {
             gamemanager.instance.playerLevelText.text = $"Level: {playerLvl}"; // Ethan: added this line
         }
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     void movement()
     {
-        if(controller.isGrounded)
+        if (controller.isGrounded)
         {
             if (moveDir.magnitude > 0.1f && !isPlayingStep)
             {
@@ -132,22 +132,22 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         controller.Move(playerVel * Time.deltaTime);
         playerVel.y -= gravity * Time.deltaTime;
 
-        if((controller.collisionFlags & CollisionFlags.Above) != 0)
+        if ((controller.collisionFlags & CollisionFlags.Above) != 0)
         {
             playerVel = Vector3.zero;
         }
 
-        if(Input.GetButton("Fire1") && !isShooting && gamemanager.instance.isPaused == false)
+        if (Input.GetButton("Fire1") && !isShooting && gamemanager.instance.isPaused == false)
         {
             StartCoroutine(shootMagic());
-            
+
 
         }
     }
 
     void jump()
     {
-        if(Input.GetButtonDown("Jump") && jumpCount < jumpMax)
+        if (Input.GetButtonDown("Jump") && jumpCount < jumpMax)
         {
             jumpCount++;
             playerVel.y = jumpSpeed;
@@ -157,12 +157,12 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     void sprint()
     {
-        if(Input.GetButtonDown("Sprint"))
+        if (Input.GetButtonDown("Sprint"))
         {
             speed *= sprintMod;
             isSprinting = true;
         }
-        else if(Input.GetButtonUp("Sprint"))
+        else if (Input.GetButtonUp("Sprint"))
         {
             speed /= sprintMod;
             isSprinting = false;
@@ -188,9 +188,9 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
             Instantiate(fireball, shootPos.position, Camera.main.transform.rotation);
             UseMana(spellcost);
         }
-            
-            //i wanted a redundency if the previous two were false
-        
+
+        //i wanted a redundency if the previous two were false
+
         yield return new WaitForSeconds(shootRate);
 
         isShooting = false;
@@ -228,7 +228,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
                 currentMana = Mathf.Min(currentMana + manaRegenRate, maxMana);
                 updatePlayerUI();
             }
-           
+
         }
     }
 
@@ -256,8 +256,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     private void updatePlayerLevel()
     {
-        
-        
+
+
 
         playerLvl += 1;
         playerXP = 0;
@@ -308,7 +308,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     public void getStaffStats(StaffStats staff)
     {
         staffList.Add(staff);
-        
+
         //shootDamage = staff.shootDamage;
         //shootDistance = staff.shootDistance;
         shootRate = staff.shootRate;
@@ -323,7 +323,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     }
     void selectStaff()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0 && staffListPos < staffList.Count -1)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && staffListPos < staffList.Count - 1)
         {
             staffListPos++;
             changeStaff();
@@ -359,5 +359,19 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         HP = HPMax;
         currentMana = maxMana;
         updatePlayerUI();
+    }
+
+    /// <summary>
+    /// Warp the player to a different position on the map.
+    /// </summary>
+    /// <param name="Pos">Position to warp to.</param>
+    public void WarpPosition(Vector2 Pos)
+    {
+        // Character controllers can cause conflicts when updating the transform directly.
+        controller.enabled = false; 
+
+        transform.position = Pos;
+
+        controller.enabled = true;
     }
 }
