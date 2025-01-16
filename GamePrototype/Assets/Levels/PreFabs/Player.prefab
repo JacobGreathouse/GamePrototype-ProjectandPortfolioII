@@ -99,7 +99,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658233000}
   m_LocalRotation: {x: -0.06489542, y: 0.039997276, z: -0.99493414, w: -0.06553553}
-  m_LocalPosition: {x: 0.14, y: 0.625, z: 0.495}
+  m_LocalPosition: {x: 0.165, y: 0.625, z: 0.494}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -384,7 +384,7 @@ MonoBehaviour:
   jumpMax: 2
   jumpSpeed: 6
   gravity: 18
-  HP: 20
+  HP: 30000
   lvlUpCost: 15
   maxMana: 200
   manaRegenRate: 1
@@ -425,8 +425,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 344168af6c75f1e4a900fe580feae309, type: 3}
   - {fileID: 8300000, guid: 1df768a5407a8f442abeb55f7ceb19f2, type: 3}
   audStepVol: 0.05
-  shootSound: []
-  shootSoundVol: 0
+  shootSound:
+  - {fileID: 8300000, guid: 87a2e502ddd174591af0e35f76e448a2, type: 3}
+  - {fileID: 8300000, guid: f08ce2b0c20924bfe844560b4770fe5a, type: 3}
+  shootSoundVol: 0.2
+  levelSound:
+  - {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
+  levelSoundVol: 0.31
 --- !u!143 &6761757263595609191
 CharacterController:
   m_ObjectHideFlags: 0
