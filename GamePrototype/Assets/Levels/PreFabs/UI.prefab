@@ -52,6 +52,7 @@ MonoBehaviour:
   respawnPoints:
   - {fileID: 0}
   - {fileID: 0}
+  spawnParticles: {fileID: 797784518864179116, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
 --- !u!1 &873171494
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,7 +1270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1058368113608965476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3327,7 +3328,6 @@ MonoBehaviour:
   menuPause: {fileID: 1058368113730288453}
   menuWin: {fileID: 1058368113666324605}
   menuLose: {fileID: 1058368113723368561}
-  respawnSystem: {fileID: 0}
   allOrbsCol: {fileID: 6874410893197612736}
   allOrbsNotCol: {fileID: 3624472962187506093}
   goalCountText: {fileID: 1058368115130945013}
@@ -3338,6 +3338,7 @@ MonoBehaviour:
   playerManaBar: {fileID: 1058368114977786853}
   playerXPBar: {fileID: 1058368114979353602}
   playerDamageScreen: {fileID: 1058368114744387288}
+  respawnButton: {fileID: 1058368113608965477}
   audPlayer: {fileID: 1058368114173612765}
   audAmbient:
   - {fileID: 8300000, guid: bf6deb57bedb4734e9c2120b5aa2c83e, type: 3}
@@ -3346,6 +3347,11 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   boss: {fileID: 0}
   bossHPBar: {fileID: 8911600430739064831}
+  audOrb: {fileID: 1058368114173612765}
+  audPickup:
+  - {fileID: 8300000, guid: a58d90e42393f4f1aac75f30e08dc6c4, type: 3}
+  - {fileID: 8300000, guid: a58d90e42393f4f1aac75f30e08dc6c4, type: 3}
+  audPickupVol: 0.5
   isPaused: 0
 --- !u!82 &1058368114173612765
 AudioSource:

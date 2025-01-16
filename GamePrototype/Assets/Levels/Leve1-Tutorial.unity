@@ -30941,46 +30941,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 658233001, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.165
-      objectReference: {fileID: 0}
-    - target: {fileID: 658233001, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.494
-      objectReference: {fileID: 0}
-    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
-      propertyPath: HP
-      value: 30000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
-      propertyPath: levelSoundVol
-      value: 0.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
-      propertyPath: shootSoundVol
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
-      propertyPath: levelSound.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
-      propertyPath: shootSound.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
-      propertyPath: levelSound.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
-    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
-      propertyPath: shootSound.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 87a2e502ddd174591af0e35f76e448a2, type: 3}
-    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
-      propertyPath: shootSound.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: f08ce2b0c20924bfe844560b4770fe5a, type: 3}
     - target: {fileID: 6761757263595609177, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: m_RootOrder
       value: 5
