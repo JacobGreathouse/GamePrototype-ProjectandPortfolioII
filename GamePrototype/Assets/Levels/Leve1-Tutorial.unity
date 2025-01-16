@@ -26167,7 +26167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1929489166044063706, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -116.824554
+      value: -116.84
       objectReference: {fileID: 0}
     - target: {fileID: 1929489166044063706, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26175,7 +26175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1929489166044063706, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.294601
+      value: 24.26
       objectReference: {fileID: 0}
     - target: {fileID: 1929489166044063706, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26206,8 +26206,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1929489166044063707, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
-      propertyPath: canTeleport
-      value: 1
+      propertyPath: shootRatemax
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929489166044063707, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
+      propertyPath: shootRatemin
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929489166044063707, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
+      propertyPath: bulletnumbermax
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929489166044063707, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
+      propertyPath: bulletnumbermin
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1931608380181928726, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
       propertyPath: m_Name
@@ -30771,12 +30783,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4526781598433691627, guid: 68ffffc6c35b7f841820cc6eeb578e53, type: 3}
+      propertyPath: numToSpawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526781598433691627, guid: 68ffffc6c35b7f841820cc6eeb578e53, type: 3}
       propertyPath: spawnSpeed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4526781598433691627, guid: 68ffffc6c35b7f841820cc6eeb578e53, type: 3}
       propertyPath: spawngroupSize
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68ffffc6c35b7f841820cc6eeb578e53, type: 3}

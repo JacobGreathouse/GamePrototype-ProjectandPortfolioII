@@ -15,8 +15,6 @@ public class BossAI : MonoBehaviour, IDamage
     [SerializeField] Transform shootPos;
     [SerializeField] Transform headPos;
 
-    [SerializeField] bool canTeleport;
-
     [Header("----- Boss Stats -----")]
     [SerializeField] int HP;
     [SerializeField] float faceTargetSpeed;
@@ -26,6 +24,11 @@ public class BossAI : MonoBehaviour, IDamage
     [SerializeField] int bulletnumbermin;
     [SerializeField] int bulletnumbermax;
 
+    [Header("----- TP Stats -----")]
+    [SerializeField] bool canTeleport;
+    [SerializeField] Transform[] tpPoints;
+    [SerializeField] float tpdelay;
+    bool isTeleporting;
 
     [Header("----- Attack Stats -----")]
     [SerializeField] GameObject[] spellObject;
@@ -49,6 +52,7 @@ public class BossAI : MonoBehaviour, IDamage
 
     float angleToPlayer;
     int randSpell;
+    float tpdelayorig;
 
     Color colorOrig;
     Coroutine co;
@@ -58,6 +62,8 @@ public class BossAI : MonoBehaviour, IDamage
     {
         // colorOrig = model.material.color;
         HPOrig = HP;
+        tpdelayorig = tpdelay;
+        isTeleporting = false;
         updateUI();
     }
 
@@ -103,6 +109,12 @@ public class BossAI : MonoBehaviour, IDamage
                 return true;
             }
         }
+
+        if (canTeleport == true && isTeleporting == false)
+        {
+            StartCoroutine(teleport());
+        }
+
         return false;
     }
 
@@ -150,12 +162,14 @@ public class BossAI : MonoBehaviour, IDamage
 
         int spellToUse = Random.Range(0, spellObject.Length);
 
-        for (int i = 0; i < bulletnumber; i++)
+        for (int i = 0; i < bulletnumber / 2; i++)
         {
             Quaternion rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y - 1, playerDir.z + i));
-
             shootPos.rotation = rotat;
+            Instantiate(spellObject[spellToUse], shootPos.position, shootPos.rotation);
 
+            rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y - 1, playerDir.z + (i + 2)));
+            shootPos.rotation = rotat;
             Instantiate(spellObject[spellToUse], shootPos.position, shootPos.rotation);
 
 
@@ -178,6 +192,27 @@ public class BossAI : MonoBehaviour, IDamage
          yield return new WaitForSeconds(0.3f);
          model.material.color = colorOrig;
      }*/
+
+    IEnumerator teleport()
+    {
+        isTeleporting = true;
+
+        Vector3 newPos = tpPoints[Random.Range(0, tpPoints.Length)].transform.position;
+        
+        if(newPos != transform.position)
+        {
+            transform.position = newPos;
+        }
+        else
+        {
+            tpdelay = 0;
+        }
+
+        yield return new WaitForSeconds(tpdelay);
+
+        tpdelay = 5;
+        isTeleporting = false;
+    }
     public int GetHp()
     {
         return HP;
