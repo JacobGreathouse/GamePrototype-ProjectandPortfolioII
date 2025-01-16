@@ -2163,16 +2163,25 @@ MonoBehaviour:
   stoppingDist: 2
   xpOnKill: 10
   animSpeedTrans: 8
+  bulletnumbermin: 0
+  bulletnumbermax: 0
+  canTeleport: 0
+  tpPoints: []
+  tpdelay: 0
   spellObject:
   - {fileID: 2808864441738590270, guid: 2dd946fb32b49da4289c17763b222049, type: 3}
   - {fileID: 2808864441738590270, guid: 90928d4a72b9e984a9a3064ef004efb5, type: 3}
   - {fileID: 2521476272068865361, guid: dc0285f03c7283d49b2a0a3ea0d4c36d, type: 3}
-  shootRate: 0.25
+  shootRatemin: 0
+  shootRatemax: 0
   audPlayer: {fileID: 1929489166044063686}
   audTakeDamage:
-  - {fileID: 8300000, guid: 76b989ad021974b6fb385fbaa974e395, type: 3}
-  - {fileID: 8300000, guid: c63f35c55e22d4b2a81f9dbc0eba64e8, type: 3}
-  - {fileID: 8300000, guid: 1dc904b120aea44b58e588234674f5d7, type: 3}
+  - {fileID: 8300000, guid: 75d8b24afc38bdf4f965533c78ce9af9, type: 3}
+  - {fileID: 8300000, guid: ca96ea987eb9b5c4bbd4ae432b2dff22, type: 3}
+  - {fileID: 8300000, guid: 5100375b70849de46a644b4669603c48, type: 3}
+  - {fileID: 8300000, guid: af8fab570ab6f10438d71419bba455e7, type: 3}
+  - {fileID: 8300000, guid: 4b143ef1f43a8444e896b97d9a6af71d, type: 3}
+  - {fileID: 8300000, guid: eecf181bcb2006a4ebf9caa8210ed0f6, type: 3}
   audTakeDamVol: 1
 --- !u!114 &5894919372243350914
 MonoBehaviour:

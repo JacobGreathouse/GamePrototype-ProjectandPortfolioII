@@ -542,9 +542,12 @@ MonoBehaviour:
   xpOnKill: 5
   audEnemy: {fileID: 1374339195593158112}
   audHurt:
-  - {fileID: 8300000, guid: 76b989ad021974b6fb385fbaa974e395, type: 3}
-  - {fileID: 8300000, guid: c63f35c55e22d4b2a81f9dbc0eba64e8, type: 3}
-  - {fileID: 8300000, guid: 1dc904b120aea44b58e588234674f5d7, type: 3}
+  - {fileID: 8300000, guid: 75d8b24afc38bdf4f965533c78ce9af9, type: 3}
+  - {fileID: 8300000, guid: ca96ea987eb9b5c4bbd4ae432b2dff22, type: 3}
+  - {fileID: 8300000, guid: 5100375b70849de46a644b4669603c48, type: 3}
+  - {fileID: 8300000, guid: af8fab570ab6f10438d71419bba455e7, type: 3}
+  - {fileID: 8300000, guid: 4b143ef1f43a8444e896b97d9a6af71d, type: 3}
+  - {fileID: 8300000, guid: eecf181bcb2006a4ebf9caa8210ed0f6, type: 3}
   audHurtVol: 1
 --- !u!195 &5151526142830012520
 NavMeshAgent:
