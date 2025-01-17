@@ -463,7 +463,7 @@ MonoBehaviour:
   ignoreMask:
     serializedVersion: 2
     m_Bits: 0
-  xpOnKill: 5
+  xpOnKill: 20
   audEnemy: {fileID: -391134781204911127}
   audHurt:
   - {fileID: 8300000, guid: 75d8b24afc38bdf4f965533c78ce9af9, type: 3}
