@@ -60,7 +60,7 @@ MonoBehaviour:
   AOETriggerRadius: 5
   audPlayer: {fileID: 0}
   impactSound: []
-  impactSoundVol: 0
+  impactSoundVol: 1
   playerLvl: 0
 --- !u!33 &2521476272068865364
 MeshFilter:

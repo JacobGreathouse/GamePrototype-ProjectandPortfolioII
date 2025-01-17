@@ -58,10 +58,11 @@ MonoBehaviour:
   isAOE: 0
   triggerRadius: 0
   AOETriggerRadius: 0
-  AOEDamageAmount: 0
+  hitEffect: {fileID: 0}
   audPlayer: {fileID: 0}
   impactSound: []
-  impactSoundVol: 0
+  impactSoundVol: 1
+  playerLvl: 0
 --- !u!33 &2808864441738590267
 MeshFilter:
   m_ObjectHideFlags: 0

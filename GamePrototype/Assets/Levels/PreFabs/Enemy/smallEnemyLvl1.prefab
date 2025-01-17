@@ -1104,7 +1104,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: af8fab570ab6f10438d71419bba455e7, type: 3}
   - {fileID: 8300000, guid: 4b143ef1f43a8444e896b97d9a6af71d, type: 3}
   - {fileID: 8300000, guid: eecf181bcb2006a4ebf9caa8210ed0f6, type: 3}
-  audHurtVol: 1
+  audHurtVol: 0.5
   coinDrop: {fileID: 7180035343309593432, guid: cba62f57dc35f1b4a9df2c36916460bc, type: 3}
 --- !u!195 &7057073014232117833
 NavMeshAgent:

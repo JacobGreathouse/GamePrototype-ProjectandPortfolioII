@@ -2182,7 +2182,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: af8fab570ab6f10438d71419bba455e7, type: 3}
   - {fileID: 8300000, guid: 4b143ef1f43a8444e896b97d9a6af71d, type: 3}
   - {fileID: 8300000, guid: eecf181bcb2006a4ebf9caa8210ed0f6, type: 3}
-  audTakeDamVol: 1
+  audTakeDamVol: 0.5
 --- !u!114 &5894919372243350914
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -444,9 +444,9 @@ MonoBehaviour:
   shootSound:
   - {fileID: 8300000, guid: 87a2e502ddd174591af0e35f76e448a2, type: 3}
   - {fileID: 8300000, guid: f08ce2b0c20924bfe844560b4770fe5a, type: 3}
-  shootSoundVol: 0
+  shootSoundVol: 0.75
   levelSound: []
-  levelSoundVol: 0
+  levelSoundVol: 1
 --- !u!143 &6761757263595609191
 CharacterController:
   m_ObjectHideFlags: 0
