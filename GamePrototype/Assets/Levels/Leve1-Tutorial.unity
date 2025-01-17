@@ -26364,22 +26364,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1929489166044063707, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
-      propertyPath: shootRatemax
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1929489166044063707, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
-      propertyPath: shootRatemin
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1929489166044063707, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
-      propertyPath: bulletnumbermax
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1929489166044063707, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
-      propertyPath: bulletnumbermin
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 1931608380181928726, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
       propertyPath: m_Name
       value: MiniBossLvl2
@@ -30984,15 +30968,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609177, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.78
+      value: -68.24
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609177, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.24
+      value: 7.35
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609177, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.11
+      value: 26.39
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609177, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: m_LocalRotation.w

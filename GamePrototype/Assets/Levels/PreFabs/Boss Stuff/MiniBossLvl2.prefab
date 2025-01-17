@@ -2496,8 +2496,8 @@ MonoBehaviour:
   stoppingDist: 2
   xpOnKill: 10
   animSpeedTrans: 8
-  bulletnumbermin: 0
-  bulletnumbermax: 0
+  bulletnumbermin: 4
+  bulletnumbermax: 6
   canTeleport: 1
   tpPoints:
   - {fileID: 394180528}
@@ -2508,8 +2508,8 @@ MonoBehaviour:
   - {fileID: 2808864441738590270, guid: 2dd946fb32b49da4289c17763b222049, type: 3}
   - {fileID: 2808864441738590270, guid: 90928d4a72b9e984a9a3064ef004efb5, type: 3}
   - {fileID: 2521476272068865361, guid: dc0285f03c7283d49b2a0a3ea0d4c36d, type: 3}
-  shootRatemin: 0
-  shootRatemax: 0
+  shootRatemin: 0.75
+  shootRatemax: 1.25
   audPlayer: {fileID: 1929489166044063686}
   audTakeDamage:
   - {fileID: 8300000, guid: 75d8b24afc38bdf4f965533c78ce9af9, type: 3}

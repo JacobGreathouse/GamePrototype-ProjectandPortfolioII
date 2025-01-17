@@ -106,14 +106,15 @@ public class BossAI : MonoBehaviour, IDamage
                 {
                     
                 }
+                if (canTeleport == true && isTeleporting == false && HP <= (HPOrig / .9f))
+                {
+                    StartCoroutine(teleport());
+                }
                 return true;
             }
         }
 
-        if (canTeleport == true && isTeleporting == false)
-        {
-            StartCoroutine(teleport());
-        }
+        
 
         return false;
     }
@@ -199,7 +200,7 @@ public class BossAI : MonoBehaviour, IDamage
 
         Vector3 newPos = tpPoints[Random.Range(0, tpPoints.Length)].transform.position;
         
-        if(newPos != transform.position)
+        if(newPos == transform.position)
         {
             transform.position = newPos;
         }
