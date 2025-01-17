@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     // int playerXP;
     // int playerLvl;
+    int coinCount;
     int jumpCount;
     int HPOrig;
     int HPMax;
@@ -373,5 +374,15 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         transform.SetPositionAndRotation(Pos, Rot);
 
         controller.enabled = true;
+    }
+
+    public void setCoinCount(int amount)
+    {
+        coinCount += amount;
+    }
+
+    public int getCoinCount()
+    {
+        return coinCount;
     }
 }

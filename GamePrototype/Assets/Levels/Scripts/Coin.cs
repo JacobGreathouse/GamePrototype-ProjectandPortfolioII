@@ -21,7 +21,7 @@ public class Coin : MonoBehaviour
         if(other.CompareTag("Player"))
         {
 
-
+            gamemanager.instance.player.GetComponent<PlayerController>().setCoinCount(1);
 
             Destroy(gameObject);
         }

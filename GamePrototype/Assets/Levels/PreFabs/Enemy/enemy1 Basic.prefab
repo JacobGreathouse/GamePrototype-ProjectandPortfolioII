@@ -358,6 +358,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4b143ef1f43a8444e896b97d9a6af71d, type: 3}
   - {fileID: 8300000, guid: eecf181bcb2006a4ebf9caa8210ed0f6, type: 3}
   audHurtVol: 1
+  coinDrop: {fileID: 7180035343309593432, guid: cba62f57dc35f1b4a9df2c36916460bc, type: 3}
 --- !u!195 &5151526142830012520
 NavMeshAgent:
   m_ObjectHideFlags: 0
