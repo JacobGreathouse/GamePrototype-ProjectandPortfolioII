@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; // Ethan: Added this line(technically Unity itself did)
+using UnityEngine.SceneManagement;
 
 public class ButtonFunction : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class ButtonFunction : MonoBehaviour
         gamemanager.instance.stateUnpause();
     }
 
-    public void Reset() // Ethan: Added this function
+    public void Reset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gamemanager.instance.stateUnpause();
@@ -31,13 +31,23 @@ public class ButtonFunction : MonoBehaviour
 
     }
 
-    public void Quit() // Ethan: Added this function
+    public void Quit()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit();
 #endif
+    }
+
+    public void Options()
+    {
+        gamemanager.instance.optionsOpen();
+    }    
+
+    public void OptionsBack()
+    {
+        gamemanager.instance.optionsClose();
     }
 
 }
