@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b70a96240f009249bec56ea6f6298dd, type: 3}
   m_Name: Staff Missile
   m_EditorClassIdentifier: 
-  model: {fileID: 3844808660582485764, guid: 4a094bd13a554ce429a71f8ade990f26, type: 3}
+  model: {fileID: 1412941605713842, guid: c413fed5af1bfe847af0ed883ee868db, type: 3}
   shootRate: 1
   lightning: {fileID: 0}
   fireball: {fileID: 0}
@@ -22,5 +22,6 @@ MonoBehaviour:
   isFire: 0
   isMissile: 1
   hitEffect: {fileID: 0}
-  shootSound: []
-  shootSoundVol: 0
+  shootSound:
+  - {fileID: 8300000, guid: c91fcf414acc0344cb03b13996f1bf3b, type: 3}
+  shootSoundVol: 0.3
