@@ -441,7 +441,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 344168af6c75f1e4a900fe580feae309, type: 3}
   - {fileID: 8300000, guid: 1df768a5407a8f442abeb55f7ceb19f2, type: 3}
   audStepVol: 0.05
-  shootSound: []
+  shootSound:
+  - {fileID: 8300000, guid: 87a2e502ddd174591af0e35f76e448a2, type: 3}
+  - {fileID: 8300000, guid: f08ce2b0c20924bfe844560b4770fe5a, type: 3}
   shootSoundVol: 0
   levelSound: []
   levelSoundVol: 0
@@ -536,9 +538,9 @@ AudioSource:
   m_GameObject: {fileID: 6761757263595609181}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2536300855172093662, guid: 09fb510c98bb5b143ad07c77ebf572d1, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

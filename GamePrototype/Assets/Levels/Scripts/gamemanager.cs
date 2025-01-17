@@ -113,15 +113,14 @@ public class gamemanager : MonoBehaviour
         {
             StartCoroutine(showDisplayMessage());
         }
-
     }
+
     public void youLose()
     {
         statePause();
         menuActive = menuLose;
         menuActive.SetActive(true);
     }
-
 
     public void youWin()
     {
