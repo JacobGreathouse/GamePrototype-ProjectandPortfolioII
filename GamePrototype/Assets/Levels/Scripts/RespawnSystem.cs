@@ -26,6 +26,8 @@ public class RespawnSystem : MonoBehaviour
     public void SetActiveRespawnPoint(Transform newRespawnPoint)
     {
         activeRespawnPoint = newRespawnPoint;
+        ParticleSystem particleInstance = Instantiate(spawnParticles, activeRespawnPoint.transform.position, Quaternion.identity);
+        StartCoroutine(DestroyParticleSystemAfterDelay(particleInstance, 2f));
         Debug.Log("Active respawn point set to: " + activeRespawnPoint.position);
     }
     public void RespawnPlayer(GameObject player)

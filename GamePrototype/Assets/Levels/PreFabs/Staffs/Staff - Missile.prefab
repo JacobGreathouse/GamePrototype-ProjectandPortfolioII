@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4412774203594708522}
   - component: {fileID: 7836060046702250010}
   - component: {fileID: 5430127639950097616}
+  - component: {fileID: 4206661079299738829}
   m_Layer: 0
   m_Name: Staff - Missile
   m_TagString: Untagged
@@ -111,3 +112,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &4206661079299738829
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5790305453735861509}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1670253
+  m_Center: {x: -0.00000010430813, y: -0.15185785, z: 0}
