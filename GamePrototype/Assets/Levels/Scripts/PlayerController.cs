@@ -61,6 +61,16 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField] AudioClip[] levelSound;
     [SerializeField][Range(0, 1)] float levelSoundVol;
 
+    [Header("----- Dodge Stats -----")]
+    [SerializeField][Range(0,10)] float dodgeDistance = 10f;
+    [SerializeField][Range(0, 1)] float dodgeDuration = .05f;
+    [SerializeField][Range(0, 5)] float dodgeCooldown = .5f;
+
+    private bool isDodging = false;
+    private bool isDodgeCooldown = false;
+    private float dodgeCooldownTimer = 0f;
+    private Vector3 dodgeDirection;
+
     Vector3 moveDir;
     Vector3 playerVel;
 
@@ -121,9 +131,12 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     void movement()
     {
+        if (isDodging) 
+            return; // prevent movement logic if dodging
+
         if (controller.isGrounded)
         {
-            if (moveDir.magnitude > 0.1f && !isPlayingStep)
+            if (moveDir.magnitude > 0.1f && !isPlayingStep && !isDodging)
             {
                 StartCoroutine(playStep());
             }
@@ -156,8 +169,40 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
 
         }
+        if (Input.GetButton("Dodge") && !isDodgeCooldown && !isDodging && controller.isGrounded)
+        {
+            StartCoroutine(Dodge());
+        }
+        if (isDodgeCooldown)
+        {
+            dodgeCooldownTimer -= Time.deltaTime;
+            if (dodgeCooldownTimer <= 0)
+            {
+                isDodgeCooldown = false;
+            }
+        }
     }
 
+    IEnumerator Dodge()
+    {
+        dodgeDirection = moveDir;
+        isDodging = true;
+        int origLayer = gameObject.layer;
+        gameObject.layer = LayerMask.NameToLayer("DodgePhase");
+
+        float dodgeTime = 0f;
+        while (dodgeTime < dodgeDuration)
+        {
+            controller.Move(dodgeDirection * dodgeDistance * Time.deltaTime / dodgeDuration); // Move player quickly
+            dodgeTime += Time.deltaTime;
+            yield return null;
+        }
+
+        isDodging = false;
+        gameObject.layer =origLayer;
+        isDodgeCooldown = true;
+        dodgeCooldownTimer = dodgeCooldown;
+    }
     void jump()
     {
         if (Input.GetButtonDown("Jump") && jumpCount < jumpMax)
