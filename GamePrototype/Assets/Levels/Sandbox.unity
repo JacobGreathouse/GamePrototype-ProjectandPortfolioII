@@ -440,6 +440,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7e7399bd42a554ba9130c5d0b224f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1332509357 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1773287460023206420, guid: abd133e852c48e4489ed2812e70e12f4, type: 3}
+  m_PrefabInstance: {fileID: 1773287461099314711}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1519650788
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,13 +701,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 560481336294416132, guid: 24d1521794519184da30b5f62e2226c1, type: 3}
+      propertyPath: _inTime
+      value: 2.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 560481336294416132, guid: 24d1521794519184da30b5f62e2226c1, type: 3}
+      propertyPath: _outTime
+      value: 2.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 560481336294416132, guid: 24d1521794519184da30b5f62e2226c1, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1025482605}
     - target: {fileID: 2687217258741942451, guid: 24d1521794519184da30b5f62e2226c1, type: 3}
       propertyPath: m_Name
       value: SpikeTrap
       objectReference: {fileID: 0}
     - target: {fileID: 3758225001218930251, guid: 24d1521794519184da30b5f62e2226c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4803083001206220307, guid: 24d1521794519184da30b5f62e2226c1, type: 3}
       propertyPath: m_RootOrder
@@ -750,7 +767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4984626115891698530, guid: 24d1521794519184da30b5f62e2226c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.77
+      value: 0.44
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24d1521794519184da30b5f62e2226c1, type: 3}
@@ -765,6 +782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 1773287460024228302, guid: abd133e852c48e4489ed2812e70e12f4, type: 3}
+      propertyPath: _teleportTrigger
+      value: 
+      objectReference: {fileID: 1332509357}
     - target: {fileID: 1773287460024228303, guid: abd133e852c48e4489ed2812e70e12f4, type: 3}
       propertyPath: m_RootOrder
       value: 7
