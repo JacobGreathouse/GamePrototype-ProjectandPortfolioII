@@ -35,10 +35,12 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField] GameObject lightning;
     [SerializeField] GameObject fireball;
     [SerializeField] GameObject missile;
+    [SerializeField] GameObject bunnyBomb;
     [SerializeField] int spellcost;
     [SerializeField] bool isBolt;
     [SerializeField] bool isFire;
     [SerializeField] bool isMissile;
+    [SerializeField] bool isBunny;
     [SerializeField][Range(0.1f, 1f)] float burstDelay = 0.2f;
     [SerializeField] int burstCount = 3;
 
@@ -199,6 +201,13 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
                 yield return new WaitForSeconds(burstDelay);
            }
         }
+        if (isBunny == true)
+        {
+            audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
+            GameObject newProjectile = Instantiate(bunnyBomb, shootPos.position, Camera.main.transform.rotation);
+            newProjectile.GetComponent<Damage>().Fire();
+            UseMana(spellcost);
+        }
         // shoot code goes
         if (isBolt == true)
         {
@@ -343,6 +352,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         spellcost = staff.spellcost;
         isBolt = staff.isBolt;
         isFire = staff.isFire;
+        isBunny = staff.isBunny;
         isMissile = staff.isMissile;
 
         staffModel.GetComponent<MeshFilter>().sharedMesh = staff.model.GetComponent<MeshFilter>().sharedMesh;
@@ -372,6 +382,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         isBolt = staffList[staffListPos].isBolt;
         isFire = staffList[staffListPos].isFire;
         isMissile = staffList[staffListPos].isMissile;
+        isBunny = staffList[staffListPos].isBunny;
         AudioClip[] shootSound = staffList[staffListPos].shootSound;
 
         float shootSoundVol = staffList[staffListPos].shootSoundVol;

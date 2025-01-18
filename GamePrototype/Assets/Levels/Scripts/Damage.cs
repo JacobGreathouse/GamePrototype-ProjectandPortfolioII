@@ -19,6 +19,7 @@ public class Damage : MonoBehaviour
     //radius of sphere col trig
     [SerializeField] bool isAOE;
     [SerializeField] bool isMissile;
+    [SerializeField] bool isBunny;
     [SerializeField][Range(0,90)] float turnRate;
     [SerializeField][Range(0, 90)] float maxTurnAngle = 15f;
     [SerializeField][Range(1, 30)] float triggerRadius;
@@ -31,6 +32,10 @@ public class Damage : MonoBehaviour
     [SerializeField][Range(0, 1)] float impactSoundVol;
     public int playerLvl;
     public StaffStats staffStats;
+
+    [Header("----- Bunny -----")]
+    [SerializeField] GameObject bunnyModel;
+
 
     // Start is called before the first frame update
     /* void Start()
@@ -68,6 +73,21 @@ public class Damage : MonoBehaviour
     {
         if (other.isTrigger)
             return;
+
+        if (isBunny && other.CompareTag("Enemy"))
+        {
+            // Destroy the enemy object
+            Destroy(other.gameObject);
+
+            // Instantiate the Bunny model at the enemy's position
+            if (bunnyModel != null)
+            {
+                Instantiate(bunnyModel, other.transform.position, Quaternion.identity);
+            }
+
+            // Do not deal damage if it's a BunnyBomb
+            return;
+        }
         damageAmount = damageAmount + (playerLvl * 2);
         IDamage dmg = other.GetComponent<IDamage>();
          
