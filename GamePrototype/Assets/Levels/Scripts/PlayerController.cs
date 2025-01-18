@@ -34,9 +34,15 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject lightning;
     [SerializeField] GameObject fireball;
+    [SerializeField] GameObject missile;
+    [SerializeField] GameObject bunnyBomb;
     [SerializeField] int spellcost;
     [SerializeField] bool isBolt;
     [SerializeField] bool isFire;
+    [SerializeField] bool isMissile;
+    [SerializeField] bool isBunny;
+    [SerializeField][Range(0.1f, 1f)] float burstDelay = 0.2f;
+    [SerializeField] int burstCount = 3;
 
     [Header("----- XP Stats -----")] // Ethan: added this line
     [SerializeField] int playerXP; // Ethan: added this line
@@ -54,6 +60,16 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField][Range(0, 1)] float shootSoundVol;
     [SerializeField] AudioClip[] levelSound;
     [SerializeField][Range(0, 1)] float levelSoundVol;
+
+    [Header("----- Dodge Stats -----")]
+    [SerializeField][Range(0,10)] float dodgeDistance = 10f;
+    [SerializeField][Range(0, 1)] float dodgeDuration = .05f;
+    [SerializeField][Range(0, 5)] float dodgeCooldown = .5f;
+
+    private bool isDodging = false;
+    private bool isDodgeCooldown = false;
+    private float dodgeCooldownTimer = 0f;
+    private Vector3 dodgeDirection;
 
     Vector3 moveDir;
     Vector3 playerVel;
@@ -115,9 +131,12 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     void movement()
     {
+        if (isDodging) 
+            return; // prevent movement logic if dodging
+
         if (controller.isGrounded)
         {
-            if (moveDir.magnitude > 0.1f && !isPlayingStep)
+            if (moveDir.magnitude > 0.1f && !isPlayingStep && !isDodging)
             {
                 StartCoroutine(playStep());
             }
@@ -145,12 +164,45 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
         if (Input.GetButton("Fire1") && !isShooting && gamemanager.instance.isPaused == false)
         {
+            Debug.Log("Firing spell");
             StartCoroutine(shootMagic());
 
 
         }
+        if (Input.GetButton("Dodge") && !isDodgeCooldown && !isDodging && controller.isGrounded)
+        {
+            StartCoroutine(Dodge());
+        }
+        if (isDodgeCooldown)
+        {
+            dodgeCooldownTimer -= Time.deltaTime;
+            if (dodgeCooldownTimer <= 0)
+            {
+                isDodgeCooldown = false;
+            }
+        }
     }
 
+    IEnumerator Dodge()
+    {
+        dodgeDirection = moveDir;
+        isDodging = true;
+        int origLayer = gameObject.layer;
+        gameObject.layer = LayerMask.NameToLayer("DodgePhase");
+
+        float dodgeTime = 0f;
+        while (dodgeTime < dodgeDuration)
+        {
+            controller.Move(dodgeDirection * dodgeDistance * Time.deltaTime / dodgeDuration); // Move player quickly
+            dodgeTime += Time.deltaTime;
+            yield return null;
+        }
+
+        isDodging = false;
+        gameObject.layer =origLayer;
+        isDodgeCooldown = true;
+        dodgeCooldownTimer = dodgeCooldown;
+    }
     void jump()
     {
         if (Input.GetButtonDown("Jump") && jumpCount < jumpMax)
@@ -178,20 +230,44 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     IEnumerator shootMagic()
     {
         isShooting = true;
-
+        if (isMissile==true)
+        {
+            Debug.Log("Firing missile");
+           
+           for (int i = 0; i < burstCount; i++)
+           {
+                audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
+                //added to reduce redundancy 
+                GameObject newProjectile = Instantiate(missile, shootPos.position, Camera.main.transform.rotation);
+                newProjectile.GetComponent<Damage>().Fire();
+                //move this up if we decide to only use tha mana once
+                UseMana(spellcost);
+                //delay time but still quickly
+                yield return new WaitForSeconds(burstDelay);
+           }
+        }
+        if (isBunny == true)
+        {
+            audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
+            GameObject newProjectile = Instantiate(bunnyBomb, shootPos.position, Camera.main.transform.rotation);
+            newProjectile.GetComponent<Damage>().Fire();
+            UseMana(spellcost);
+        }
         // shoot code goes
         if (isBolt == true)
         {
             // shoot code goes
             audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
-            Instantiate(lightning, shootPos.position, Camera.main.transform.rotation);
+            GameObject newProjectile = Instantiate(lightning, shootPos.position, Camera.main.transform.rotation);
+            newProjectile.GetComponent<Damage>().Fire();
             UseMana(spellcost);
         }
         else if (isFire == true)
         {
             // shoot code goes
             audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
-            Instantiate(fireball, shootPos.position, Camera.main.transform.rotation);
+            GameObject newProjectile = Instantiate(fireball, shootPos.position, Camera.main.transform.rotation);
+            newProjectile.GetComponent<Damage>().Fire();
             UseMana(spellcost);
         }
 
@@ -321,6 +397,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         spellcost = staff.spellcost;
         isBolt = staff.isBolt;
         isFire = staff.isFire;
+        isBunny = staff.isBunny;
+        isMissile = staff.isMissile;
 
         staffModel.GetComponent<MeshFilter>().sharedMesh = staff.model.GetComponent<MeshFilter>().sharedMesh;
         staffModel.GetComponent<MeshRenderer>().sharedMaterial = staff.model.GetComponent<MeshRenderer>().sharedMaterial;
@@ -348,6 +426,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         spellcost = staffList[staffListPos].spellcost;
         isBolt = staffList[staffListPos].isBolt;
         isFire = staffList[staffListPos].isFire;
+        isMissile = staffList[staffListPos].isMissile;
+        isBunny = staffList[staffListPos].isBunny;
         AudioClip[] shootSound = staffList[staffListPos].shootSound;
 
         float shootSoundVol = staffList[staffListPos].shootSoundVol;

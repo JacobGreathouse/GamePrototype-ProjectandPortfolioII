@@ -12,11 +12,13 @@ public class StaffStats : ScriptableObject
     public GameObject lightning;
     public GameObject fireball;
     public GameObject Missile;
+    public GameObject bunnyBomb;
     public int spellcost;
     int maxHits;
     public bool isBolt;
     public bool isFire;
     public bool isMissile;
+    public bool isBunny;
 
     [Header("----- SFX Effects -----")]
 

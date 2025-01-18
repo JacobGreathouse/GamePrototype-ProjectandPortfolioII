@@ -17,7 +17,7 @@ MonoBehaviour:
   lightning: {fileID: 0}
   fireball: {fileID: 0}
   Missile: {fileID: 4748813102613486742, guid: 2cacd4cc71a73c84f81d7151e9e7c0d3, type: 3}
-  spellcost: 15
+  spellcost: 5
   isBolt: 0
   isFire: 0
   isMissile: 1

@@ -49,11 +49,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   rb: {fileID: 4552776121088956038}
-  damageAmount: 2
+  damageAmount: 3
   speed: 80
   destroyTime: 20
   maxHits: 3
   isAOE: 0
+  isMissile: 0
   triggerRadius: 10
   AOETriggerRadius: 0
   hitEffect: {fileID: 4033287822461114141, guid: a164e676dbbd6e54587237e619372c98, type: 3}
@@ -61,6 +62,7 @@ MonoBehaviour:
   impactSound: []
   impactSoundVol: 1
   playerLvl: 0
+  staffStats: {fileID: 0}
 --- !u!135 &4552776121088956283
 SphereCollider:
   m_ObjectHideFlags: 0

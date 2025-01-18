@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CheckPointTrigger : MonoBehaviour
 {
+    [SerializeField] Transform[] respawnPoints;
+    [SerializeField] ParticleSystem spawnParticles;
+
+
     private RespawnSystem respawnSystem;
     // Start is called before the first frame update
     void Start()
