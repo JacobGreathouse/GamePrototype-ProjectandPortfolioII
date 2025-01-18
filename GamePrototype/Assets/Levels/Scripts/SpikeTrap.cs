@@ -46,7 +46,7 @@ public class SpikeTrap : MonoBehaviour
 
     public void Extend()
     {
-        _mode = SPIKEMODE.IDLE;
+        _mode = SPIKEMODE.EXTENDING;
         _animator.SetTrigger("Extend");
         if (_outTime > 0)
         {
@@ -56,7 +56,7 @@ public class SpikeTrap : MonoBehaviour
 
     public void Retract()
     {
-        _mode = SPIKEMODE.RETRACTING;
+        _mode = SPIKEMODE.IDLE;
         _animator.SetTrigger("Retract");
         if(_inTime > 0)
         {
