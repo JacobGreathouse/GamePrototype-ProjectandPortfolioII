@@ -61,7 +61,7 @@ MonoBehaviour:
   hitEffect: {fileID: 4596544553357837919, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
   audPlayer: {fileID: 0}
   impactSound: []
-  impactSoundVol: 0
+  impactSoundVol: 1
   playerLvl: 0
 --- !u!33 &2521476272068865364
 MeshFilter:

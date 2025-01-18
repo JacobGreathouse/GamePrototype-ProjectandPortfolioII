@@ -2,26 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI; // Ethan: Added this line
+using UnityEngine.UI;
 
 public class gamemanager : MonoBehaviour
 {
     public static gamemanager instance;
 
     [SerializeField] int numOfOrbs;
-    [SerializeField] GameObject menuActive;
+    GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin, menuLose;
+    [SerializeField] GameObject menuOptions;
     [SerializeField] GameObject allOrbsCol;
     public GameObject allOrbsNotCol;
-    [SerializeField] TMP_Text goalCountText; // Ethan: Added this line
+    [SerializeField] TMP_Text goalCountText;
     [SerializeField] TMP_Text PlayerLevel;
-    public TMP_Text playerXPText; // Ethan: Added this line
-    public TMP_Text playerLevelText; // Ethan: Added this line
-    public Image playerHPBar; // Ethan: Added this line
-    public Image playerManaBar; // Ethan: Added this line
-    public Image playerXPBar; // Ethan: Added this line
-    public GameObject playerDamageScreen; // Ethan: Added this line
+    public TMP_Text playerXPText;
+    public TMP_Text playerLevelText;
+    public Image playerHPBar;
+    public Image playerManaBar;
+    public Image playerXPBar;
+    public GameObject playerDamageScreen;
     public GameObject respawnButton;
 
     [Header("----- Audio -----")]
@@ -46,7 +47,6 @@ public class gamemanager : MonoBehaviour
     public bool isPaused = false;
 
     float timeScaleOrig;
-    //writing as enemy boss count will be added later
     int orbCount;
 
 
@@ -76,10 +76,15 @@ public class gamemanager : MonoBehaviour
             {
                 stateUnpause();
             }
+            else if (menuActive == menuOptions)
+            {
+                optionsClose();
+            }
         }
         if (!audPlayer.isPlaying)
             audPlayer.PlayOneShot(audAmbient[Random.Range(0, audAmbient.Length)], audAmbientVol);
     }
+
     public void statePause()
     {
         isPaused = true;
@@ -108,8 +113,8 @@ public class gamemanager : MonoBehaviour
         {
             StartCoroutine(showDisplayMessage());
         }
-
     }
+
     public void youLose()
     {
         statePause();
@@ -117,12 +122,25 @@ public class gamemanager : MonoBehaviour
         menuActive.SetActive(true);
     }
 
-
     public void youWin()
     {
         statePause();
         menuActive = menuWin;
         menuActive.SetActive(true);
+    }
+
+    public void optionsOpen()
+    {
+        menuActive = menuOptions;
+        menuPause.SetActive(false);
+        menuOptions.SetActive(true);
+    }
+
+    public void optionsClose()
+    {
+        menuActive = menuPause;
+        menuOptions.SetActive(false);
+        menuPause.SetActive(true);
     }
 
     IEnumerator showDisplayMessage()

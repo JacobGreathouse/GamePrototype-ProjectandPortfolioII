@@ -36,6 +36,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] AudioClip[] audHurt;
     [SerializeField][Range(0, 1)] float audHurtVol;
 
+    [SerializeField] GameObject coinDrop;
+
     bool playerInRange;
     bool isShooting;
     bool isRoaming;
@@ -129,7 +131,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                         float remaining = agent.remainingDistance;
                         float stopping = agent.stoppingDistance;
                         if (remaining < stopping)
-                            StartCoroutine(meleeHit());
+                        StartCoroutine(meleeHit());
                     }
                     co = null;
                 }
@@ -193,6 +195,9 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             // I'm dead
             gamemanager.instance.playerScript.SetPlayerXP(xpOnKill);
+            Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 80, playerDir.z));
+            Vector3 pos = new Vector3(transform.position.x, 1.5f, transform.position.z);
+            Instantiate(coinDrop, pos, rot);
             Destroy(gameObject);
         }
     }
@@ -237,5 +242,10 @@ public class EnemyAI : MonoBehaviour, IDamage
     void updateUI()
     {
         HPBar.fillAmount = (float)HP / HpOrig;
+    }
+    public void setEnemyStats(int amount)
+    {
+        meleeDamage = meleeDamage + (meleeDamage * amount);
+        HP = HP + (HP * amount);
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -20,11 +21,19 @@ public class BossAI : MonoBehaviour, IDamage
     [SerializeField] float stoppingDist;
     [SerializeField] int xpOnKill;
     [SerializeField] int animSpeedTrans;
+    [SerializeField] int bulletnumbermin;
+    [SerializeField] int bulletnumbermax;
 
+    [Header("----- TP Stats -----")]
+    [SerializeField] bool canTeleport;
+    [SerializeField] Transform[] tpPoints;
+    [SerializeField] float tpdelay;
+    bool isTeleporting;
 
     [Header("----- Attack Stats -----")]
     [SerializeField] GameObject[] spellObject;
-    [SerializeField] float shootRate;
+    [SerializeField] float shootRatemin;
+    [SerializeField] float shootRatemax;
 
     [Header("----- Audio -----")]
     [SerializeField] AudioSource audPlayer;
@@ -43,6 +52,7 @@ public class BossAI : MonoBehaviour, IDamage
 
     float angleToPlayer;
     int randSpell;
+    float tpdelayorig;
 
     Color colorOrig;
     Coroutine co;
@@ -52,6 +62,8 @@ public class BossAI : MonoBehaviour, IDamage
     {
         // colorOrig = model.material.color;
         HPOrig = HP;
+        tpdelayorig = tpdelay;
+        isTeleporting = false;
         updateUI();
     }
 
@@ -74,7 +86,7 @@ public class BossAI : MonoBehaviour, IDamage
         playerDir = gamemanager.instance.player.transform.position - headPos.position;
         angleToPlayer = Vector3.Angle(playerDir, transform.forward);
 
-        Debug.DrawRay(headPos.position, playerDir);
+        //Debug.DrawRay(headPos.position, playerDir);
 
         RaycastHit hit;
         if (Physics.Raycast(headPos.position, playerDir, out hit))
@@ -94,9 +106,16 @@ public class BossAI : MonoBehaviour, IDamage
                 {
                     
                 }
+                if (canTeleport == true && isTeleporting == false && HP <= (HPOrig / .9f))
+                {
+                    StartCoroutine(teleport());
+                }
                 return true;
             }
         }
+
+        
+
         return false;
     }
 
@@ -140,15 +159,27 @@ public class BossAI : MonoBehaviour, IDamage
         isShooting = true;
         anim.SetTrigger("Shoot");
 
-        Quaternion rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y - 1, playerDir.z + 1.75f));
+        int bulletnumber = Random.Range(bulletnumbermin, bulletnumbermax);
 
-        shootPos.rotation = rotat;
+        int spellToUse = Random.Range(0, spellObject.Length);
 
-        Instantiate(spellObject[Random.Range(0, spellObject.Length)], shootPos.position, shootPos.rotation);
-                
+        for (int i = 0; i < bulletnumber / 2; i++)
+        {
+            Quaternion rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y - 1, playerDir.z + i));
+            shootPos.rotation = rotat;
+            Instantiate(spellObject[spellToUse], shootPos.position, shootPos.rotation);
+
+            rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y - 1, playerDir.z + (i + 2)));
+            shootPos.rotation = rotat;
+            Instantiate(spellObject[spellToUse], shootPos.position, shootPos.rotation);
+
+
+        }
         
+        float shootRate = Random.Range(shootRatemin, shootRatemax);
 
         yield return new WaitForSeconds(shootRate);
+
         isShooting = false;
     }
     void updateUI()
@@ -162,6 +193,27 @@ public class BossAI : MonoBehaviour, IDamage
          yield return new WaitForSeconds(0.3f);
          model.material.color = colorOrig;
      }*/
+
+    IEnumerator teleport()
+    {
+        isTeleporting = true;
+
+        Vector3 newPos = tpPoints[Random.Range(0, tpPoints.Length)].transform.position;
+        
+        if(newPos == transform.position)
+        {
+            transform.position = newPos;
+        }
+        else
+        {
+            tpdelay = 0;
+        }
+
+        yield return new WaitForSeconds(tpdelay);
+
+        tpdelay = 5;
+        isTeleporting = false;
+    }
     public int GetHp()
     {
         return HP;
@@ -170,4 +222,5 @@ public class BossAI : MonoBehaviour, IDamage
     {
         return HPOrig;
     }
+    
 }
