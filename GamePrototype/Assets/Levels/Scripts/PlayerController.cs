@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField] GameObject bunnyBomb;
     [SerializeField] int spellcost;
     [SerializeField] bool isBolt;
+    public int maxChain = 3;
+    [SerializeField] float AOETriggerRadius;
     [SerializeField] bool isFire;
     [SerializeField] bool isMissile;
     [SerializeField] bool isBunny;
@@ -342,7 +344,13 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     }
     public void statMenuUpdate()
     {
-        gamemanager.instance.PlayerHPUpdate();
+        /*gamemanager.instance.PlayerHPUpdate();
+        gamemanager.instance.PlayerMPUpdate();
+        gamemanager.instance.PlayerATKUpdate();
+        gamemanager.instance.PlayerMissileUpdate();
+        gamemanager.instance.PlayerChainUpdate();
+        gamemanager.instance.PlayerAOEUpdate();*/
+
     }
     private void updatePlayerLevel()
     {
@@ -488,6 +496,19 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     public int GetPlayerHP()
     {
-        return HPOrig;
+        return HPMax;
     }
+    public float GetPlayerMP()
+    {
+        return maxMana;
+    }
+    public int GetBurstAmount()
+    {
+        return burstCount;
+    }
+    public int GetChainMax()
+    {
+        return maxChain;
+    }
+
 }

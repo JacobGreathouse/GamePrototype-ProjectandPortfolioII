@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1264033102438933}
   m_Layer: 6
   m_Name: Damage-Bolt
-  m_TagString: Untagged
+  m_TagString: Chain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,6 +55,9 @@ MonoBehaviour:
   maxHits: 3
   isAOE: 0
   isMissile: 0
+  isBunny: 0
+  turnRate: 0
+  maxTurnAngle: 15
   triggerRadius: 10
   AOETriggerRadius: 0
   hitEffect: {fileID: 4033287822461114141, guid: a164e676dbbd6e54587237e619372c98, type: 3}
@@ -63,6 +66,7 @@ MonoBehaviour:
   impactSoundVol: 1
   playerLvl: 0
   staffStats: {fileID: 0}
+  bunnyModel: {fileID: 0}
 --- !u!135 &4552776121088956283
 SphereCollider:
   m_ObjectHideFlags: 0

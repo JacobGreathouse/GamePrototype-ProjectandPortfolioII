@@ -7,6 +7,8 @@ TagManager:
   - LevelObject
   - Boss
   - Enemy
+  - Fireball
+  - Chain
   layers:
   - Default
   - TransparentFX

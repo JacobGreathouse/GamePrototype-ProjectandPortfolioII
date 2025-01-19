@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2521476272068865371}
   m_Layer: 6
   m_Name: Damage-Fireball
-  m_TagString: Untagged
+  m_TagString: Fireball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,6 +56,10 @@ MonoBehaviour:
   destroyTime: 10
   maxHits: 0
   isAOE: 1
+  isMissile: 0
+  isBunny: 0
+  turnRate: 0
+  maxTurnAngle: 15
   triggerRadius: 0
   AOETriggerRadius: 7
   hitEffect: {fileID: 4596544553357837919, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
@@ -63,6 +67,8 @@ MonoBehaviour:
   impactSound: []
   impactSoundVol: 1
   playerLvl: 0
+  staffStats: {fileID: 0}
+  bunnyModel: {fileID: 0}
 --- !u!33 &2521476272068865364
 MeshFilter:
   m_ObjectHideFlags: 0

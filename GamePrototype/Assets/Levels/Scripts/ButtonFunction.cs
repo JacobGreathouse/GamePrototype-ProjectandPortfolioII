@@ -49,7 +49,10 @@ public class ButtonFunction : MonoBehaviour
     {
         gamemanager.instance.optionsClose();
     }
+    public void HPplus()
+    {
 
+    }
 
 
 }

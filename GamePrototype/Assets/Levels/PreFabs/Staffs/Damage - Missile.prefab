@@ -57,6 +57,7 @@ MonoBehaviour:
   maxHits: 0
   isAOE: 0
   isMissile: 1
+  isBunny: 0
   turnRate: 5
   maxTurnAngle: 25
   triggerRadius: 10
@@ -67,6 +68,7 @@ MonoBehaviour:
   impactSoundVol: 1
   playerLvl: 0
   staffStats: {fileID: 0}
+  bunnyModel: {fileID: 0}
 --- !u!33 &5723787182485686449
 MeshFilter:
   m_ObjectHideFlags: 0

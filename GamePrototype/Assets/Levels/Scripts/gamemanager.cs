@@ -19,6 +19,11 @@ public class gamemanager : MonoBehaviour
     [SerializeField] TMP_Text goalCountText;
     [SerializeField] TMP_Text PlayerLevel;
     public TMP_Text CurrentHPText;
+    public TMP_Text CurrentMPText;
+    public TMP_Text CurrentATKText;
+    public TMP_Text CurrentAOERadiusText;
+    public TMP_Text CurrentChainMaxText;
+    public TMP_Text CurrentBurstText;
     public TMP_Text playerXPText;
     public TMP_Text playerLevelText;
     public Image playerHPBar;
@@ -45,10 +50,12 @@ public class gamemanager : MonoBehaviour
     [SerializeField] AudioClip[] audPickup;
     [SerializeField][Range(0, 1)] float audPickupVol;
 
-    
+
+
 
     public bool isPaused = false;
-
+    int maxHits;
+    float AOETriggerRadius;
     float timeScaleOrig;
     int orbCount;
 
@@ -192,8 +199,28 @@ public class gamemanager : MonoBehaviour
         audOrb.PlayOneShot(audPickup[Random.Range(0, audPickup.Length)], audPickupVol);
     }
     
-    public void PlayerHPUpdate()
+    /*public void PlayerHPUpdate()
     {
         CurrentHPText.text = playerScript.GetPlayerHP().ToString("F0");
     }
+    public void PlayerMPUpdate()
+    {
+        CurrentMPText.text = playerScript.GetPlayerMP().ToString("F0");
+    }
+    public void PlayerATKUpdate()
+    {
+        CurrentATKText.text = playerScript.getDamage().ToString("F0");
+    }
+    public void PlayerMissileUpdate()
+    {
+        CurrentBurstText.text = playerScript.GetBurstAmount().ToString("F0");
+    }
+    public void PlayerChainUpdate()
+    {
+        CurrentChainMaxText.text = playerScript.GetChainMax().ToString("F0");
+    }
+    public void PlayerAOEUpdate()
+    {
+       
+    }*/
 }

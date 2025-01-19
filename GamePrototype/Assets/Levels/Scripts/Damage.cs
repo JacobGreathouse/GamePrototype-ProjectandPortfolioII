@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-
+    
     enum damageType { moving, stationary}
     [SerializeField] damageType type;
     [SerializeField] Rigidbody rb;
@@ -52,6 +52,8 @@ public class Damage : MonoBehaviour
     private void Awake()
     {
         playerLvl = GameObject.FindWithTag("Player").GetComponent<PlayerController>().playerLvl;
+        maxHits = GameObject.FindWithTag("Player").GetComponent<PlayerController>().maxChain;
+        
     }
     //just type OnTriggerEnter to access what you need for
     //an effect to happen when you enter the trigger area
@@ -99,6 +101,7 @@ public class Damage : MonoBehaviour
             // audPlayer.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)], impactSoundVol);
             if (other.tag != "Player")
                 damageAmount = gamemanager.instance.player.GetComponent<PlayerController>().getDamage();
+                damageAmount = damageamountOG + damageAmount;
 
             dmg.takeDamage(damageAmount);
             if (hitEffect != null)
@@ -272,5 +275,13 @@ public class Damage : MonoBehaviour
         {
             Debug.Log("No enemies in range for homing.");
         }
+    }
+    public int GetChainMax()
+    {
+        return maxHits;
+    }
+    public float GetAOERadius()
+    {
+        return AOETriggerRadius;
     }
 }
