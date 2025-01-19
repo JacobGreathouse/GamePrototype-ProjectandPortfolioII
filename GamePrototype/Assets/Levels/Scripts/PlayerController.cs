@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     // int playerXP;
     // int playerLvl;
+    int HealthPotionCount;
     int coinCount;
     int jumpCount;
     int HPOrig;
@@ -469,5 +470,10 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     public int getCoinCount()
     {
         return coinCount;
+    }
+
+    public void setHealthPotion(int amount)
+    {
+        HealthPotionCount += amount;
     }
 }
