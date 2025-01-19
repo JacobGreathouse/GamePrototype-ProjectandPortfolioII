@@ -59,7 +59,7 @@ public class gamemanager : MonoBehaviour
         timeScaleOrig = Time.timeScale;
         player = GameObject.FindWithTag("Player");
         boss = GameObject.FindWithTag("Boss");
-
+        playerScript = player.GetComponent<PlayerController>();
         audPlayer.PlayOneShot(audAmbient[Random.Range(0, audAmbient.Length)], audAmbientVol);
     }
 
@@ -191,5 +191,9 @@ public class gamemanager : MonoBehaviour
     {
         audOrb.PlayOneShot(audPickup[Random.Range(0, audPickup.Length)], audPickupVol);
     }
-
+    
+    public void PlayerHPUpdate()
+    {
+        CurrentHPText.text = playerScript.GetPlayerHP().ToString("F0");
+    }
 }

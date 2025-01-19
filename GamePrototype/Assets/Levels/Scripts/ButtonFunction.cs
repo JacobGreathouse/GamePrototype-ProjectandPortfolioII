@@ -50,4 +50,6 @@ public class ButtonFunction : MonoBehaviour
         gamemanager.instance.optionsClose();
     }
 
+
+
 }

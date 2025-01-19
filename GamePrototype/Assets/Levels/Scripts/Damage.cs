@@ -36,10 +36,12 @@ public class Damage : MonoBehaviour
     [Header("----- Bunny -----")]
     [SerializeField] GameObject bunnyModel;
 
+    int damageamountOG;
 
     // Start is called before the first frame update
      void Start()
      {
+        damageamountOG = damageAmount;
         if(type == damageType.moving)
         {
              rb.velocity = transform.forward * speed;
@@ -89,16 +91,14 @@ public class Damage : MonoBehaviour
             return;
         }
 
-        if(other.tag == "Player")
-            damageAmount = gamemanager.instance.player.GetComponent<PlayerController>().getDamage();
-
-        IDamage dmg = other.GetComponent<IDamage>();
-         
+        IDamage dmg = other.GetComponent<IDamage>(); 
 
 
         if (dmg != null)
         {
             // audPlayer.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)], impactSoundVol);
+            if (other.tag != "Player")
+                damageAmount = gamemanager.instance.player.GetComponent<PlayerController>().getDamage();
 
             dmg.takeDamage(damageAmount);
             if (hitEffect != null)

@@ -103,7 +103,6 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         currentMana = maxMana;
         updatePlayerUI(); // Ethan: added this line
         StartCoroutine(manaRegeneration()); // Ethan: added this line
-        statMenuUpdate();
 
         // Initialize XP UI to start at 0
         if (gamemanager.instance.playerXPBar != null) // Ethan: added this line
@@ -130,6 +129,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         movement();
         sprint();
         selectStaff();
+
     }
 
     void movement()
@@ -291,6 +291,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     public void takeDamage(int amount)
     {
+        
         HP = HP - (amount + (int)((float)playerLvl * 1.5f));
         updatePlayerUI();
         StartCoroutine(flashScreenDamage());
@@ -337,18 +338,19 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         gamemanager.instance.playerManaBar.fillAmount = (float)currentMana / maxMana; // Ethan: added this line
         gamemanager.instance.playerXPBar.fillAmount = (float)playerXP / lvlUpCost;
         gamemanager.instance.PlayerLevelUpdate();
+        statMenuUpdate();
     }
     public void statMenuUpdate()
     {
-        gamemanager.instance.CurrentHPText.text = $"{currentHP}";
+        gamemanager.instance.PlayerHPUpdate();
     }
     private void updatePlayerLevel()
     {
         playerLvl += 1;
-        playerXP = 0;
+        playerXP -= lvlUpCost;
         lvlUpCost += 5;
      //add something to make sure this all pushes right
-
+        
 
 
         SkillPoints += 5;
@@ -372,6 +374,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         {
             updatePlayerLevel();
             audPlayer.PlayOneShot(levelSound[Random.Range(0, levelSound.Length)], levelSoundVol);
+            
         }
         updatePlayerUI();
     }
@@ -481,5 +484,10 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     public int getDamage()
     {
         return shootDamage;
+    }
+
+    public int GetPlayerHP()
+    {
+        return HPOrig;
     }
 }
