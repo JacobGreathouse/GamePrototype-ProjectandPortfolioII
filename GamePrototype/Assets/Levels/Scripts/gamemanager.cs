@@ -49,7 +49,6 @@ public class gamemanager : MonoBehaviour
     float timeScaleOrig;
     int orbCount;
 
-
     // Start is called before the first frame update
     void Awake()
     {

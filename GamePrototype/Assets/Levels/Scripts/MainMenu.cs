@@ -1,23 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    string level1 = "Level1-Tutorial";
-
+    [SerializeField] GameObject loadingScreen;
     [SerializeField] Image loadingCircle;
 
     public void NewSave()
     {
+        loadingScreen.SetActive(true);
         StartCoroutine(LoadAsyncScene());
     }
 
     IEnumerator LoadAsyncScene()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(level1);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
 
         while (!asyncLoad.isDone)
         {
@@ -25,7 +25,6 @@ public class MainMenu : MonoBehaviour
             loadingCircle.fillAmount = progressValue;
             yield return null;
         }
-            
     }
 
     public void ContinueSave()

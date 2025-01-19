@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Portal : MonoBehaviour
 {
@@ -28,10 +29,11 @@ public class Portal : MonoBehaviour
     [Header("~~~ Scene Transition ~~~")]
     [SerializeField] [Range(0, 1000)] int _sceneIndex;
     [SerializeField] float _SceneTransitionDelay;
+    [SerializeField] GameObject loadingScreen;
+    [SerializeField] Image loadingCircle;
 
     // pubic properties ---------------------------------------------------------
-    public GameObject exitNode => _exitNode; 
-
+    public GameObject exitNode => _exitNode;
 
     // Start is called before the first frame update
     void Start()
@@ -55,15 +57,28 @@ public class Portal : MonoBehaviour
         }
         else
         {
-            StartCoroutine(TransitionDelay());
+            loadingScreen.SetActive(true);
+            StartCoroutine(LoadAsyncScene());
+            //StartCoroutine(TransitionDelay());
         }
     }
 
-    IEnumerator TransitionDelay()
+    IEnumerator LoadAsyncScene()
     {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
 
-        yield return new WaitForSeconds(_SceneTransitionDelay);
-        SceneManager.LoadScene(0);
+        while (!asyncLoad.isDone)
+        {
+            float progressValue = Mathf.Clamp01(asyncLoad.progress);
+            loadingCircle.fillAmount = progressValue;
+            yield return null;
+        }
     }
+    //IEnumerator TransitionDelay()
+    //{
+
+    //    yield return new WaitForSeconds(_SceneTransitionDelay);
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    //}
 
 }
