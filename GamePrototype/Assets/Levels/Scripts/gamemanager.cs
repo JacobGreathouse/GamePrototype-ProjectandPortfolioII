@@ -13,6 +13,7 @@ public class gamemanager : MonoBehaviour
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin, menuLose;
     [SerializeField] GameObject menuOptions;
+    [SerializeField] GameObject menuStats;
     [SerializeField] GameObject allOrbsCol;
     public GameObject allOrbsNotCol;
     [SerializeField] TMP_Text goalCountText;
@@ -80,6 +81,19 @@ public class gamemanager : MonoBehaviour
             else if (menuActive == menuOptions)
             {
                 optionsClose();
+            }
+        }
+        if (Input.GetButtonDown("Stats"))
+        {
+            if (menuActive == null)
+            {
+                statePause();
+                menuActive = menuStats;
+                menuActive.SetActive(true);
+            }
+            else if (menuActive == menuStats)
+            {
+                stateUnpause();
             }
         }
         if (!audPlayer.isPlaying)
