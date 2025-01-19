@@ -49,6 +49,9 @@ public class gamemanager : MonoBehaviour
     float timeScaleOrig;
     int orbCount;
 
+    MapManager _mapManager = new MapManager();
+    public MapManager mapManager => _mapManager;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -56,8 +59,11 @@ public class gamemanager : MonoBehaviour
         instance = this;
         timeScaleOrig = Time.timeScale;
         player = GameObject.FindWithTag("Player");
+        playerScript = player.GetComponent<PlayerController>();
         boss = GameObject.FindWithTag("Boss");
         audPlayer.PlayOneShot(audAmbient[Random.Range(0, audAmbient.Length)], audAmbientVol);
+
+        _mapManager.LoadMap(2);
     }
 
     // Update is called once per frame

@@ -63,7 +63,8 @@ public class Portal : MonoBehaviour
     {
 
         yield return new WaitForSeconds(_SceneTransitionDelay);
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
+        gamemanager.instance.mapManager.LoadMap(_sceneIndex);
     }
 
 }

@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Leve1-Tutorial.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Levels/Root.unity
+    guid: d794c62d27cea0e4ea9325a1118eccac
+  - enabled: 1
+    path: Assets/Levels/GabeTest1.unity
+    guid: bff1d882bd478c9449f94b51e04d41a4
+  - enabled: 1
+    path: Assets/Levels/GabeTest2.unity
+    guid: 7e4a9333435564a48a06b75f04c45907
   m_configObjects: {}
