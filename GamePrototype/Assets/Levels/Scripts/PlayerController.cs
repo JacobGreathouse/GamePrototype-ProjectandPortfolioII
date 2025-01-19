@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     // int playerXP;
     // int playerLvl;
     int HealthPotionCount;
+    int SkillPoints;
     int coinCount;
     int jumpCount;
     int HPOrig;
@@ -102,6 +103,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         currentMana = maxMana;
         updatePlayerUI(); // Ethan: added this line
         StartCoroutine(manaRegeneration()); // Ethan: added this line
+        statMenuUpdate();
 
         // Initialize XP UI to start at 0
         if (gamemanager.instance.playerXPBar != null) // Ethan: added this line
@@ -336,26 +338,25 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         gamemanager.instance.playerXPBar.fillAmount = (float)playerXP / lvlUpCost;
         gamemanager.instance.PlayerLevelUpdate();
     }
-
+    public void statMenuUpdate()
+    {
+        gamemanager.instance.CurrentHPText.text = $"{currentHP}";
+    }
     private void updatePlayerLevel()
     {
-
-
-
         playerLvl += 1;
         playerXP = 0;
         lvlUpCost += 5;
+     //add something to make sure this all pushes right
 
-        HPMax += 10 * playerLvl;
-        // shootDamage += 1;
-        maxMana += 15;
+
+
+        SkillPoints += 5;
+
         manaRegenRate += .2f;
 
 
-        HP = HPMax;
-        currentMana = maxMana;
-
-
+        SetHPMPFull();
         updatePlayerUI();
     }
 
