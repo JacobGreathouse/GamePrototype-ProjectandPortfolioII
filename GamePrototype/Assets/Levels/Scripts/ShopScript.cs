@@ -17,7 +17,7 @@ public class ShopScript : MonoBehaviour
     {
         if(playerInTrigger)
         {
-            if(Input.GetButtonDown("Interact"))
+            if(Input.GetButtonDown("Interact") && gamemanager.instance.player.GetComponent<PlayerController>().getCoinCount() >= 10)
             {
                 BuyHealthPotion();
             }
@@ -36,5 +36,6 @@ public class ShopScript : MonoBehaviour
     void BuyHealthPotion()
     {
         gamemanager.instance.player.GetComponent<PlayerController>().setHealthPotion(1);
+        gamemanager.instance.player.GetComponent<PlayerController>().setCoinCount(-10);
     }
 }
