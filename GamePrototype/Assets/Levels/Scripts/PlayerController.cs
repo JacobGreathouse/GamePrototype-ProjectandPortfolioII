@@ -62,9 +62,9 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField][Range(0, 1)] float levelSoundVol;
 
     [Header("----- Dodge Stats -----")]
-    [SerializeField][Range(0,10)] float dodgeDistance = 10f;
-    [SerializeField][Range(0, 1)] float dodgeDuration = .05f;
-    [SerializeField][Range(0, 5)] float dodgeCooldown = .5f;
+    [SerializeField][Range(0,10)] float dodgeDistance;
+    [SerializeField][Range(0, 1)] float dodgeDuration;
+    [SerializeField][Range(0, 5)] float dodgeCooldown;
 
     private bool isDodging = false;
     private bool isDodgeCooldown = false;
