@@ -196,7 +196,7 @@ public class BossAI : MonoBehaviour, IDamage
 
         yield return new WaitForSeconds(magicMissleTimer);
 
-        Quaternion rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y - 1, playerDir.z + i));
+        Quaternion rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y - 1, playerDir.z));
         shootPos.rotation = rotat;
         Instantiate(magicMissle, shootPos.position, shootPos.rotation);
 
