@@ -43,6 +43,7 @@ public class gamemanager : MonoBehaviour
     [SerializeField] AudioClip[] audPickup;
     [SerializeField][Range(0, 1)] float audPickupVol;
 
+    
 
     public bool isPaused = false;
 
@@ -56,6 +57,7 @@ public class gamemanager : MonoBehaviour
         timeScaleOrig = Time.timeScale;
         player = GameObject.FindWithTag("Player");
         boss = GameObject.FindWithTag("Boss");
+
         audPlayer.PlayOneShot(audAmbient[Random.Range(0, audAmbient.Length)], audAmbientVol);
     }
 

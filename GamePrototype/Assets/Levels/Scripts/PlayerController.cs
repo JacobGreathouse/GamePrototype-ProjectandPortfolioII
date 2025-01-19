@@ -289,7 +289,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     public void takeDamage(int amount)
     {
-        HP -= amount;
+        HP = HP - (amount + (int)((float)playerLvl * 1.5f));
         updatePlayerUI();
         StartCoroutine(flashScreenDamage());
         audPlayer.PlayOneShot(audDamage[Random.Range(0, audDamage.Length)], audDamageVol);
@@ -475,5 +475,10 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     public void setHealthPotion(int amount)
     {
         HealthPotionCount += amount;
+    }
+
+    public int getDamage()
+    {
+        return shootDamage;
     }
 }

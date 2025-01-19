@@ -88,7 +88,10 @@ public class Damage : MonoBehaviour
             // Do not deal damage if it's a BunnyBomb
             return;
         }
-        damageAmount = damageAmount + (playerLvl * 2);
+
+        if(other.tag == "Player")
+            damageAmount = gamemanager.instance.player.GetComponent<PlayerController>().getDamage();
+
         IDamage dmg = other.GetComponent<IDamage>();
          
 
@@ -197,7 +200,7 @@ public class Damage : MonoBehaviour
      
                     // Ensure the raycast hits the intended target
 
-                        dmg.takeDamage(damageAmount);
+                        dmg.takeDamage(damageAmount -= 2);
 
                 
             }
