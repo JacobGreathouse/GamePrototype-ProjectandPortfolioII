@@ -38,14 +38,14 @@ public class Damage : MonoBehaviour
 
 
     // Start is called before the first frame update
-    /* void Start()
+     void Start()
      {
         if(type == damageType.moving)
         {
              rb.velocity = transform.forward * speed;
              Destroy(gameObject, destroyTime);
         }
-     }*/
+     }
 
     private void Awake()
     {
@@ -157,7 +157,7 @@ public class Damage : MonoBehaviour
                 Vector3 targetPosition = hitCollider.transform.position + Vector3.up * (hitCollider.GetComponent<Collider>().bounds.extents.y);
                 Vector3 direction = targetPosition - transform.position;
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, direction, out hit, direction.magnitude))
+                if (Physics.Raycast(transform.position, direction, out hit, triggerRadius))
                 {
                     if(hit.collider != hit.collider)
                     {

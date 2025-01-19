@@ -106,7 +106,7 @@ public class BossAI : MonoBehaviour, IDamage
                     }
                     if(!magicMissleShot)
                     {
-
+                        StartCoroutine(magicMissleShoot());
                     }
                 }
                 else
