@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void NewSave()
     {
-        //SceneManager.LoadScene()
+        SceneManager.LoadScene("Level1-Tutorial");
     }
 
     public void ContinueSave()
