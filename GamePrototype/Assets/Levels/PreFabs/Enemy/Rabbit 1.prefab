@@ -471,7 +471,7 @@ MonoBehaviour:
   audEnemy: {fileID: 0}
   audHurt: []
   audHurtVol: 0
-  coinDrop: {fileID: 0}
+  coinDrop: {fileID: 918173385136613785, guid: cba62f57dc35f1b4a9df2c36916460bc, type: 3}
 --- !u!95 &8124562087950867049
 Animator:
   serializedVersion: 5

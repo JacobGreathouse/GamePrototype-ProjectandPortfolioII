@@ -18,6 +18,7 @@ public class gamemanager : MonoBehaviour
     public GameObject allOrbsNotCol;
     [SerializeField] TMP_Text goalCountText;
     [SerializeField] TMP_Text PlayerLevel;
+    public TMP_Text CurrentHPText;
     public TMP_Text playerXPText;
     public TMP_Text playerLevelText;
     public Image playerHPBar;
@@ -190,4 +191,5 @@ public class gamemanager : MonoBehaviour
     {
         audOrb.PlayOneShot(audPickup[Random.Range(0, audPickup.Length)], audPickupVol);
     }
+
 }

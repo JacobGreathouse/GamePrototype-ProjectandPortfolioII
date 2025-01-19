@@ -126,13 +126,13 @@ GameObject:
   - component: {fileID: 1342487666938683201}
   - component: {fileID: 2590891500439349652}
   - component: {fileID: 3906722279499478438}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Minimap Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7460914785457427294
 Transform:
   m_ObjectHideFlags: 0
@@ -331,7 +331,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1.2375
+  MinDistance: 1.3988056
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

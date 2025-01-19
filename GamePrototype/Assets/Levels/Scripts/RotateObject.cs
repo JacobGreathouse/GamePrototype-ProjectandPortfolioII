@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class RotateObject : MonoBehaviour
 {
-    [SerializeField] int speed; 
+    [SerializeField] int speed;
+    [SerializeField] bool isX;
+    [SerializeField] bool isY;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +17,13 @@ public class RotateObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.up, Time.deltaTime * speed);
+        if (isY)
+        {
+            transform.Rotate(Vector3.up, Time.deltaTime * speed);
+        }
+        else if (isX)
+        {
+            transform.Rotate(Vector3.forward, Time.deltaTime * speed);
+        }
     }
 }
