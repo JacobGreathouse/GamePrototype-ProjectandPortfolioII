@@ -1845,6 +1845,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lava Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 767214408982076158, guid: f87cfbaa033b8a14d917da43e6fc9fb0, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f87cfbaa033b8a14d917da43e6fc9fb0, type: 3}
 --- !u!1001 &590832909
