@@ -197,9 +197,8 @@ public class gamemanager : MonoBehaviour
     public void pickup()
     {
         audOrb.PlayOneShot(audPickup[Random.Range(0, audPickup.Length)], audPickupVol);
-    }
-    
-    /*public void PlayerHPUpdate()
+    }  
+    public void PlayerHPUpdate()
     {
         CurrentHPText.text = playerScript.GetPlayerHP().ToString("F0");
     }
@@ -221,6 +220,6 @@ public class gamemanager : MonoBehaviour
     }
     public void PlayerAOEUpdate()
     {
-       
-    }*/
+        CurrentAOERadiusText.text = playerScript.GetAOERadius().ToString("F0");
+    }
 }

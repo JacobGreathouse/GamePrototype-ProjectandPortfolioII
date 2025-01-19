@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField] int spellcost;
     [SerializeField] bool isBolt;
     public int maxChain = 3;
+    public int aoeRange = 7;
     [SerializeField] float AOETriggerRadius;
     [SerializeField] bool isFire;
     [SerializeField] bool isMissile;
@@ -344,12 +345,12 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     }
     public void statMenuUpdate()
     {
-        /*gamemanager.instance.PlayerHPUpdate();
+        gamemanager.instance.PlayerHPUpdate();
         gamemanager.instance.PlayerMPUpdate();
         gamemanager.instance.PlayerATKUpdate();
         gamemanager.instance.PlayerMissileUpdate();
         gamemanager.instance.PlayerChainUpdate();
-        gamemanager.instance.PlayerAOEUpdate();*/
+        gamemanager.instance.PlayerAOEUpdate();
 
     }
     private void updatePlayerLevel()
@@ -493,22 +494,60 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     {
         return shootDamage;
     }
-
+    public void SetDamange(int amount)
+    {
+        shootDamage += amount;
+    }
     public int GetPlayerHP()
     {
         return HPMax;
+    }
+    public void SetPlayerHP(int amount)
+    {
+        HPMax += amount;
+        HP += amount;
     }
     public float GetPlayerMP()
     {
         return maxMana;
     }
+    public void SetPlayerMP(int amount)
+    {
+        maxMana += amount;
+        currentMana += amount;
+    }
     public int GetBurstAmount()
     {
         return burstCount;
     }
+    public void SetBurstAmount(int amount)
+    {
+        burstCount += amount;
+    }
     public int GetChainMax()
     {
         return maxChain;
+    }
+    public void SetChainMax(int amount)
+    {
+        if (maxChain >= 6)
+        maxChain += amount;
+    }
+    public float GetAOERadius()
+    {
+        return aoeRange;
+    }
+    public void SetAOERadius(int amount)
+    { 
+            aoeRange += amount;
+    }
+    public int GetSkillPoints()
+    {
+        return SkillPoints;
+    }
+    public void SetSkillPoints(int amount)
+    {
+        SkillPoints += amount;
     }
 
 }

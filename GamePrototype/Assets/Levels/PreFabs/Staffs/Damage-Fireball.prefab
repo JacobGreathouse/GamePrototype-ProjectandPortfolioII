@@ -61,7 +61,7 @@ MonoBehaviour:
   turnRate: 0
   maxTurnAngle: 15
   triggerRadius: 0
-  AOETriggerRadius: 7
+  AOETriggerRadius: 1
   hitEffect: {fileID: 4596544553357837919, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
   audPlayer: {fileID: 0}
   impactSound: []

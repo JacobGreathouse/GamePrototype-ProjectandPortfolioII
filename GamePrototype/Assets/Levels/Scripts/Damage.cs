@@ -53,6 +53,7 @@ public class Damage : MonoBehaviour
     {
         playerLvl = GameObject.FindWithTag("Player").GetComponent<PlayerController>().playerLvl;
         maxHits = GameObject.FindWithTag("Player").GetComponent<PlayerController>().maxChain;
+        AOETriggerRadius = GameObject.FindWithTag("Player").GetComponent<PlayerController>().aoeRange;
         
     }
     //just type OnTriggerEnter to access what you need for
@@ -100,8 +101,7 @@ public class Damage : MonoBehaviour
         {
             // audPlayer.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)], impactSoundVol);
             if (other.tag != "Player")
-                damageAmount = gamemanager.instance.player.GetComponent<PlayerController>().getDamage();
-                damageAmount = damageamountOG + damageAmount;
+                damageAmount = damageamountOG + gamemanager.instance.player.GetComponent<PlayerController>().getDamage();
 
             dmg.takeDamage(damageAmount);
             if (hitEffect != null)
@@ -126,6 +126,10 @@ public class Damage : MonoBehaviour
                     if (damageAmount > 0)
                     {
                         Chain(other);
+                    }
+                    else
+                    {
+                        damageAmount = damageamountOG;
                     }
 
                 }
@@ -276,12 +280,5 @@ public class Damage : MonoBehaviour
             Debug.Log("No enemies in range for homing.");
         }
     }
-    public int GetChainMax()
-    {
-        return maxHits;
-    }
-    public float GetAOERadius()
-    {
-        return AOETriggerRadius;
-    }
+
 }

@@ -51,8 +51,65 @@ public class ButtonFunction : MonoBehaviour
     }
     public void HPplus()
     {
-
+        if (CheckSkillPoints())
+        {
+            gamemanager.instance.player.GetComponent<PlayerController>().SetPlayerHP(5);
+            gamemanager.instance.player.GetComponent<PlayerController>().SetSkillPoints(-1);
+            gamemanager.instance.player.GetComponent<PlayerController>().updatePlayerUI();
+        }
     }
-
+    public void MPplus()
+    {
+        if (CheckSkillPoints())
+        {
+            gamemanager.instance.player.GetComponent<PlayerController>().SetPlayerMP(15);
+            gamemanager.instance.player.GetComponent<PlayerController>().SetSkillPoints(-1);
+            gamemanager.instance.player.GetComponent<PlayerController>().updatePlayerUI();
+        }
+    }
+    public void ATKplus()
+    {
+        if (CheckSkillPoints())
+        {
+            gamemanager.instance.player.GetComponent<PlayerController>().SetDamange(1);
+            gamemanager.instance.player.GetComponent<PlayerController>().SetSkillPoints(-1);
+            gamemanager.instance.player.GetComponent<PlayerController>().updatePlayerUI();
+        }
+    }
+    public void Chainplus()
+    {
+        if (CheckSkillPoints() && gamemanager.instance.player.GetComponent<PlayerController>().GetChainMax() >= 6)
+        {
+            gamemanager.instance.player.GetComponent<PlayerController>().SetChainMax(1);
+            gamemanager.instance.player.GetComponent<PlayerController>().SetSkillPoints(-1);
+            gamemanager.instance.player.GetComponent<PlayerController>().updatePlayerUI();
+        }
+    }
+    public void AOEplus()
+    {
+        if (CheckSkillPoints()&& gamemanager.instance.player.GetComponent<PlayerController>().GetAOERadius() >= 10)
+        {
+            gamemanager.instance.player.GetComponent<PlayerController>().SetAOERadius(1);
+            gamemanager.instance.player.GetComponent<PlayerController>().SetSkillPoints(-1);
+            gamemanager.instance.player.GetComponent<PlayerController>().updatePlayerUI();
+        }
+    }
+    public void Missileplus()
+    {
+        if (CheckSkillPoints() && gamemanager.instance.player.GetComponent<PlayerController>().GetBurstAmount() >= 6)
+        {
+            gamemanager.instance.player.GetComponent<PlayerController>().SetBurstAmount(1);
+            gamemanager.instance.player.GetComponent<PlayerController>().SetSkillPoints(-1);
+            gamemanager.instance.player.GetComponent<PlayerController>().updatePlayerUI();
+        }
+    }
+    public bool CheckSkillPoints()
+    {
+        if (gamemanager.instance.player.GetComponent<PlayerController>().GetSkillPoints() > 0)
+        {
+            return true;
+        }
+        return false;
+    }
 
 }
