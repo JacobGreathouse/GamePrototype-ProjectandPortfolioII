@@ -347,7 +347,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         playerLvl += 1;
         playerXP = 0;
         lvlUpCost += 5;
-     
+     //add something to make sure this all pushes right
+
 
 
         SkillPoints += 5;
