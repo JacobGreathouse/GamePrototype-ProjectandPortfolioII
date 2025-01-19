@@ -40,10 +40,14 @@ public class BossAI : MonoBehaviour, IDamage
     [SerializeField] AudioClip[] audTakeDamage;
     [SerializeField][Range(0, 1)] float audTakeDamVol;
 
-    
-    
-    
+    [Header("----- Lvl3 -----")]
+    [SerializeField] bool isFinalBoss;
+    [SerializeField] int magicMissleTimer;
+    [SerializeField] GameObject magicMissle;
 
+
+
+    bool magicMissleShot;
     bool playerInRange;
     bool isShooting;
     int HPOrig;
@@ -98,8 +102,11 @@ public class BossAI : MonoBehaviour, IDamage
                     faceTarget();
                     if (!isShooting && gamemanager.instance.isPaused == false)
                     {
-                        
                         co = StartCoroutine(shoot());
+                    }
+                    if(!magicMissleShot)
+                    {
+
                     }
                 }
                 else
@@ -181,6 +188,19 @@ public class BossAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(shootRate);
 
         isShooting = false;
+    }
+
+    IEnumerator magicMissleShoot()
+    {
+        magicMissleShot = true;
+
+        yield return new WaitForSeconds(magicMissleTimer);
+
+        Quaternion rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y - 1, playerDir.z));
+        shootPos.rotation = rotat;
+        Instantiate(magicMissle, shootPos.position, shootPos.rotation);
+
+        magicMissleShot = false;
     }
     void updateUI()
     {
