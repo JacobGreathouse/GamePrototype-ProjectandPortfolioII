@@ -50,7 +50,10 @@ public class gamemanager : MonoBehaviour
     [SerializeField] AudioClip[] audPickup;
     [SerializeField][Range(0, 1)] float audPickupVol;
 
-
+    [Header("----- Coin Pickup Sounds -----")]
+    [SerializeField] AudioSource audCoin;
+    [SerializeField] AudioClip[] audPickupCoin;
+    [SerializeField][Range(0, 1)] float audPickupCoinVol;
 
 
     public bool isPaused = false;
@@ -198,6 +201,11 @@ public class gamemanager : MonoBehaviour
     {
         audOrb.PlayOneShot(audPickup[Random.Range(0, audPickup.Length)], audPickupVol);
     }  
+
+    public void pickupCoin()
+    {
+        audCoin.PlayOneShot(audPickupCoin[Random.Range(0, audPickupCoin.Length)], audPickupCoinVol);
+    }
     public void PlayerHPUpdate()
     {
         CurrentHPText.text = playerScript.GetPlayerHP().ToString("F0");

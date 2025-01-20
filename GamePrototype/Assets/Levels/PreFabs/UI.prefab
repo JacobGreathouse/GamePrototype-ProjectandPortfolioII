@@ -9859,6 +9859,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a58d90e42393f4f1aac75f30e08dc6c4, type: 3}
   - {fileID: 8300000, guid: a58d90e42393f4f1aac75f30e08dc6c4, type: 3}
   audPickupVol: 0.5
+  audCoin: {fileID: 8796816334908662825}
+  audPickupCoin: []
+  audPickupCoinVol: 0.5
   isPaused: 0
 --- !u!1 &1058368114744387288
 GameObject:
