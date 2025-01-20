@@ -55,6 +55,7 @@ MonoBehaviour:
   maxHits: 3
   isAOE: 0
   isMissile: 0
+  isBolt: 1
   isBunny: 0
   turnRate: 0
   maxTurnAngle: 15

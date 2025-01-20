@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: Staff Bolt
   m_EditorClassIdentifier: 
   model: {fileID: 1853494166779514, guid: 713f90f70ef14794bbdcabcb038f4ae7, type: 3}
-  shootDamage: 5
-  shootDistance: 50
   shootRate: 1
   lightning: {fileID: 4552776121088956284, guid: ade57a93dade7274d88942381c4f3e94, type: 3}
   fireball: {fileID: 0}
+  Missile: {fileID: 0}
+  bunnyBomb: {fileID: 0}
   spellcost: 10
+  maxHits: 3
   isBolt: 1
   isFire: 0
+  isMissile: 0
+  isBunny: 0
   hitEffect: {fileID: 0}
   shootSound:
   - {fileID: 8300000, guid: f1cb5d83282f2904a85f73111d068616, type: 3}
