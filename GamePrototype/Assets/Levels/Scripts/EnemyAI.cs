@@ -37,6 +37,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField][Range(0, 1)] float audHurtVol;
 
     [SerializeField] GameObject coinDrop;
+    [SerializeField] bool canDropCoin;
 
     bool playerInRange;
     bool isShooting;
@@ -197,7 +198,10 @@ public class EnemyAI : MonoBehaviour, IDamage
             gamemanager.instance.playerScript.SetPlayerXP(xpOnKill);
             Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 80, playerDir.z));
             Vector3 pos = new Vector3(transform.position.x, 1.5f, transform.position.z);
-            Instantiate(coinDrop, pos, rot);
+
+            if(canDropCoin)
+                Instantiate(coinDrop, pos, rot);
+
             Destroy(gameObject);
         }
     }

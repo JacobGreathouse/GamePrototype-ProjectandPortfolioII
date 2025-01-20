@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
@@ -34,6 +35,7 @@ public class BossAI : MonoBehaviour, IDamage
     [SerializeField] GameObject[] spellObject;
     [SerializeField] float shootRatemin;
     [SerializeField] float shootRatemax;
+    [SerializeField] bool canshootmagicmissle;
 
     [Header("----- Audio -----")]
     [SerializeField] AudioSource audPlayer;
@@ -46,7 +48,7 @@ public class BossAI : MonoBehaviour, IDamage
     [SerializeField] GameObject magicMissle;
 
 
-
+    
     bool magicMissleShot;
     bool playerInRange;
     bool isShooting;
@@ -104,7 +106,7 @@ public class BossAI : MonoBehaviour, IDamage
                     {
                         co = StartCoroutine(shoot());
                     }
-                    if(!magicMissleShot)
+                    if(!magicMissleShot && canshootmagicmissle)
                     {
                         StartCoroutine(magicMissleShoot());
                     }

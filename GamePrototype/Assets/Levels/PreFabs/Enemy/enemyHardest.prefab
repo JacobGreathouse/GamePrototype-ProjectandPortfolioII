@@ -462,7 +462,7 @@ MonoBehaviour:
   meleeHitDistance: 0
   ignoreMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   xpOnKill: 20
   audEnemy: {fileID: -391134781204911127}
   audHurt:
@@ -474,6 +474,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: eecf181bcb2006a4ebf9caa8210ed0f6, type: 3}
   audHurtVol: 0.5
   coinDrop: {fileID: 918173385136613785, guid: cba62f57dc35f1b4a9df2c36916460bc, type: 3}
+  canDropCoin: 1
 --- !u!195 &5151526142830012520
 NavMeshAgent:
   m_ObjectHideFlags: 0

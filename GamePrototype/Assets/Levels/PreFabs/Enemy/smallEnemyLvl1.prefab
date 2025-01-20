@@ -1088,10 +1088,10 @@ MonoBehaviour:
   roamDist: 6
   animSpeedTrans: 8
   bullet: {fileID: 0}
-  shootRate: 1
+  shootRate: 0.5
   isMelee: 1
   meleeDamage: 2
-  meleeHitDistance: 1.5
+  meleeHitDistance: 0.4
   ignoreMask:
     serializedVersion: 2
     m_Bits: 128
@@ -1106,6 +1106,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: eecf181bcb2006a4ebf9caa8210ed0f6, type: 3}
   audHurtVol: 0.5
   coinDrop: {fileID: 918173385136613785, guid: cba62f57dc35f1b4a9df2c36916460bc, type: 3}
+  canDropCoin: 1
 --- !u!195 &7057073014232117833
 NavMeshAgent:
   m_ObjectHideFlags: 0
