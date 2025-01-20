@@ -13,14 +13,18 @@ MonoBehaviour:
   m_Name: Staff Fire
   m_EditorClassIdentifier: 
   model: {fileID: 1750509054736364, guid: e55280988a6fa1843a32025141146c2a, type: 3}
-  shootDamage: 10
-  shootDistance: 50
   shootRate: 1.5
   lightning: {fileID: 0}
   fireball: {fileID: 2521476272068865361, guid: 6913212cc25792c4c88bfa8c7d891cde, type: 3}
+  Missile: {fileID: 0}
+  bunnyBomb: {fileID: 0}
   spellcost: 20
+  maxHits: 0
+  AOERange: 7
   isBolt: 0
   isFire: 1
+  isMissile: 0
+  isBunny: 0
   hitEffect: {fileID: 0}
   shootSound:
   - {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}

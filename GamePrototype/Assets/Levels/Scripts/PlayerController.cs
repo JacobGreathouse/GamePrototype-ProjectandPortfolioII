@@ -38,8 +38,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField] GameObject bunnyBomb;
     [SerializeField] int spellcost;
     [SerializeField] bool isBolt;
-    public int maxChain = 3;
-    public int aoeRange = 7;
+    public int maxChain;
+    public int aoeRange;
     [SerializeField] float AOETriggerRadius;
     [SerializeField] bool isFire;
     [SerializeField] bool isMissile;
@@ -409,6 +409,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         //shootDistance = staff.shootDistance;
         shootRate = staff.shootRate;
         spellcost = staff.spellcost;
+        maxChain = staff.maxHits;
+        AOETriggerRadius = staff.AOERange;
         isBolt = staff.isBolt;
         isFire = staff.isFire;
         isBunny = staff.isBunny;
@@ -440,6 +442,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         spellcost = staffList[staffListPos].spellcost;
         isBolt = staffList[staffListPos].isBolt;
         isFire = staffList[staffListPos].isFire;
+        AOETriggerRadius = staffList[staffListPos].AOERange;
+        maxChain = staffList[staffListPos].maxHits;
         isMissile = staffList[staffListPos].isMissile;
         isBunny = staffList[staffListPos].isBunny;
         AudioClip[] shootSound = staffList[staffListPos].shootSound;

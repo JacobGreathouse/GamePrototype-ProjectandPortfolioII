@@ -396,9 +396,18 @@ MonoBehaviour:
   shootPos: {fileID: 658233001}
   lightning: {fileID: 4552776121088956284, guid: ade57a93dade7274d88942381c4f3e94, type: 3}
   fireball: {fileID: 2521476272068865361, guid: 6913212cc25792c4c88bfa8c7d891cde, type: 3}
+  missile: {fileID: 4748813102613486742, guid: 2cacd4cc71a73c84f81d7151e9e7c0d3, type: 3}
+  bunnyBomb: {fileID: 0}
   spellcost: 0
   isBolt: 0
+  maxChain: 3
+  aoeRange: 7
+  AOETriggerRadius: 0
   isFire: 0
+  isMissile: 0
+  isBunny: 0
+  burstDelay: 0.2
+  burstCount: 3
   playerXP: 0
   playerLvl: 0
   audPlayer: {fileID: 335784893}
@@ -447,6 +456,9 @@ MonoBehaviour:
   shootSoundVol: 0.75
   levelSound: []
   levelSoundVol: 1
+  dodgeDistance: 7
+  dodgeDuration: 0.2
+  dodgeCooldown: 0.5
 --- !u!143 &6761757263595609191
 CharacterController:
   m_ObjectHideFlags: 0

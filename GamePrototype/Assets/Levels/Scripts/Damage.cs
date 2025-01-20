@@ -20,6 +20,7 @@ public class Damage : MonoBehaviour
     [SerializeField] bool isAOE;
     [SerializeField] bool isMissile;
     [SerializeField] bool isBunny;
+    [SerializeField] bool isBolt;
     [SerializeField][Range(0,90)] float turnRate;
     [SerializeField][Range(0, 90)] float maxTurnAngle = 15f;
     [SerializeField][Range(1, 30)] float triggerRadius;
@@ -110,7 +111,7 @@ public class Damage : MonoBehaviour
             particleInstance.Play();
             Destroy(particleInstance.gameObject, particleInstance.main.duration);
             }
-            if (type == damageType.moving)
+            if (isBolt==true)
             {
                 currentHits++;
                 if (currentHits >= maxHits)

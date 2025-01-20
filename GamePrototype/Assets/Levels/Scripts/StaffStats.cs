@@ -15,6 +15,7 @@ public class StaffStats : ScriptableObject
     public GameObject bunnyBomb;
     public int spellcost;
     public int maxHits;
+    public float AOERange;
     public bool isBolt;
     public bool isFire;
     public bool isMissile;
