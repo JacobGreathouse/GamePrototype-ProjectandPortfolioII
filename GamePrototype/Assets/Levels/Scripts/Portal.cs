@@ -29,8 +29,6 @@ public class Portal : MonoBehaviour
     [Header("~~~ Scene Transition ~~~")]
     [SerializeField] [Range(0, 1000)] int _sceneIndex;
     [SerializeField] float _SceneTransitionDelay;
-    [SerializeField] GameObject loadingScreen;
-    [SerializeField] Image loadingCircle;
 
     // pubic properties ---------------------------------------------------------
     public GameObject exitNode => _exitNode;
@@ -57,28 +55,15 @@ public class Portal : MonoBehaviour
         }
         else
         {
-            loadingScreen.SetActive(true);
-            StartCoroutine(LoadAsyncScene());
-            //StartCoroutine(TransitionDelay());
+            StartCoroutine(DelayedSceneTransition(_sceneIndex));
         }
     }
 
-    IEnumerator LoadAsyncScene()
+    IEnumerator DelayedSceneTransition(int index)
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-
-        while (!asyncLoad.isDone)
-        {
-            float progressValue = Mathf.Clamp01(asyncLoad.progress);
-            loadingCircle.fillAmount = progressValue;
-            yield return null;
-        }
+        yield return new WaitForSeconds(_SceneTransitionDelay);
+        gamemanager.instance.LoadMap(index);
+        
     }
-    //IEnumerator TransitionDelay()
-    //{
-
-    //    yield return new WaitForSeconds(_SceneTransitionDelay);
-    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    //}
 
 }

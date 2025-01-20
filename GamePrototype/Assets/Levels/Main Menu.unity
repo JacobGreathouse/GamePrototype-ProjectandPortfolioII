@@ -1398,17 +1398,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970483087}
   m_CullTransparentMesh: 1
---- !u!114 &1035142324 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4271807106582421942, guid: c81e325c8f0427f46851abe94b7ca33b, type: 3}
-  m_PrefabInstance: {fileID: 4271807105987945730}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1038444182
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,16 +2477,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497212637}
   m_CullTransparentMesh: 1
---- !u!1 &1540759907 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4271807107217523809, guid: c81e325c8f0427f46851abe94b7ca33b, type: 3}
-  m_PrefabInstance: {fileID: 4271807105987945730}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1540759908 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4271807107217523814, guid: c81e325c8f0427f46851abe94b7ca33b, type: 3}
-  m_PrefabInstance: {fileID: 4271807105987945730}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1561023635
 GameObject:
   m_ObjectHideFlags: 0
@@ -3372,6 +3351,11 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &1735280934 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1984266043541438727, guid: c81e325c8f0427f46851abe94b7ca33b, type: 3}
+  m_PrefabInstance: {fileID: 4271807105987945730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1750931831
 GameObject:
   m_ObjectHideFlags: 0
@@ -4051,7 +4035,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1540759907}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -4430,7 +4414,7 @@ RectTransform:
   - {fileID: 145331293}
   - {fileID: 1138604273}
   - {fileID: 927699820}
-  - {fileID: 1540759908}
+  - {fileID: 1735280934}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4451,8 +4435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0c1a5cdd2e04a489b0693da02b9882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingScreen: {fileID: 1540759907}
-  loadingCircle: {fileID: 1035142324}
+  loadingScreen: {fileID: 0}
+  loadingCircle: {fileID: 0}
 --- !u!1001 &4271807105987945730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4460,6 +4444,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2133333137}
     m_Modifications:
+    - target: {fileID: 1413899358450397329, guid: c81e325c8f0427f46851abe94b7ca33b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4271807107217523809, guid: c81e325c8f0427f46851abe94b7ca33b, type: 3}
       propertyPath: m_Name
       value: Loading Screen

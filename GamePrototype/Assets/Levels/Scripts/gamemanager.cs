@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class gamemanager : MonoBehaviour
@@ -15,6 +16,7 @@ public class gamemanager : MonoBehaviour
     [SerializeField] GameObject menuOptions;
     [SerializeField] GameObject menuStats;
     [SerializeField] GameObject allOrbsCol;
+    [SerializeField] GameObject _loadingScreen;
     public GameObject allOrbsNotCol;
     [SerializeField] TMP_Text goalCountText;
     [SerializeField] TMP_Text PlayerLevel;
@@ -62,6 +64,10 @@ public class gamemanager : MonoBehaviour
     float timeScaleOrig;
     int orbCount;
 
+    LoadingScreen _loadingScreenScript;
+    int _currentMapIndex = -1;
+    bool _isLoading = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -70,45 +76,62 @@ public class gamemanager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         boss = GameObject.FindWithTag("Boss");
         playerScript = player.GetComponent<PlayerController>();
+        _loadingScreenScript = _loadingScreen.GetComponent<LoadingScreen>(); 
         audPlayer.PlayOneShot(audAmbient[Random.Range(0, audAmbient.Length)], audAmbientVol);
+
+        LoadMap(2);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (_isLoading)
         {
-            if (menuActive == null)
+            if (Input.GetButtonDown("Submit"))
             {
-                statePause();
-                menuActive = menuPause;
-                menuActive.SetActive(true);
+                _loadingScreen.SetActive(false);
+                gamemanager.instance.stateUnpause(true);
+                _isLoading = false;
+                GameObject SpawnPoint = GameObject.FindWithTag("SpawnPoint");
+                gamemanager.instance.playerScript.WarpPosition(SpawnPoint.transform.position, SpawnPoint.transform.rotation);
+            }
+        }
+        else
+        {
+            if (Input.GetButtonDown("Cancel"))
+            {
+                if (menuActive == null)
+                {
+                    statePause();
+                    menuActive = menuPause;
+                    menuActive.SetActive(true);
 
+                }
+                else if (menuActive == menuPause)
+                {
+                    stateUnpause();
+                }
+                else if (menuActive == menuOptions)
+                {
+                    optionsClose();
+                }
             }
-            else if (menuActive == menuPause)
+            if (Input.GetButtonDown("Stats"))
             {
-                stateUnpause();
+                if (menuActive == null)
+                {
+                    statePause();
+                    menuActive = menuStats;
+                    menuActive.SetActive(true);
+                }
+                else if (menuActive == menuStats)
+                {
+                    stateUnpause();
+                }
             }
-            else if (menuActive == menuOptions)
-            {
-                optionsClose();
-            }
+            if (!audPlayer.isPlaying)
+                audPlayer.PlayOneShot(audAmbient[Random.Range(0, audAmbient.Length)], audAmbientVol);
         }
-        if (Input.GetButtonDown("Stats"))
-        {
-            if (menuActive == null)
-            {
-                statePause();
-                menuActive = menuStats;
-                menuActive.SetActive(true);
-            }
-            else if (menuActive == menuStats)
-            {
-                stateUnpause();
-            }
-        }
-        if (!audPlayer.isPlaying)
-            audPlayer.PlayOneShot(audAmbient[Random.Range(0, audAmbient.Length)], audAmbientVol);
     }
 
     public void statePause()
@@ -118,14 +141,17 @@ public class gamemanager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
     }
-    public void stateUnpause()
+    public void stateUnpause(bool ignoreMenu = false)
     {
         isPaused = false;
         Time.timeScale = timeScaleOrig;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
-        menuActive.SetActive(false);
-        menuActive = null;
+        if (!ignoreMenu)
+        { 
+            menuActive.SetActive(false);
+            menuActive = null;
+        }
         if (player.GetComponent<PlayerController>().enabled == false)
         {
             StartCoroutine(enablePlayer());
@@ -230,4 +256,50 @@ public class gamemanager : MonoBehaviour
     {
         CurrentAOERadiusText.text = playerScript.GetAOERadius().ToString("F0");
     }
+
+    public void LoadMap(int index)
+    {
+        gamemanager.instance.statePause();
+        _loadingScreen.SetActive(true);
+        _loadingScreenScript.LoadingText.SetActive(true);
+        _loadingScreenScript.ContinueText.SetActive(false);
+        _isLoading = true;
+
+        StartCoroutine(LoadMapAsync(index));
+        //LoadMapAsync(index);
+
+        _loadingScreenScript.LoadingText.SetActive(false);
+        _loadingScreenScript.ContinueText.SetActive(true);
+
+
+    }
+
+    public IEnumerator LoadMapAsync(int index)
+    {
+        yield return null;
+
+        if (_currentMapIndex > 0)
+        {
+            AsyncOperation unloadProgress = SceneManager.UnloadSceneAsync(_currentMapIndex);
+
+            while (!unloadProgress.isDone)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+        }
+
+        AsyncOperation loadProgress = SceneManager.LoadSceneAsync(index, LoadSceneMode.Additive);
+
+        while (!loadProgress.isDone)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        _currentMapIndex = index;
+
+        GameObject SP = GameObject.FindGameObjectWithTag("SpawnPoint");
+
+        playerScript.WarpPosition(SP.transform.position, SP.transform.rotation);
+    }
+
 }

@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Fireball
   - Chain
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

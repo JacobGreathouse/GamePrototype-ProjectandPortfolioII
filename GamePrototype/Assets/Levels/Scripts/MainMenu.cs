@@ -11,8 +11,9 @@ public class MainMenu : MonoBehaviour
 
     public void NewSave()
     {
-        loadingScreen.SetActive(true);
-        StartCoroutine(LoadAsyncScene());
+        //loadingScreen.SetActive(true);
+        //StartCoroutine(LoadAsyncScene());
+        SceneManager.LoadScene(1);
     }
 
     IEnumerator LoadAsyncScene()
