@@ -222,10 +222,12 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
             {
                 _motionVector += MPT.parent.LinearVelocity;
             }
-            /*if (MP != null)
+
+            DisapearingPlatformTrigger DPT = _footScript.floor.GetComponent<DisapearingPlatformTrigger>();
+            if(DPT != null)
             {
-                _motionVector += MP.LinearVelocity;
-            }*/
+                DPT.parent.isActive = true;
+            }
         }
 
     }
