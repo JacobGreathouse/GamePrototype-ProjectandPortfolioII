@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] GameObject loadingScreen;
-    [SerializeField] Image loadingCircle;
 
     public void NewSave()
     {
@@ -23,7 +21,6 @@ public class MainMenu : MonoBehaviour
         while (!asyncLoad.isDone)
         {
             float progressValue = Mathf.Clamp01(asyncLoad.progress);
-            loadingCircle.fillAmount = progressValue;
             yield return null;
         }
     }
