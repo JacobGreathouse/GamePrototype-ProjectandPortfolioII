@@ -98,6 +98,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     public CharacterController Controller => controller;
     public float VertMovement => playerVel.y;
+    Vector3 _motionVector;
+
 
     // Start is called before the first frame update
     void Start()
@@ -130,16 +132,28 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     {
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDistance, Color.red);
 
+
+
         movement();
         sprint();
         selectStaff();
 
+        UpdateController(_motionVector);
     }
 
     void movement()
     {
-        if (isDodging) 
-            return; // prevent movement logic if dodging
+        
+
+        if (isDodging)
+        {
+            return; // prevent movement logic if dodging;
+        }
+        else
+        {
+            _motionVector = Vector3.zero;
+        }
+            
 
         if (controller.isGrounded)
         {
@@ -157,16 +171,23 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
         moveDir = (transform.right * Input.GetAxis("Horizontal")) +
                   (transform.forward * Input.GetAxis("Vertical"));
-        controller.Move(moveDir * speed * Time.deltaTime);
+        //controller.Move(moveDir * speed * Time.deltaTime);
+        _motionVector = moveDir * speed;
 
         jump();
 
-        controller.Move(playerVel * Time.deltaTime);
+        //controller.Move(playerVel * Time.deltaTime);
+
+
         playerVel.y -= gravity * Time.deltaTime;
+        //playerVel.y -= gravity;
 
         if ((controller.collisionFlags & CollisionFlags.Above) != 0)
         {
-            playerVel = Vector3.zero;
+            //playerVel = Vector3.zero;
+            //playerVel.y = 0;
+
+            _motionVector.y = 0;
         }
 
         if (Input.GetButton("Fire1") && !isShooting && gamemanager.instance.isPaused == false)
@@ -188,8 +209,17 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
                 isDodgeCooldown = false;
             }
         }
+
+        _motionVector += playerVel;
+
     }
 
+    void UpdateController(Vector3 Motion)
+    {
+        controller.Move(Motion * Time.deltaTime);
+    }
+
+    /*
     IEnumerator Dodge()
     {
         dodgeDirection = moveDir;
@@ -201,6 +231,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         while (dodgeTime < dodgeDuration)
         {
             controller.Move(dodgeDirection * dodgeDistance * Time.deltaTime / dodgeDuration); // Move player quickly
+            //_motionVector += dodgeDirection * dodgeDistance;
             dodgeTime += Time.deltaTime;
             yield return null;
         }
@@ -210,6 +241,27 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         isDodgeCooldown = true;
         dodgeCooldownTimer = dodgeCooldown;
     }
+    */
+
+    IEnumerator Dodge()
+    {
+        dodgeDirection = moveDir;
+        isDodging = true;
+        int origLayer = gameObject.layer;
+        gameObject.layer = LayerMask.NameToLayer("DodgePhase");
+
+        float dodgetime = 0.0f;
+
+        _motionVector += (dodgeDirection * dodgeDistance);
+        yield return new WaitForSeconds(dodgeDuration);
+
+        isDodging = false;
+        gameObject.layer = origLayer;
+        isDodgeCooldown = true;
+        dodgeCooldownTimer = dodgeCooldown;
+    }
+
+
     void jump()
     {
         if (Input.GetButtonDown("Jump") && jumpCount < jumpMax)
