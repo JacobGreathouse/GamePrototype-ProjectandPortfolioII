@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 712107277998745217}
   - component: {fileID: 712107277998745216}
   - component: {fileID: 712107277998745343}
+  - component: {fileID: 1432217050872956193}
   m_Layer: 0
   m_Name: Boos Door Key
   m_TagString: Untagged
@@ -209,6 +210,27 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1432217050872956193
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712107277998745342}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d242ccc478b7df648bd30d6eb7a8b0f2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8761209272413622071
 GameObject:
   m_ObjectHideFlags: 0
