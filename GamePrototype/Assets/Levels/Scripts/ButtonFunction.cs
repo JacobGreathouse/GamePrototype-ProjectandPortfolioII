@@ -112,4 +112,10 @@ public class ButtonFunction : MonoBehaviour
         return false;
     }
 
+
+    public void OpenLevelSelect()
+    {
+        gamemanager.instance.levelSelectOpen();
+    }
+
 }
