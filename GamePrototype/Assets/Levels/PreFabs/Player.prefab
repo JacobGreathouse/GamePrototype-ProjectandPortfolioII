@@ -588,7 +588,7 @@ MonoBehaviour:
   bunnyBomb: {fileID: 0}
   spellcost: 0
   isBolt: 0
-  maxChain: 3
+  maxChain: 0
   AOETriggerRadius: 0
   isFire: 0
   isMissile: 0
@@ -641,7 +641,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 87a2e502ddd174591af0e35f76e448a2, type: 3}
   - {fileID: 8300000, guid: f08ce2b0c20924bfe844560b4770fe5a, type: 3}
   shootSoundVol: 0.75
-  levelSound: []
+  levelSound:
+  - {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
   levelSoundVol: 1
   dodgeDistance: 7
   dodgeDuration: 0.2
