@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
     [SerializeField] LayerMask ignoreMask;
+    [SerializeField] GameObject _foot;
 
     [Header("----- Stats -----")]
     [SerializeField][Range(1, 5)] float speed;
