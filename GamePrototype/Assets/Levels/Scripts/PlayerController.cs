@@ -99,6 +99,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     public CharacterController Controller => controller;
     public float VertMovement => playerVel.y;
     Vector3 _motionVector;
+    FootTrigger _footScript;
 
 
     // Start is called before the first frame update
@@ -107,6 +108,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         HPOrig = HP;
         HPMax = HP;
         currentMana = maxMana;
+        _footScript = _foot.GetComponent<FootTrigger>();
         updatePlayerUI(); // Ethan: added this line
         StartCoroutine(manaRegeneration()); // Ethan: added this line
 
@@ -151,7 +153,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         }
         else
         {
-            _motionVector = Vector3.zero;
+            _motionVector = Vector3.zero; // reset the motion vector if not dodging
         }
             
 
@@ -212,6 +214,20 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
         _motionVector += playerVel;
 
+        if (_footScript.isColliding)
+        {
+
+            MovingPlatformTrigger MPT = _footScript.floor.GetComponent<MovingPlatformTrigger>();
+            if (MPT != null)
+            {
+                _motionVector += MPT.parent.LinearVelocity;
+            }
+            /*if (MP != null)
+            {
+                _motionVector += MP.LinearVelocity;
+            }*/
+        }
+
     }
 
     void UpdateController(Vector3 Motion)
@@ -219,29 +235,6 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         controller.Move(Motion * Time.deltaTime);
     }
 
-    /*
-    IEnumerator Dodge()
-    {
-        dodgeDirection = moveDir;
-        isDodging = true;
-        int origLayer = gameObject.layer;
-        gameObject.layer = LayerMask.NameToLayer("DodgePhase");
-
-        float dodgeTime = 0f;
-        while (dodgeTime < dodgeDuration)
-        {
-            controller.Move(dodgeDirection * dodgeDistance * Time.deltaTime / dodgeDuration); // Move player quickly
-            //_motionVector += dodgeDirection * dodgeDistance;
-            dodgeTime += Time.deltaTime;
-            yield return null;
-        }
-
-        isDodging = false;
-        gameObject.layer =origLayer;
-        isDodgeCooldown = true;
-        dodgeCooldownTimer = dodgeCooldown;
-    }
-    */
 
     IEnumerator Dodge()
     {
@@ -249,8 +242,6 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         isDodging = true;
         int origLayer = gameObject.layer;
         gameObject.layer = LayerMask.NameToLayer("DodgePhase");
-
-        float dodgetime = 0.0f;
 
         _motionVector += (dodgeDirection * dodgeDistance);
         yield return new WaitForSeconds(dodgeDuration);
@@ -606,5 +597,29 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     {
         SkillPoints += amount;
     }
+
+    /* // original dodge function kept for reference.
+IEnumerator Dodge()
+{
+    dodgeDirection = moveDir;
+    isDodging = true;
+    int origLayer = gameObject.layer;
+    gameObject.layer = LayerMask.NameToLayer("DodgePhase");
+
+    float dodgeTime = 0f;
+    while (dodgeTime < dodgeDuration)
+    {
+        controller.Move(dodgeDirection * dodgeDistance * Time.deltaTime / dodgeDuration); // Move player quickly
+        //_motionVector += dodgeDirection * dodgeDistance;
+        dodgeTime += Time.deltaTime;
+        yield return null;
+    }
+
+    isDodging = false;
+    gameObject.layer =origLayer;
+    isDodgeCooldown = true;
+    dodgeCooldownTimer = dodgeCooldown;
+}
+*/
 
 }
