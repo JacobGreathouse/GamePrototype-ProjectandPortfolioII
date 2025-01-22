@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField] int spellcost;
     [SerializeField] bool isBolt;
     public int maxChain;
-    public int aoeRange;
+
     [SerializeField] float AOETriggerRadius;
     [SerializeField] bool isFire;
     [SerializeField] bool isMissile;
@@ -539,11 +539,11 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     }
     public float GetAOERadius()
     {
-        return aoeRange;
+        return AOETriggerRadius;
     }
     public void SetAOERadius(int amount)
     { 
-            aoeRange += amount;
+            AOETriggerRadius += amount;
     }
     public int GetSkillPoints()
     {

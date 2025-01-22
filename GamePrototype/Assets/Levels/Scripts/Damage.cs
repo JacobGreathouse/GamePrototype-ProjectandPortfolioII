@@ -54,7 +54,7 @@ public class Damage : MonoBehaviour
     {
         playerLvl = GameObject.FindWithTag("Player").GetComponent<PlayerController>().playerLvl;
         maxHits = GameObject.FindWithTag("Player").GetComponent<PlayerController>().maxChain;
-        AOETriggerRadius = GameObject.FindWithTag("Player").GetComponent<PlayerController>().aoeRange;
+        AOETriggerRadius = GameObject.FindWithTag("Player").GetComponent<PlayerController>().GetAOERadius();
         
     }
     //just type OnTriggerEnter to access what you need for
