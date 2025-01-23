@@ -942,8 +942,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audButton: {fileID: 673896372}
   audButtonClick:
-  - {fileID: 8300000, guid: 9853f58c79aca1b40ace97a7c3f07e43, type: 3}
-  - {fileID: 8300000, guid: 984e734e82aa543409ea09f0219a4ff5, type: 3}
+  - {fileID: 8300000, guid: 35f118f583b24514e8e3797a22f61bf8, type: 3}
+  - {fileID: 8300000, guid: 5b6a635171c008144b6e6cbce8c7a3b6, type: 3}
   audButtonVol: 1
 --- !u!82 &673896372
 AudioSource:
@@ -3065,7 +3065,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1661540114}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 673896371}
+        m_TargetAssemblyTypeName: ButtonFunction, Assembly-CSharp
+        m_MethodName: ContinueSave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1661540114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3603,9 +3615,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2133333138}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: QuitGame
+      - m_Target: {fileID: 673896371}
+        m_TargetAssemblyTypeName: ButtonFunction, Assembly-CSharp
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4198,8 +4210,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2133333138}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 673896371}
+        m_TargetAssemblyTypeName: ButtonFunction, Assembly-CSharp
         m_MethodName: NewSave
         m_Mode: 1
         m_Arguments:
@@ -4489,7 +4501,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2133333137}
-  - component: {fileID: 2133333138}
   - component: {fileID: 2133333136}
   - component: {fileID: 2133333135}
   - component: {fileID: 2133333134}
@@ -4588,18 +4599,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2133333138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2133333133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e0c1a5cdd2e04a489b0693da02b9882, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &2133333139
 AudioSource:
   m_ObjectHideFlags: 0

@@ -7353,8 +7353,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audButton: {fileID: 4508396649571497689}
   audButtonClick:
-  - {fileID: 8300000, guid: 9853f58c79aca1b40ace97a7c3f07e43, type: 3}
-  - {fileID: 8300000, guid: 984e734e82aa543409ea09f0219a4ff5, type: 3}
+  - {fileID: 8300000, guid: 35f118f583b24514e8e3797a22f61bf8, type: 3}
+  - {fileID: 8300000, guid: 5b6a635171c008144b6e6cbce8c7a3b6, type: 3}
   audButtonVol: 1
 --- !u!82 &4508396649571497689
 AudioSource:
