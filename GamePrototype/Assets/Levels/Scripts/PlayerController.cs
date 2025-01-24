@@ -530,14 +530,10 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         controller.enabled = true;
     }
 
-    public void setCoinCount(int amount)
+    public int CoinCount
     {
-        coinCount += amount;
-    }
-
-    public int getCoinCount()
-    {
-        return coinCount;
+        get { return coinCount; }
+        set { coinCount = value; }
     }
 
     public void setHealthPotion(int amount)
