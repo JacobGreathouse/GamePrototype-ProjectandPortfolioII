@@ -236,29 +236,6 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     {
         controller.Move(Motion * Time.deltaTime);
     }
-    /*
-    IEnumerator Dodge()
-    {
-        dodgeDirection = moveDir;
-        isDodging = true;
-        int origLayer = gameObject.layer;
-        gameObject.layer = LayerMask.NameToLayer("DodgePhase");
-
-        float dodgeTime = 0f;
-        while (dodgeTime < dodgeDuration)
-        {
-            controller.Move(dodgeDirection * dodgeDistance * Time.deltaTime / dodgeDuration); // Move player quickly
-            //_motionVector += dodgeDirection * dodgeDistance;
-            dodgeTime += Time.deltaTime;
-            yield return null;
-        }
-
-        isDodging = false;
-        gameObject.layer =origLayer;
-        isDodgeCooldown = true;
-        dodgeCooldownTimer = dodgeCooldown;
-    }
-    */
 
     IEnumerator Dodge()
     {
@@ -428,6 +405,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         gamemanager.instance.PlayerMissileUpdate();
         gamemanager.instance.PlayerChainUpdate();
         gamemanager.instance.PlayerAOEUpdate();
+        gamemanager.instance.PlayerSPUpdate();
 
     }
     private void updatePlayerLevel()
@@ -486,8 +464,6 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         //shootDistance = staff.shootDistance;
         shootRate = staff.shootRate;
         spellcost = staff.spellcost;
-        maxChain = staff.maxHits;
-        AOETriggerRadius = staff.AOERange;
         isBolt = staff.isBolt;
         isFire = staff.isFire;
         isBunny = staff.isBunny;
@@ -519,8 +495,6 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         spellcost = staffList[staffListPos].spellcost;
         isBolt = staffList[staffListPos].isBolt;
         isFire = staffList[staffListPos].isFire;
-        AOETriggerRadius = staffList[staffListPos].AOERange;
-        maxChain = staffList[staffListPos].maxHits;
         isMissile = staffList[staffListPos].isMissile;
         isBunny = staffList[staffListPos].isBunny;
         AudioClip[] shootSound = staffList[staffListPos].shootSound;
@@ -574,58 +548,38 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     public int shootDamage
     {
         get { return _shootDamage; }
-        set { _shootDamage = value; }
+        set { _shootDamage += value; }
     }
-    public int GetPlayerHP()
+    public int PlayerHP
     {
-        return HPMax;
+        get { return HPMax; }
+        set { HPMax += value; HP += value; }
     }
-    public void SetPlayerHP(int amount)
+
+    public int PlayerMP
     {
-        HPMax += amount;
-        HP += amount;
+        get { return maxMana; }
+        set { maxMana += value; currentMana += value; }
     }
-    public float GetPlayerMP()
+    public int BurstAmount
     {
-        return maxMana;
+        get { return burstCount; }
+        set { burstCount += value; }
     }
-    public void SetPlayerMP(int amount)
+    public int ChainMax
     {
-        maxMana += amount;
-        currentMana += amount;
+        get { return maxChain; }
+        set { maxChain += value; }
     }
-    public int GetBurstAmount()
+    public float AOERadius
     {
-        return burstCount;
+        get { return AOETriggerRadius; }
+        set { AOETriggerRadius += value; }
     }
-    public void SetBurstAmount(int amount)
+    public int _SkillPoints
     {
-        burstCount += amount;
-    }
-    public int GetChainMax()
-    {
-        return maxChain;
-    }
-    public void SetChainMax(int amount)
-    {
-        if (maxChain >= 6)
-        maxChain += amount;
-    }
-    public float GetAOERadius()
-    {
-        return AOETriggerRadius;
-    }
-    public void SetAOERadius(int amount)
-    { 
-            AOETriggerRadius += amount;
-    }
-    public int GetSkillPoints()
-    {
-        return SkillPoints;
-    }
-    public void SetSkillPoints(int amount)
-    {
-        SkillPoints += amount;
+        get { return SkillPoints; }
+        set { SkillPoints += value; }
     }
 
     /* // original dodge function kept for reference.

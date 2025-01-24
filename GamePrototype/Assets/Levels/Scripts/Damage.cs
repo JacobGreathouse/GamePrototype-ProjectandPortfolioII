@@ -54,7 +54,7 @@ public class Damage : MonoBehaviour
     {
         playerLvl = GameObject.FindWithTag("Player").GetComponent<PlayerController>().playerLvl;
         maxHits = GameObject.FindWithTag("Player").GetComponent<PlayerController>().maxChain;
-        AOETriggerRadius = GameObject.FindWithTag("Player").GetComponent<PlayerController>().GetAOERadius();
+        AOETriggerRadius = GameObject.FindWithTag("Player").GetComponent<PlayerController>().AOERadius;
         
     }
     //just type OnTriggerEnter to access what you need for
@@ -140,7 +140,7 @@ public class Damage : MonoBehaviour
         {
             AOEDamage(other);
         }
-        if (other.CompareTag("LevelObject") && type == damageType.moving)
+        if (other.CompareTag("LevelObject") && isAOE==true)
         {
             if (hitEffect != null)
             {
@@ -154,6 +154,7 @@ public class Damage : MonoBehaviour
     }
     public void Chain(Collider previousEnemy)
     {
+        Debug.Log("Is chaining");
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, triggerRadius);
         bool foundEnemy = false;
         if (currentHits >= maxHits)
@@ -190,6 +191,7 @@ public class Damage : MonoBehaviour
     }
     private void AOEDamage(Collider directHit)
     {
+        Debug.Log("is AOEing");
         if (hitEffect != null)
         {
         ParticleSystem particleInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);

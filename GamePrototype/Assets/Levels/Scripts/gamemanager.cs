@@ -27,6 +27,7 @@ public class gamemanager : MonoBehaviour
     public TMP_Text CurrentAOERadiusText;
     public TMP_Text CurrentChainMaxText;
     public TMP_Text CurrentBurstText;
+    public TMP_Text playerSPText;
     public TMP_Text playerXPText;
     public TMP_Text playerLevelText;
     public Image playerHPBar;
@@ -241,11 +242,11 @@ public class gamemanager : MonoBehaviour
     }
     public void PlayerHPUpdate()
     {
-        CurrentHPText.text = playerScript.GetPlayerHP().ToString("F0");
+        CurrentHPText.text = playerScript.PlayerHP.ToString("F0");
     }
     public void PlayerMPUpdate()
     {
-        CurrentMPText.text = playerScript.GetPlayerMP().ToString("F0");
+        CurrentMPText.text = playerScript.PlayerMP.ToString("F0");
     }
     public void PlayerATKUpdate()
     {
@@ -253,15 +254,19 @@ public class gamemanager : MonoBehaviour
     }
     public void PlayerMissileUpdate()
     {
-        CurrentBurstText.text = playerScript.GetBurstAmount().ToString("F0");
+        CurrentBurstText.text = playerScript.BurstAmount.ToString("F0");
     }
     public void PlayerChainUpdate()
     {
-        CurrentChainMaxText.text = playerScript.GetChainMax().ToString("F0");
+        CurrentChainMaxText.text = playerScript.ChainMax.ToString("F0");
     }
     public void PlayerAOEUpdate()
     {
-        CurrentAOERadiusText.text = playerScript.GetAOERadius().ToString("F0");
+        CurrentAOERadiusText.text = playerScript.AOERadius.ToString("F0");
+    }
+    public void PlayerSPUpdate()
+    {
+        playerSPText.text = playerScript._SkillPoints.ToString("F0");
     }
 
     public void LoadMap(int index)
