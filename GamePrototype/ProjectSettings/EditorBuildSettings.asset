@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Level3.unity
     guid: 81bc2d9bc7c93494d88a99d7062f7a78
+  - enabled: 1
+    path: Assets/Levels/Sandbox.unity
+    guid: 1fa765ac084835648bb8c64892408b0b
+  - enabled: 1
+    path: Assets/Levels/PlatformSandbox.unity
+    guid: f6fb0b05f4a7ede479826c0f73add557
   m_configObjects: {}

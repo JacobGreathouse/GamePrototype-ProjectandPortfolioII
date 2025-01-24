@@ -17,6 +17,7 @@ public class gamemanager : MonoBehaviour
     [SerializeField] GameObject menuStats;
     [SerializeField] GameObject allOrbsCol;
     [SerializeField] GameObject _loadingScreen;
+    [SerializeField] GameObject _menuDebugLevelSelect;
     public GameObject allOrbsNotCol;
     [SerializeField] TMP_Text goalCountText;
     [SerializeField] TMP_Text PlayerLevel;
@@ -193,6 +194,12 @@ public class gamemanager : MonoBehaviour
         menuActive = menuPause;
         menuOptions.SetActive(false);
         menuPause.SetActive(true);
+    }
+
+    public void levelSelectOpen()
+    {
+        //menuActive = _menuDebugLevelSelect;
+        _menuDebugLevelSelect.SetActive(true);
     }
 
     IEnumerator showDisplayMessage()

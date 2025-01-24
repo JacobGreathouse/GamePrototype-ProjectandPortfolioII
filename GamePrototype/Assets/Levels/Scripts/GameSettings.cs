@@ -6,6 +6,9 @@ using UnityEngine.Audio;
 public class GameSettings : MonoBehaviour
 {
     public AudioMixer audioMixer;
+    [SerializeField] AudioSource audioFeedback;
+    [SerializeField] AudioClip[] audSFXFeedback;
+    [SerializeField][Range(0, 1)] float audVol;
 
     public void masterVolSet(float vol)
     {
@@ -20,6 +23,10 @@ public class GameSettings : MonoBehaviour
     public void SFXVolSet(float vol)
     {
         audioMixer.SetFloat("SFX", Mathf.Log10(vol) * 20);
+
+        if(!audioFeedback.isPlaying)
+        audioFeedback.PlayOneShot(audSFXFeedback[Random.Range(0, audSFXFeedback.Length)], audVol);
     }
+
 
 }
