@@ -60,6 +60,12 @@ public class ButtonFunction : MonoBehaviour
         //need to implement
     }
 
+    public void Credits()
+    {
+        StartCoroutine(playButtonClick());
+        //opens and closes relavent menus through Unity
+    }
+
     public void Quit()
     {
         StartCoroutine(playButtonClick());
