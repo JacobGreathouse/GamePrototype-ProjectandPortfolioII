@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6652050558434493857}
   - component: {fileID: 2348673375288413507}
   m_Layer: 10
-  m_Name: MiniMap Wall
+  m_Name: MiniMap Plat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d3d918cc2a480b4ab154765d0c4b412, type: 2}
+  - {fileID: 2100000, guid: 60e1e9d1ac46a834ebb63bd1761eac40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

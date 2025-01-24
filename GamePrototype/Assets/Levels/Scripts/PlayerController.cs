@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [Header("----- Staff Stats -----")]
     [SerializeField] List<StaffStats> staffList = new List<StaffStats>();
     [SerializeField] GameObject staffModel;
-    [SerializeField] int shootDamage;
+    [SerializeField] int _shootDamage;
     [SerializeField] int shootDistance;
     [SerializeField] float shootRate;
     [SerializeField] Transform shootPos;
@@ -236,8 +236,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     {
         controller.Move(Motion * Time.deltaTime);
     }
-
-
+    /*
     IEnumerator Dodge()
     {
         dodgeDirection = moveDir;
@@ -245,8 +244,40 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         int origLayer = gameObject.layer;
         gameObject.layer = LayerMask.NameToLayer("DodgePhase");
 
-        _motionVector += (dodgeDirection * dodgeDistance);
-        yield return new WaitForSeconds(dodgeDuration);
+        float dodgeTime = 0f;
+        while (dodgeTime < dodgeDuration)
+        {
+            controller.Move(dodgeDirection * dodgeDistance * Time.deltaTime / dodgeDuration); // Move player quickly
+            //_motionVector += dodgeDirection * dodgeDistance;
+            dodgeTime += Time.deltaTime;
+            yield return null;
+        }
+
+        isDodging = false;
+        gameObject.layer =origLayer;
+        isDodgeCooldown = true;
+        dodgeCooldownTimer = dodgeCooldown;
+    }
+    */
+
+    IEnumerator Dodge()
+    {
+        Debug.Log("Is dodging");
+        dodgeDirection = moveDir;
+        isDodging = true;
+        int origLayer = gameObject.layer;
+        gameObject.layer = LayerMask.NameToLayer("DodgePhase");
+
+        float dodgeTime = 0f;
+        while (dodgeTime < dodgeDuration)
+        {
+            controller.Move(dodgeDirection * dodgeDistance * Time.deltaTime / dodgeDuration); // Move player quickly
+            //_motionVector += dodgeDirection * dodgeDistance;
+            dodgeTime += Time.deltaTime;
+            yield return null;
+        }
+        /*_motionVector += (dodgeDirection * dodgeDistance);
+        yield return new WaitForSeconds(dodgeDuration);*/
 
         isDodging = false;
         gameObject.layer = origLayer;
@@ -540,13 +571,10 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         HealthPotionCount += amount;
     }
 
-    public int getDamage()
+    public int shootDamage
     {
-        return shootDamage;
-    }
-    public void SetDamange(int amount)
-    {
-        shootDamage += amount;
+        get { return _shootDamage; }
+        set { _shootDamage = value; }
     }
     public int GetPlayerHP()
     {

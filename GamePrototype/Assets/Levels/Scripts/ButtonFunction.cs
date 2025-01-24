@@ -113,7 +113,7 @@ public class ButtonFunction : MonoBehaviour
         {
             StartCoroutine(playButtonClick());
 
-            gamemanager.instance.player.GetComponent<PlayerController>().SetDamange(1);
+            gamemanager.instance.player.GetComponent<PlayerController>().shootDamage += 1;
             gamemanager.instance.player.GetComponent<PlayerController>().SetSkillPoints(-1);
             gamemanager.instance.player.GetComponent<PlayerController>().updatePlayerUI();
         }
