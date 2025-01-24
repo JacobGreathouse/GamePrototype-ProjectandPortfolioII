@@ -16,7 +16,7 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
     [SerializeField] Transform shootPos;
     [SerializeField] Transform headPos;
 
-    [SerializeField] GameObject staffToSpawn;
+    [SerializeField] GameObject SpawnPortal;
 
     [Header("----- Boss Stats -----")]
     [SerializeField] int HP;
@@ -160,11 +160,11 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
         audPlayer.PlayOneShot(audTakeDamage[Random.Range(0, audTakeDamage.Length)], audTakeDamVol);
         if (HP <= 0)
         {
-            if (staffToSpawn != null)
+            if (SpawnPortal != null)
             {
                 Quaternion rot = Quaternion.LookRotation(new Vector3(transform.rotation.x, 0, transform.rotation.z));
                 Vector3 pos = new Vector3(transform.position.x, 5.0f, transform.position.z);
-                Instantiate(staffToSpawn, pos, rot);
+                Instantiate(SpawnPortal, pos, rot);
             }
 
             Destroy(gameObject);

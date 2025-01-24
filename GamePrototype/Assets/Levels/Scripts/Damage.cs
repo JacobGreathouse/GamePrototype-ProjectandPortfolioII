@@ -141,7 +141,7 @@ public class Damage : MonoBehaviour
             AOEDamage(other);
             Destroy(gameObject);
         }
-        if (other.CompareTag("LevelObject") && isAOE==true)
+        if (other.CompareTag("LevelObject"))
         {
             if (hitEffect != null)
             {
@@ -149,7 +149,9 @@ public class Damage : MonoBehaviour
                 particleInstance.Play();
                 Destroy(particleInstance.gameObject, particleInstance.main.duration);
             }
-            AOEDamage(other);
+            if (isAOE == true)
+                AOEDamage(other);
+
             Destroy(gameObject);
         }
     }
