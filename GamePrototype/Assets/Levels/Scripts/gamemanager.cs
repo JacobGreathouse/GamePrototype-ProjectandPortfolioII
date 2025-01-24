@@ -249,7 +249,7 @@ public class gamemanager : MonoBehaviour
     }
     public void PlayerATKUpdate()
     {
-        CurrentATKText.text = playerScript.getDamage().ToString("F0");
+        CurrentATKText.text = playerScript.shootDamage.ToString("F0");
     }
     public void PlayerMissileUpdate()
     {
