@@ -43,7 +43,17 @@ public class BossDoor : MonoBehaviour
         }
         else if (opn != null)
         {
-            gamemanager.instance.allOrbsNotCol.SetActive(false);
+            StartCoroutine(message());
         }
     }
+
+    IEnumerator message()
+    {
+        gamemanager.instance.allOrbsNotCol.SetActive(true);
+
+        yield return new WaitForSeconds(3);
+
+        gamemanager.instance.allOrbsNotCol.SetActive(false);
+    }
+    
 }
