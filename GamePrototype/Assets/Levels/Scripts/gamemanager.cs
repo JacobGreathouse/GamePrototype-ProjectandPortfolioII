@@ -28,6 +28,7 @@ public class gamemanager : MonoBehaviour
     public TMP_Text CurrentChainMaxText;
     public TMP_Text CurrentBurstText;
     public TMP_Text playerSPText;
+    public TMP_Text CurrentCoinText; 
     public TMP_Text playerXPText;
     public TMP_Text playerLevelText;
     public Image playerHPBar;
@@ -267,6 +268,10 @@ public class gamemanager : MonoBehaviour
     public void PlayerSPUpdate()
     {
         playerSPText.text = playerScript._SkillPoints.ToString("F0");
+    }
+    public void PlayerCoinUpdate()
+    {
+        CurrentCoinText.text = playerScript.CoinCount.ToString("F0");
     }
 
     public void LoadMap(int index)

@@ -139,6 +139,7 @@ public class Damage : MonoBehaviour
         if (isAOE)
         {
             AOEDamage(other);
+            Destroy(gameObject);
         }
         if (other.CompareTag("LevelObject") && isAOE==true)
         {
@@ -191,6 +192,7 @@ public class Damage : MonoBehaviour
     }
     private void AOEDamage(Collider directHit)
     {
+        damageAmount -= 2;
         Debug.Log("is AOEing");
         if (hitEffect != null)
         {
@@ -207,10 +209,10 @@ public class Damage : MonoBehaviour
             IDamage dmg = hitCollider.GetComponent<IDamage>();
             if (dmg != null && hitCollider.gameObject.tag != "Player")
             {
-     
-                    // Ensure the raycast hits the intended target
 
-                        dmg.takeDamage(damageAmount -= 2);
+                // Ensure the raycast hits the intended target
+
+                dmg.takeDamage(damageAmount);
 
                 
             }
