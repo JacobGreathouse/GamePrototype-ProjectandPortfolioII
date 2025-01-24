@@ -196,7 +196,8 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             // I'm dead
             gamemanager.instance.playerScript.SetPlayerXP(xpOnKill);
-            Quaternion rot = Quaternion.LookRotation(new Vector3(playerDir.x, 80, playerDir.z));
+
+            Quaternion rot = Quaternion.LookRotation(new Vector3(transform.rotation.x, -90, transform.rotation.z));
             Vector3 pos = new Vector3(transform.position.x, 1.5f, transform.position.z);
 
             if(canDropCoin)

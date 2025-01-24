@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BossAI : MonoBehaviour, IDamage
+public class BossAI : MonoBehaviour, IDamage, IBoss
 {
     [Header("----- Components -----")]
     [SerializeField] Renderer model;
@@ -15,6 +15,8 @@ public class BossAI : MonoBehaviour, IDamage
 
     [SerializeField] Transform shootPos;
     [SerializeField] Transform headPos;
+
+    [SerializeField] GameObject staffToSpawn;
 
     [Header("----- Boss Stats -----")]
     [SerializeField] int HP;
@@ -158,7 +160,13 @@ public class BossAI : MonoBehaviour, IDamage
         audPlayer.PlayOneShot(audTakeDamage[Random.Range(0, audTakeDamage.Length)], audTakeDamVol);
         if (HP <= 0)
         {
-            gamemanager.instance.youWin();
+            if (staffToSpawn != null)
+            {
+                Quaternion rot = Quaternion.LookRotation(new Vector3(transform.rotation.x, 0, transform.rotation.z));
+                Vector3 pos = new Vector3(transform.position.x, 5.0f, transform.position.z);
+                Instantiate(staffToSpawn, pos, rot);
+            }
+
             Destroy(gameObject);
         }
     }
