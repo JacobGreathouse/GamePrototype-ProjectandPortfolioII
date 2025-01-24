@@ -354,7 +354,7 @@ MonoBehaviour:
   model: {fileID: 6050793744131383116}
   agent: {fileID: 6002420768339792412}
   anim: {fileID: 6002420768339792400}
-  HPBar: {fileID: 1290907189}
+  HPBar: {fileID: 1071438424}
   shootPos: {fileID: 1057025898}
   headPos: {fileID: 5912886170333306072}
   HP: 10
