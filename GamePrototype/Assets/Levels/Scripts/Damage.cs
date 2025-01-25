@@ -150,9 +150,10 @@ public class Damage : MonoBehaviour
                 Destroy(particleInstance.gameObject, particleInstance.main.duration);
             }
             if (isAOE == true)
+            {
                 AOEDamage(other);
-
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
         }
     }
     public void Chain(Collider previousEnemy)

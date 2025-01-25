@@ -129,10 +129,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1692259324, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AOEplus
+    - target: {fileID: 54872577, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 54872577, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b8060e7a3e317844ab3e7501d1eaf557, type: 2}
     - target: {fileID: 1058368113415201607, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
       propertyPath: m_Name
       value: UI
@@ -221,27 +225,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
-      propertyPath: CurrentCoinText
-      value: 
-      objectReference: {fileID: 866783305}
-    - target: {fileID: 2299118271699705846, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+    - target: {fileID: 4951705092658810464, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
---- !u!114 &866783305 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6904148067304217552, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
-  m_PrefabInstance: {fileID: 323531188}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2106335668
 PrefabInstance:
   m_ObjectHideFlags: 0
