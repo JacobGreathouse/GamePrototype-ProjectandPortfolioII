@@ -22,9 +22,9 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField] int HP;
     [SerializeField][Range(5, 15)] int lvlUpCost;
 
-    [Header("----- Mana Stats -----")] // Ethan: added this line
-    [SerializeField][Range(50, 200)] int maxMana; // Ethan: added this line
-    [SerializeField][Range(.1f, 10)] float manaRegenRate; // Ethan: added this line
+    [Header("----- Mana Stats -----")]
+    [SerializeField][Range(50, 200)] int maxMana;
+    [SerializeField][Range(.1f, 10)] float manaRegenRate;
 
     [Header("----- Staff Stats -----")]
     [SerializeField] List<StaffStats> staffList = new List<StaffStats>();
@@ -48,9 +48,9 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField][Range(0.1f, 1f)] float burstDelay = 0.2f;
     [SerializeField] int burstCount = 3;
 
-    [Header("----- XP Stats -----")] // Ethan: added this line
-    [SerializeField] int playerXP; // Ethan: added this line
-    public int playerLvl; // Ethan: added this line
+    [Header("----- XP Stats -----")]
+    [SerializeField] int playerXP;
+    public int playerLvl;
 
     [Header("----- Player Sounds -----")]
     [SerializeField] AudioSource audPlayer;
@@ -87,14 +87,14 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     int HPOrig;
     int HPMax;
     int staffListPos;
-    float currentMana; // Ethan: added this line
-    int currentHP; // Ethan: added this line
+    float currentMana;
+    int currentHP;
 
 
     bool isShooting;
     bool isSprinting;
     bool isPlayingStep;
-    bool canRegenMana = true; // Ethan: added this line
+    bool canRegenMana = true;
 
     public CharacterController Controller => controller;
     public float VertMovement => playerVel.y;
@@ -109,23 +109,23 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         HPMax = HP;
         currentMana = maxMana;
         _footScript = _foot.GetComponent<FootTrigger>();
-        updatePlayerUI(); // Ethan: added this line
-        StartCoroutine(manaRegeneration()); // Ethan: added this line
+        updatePlayerUI();
+        StartCoroutine(manaRegeneration());
 
         // Initialize XP UI to start at 0
-        if (gamemanager.instance.playerXPBar != null) // Ethan: added this line
+        if (gamemanager.instance.playerXPBar != null)
         {
-            gamemanager.instance.playerXPBar.fillAmount = 0f; // Ethan: added this line
+            gamemanager.instance.playerXPBar.fillAmount = 0f;
         }
 
-        if (gamemanager.instance.playerXPText != null) // Ethan: added this line
+        if (gamemanager.instance.playerXPText != null)
         {
-            gamemanager.instance.playerXPText.text = $"XP: 0/{lvlUpCost}"; // Ethan: added this line
+            gamemanager.instance.playerXPText.text = $"XP: 0/{lvlUpCost}";
         }
 
-        if (gamemanager.instance.playerLevelText != null) // Ethan: added this line
+        if (gamemanager.instance.playerLevelText != null)
         {
-            gamemanager.instance.playerLevelText.text = $"Level: {playerLvl}"; // Ethan: added this line
+            gamemanager.instance.playerLevelText.text = $"Level: {playerLvl}";
         }
     }
 
@@ -360,7 +360,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     }
 
 
-    IEnumerator manaRegeneration() // Ethan: added this function
+    IEnumerator manaRegeneration()
     {
         while (true)
         {
@@ -375,7 +375,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         }
     }
 
-    void UseMana(int amount) // Ethan: added this function
+    void UseMana(int amount)
     {
         currentMana = Mathf.Max(0, currentMana - amount);
         updatePlayerUI();
@@ -383,16 +383,16 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     IEnumerator flashScreenDamage()
     {
-        gamemanager.instance.playerDamageScreen.SetActive(true); // Ethan: added this line
+        gamemanager.instance.playerDamageScreen.SetActive(true);
         yield return new WaitForSeconds(0.1f);
-        gamemanager.instance.playerDamageScreen.SetActive(false); // Ethan: added this line
+        gamemanager.instance.playerDamageScreen.SetActive(false);
 
     }
 
     public void updatePlayerUI()
     {
         gamemanager.instance.playerHPBar.fillAmount = (float)HP / HPMax;
-        gamemanager.instance.playerManaBar.fillAmount = (float)currentMana / maxMana; // Ethan: added this line
+        gamemanager.instance.playerManaBar.fillAmount = (float)currentMana / maxMana;
         gamemanager.instance.playerXPBar.fillAmount = (float)playerXP / lvlUpCost;
         gamemanager.instance.PlayerLevelUpdate();
         statMenuUpdate();

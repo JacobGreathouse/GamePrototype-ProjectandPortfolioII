@@ -87,6 +87,20 @@ public class Credits : MonoBehaviour
         //if button click, rollcredits
         if (buttonPressed)
             rollCredits();
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            for (int i = 0; i < creditsText.Count; i++)
+            {
+                if (creditsText[i] != null)
+                {
+                    Destroy(creditsText[i]);
+                    creditsText[i] = null;
+                }
+            }
+                MainMenuScreen.SetActive(true);
+            CreditsScreen.SetActive(false);
+        }
     }
 
     public void CreditsButton()
