@@ -1,9 +1,9 @@
-!Game Developers & Designers
+!Game Developers
 Gabriel Gillette
 Jacob Greathouse
 Anthony Trujillo
 Carly Willes
 !Logo Designer
-<Insert Name Here>
+Tobii
 !Game Assets
 <Asset Name by AuthorName from website.com>
