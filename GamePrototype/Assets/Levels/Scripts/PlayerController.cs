@@ -245,16 +245,16 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         int origLayer = gameObject.layer;
         gameObject.layer = LayerMask.NameToLayer("DodgePhase");
 
-        float dodgeTime = 0f;
+        /*float dodgeTime = 0f;
         while (dodgeTime < dodgeDuration)
         {
             controller.Move(dodgeDirection * dodgeDistance * Time.deltaTime / dodgeDuration); // Move player quickly
             //_motionVector += dodgeDirection * dodgeDistance;
             dodgeTime += Time.deltaTime;
             yield return null;
-        }
-        /*_motionVector += (dodgeDirection * dodgeDistance);
-        yield return new WaitForSeconds(dodgeDuration);*/
+        }*/
+        _motionVector += (dodgeDirection * dodgeDistance /dodgeDuration);
+        yield return new WaitForSeconds(dodgeDuration);
 
         isDodging = false;
         gameObject.layer = origLayer;
