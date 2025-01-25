@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using System.Linq;
 
 public class Credits : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class Credits : MonoBehaviour
     List<List<string>> names = new List<List<string>>();
     List<GameObject> creditsText = new List<GameObject>();
 
+    [SerializeField] GameObject CreditsScreen;
+    [SerializeField] GameObject MainMenuScreen;
+    [SerializeField] Button creditsButton;
+    bool buttonPressed;
 
     public void Awake()
     {
@@ -47,7 +52,7 @@ public class Credits : MonoBehaviour
         reader.Close();
     }
 
-    public void Start()
+    public void rePopulate()
     {
         Vector3 lastPosition = new Vector3(Screen.width * 0.5f, 0, 0);
         for (int i = 0; i < headers.Count; i++)
@@ -57,10 +62,10 @@ public class Credits : MonoBehaviour
             newObj.transform.position = nextPosition;
             lastPosition = nextPosition;
             creditsText.Add(newObj);
-            for (int j = 0; j < names.Count; j++)
+            for (int j = 0; j < names[i].Count; j++)
             {
                 nextPosition = new Vector3(Screen.width * 0.5f, lastPosition.y - (Screen.height / textDiv), 0);
-                
+
                 if (names[i][j] != null)
                 {
                     GameObject otherObj = newText(names[i][j], false);
@@ -72,14 +77,31 @@ public class Credits : MonoBehaviour
         }
     }
 
+    public void Start()
+    {
+        rePopulate();
+    }
+
     private void Update()
+    {
+        //if button click, rollcredits
+        if (buttonPressed)
+            rollCredits();
+    }
+
+    public void CreditsButton()
+    {
+        buttonPressed = true;
+    }
+
+    public void rollCredits()
     {
         for (int i = 0; i < creditsText.Count; i++)
         {
             if (creditsText[i] != null)
             {
                 creditsText[i].transform.position = new Vector3(creditsText[i].transform.position.x, creditsText[i].transform.position.y + scrollSpeed, 0);
-                if (creditsText[i].transform.position.y > Screen.height * 2)
+                if (creditsText[i].transform.position.y > Screen.height * 1.2)
                 {
                     Destroy(creditsText[i]);
                     creditsText[i] = null;
@@ -87,6 +109,23 @@ public class Credits : MonoBehaviour
             }
         }
 
+        if (!creditsText[creditsText.Count - 1])
+        {
+
+            buttonPressed = false;
+            //StartCoroutine(CreditsFinish());
+            CreditsScreen.SetActive(false);
+            MainMenuScreen.SetActive(true);
+            rePopulate();
+
+        }
+    }
+
+    IEnumerator CreditsFinish()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        
     }
 
     public GameObject newText(string labelText, bool isHeader)
