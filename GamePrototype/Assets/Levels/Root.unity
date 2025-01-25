@@ -129,6 +129,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1692259324, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AOEplus
+      objectReference: {fileID: 0}
     - target: {fileID: 1058368113415201607, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
       propertyPath: m_Name
       value: UI
@@ -217,8 +221,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: CurrentCoinText
+      value: 
+      objectReference: {fileID: 866783305}
+    - target: {fileID: 2299118271699705846, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+--- !u!114 &866783305 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6904148067304217552, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+  m_PrefabInstance: {fileID: 323531188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2106335668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -240,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: AOETriggerRadius
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609177, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: m_RootOrder
