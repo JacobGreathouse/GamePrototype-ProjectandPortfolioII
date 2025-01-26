@@ -1345,7 +1345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e53a8a6a33bc384bb23b60ef08b1f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: Assets/Levels/Scripts/Credits.txt
   scrollSpeed: 1.5
   m_Font: {fileID: 12800000, guid: 00f1fec946f02e64d859aa2c0e00f755, type: 3}
   headerSize: 45
