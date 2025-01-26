@@ -351,6 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96127e6b6323d144ca838adb86da1115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathTimer: 1.5
   model: {fileID: 6050793744131383116}
   agent: {fileID: 6002420768339792412}
   anim: {fileID: 6002420768339792400}
