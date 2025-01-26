@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-//using static UnityEditor.PlayerSettings;
+// using static UnityEditor.PlayerSettings;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
@@ -196,7 +196,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         isRoaming = false;
 
         audEnemy.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
-        StartCoroutine(flashRed());
+        //StartCoroutine(flashRed());
         updateUI();
 
         if(HP <= 0)
@@ -261,21 +261,12 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     IEnumerator flashRed()
     {
-        if (model.material.color != null)
-        {
-            model.material.color = Color.red;
-            yield return new WaitForSeconds(0.3f);
-            model.material.color = colorOrig;
-        }
+        model.material.color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        model.material.color = colorOrig;
     }
-
     void updateUI()
     {
         HPBar.fillAmount = (float)HP / HpOrig;
-    }
-    public void setEnemyStats(int amount)
-    {
-        meleeDamage = meleeDamage + (meleeDamage * amount);
-        HP = HP + (HP * amount);
     }
 }

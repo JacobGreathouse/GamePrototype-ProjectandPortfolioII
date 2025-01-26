@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class BossAI : MonoBehaviour, IDamage, IBoss
 {
@@ -12,6 +13,7 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
     [SerializeField] LayerMask ignoreMask;
+    [SerializeField] Image HPBar;
 
     [SerializeField] Transform shootPos;
     [SerializeField] Transform headPos;
@@ -235,8 +237,7 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
     }
     void updateUI()
     {
-        gamemanager.instance.bossHPBar.fillAmount = (float)HP / HPOrig;
-
+        HPBar.fillAmount = (float)HP / HPOrig;
     }
     /*IEnumerator flashRed()
      {

@@ -139,6 +139,7 @@ MonoBehaviour:
   - {fileID: 4526781598096245599}
   - {fileID: 4526781598791863088}
   spawngroupSize: 0
+  spawnParticles: {fileID: 1601506141239540749, guid: 48c5715f9603c3842a353516a8baefbb, type: 3}
 --- !u!33 &4526781598433691621
 MeshFilter:
   m_ObjectHideFlags: 0
