@@ -30,7 +30,9 @@ public class Damage : MonoBehaviour
 
     [SerializeField] AudioSource audPlayer;
     [SerializeField] AudioClip[] impactSound;
+    [SerializeField] AudioClip[] lavaSound;
     [SerializeField][Range(0, 1)] float impactSoundVol;
+
     public int playerLvl;
     public StaffStats staffStats;
 
@@ -49,10 +51,12 @@ public class Damage : MonoBehaviour
              rb.velocity = transform.forward * speed;
              Destroy(gameObject, destroyTime);
         }
-        if (type == damageType.stationary)
+        /*if (type == damageType.stationary)
         {
-            audPlayer.PlayOneShot(impactSound[0], impactSoundVol);
-        }
+            
+            audPlayer.PlayOneShot(lavaSound[0], impactSoundVol);
+        }*/
+
     }
 
     private void Awake()
@@ -60,7 +64,6 @@ public class Damage : MonoBehaviour
         playerLvl = GameObject.FindWithTag("Player").GetComponent<PlayerController>().playerLvl;
         maxHits = GameObject.FindWithTag("Player").GetComponent<PlayerController>().maxChain;
         AOETriggerRadius = GameObject.FindWithTag("Player").GetComponent<PlayerController>().AOERadius;
-        
     }
     //just type OnTriggerEnter to access what you need for
     //an effect to happen when you enter the trigger area
@@ -100,15 +103,14 @@ public class Damage : MonoBehaviour
             return;
         }*/
 
-        IDamage dmg = other.GetComponent<IDamage>(); 
-
+        IDamage dmg = other.GetComponent<IDamage>();
 
         if (dmg != null)
         {
             // audPlayer.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)], impactSoundVol);
             if (other.tag != "Player")
                 damageAmount += (damageamountOG + gamemanager.instance.player.GetComponent<PlayerController>().shootDamage);
-
+            
             dmg.takeDamage(damageAmount);
             if (hitEffect != null)
             { 

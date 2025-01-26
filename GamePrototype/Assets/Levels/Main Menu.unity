@@ -2586,7 +2586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 981891826}
   m_Layer: 0
-  m_Name: Level Design
+  m_Name: Level Design Main Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5840,7 +5840,7 @@ GameObject:
   - component: {fileID: 2133333135}
   - component: {fileID: 2133333134}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MainMenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
