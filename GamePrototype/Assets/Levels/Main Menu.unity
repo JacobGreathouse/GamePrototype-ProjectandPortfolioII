@@ -2341,6 +2341,10 @@ MonoBehaviour:
   audSFXFeedback:
   - {fileID: 8300000, guid: 75d8b24afc38bdf4f965533c78ce9af9, type: 3}
   audVol: 1
+  MasterSlider: {fileID: 1091549253}
+  MusicSlider: {fileID: 1698320559}
+  SFXSlider: {fileID: 1815793376}
+  SensSlider: {fileID: 0}
 --- !u!82 &927699824
 AudioSource:
   m_ObjectHideFlags: 0
