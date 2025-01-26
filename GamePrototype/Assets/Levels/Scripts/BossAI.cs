@@ -50,7 +50,7 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
     [SerializeField] GameObject magicMissle;
 
 
-    
+    bool isDead = false;
     bool magicMissleShot;
     bool playerInRange;
     bool isShooting;
@@ -78,15 +78,18 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
     // Update is called once per frame
     void Update()
     {
-
-        float agentSpeed = agent.velocity.normalized.magnitude;
-        float animSpeed = anim.GetFloat("Speed");
-        anim.SetFloat("Speed", Mathf.MoveTowards(animSpeed, agentSpeed, Time.deltaTime * animSpeedTrans));
-
-        if (playerInRange && !canSeePlayer())
+        if (agent.isActiveAndEnabled && !isDead)
         {
-            randSpell = Random.Range(0, 1);
+            float agentSpeed = agent.velocity.normalized.magnitude;
+            float animSpeed = anim.GetFloat("Speed");
+            anim.SetFloat("Speed", Mathf.MoveTowards(animSpeed, agentSpeed, Time.deltaTime * animSpeedTrans));
+
+            if (playerInRange && !canSeePlayer())
+            {
+                randSpell = Random.Range(0, 1);
+            }
         }
+
     }
 
     bool canSeePlayer()
@@ -97,7 +100,11 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
         //Debug.DrawRay(headPos.position, playerDir);
 
         RaycastHit hit;
-        if (Physics.Raycast(headPos.position, playerDir, out hit))
+        if (isDead)
+        {
+            agent.SetDestination(agent.transform.position);
+        }
+        if (Physics.Raycast(headPos.position, playerDir, out hit) && !isDead)
         {
             if (hit.collider.CompareTag("Player"))
             {
@@ -160,14 +167,27 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
         audPlayer.PlayOneShot(audTakeDamage[Random.Range(0, audTakeDamage.Length)], audTakeDamVol);
         if (HP <= 0)
         {
-            if (SpawnPortal != null)
-            {
-                Quaternion rot = Quaternion.LookRotation(new Vector3(transform.rotation.x, 0, transform.rotation.z));
-                Vector3 pos = new Vector3(transform.position.x, 5.0f, transform.position.z);
-                Instantiate(SpawnPortal, pos, rot);
-            }
+            isDead = true;
+            this.GetComponent<NavMeshAgent>().speed = 0;
+            agent.GetComponent<Animator>().StopPlayback();
 
-            Destroy(gameObject);
+            StartCoroutine(death());
+        }
+    }
+
+    IEnumerator death()
+    {
+        anim.SetTrigger("Death");
+
+        yield return new WaitForSeconds(2f);
+
+        Destroy(gameObject);
+
+        if (SpawnPortal != null)
+        {
+            Quaternion rot = Quaternion.LookRotation(new Vector3(transform.rotation.x, 0, transform.rotation.z));
+            Vector3 pos = new Vector3(transform.position.x, 5.0f, transform.position.z);
+            Instantiate(SpawnPortal, pos, rot);
         }
     }
 
