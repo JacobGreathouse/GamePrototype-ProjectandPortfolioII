@@ -3970,7 +3970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 116522720769554172, guid: 7aff585f293c33442a8c9c48f7e4e17b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.749998
+      value: -30.25
       objectReference: {fileID: 0}
     - target: {fileID: 116522720769554172, guid: 7aff585f293c33442a8c9c48f7e4e17b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18084,7 +18084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 712107277998745219, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.75
+      value: 5.25
       objectReference: {fileID: 0}
     - target: {fileID: 712107277998745219, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18121,6 +18121,10 @@ PrefabInstance:
     - target: {fileID: 712107277998745342, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
       propertyPath: m_Name
       value: Boos Door Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432217050872956193, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
@@ -20732,7 +20736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 116522720769554172, guid: 7aff585f293c33442a8c9c48f7e4e17b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -62.894714
+      value: -70.39472
       objectReference: {fileID: 0}
     - target: {fileID: 116522720769554172, guid: 7aff585f293c33442a8c9c48f7e4e17b, type: 3}
       propertyPath: m_LocalPosition.y
