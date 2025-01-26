@@ -10881,6 +10881,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoints: []
   spawnParticles: {fileID: 0}
+  audCheckPoint: {fileID: 0}
+  audCheckPointHit: []
+  audCheckVol: 0
 --- !u!4 &709959664
 Transform:
   m_ObjectHideFlags: 0
@@ -11101,14 +11104,6 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 767214408982076100, guid: f87cfbaa033b8a14d917da43e6fc9fb0, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 38.78136
-      objectReference: {fileID: 0}
-    - target: {fileID: 767214408982076100, guid: f87cfbaa033b8a14d917da43e6fc9fb0, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 69.81346
-      objectReference: {fileID: 0}
-    - target: {fileID: 767214408982076100, guid: f87cfbaa033b8a14d917da43e6fc9fb0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -103.6336
       objectReference: {fileID: 0}
@@ -11151,14 +11146,6 @@ PrefabInstance:
     - target: {fileID: 767214408982076158, guid: f87cfbaa033b8a14d917da43e6fc9fb0, type: 3}
       propertyPath: m_Name
       value: Lava Floor (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 767214408982076158, guid: f87cfbaa033b8a14d917da43e6fc9fb0, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 767214408982076158, guid: f87cfbaa033b8a14d917da43e6fc9fb0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f87cfbaa033b8a14d917da43e6fc9fb0, type: 3}
@@ -16538,7 +16525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6057145328636237717, guid: c739053059dab0541b5a45f04ee3f7f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -50.79
+      value: -47.97
       objectReference: {fileID: 0}
     - target: {fileID: 6057145328636237717, guid: c739053059dab0541b5a45f04ee3f7f1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30634,10 +30621,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1069746410}
     m_Modifications:
-    - target: {fileID: 3457402379209362754, guid: 5ed1fd5674ec91340b30749b3ed88918, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: eeda8cc06b314fd4789c28ddd8e08fde, type: 2}
     - target: {fileID: 8110857630570307637, guid: 5ed1fd5674ec91340b30749b3ed88918, type: 3}
       propertyPath: m_Name
       value: BossDoor
@@ -30656,7 +30639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8110857630570307640, guid: 5ed1fd5674ec91340b30749b3ed88918, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.16
+      value: 26.977
       objectReference: {fileID: 0}
     - target: {fileID: 8110857630570307640, guid: 5ed1fd5674ec91340b30749b3ed88918, type: 3}
       propertyPath: m_LocalRotation.w

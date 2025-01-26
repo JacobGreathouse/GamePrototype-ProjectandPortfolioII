@@ -42,13 +42,18 @@ public class Damage : MonoBehaviour
     // Start is called before the first frame update
      void Start()
      {
+        
         damageamountOG = damageAmount;
         if(type == damageType.moving)
         {
              rb.velocity = transform.forward * speed;
              Destroy(gameObject, destroyTime);
         }
-     }
+        if (type == damageType.stationary)
+        {
+            audPlayer.PlayOneShot(impactSound[0], impactSoundVol);
+        }
+    }
 
     private void Awake()
     {
