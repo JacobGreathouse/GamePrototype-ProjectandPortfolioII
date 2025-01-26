@@ -11,6 +11,7 @@ public class ButtonFunction : MonoBehaviour
     [SerializeField] AudioClip[] audButtonClick;
     [SerializeField][Range(0, 1)] float audButtonVol;
 
+
     public void resume()
     {
         StartCoroutine(playButtonClick());
@@ -53,12 +54,12 @@ public class ButtonFunction : MonoBehaviour
         yield return new WaitForSeconds(audButtonClick.Length);
     }
 
-    public void ContinueSave()
-    {
-        StartCoroutine(playButtonClick());
+    //public void ContinueSave()
+    //{
+    //    StartCoroutine(playButtonClick());
 
-        //need to implement
-    }
+    //    //need to implement
+    //}
 
     public void Credits()
     {

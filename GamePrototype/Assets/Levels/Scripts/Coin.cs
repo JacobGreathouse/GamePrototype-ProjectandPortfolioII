@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    [SerializeField] AudioSource audCoin;
+    [SerializeField] AudioClip[] audClink;
+    [SerializeField][Range(0, 1)] float audCoinVol;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +26,20 @@ public class Coin : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            audCoin.PlayOneShot(audClink[Random.Range(0, audClink.Length)], audCoinVol);
 
             gamemanager.instance.player.GetComponent<PlayerController>().SetCoinCount(1);
 
-            Destroy(gameObject);
+            StartCoroutine(CoinDeath());
         }
+    }
+
+    IEnumerator CoinDeath()
+    {
+        this.GetComponent<MeshRenderer>().enabled = false;
+
+        yield return new WaitForSeconds(.25f);
+
+        Destroy(gameObject);
     }
 }

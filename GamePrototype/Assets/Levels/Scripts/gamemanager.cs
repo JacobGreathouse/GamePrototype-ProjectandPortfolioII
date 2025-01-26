@@ -73,6 +73,9 @@ public class gamemanager : MonoBehaviour
     int _currentMapIndex = -1;
     bool _isLoading = false;
 
+    //[Header("----- Sensitivity Preset -----")]
+    [SerializeField][Range(100, 600)] public int sensVal;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -198,6 +201,11 @@ public class gamemanager : MonoBehaviour
         menuActive = menuPause;
         menuOptions.SetActive(false);
         menuPause.SetActive(true);
+    }
+
+    public void sensitivityChanged(int value)
+    {
+        sensVal = value;
     }
 
     public void levelSelectOpen()
