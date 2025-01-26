@@ -320,14 +320,21 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
            
            for (int i = 0; i < burstCount; i++)
            {
-                audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
-                //added to reduce redundancy 
-                GameObject newProjectile = Instantiate(missile, shootPos.position, Camera.main.transform.rotation);
-                newProjectile.GetComponent<Damage>().Fire();
-                //move this up if we decide to only use tha mana once
-                UseMana(spellcost);
-                //delay time but still quickly
-                yield return new WaitForSeconds(burstDelay);
+                if (currentMana >= spellcost)
+                {
+                    audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
+                    //added to reduce redundancy 
+                    GameObject newProjectile = Instantiate(missile, shootPos.position, Camera.main.transform.rotation);
+                    newProjectile.GetComponent<Damage>().Fire();
+                    //move this up if we decide to only use tha mana once
+                    UseMana(spellcost);
+                    //delay time but still quickly
+                    yield return new WaitForSeconds(burstDelay);
+                }
+                else
+                {
+                    break;
+                }
            }
         }
         if (isBunny == true)
@@ -338,7 +345,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
             UseMana(spellcost);
         }
         // shoot code goes
-        if (isBolt == true)
+        if (isBolt == true && currentMana >= spellcost)
         {
             // shoot code goes
             audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
@@ -346,7 +353,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
             newProjectile.GetComponent<Damage>().Fire();
             UseMana(spellcost);
         }
-        else if (isFire == true)
+        else if (isFire == true && currentMana >= spellcost)
         {
             // shoot code goes
             audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);

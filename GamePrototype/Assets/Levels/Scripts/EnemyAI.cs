@@ -194,7 +194,6 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         isRoaming = false;
 
-        
         audEnemy.PlayOneShot(audHurt[Random.Range(0, audHurt.Length)], audHurtVol);
         StartCoroutine(flashRed());
         updateUI();
@@ -205,27 +204,23 @@ public class EnemyAI : MonoBehaviour, IDamage
             this.GetComponent<NavMeshAgent>().speed = 0;
             agent.GetComponent<Animator>().StopPlayback();
 
-
-            // I'm dead
-            gamemanager.instance.playerScript.SetPlayerXP(xpOnKill);
-
-            Quaternion rot = Quaternion.LookRotation(new Vector3(transform.rotation.x, -90, transform.rotation.z));
-            Vector3 pos = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
-
-            StartCoroutine(death(rot, pos));
+            StartCoroutine(death());
 
         }
     }
 
-    IEnumerator death(Quaternion rot, Vector3 pos)
+    IEnumerator death()
     {
         anim.SetTrigger("Death");
         
-        //stop everything else
-
         yield return new WaitForSeconds(2f);
 
         Destroy(gameObject);
+
+        gamemanager.instance.playerScript.SetPlayerXP(xpOnKill);
+
+        Quaternion rot = Quaternion.LookRotation(new Vector3(transform.rotation.x, -90, transform.rotation.z));
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
 
         if (canDropCoin)
             Instantiate(coinDrop, pos, rot);
