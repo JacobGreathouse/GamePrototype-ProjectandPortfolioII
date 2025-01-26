@@ -31,4 +31,14 @@ public class FootTrigger : MonoBehaviour
         }
     }
 
+    /*
+    private void OnTriggerStay(Collider other)
+    {
+        if (!other.CompareTag("Player"))
+        {
+            _isColliding = true;
+            _floor = other.gameObject;
+        }
+    }
+    */
 }

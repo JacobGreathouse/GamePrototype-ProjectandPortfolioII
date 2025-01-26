@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using static UnityEditor.PlayerSettings;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
@@ -40,6 +41,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] bool canDropCoin;
 
     bool playerInRange;
+    bool isDead = false;
     bool isShooting;
     bool isRoaming;
     int HpOrig;
@@ -67,7 +69,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        if (agent.isActiveAndEnabled)
+        if (agent.isActiveAndEnabled && !isDead)
         {
             float agentSpeed = agent.velocity.normalized.magnitude;
             float animSpeed = anim.GetFloat("Speed");
@@ -75,10 +77,10 @@ public class EnemyAI : MonoBehaviour, IDamage
 
             if (playerInRange && !canSeePlayer())
             {
-                if (!isRoaming && agent.remainingDistance < 0.01f)
+                if (!isRoaming && agent.remainingDistance < 0.01f && !isDead)
                     co = StartCoroutine(roam());
             }
-            else if (!playerInRange)
+            else if (!playerInRange && !isDead)
             {
                 if (!isRoaming && agent.remainingDistance < 0.01f)
                     co = StartCoroutine(roam());
@@ -114,31 +116,35 @@ public class EnemyAI : MonoBehaviour, IDamage
         Debug.DrawRay(headPos.position, playerDir);
 
         RaycastHit hit;
-        if (Physics.Raycast(headPos.position, playerDir, out hit))
+        if (isDead)
         {
-            if (hit.collider.CompareTag("Player") && angleToPlayer < FOV)
+            agent.SetDestination(agent.transform.position);
+        }
+        if (Physics.Raycast(headPos.position, playerDir, out hit) && !isDead)
+        {
+            if (hit.collider.CompareTag("Player") && angleToPlayer < FOV && !isDead)
             {
                 agent.SetDestination(gamemanager.instance.player.transform.position);
                 agent.stoppingDistance = stoppingDistOrig;
 
-                if (agent.remainingDistance < agent.stoppingDistance)
+                if (agent.remainingDistance < agent.stoppingDistance && !isDead)
                 {
                     faceTarget();
                 }
-                if (isMelee)
+                if (isMelee && !isDead)
                 {
                     if (!isShooting && agent.remainingDistance <= agent.stoppingDistance && co == null) //&& distance to player is stopping distance
                     {
                         float remaining = agent.remainingDistance;
                         float stopping = agent.stoppingDistance;
                         if (remaining < stopping)
-                        StartCoroutine(meleeHit());
+                            StartCoroutine(meleeHit());
                     }
                     co = null;
                 }
                 else
                 {
-                    if (!isShooting)
+                    if (!isShooting && !isDead)
                     {
                         StartCoroutine(shoot());
                     }
@@ -146,6 +152,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                 return true;
             }
         }
+        
         agent.stoppingDistance = 0;
         return false;
     }
@@ -194,17 +201,35 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         if(HP <= 0)
         {
+            isDead = true;
+            this.GetComponent<NavMeshAgent>().speed = 0;
+            agent.GetComponent<Animator>().StopPlayback();
+
+
             // I'm dead
             gamemanager.instance.playerScript.SetPlayerXP(xpOnKill);
 
             Quaternion rot = Quaternion.LookRotation(new Vector3(transform.rotation.x, -90, transform.rotation.z));
             Vector3 pos = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
 
-            if(canDropCoin)
-                Instantiate(coinDrop, pos, rot);
+            StartCoroutine(death(rot, pos));
 
-            Destroy(gameObject);
         }
+    }
+
+    IEnumerator death(Quaternion rot, Vector3 pos)
+    {
+        anim.SetTrigger("Death");
+        
+        //stop everything else
+
+        yield return new WaitForSeconds(2f);
+
+        Destroy(gameObject);
+
+        if (canDropCoin)
+            Instantiate(coinDrop, pos, rot);
+
     }
 
     IEnumerator shoot()
