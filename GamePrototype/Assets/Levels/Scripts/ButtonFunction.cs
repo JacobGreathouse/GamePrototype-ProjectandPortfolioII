@@ -168,6 +168,17 @@ public class ButtonFunction : MonoBehaviour
         return false;
     }
 
+    public void ContinueButton()
+    {
+        gamemanager.instance.HowToPlayMenu.SetActive(false);
+        gamemanager.instance.GameGoalMenu.SetActive(true);
+    }
+
+    public void ExitButton()
+    {
+        gamemanager.instance.GameGoalMenu.SetActive(false);
+        gamemanager.instance.stateUnpause();
+    }
 
     public void OpenLevelSelect()
     {

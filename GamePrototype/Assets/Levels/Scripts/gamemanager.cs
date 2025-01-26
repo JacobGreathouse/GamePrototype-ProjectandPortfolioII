@@ -10,6 +10,8 @@ public class gamemanager : MonoBehaviour
     public static gamemanager instance;
 
     [SerializeField] int numOfOrbs;
+    public GameObject allOrbsNotCol;
+    [Header("----- Menu Options -----")]
     GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin, menuLose;
@@ -18,7 +20,10 @@ public class gamemanager : MonoBehaviour
     [SerializeField] GameObject allOrbsCol;
     [SerializeField] GameObject _loadingScreen;
     [SerializeField] GameObject _menuDebugLevelSelect;
-    public GameObject allOrbsNotCol;
+    public GameObject HowToPlayMenu;
+    public GameObject GameGoalMenu;
+
+    [Header("----- Player Stuff -----")]
     [SerializeField] TMP_Text goalCountText;
     [SerializeField] TMP_Text PlayerLevel;
     public TMP_Text CurrentHPText;
@@ -156,7 +161,7 @@ public class gamemanager : MonoBehaviour
         Time.timeScale = timeScaleOrig;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
-        if (!ignoreMenu)
+        if (!ignoreMenu && menuActive != null)
         { 
             menuActive.SetActive(false);
             menuActive = null;
