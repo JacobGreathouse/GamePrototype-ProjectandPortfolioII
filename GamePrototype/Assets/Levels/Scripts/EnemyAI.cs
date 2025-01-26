@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-using static UnityEditor.PlayerSettings;
+//using static UnityEditor.PlayerSettings;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
@@ -261,10 +261,14 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     IEnumerator flashRed()
     {
-        model.material.color = Color.red;
-        yield return new WaitForSeconds(0.3f);
-        model.material.color = colorOrig;
+        if (model.material.color != null)
+        {
+            model.material.color = Color.red;
+            yield return new WaitForSeconds(0.3f);
+            model.material.color = colorOrig;
+        }
     }
+
     void updateUI()
     {
         HPBar.fillAmount = (float)HP / HpOrig;
