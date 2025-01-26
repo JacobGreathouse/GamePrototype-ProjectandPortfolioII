@@ -406,6 +406,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         gamemanager.instance.PlayerChainUpdate();
         gamemanager.instance.PlayerAOEUpdate();
         gamemanager.instance.PlayerSPUpdate();
+        gamemanager.instance.PlayerCoinUpdate();
+        gamemanager.instance.PotionUpdate();
 
     }
     private void updatePlayerLevel()
@@ -530,15 +532,26 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         controller.enabled = true;
     }
 
-    public int CoinCount
+    public int GetCoinCount()
     {
-        get { return coinCount; }
-        set { coinCount = value; }
+        return coinCount;
     }
+    public void SetCoinCount(int value)
+    {
+        coinCount += value;
+        updatePlayerUI();
+    }
+
 
     public void setHealthPotion(int amount)
     {
         HealthPotionCount += amount;
+        updatePlayerUI();
+    }
+
+    public int GetHealthPotion()
+    {
+        return HealthPotionCount;
     }
 
     public int shootDamage
