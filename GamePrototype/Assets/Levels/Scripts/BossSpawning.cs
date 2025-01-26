@@ -10,6 +10,7 @@ public class BossSpawning : MonoBehaviour
     [SerializeField] int spawnSpeed;
     [SerializeField] Transform[] spawnPos;
     [SerializeField] int spawngroupSize;
+    [SerializeField] ParticleSystem spawnParticles;
 
     Vector3 playerDir;
 
@@ -54,6 +55,8 @@ public class BossSpawning : MonoBehaviour
         {
             int spawnInt = Random.Range(0, spawnPos.Length);
             Quaternion rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y, playerDir.z + 1.75f));
+            ParticleSystem particleInstance = Instantiate(spawnParticles, spawnPos[spawnInt].transform.position, Quaternion.identity);
+            StartCoroutine(DestroyParticleSystemAfterDelay(particleInstance, 2f));
             spawnCount += spawngroupSize;
             Instantiate(objectToSpawn, spawnPos[spawnInt].position, rotat);
         }
@@ -62,5 +65,16 @@ public class BossSpawning : MonoBehaviour
         yield return new WaitForSeconds(spawnSpeed);
 
         isSpawning = false;
+    }
+    private IEnumerator DestroyParticleSystemAfterDelay(ParticleSystem particleSystem, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (particleSystem != null)
+        {
+            particleSystem.Stop(); // Stop emitting new particles
+            particleSystem.Clear(); // Clear existing particles
+            Destroy(particleSystem.gameObject); // Destroy the particle system object
+        }
     }
 }
