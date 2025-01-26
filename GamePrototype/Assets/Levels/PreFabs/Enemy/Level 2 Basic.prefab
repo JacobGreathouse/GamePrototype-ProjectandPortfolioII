@@ -876,9 +876,9 @@ GameObject:
   - component: {fileID: 8970479154896064782}
   - component: {fileID: 333823813430563857}
   - component: {fileID: 8765145159534504210}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Level 2 Basic
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -926,7 +926,7 @@ MonoBehaviour:
   roamDist: 5
   animSpeedTrans: 3
   bullet: {fileID: 2808864441738590270, guid: c1299e0c061da674a8614a09ae06b07d, type: 3}
-  shootRate: 0.35
+  shootRate: 0.5
   isMelee: 0
   meleeDamage: 0
   meleeHitDistance: 0
@@ -976,8 +976,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3072609
-  m_Height: 1.882848
+  m_Radius: 0.5
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.98, z: 0}
 --- !u!195 &8970479154896064782

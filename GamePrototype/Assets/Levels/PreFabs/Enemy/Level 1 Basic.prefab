@@ -1098,9 +1098,9 @@ GameObject:
   - component: {fileID: 3715268598493643555}
   - component: {fileID: 5427744261524719164}
   - component: {fileID: 3915544858081180479}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Level 1 Basic
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1135,7 +1135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96127e6b6323d144ca838adb86da1115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeathTimer: 1.5
+  DeathTimer: 2
   model: {fileID: 1386280018483093035}
   agent: {fileID: 3715268598493643555}
   anim: {fileID: 1407348092624955195}
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   roamDist: 5
   animSpeedTrans: 3
   bullet: {fileID: 2808864441738590270, guid: 8df5d878e9983b14c80fa7d447fbd42e, type: 3}
-  shootRate: 0.35
+  shootRate: 1.25
   isMelee: 0
   meleeDamage: 0
   meleeHitDistance: 0
@@ -1198,8 +1198,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3072609
-  m_Height: 1.882848
+  m_Radius: 0.5
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.98, z: 0}
 --- !u!195 &3715268598493643555
