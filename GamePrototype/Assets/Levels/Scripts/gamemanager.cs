@@ -277,8 +277,7 @@ public class gamemanager : MonoBehaviour
     }
 
     public void PotionUpdate()
-    {
-        CurrentPotionAmountStats.text = playerScript.GetHealthPotion().ToString("F0");
+    {       
         CurrentPotionAmountHud.text = playerScript.GetHealthPotion().ToString("F0");
     }
 

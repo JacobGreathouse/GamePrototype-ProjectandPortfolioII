@@ -141,7 +141,7 @@ public class Damage : MonoBehaviour
             AOEDamage(other);
             Destroy(gameObject);
         }
-        if (other.CompareTag("LevelObject"))
+        if (other.CompareTag("LevelObject") && type == damageType.moving)
         {
             if (hitEffect != null)
             {
@@ -154,6 +154,7 @@ public class Damage : MonoBehaviour
                 AOEDamage(other);
                 Destroy(gameObject);
             }
+            Destroy(gameObject);
         }
     }
     public void Chain(Collider previousEnemy)
