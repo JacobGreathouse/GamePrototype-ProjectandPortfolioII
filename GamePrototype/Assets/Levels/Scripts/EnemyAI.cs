@@ -226,6 +226,8 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (canDropCoin)
             Instantiate(coinDrop, pos, rot);
 
+       
+
     }
 
     IEnumerator shoot()

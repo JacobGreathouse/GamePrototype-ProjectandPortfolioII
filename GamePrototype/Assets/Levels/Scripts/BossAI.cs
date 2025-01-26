@@ -185,6 +185,11 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
 
         Destroy(gameObject);
 
+        if(isFinalBoss)
+        {
+            gamemanager.instance.youWin();
+        }
+
         if (SpawnPortal != null)
         {
             Quaternion rot = Quaternion.LookRotation(new Vector3(transform.rotation.x, 0, transform.rotation.z));

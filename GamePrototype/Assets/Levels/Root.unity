@@ -997,11 +997,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: HP
-      value: 20000
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: maxMana
-      value: 100
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: audDodge
