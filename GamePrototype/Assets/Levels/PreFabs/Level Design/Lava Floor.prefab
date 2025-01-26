@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 767214408982076158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0202, y: 0.2, z: 61.3021}
-  m_LocalScale: {x: 99.919525, y: 0.4268, z: 26.408413}
+  m_LocalScale: {x: 38.78136, y: 0.4268, z: 69.81346}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -66,7 +66,7 @@ MonoBehaviour:
   hitEffect: {fileID: 0}
   audPlayer: {fileID: 3032470040818418131}
   impactSound:
-  - {fileID: 8300000, guid: 6ba499706fc0ada4a86f506c4eaa4d7a, type: 3}
+  - {fileID: 8300000, guid: 0dd6be8070e6dfc4cbbe9a065ef6446a, type: 3}
   impactSoundVol: 1
   playerLvl: 0
   staffStats: {fileID: 0}
@@ -160,7 +160,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2536300855172093662, guid: 09fb510c98bb5b143ad07c77ebf572d1, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 0dd6be8070e6dfc4cbbe9a065ef6446a, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
