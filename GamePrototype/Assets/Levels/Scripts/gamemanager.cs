@@ -63,6 +63,7 @@ public class gamemanager : MonoBehaviour
     [SerializeField][Range(0, 1)] float audPickupCoinVol;
 
 
+
     public bool isPaused = false;
     int maxHits;
     float AOETriggerRadius;

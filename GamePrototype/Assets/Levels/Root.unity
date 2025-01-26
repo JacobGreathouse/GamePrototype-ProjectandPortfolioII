@@ -378,6 +378,26 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1058368113331631642, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audDrink
+      value: 
+      objectReference: {fileID: 472666963}
+    - target: {fileID: 1058368113331631642, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audSipVol
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058368113331631642, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audLemmeGetSomeSip.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058368113331631642, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audLemmeGetSomeSip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 59631d1758a4c114c86391264455c45c, type: 3}
+    - target: {fileID: 1058368113331631642, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audLemmeGetSomeSip.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: d6f9f304f8fe6df45ab07568200ea7cc, type: 3}
     - target: {fileID: 1058368113415201607, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
       propertyPath: m_Name
       value: UI
@@ -466,6 +486,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audDrink
+      value: 
+      objectReference: {fileID: 1667199032}
+    - target: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audSipVol
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audLemmeGetSomeSip.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audLemmeGetSomeSip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: d6f9f304f8fe6df45ab07568200ea7cc, type: 3}
+    - target: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+      propertyPath: audLemmeGetSomeSip.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 59631d1758a4c114c86391264455c45c, type: 3}
     - target: {fileID: 2299118271699705846, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -476,6 +516,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1058368113415201659, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
   m_PrefabInstance: {fileID: 323531188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &386961769 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 335784893, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
+  m_PrefabInstance: {fileID: 2106335668}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &405713843
 GameObject:
@@ -752,6 +797,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414676475}
   m_CullTransparentMesh: 1
+--- !u!82 &472666963 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4508396649571497689, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+  m_PrefabInstance: {fileID: 323531188}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1528255556
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,6 +880,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528255556}
   m_CullTransparentMesh: 1
+--- !u!82 &1667199032 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8796816334908662825, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+  m_PrefabInstance: {fileID: 323531188}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1978262494
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,8 +1050,16 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
+      propertyPath: audDrink
+      value: 
+      objectReference: {fileID: 386961769}
+    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: maxChain
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
+      propertyPath: audSipVol
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: dodgeDistance
@@ -1006,6 +1069,18 @@ PrefabInstance:
       propertyPath: AOETriggerRadius
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
+      propertyPath: audLemmeGetSomeSip.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
+      propertyPath: audLemmeGetSomeSip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: d6f9f304f8fe6df45ab07568200ea7cc, type: 3}
+    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
+      propertyPath: audLemmeGetSomeSip.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 59631d1758a4c114c86391264455c45c, type: 3}
     - target: {fileID: 6761757263595609177, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: m_RootOrder
       value: 1

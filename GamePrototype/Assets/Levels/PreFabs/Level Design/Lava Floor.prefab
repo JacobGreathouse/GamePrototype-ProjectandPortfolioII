@@ -99,7 +99,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c6d545a3b89572f47b8a70ce4ea8ef74, type: 2}
+  - {fileID: 2100000, guid: b36dccc9faef6664c87e312267a96793, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -157,7 +157,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767214408982076158}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2536300855172093662, guid: 09fb510c98bb5b143ad07c77ebf572d1, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0dd6be8070e6dfc4cbbe9a065ef6446a, type: 3}

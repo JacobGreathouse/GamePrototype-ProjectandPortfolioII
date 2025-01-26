@@ -6482,6 +6482,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1709337547}
     m_Modifications:
+    - target: {fileID: 767214408982076097, guid: f87cfbaa033b8a14d917da43e6fc9fb0, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 767214408982076097, guid: f87cfbaa033b8a14d917da43e6fc9fb0, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 767214408982076097, guid: f87cfbaa033b8a14d917da43e6fc9fb0, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9a526ccb9696d6545b3991e93bfb18bd, type: 2}
+    - target: {fileID: 767214408982076097, guid: f87cfbaa033b8a14d917da43e6fc9fb0, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9a526ccb9696d6545b3991e93bfb18bd, type: 2}
     - target: {fileID: 767214408982076100, guid: f87cfbaa033b8a14d917da43e6fc9fb0, type: 3}
       propertyPath: m_RootOrder
       value: 1

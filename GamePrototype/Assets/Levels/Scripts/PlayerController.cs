@@ -70,6 +70,11 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField][Range(0, 1)] float dodgeDuration;
     [SerializeField][Range(0, 5)] float dodgeCooldown;
 
+    [Header("----- Potion Drinkng Sounds -----")]
+    [SerializeField] AudioSource audDrink;
+    [SerializeField] AudioClip[] audLemmeGetSomeSip;
+    [SerializeField][Range(0, 1)] float audSipVol;
+
     private bool isDodging = false;
     private bool isDodgeCooldown = false;
     private float dodgeCooldownTimer = 0f;
@@ -158,6 +163,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         
         if(Input.GetButtonDown("Heal") && HealthPotionCount > 0 && HP < HPMax)
         {
+            audDrink.PlayOneShot(audLemmeGetSomeSip[Random.Range(0, audLemmeGetSomeSip.Length)], audSipVol);
             int amountToHeal = 20;
             if (HPMax - HP <= 20)
                 amountToHeal = HPMax - HP;
