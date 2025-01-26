@@ -7,6 +7,10 @@ public class CheckPointTrigger : MonoBehaviour
     [SerializeField] Transform[] respawnPoints;
     [SerializeField] ParticleSystem spawnParticles;
 
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource audCheckPoint;
+    [SerializeField] AudioClip[] audCheckPointHit;
+    [SerializeField][Range(0, 1)] float audCheckVol;
 
     private RespawnSystem respawnSystem;
     // Start is called before the first frame update
@@ -23,6 +27,8 @@ public class CheckPointTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            audCheckPoint.PlayOneShot(audCheckPointHit[Random.Range(0, audCheckPointHit.Length)], audCheckVol);
+
             respawnSystem.SetActiveRespawnPoint(transform);
             Debug.Log("Checkpoint reached: " + transform.position);
             gamemanager.instance.respawnButton.SetActive(true);
