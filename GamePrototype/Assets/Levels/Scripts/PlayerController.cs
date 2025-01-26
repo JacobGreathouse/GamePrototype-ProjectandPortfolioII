@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     int HPMax;
     int staffListPos;
     float currentMana;
-    int currentHP;
+    
 
 
     bool isShooting;
@@ -155,7 +155,19 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         {
             _motionVector = Vector3.zero; // reset the motion vector if not dodging
         }
-            
+        
+        if(Input.GetButtonDown("Heal") && HealthPotionCount > 0 && HP < HPMax)
+        {
+            int amountToHeal = 20;
+            if (HPMax - HP <= 20)
+                amountToHeal = HPMax - HP;
+
+            HP += amountToHeal;
+
+            HealthPotionCount -= 1;
+
+            updatePlayerUI();
+        }
 
         if (controller.isGrounded)
         {

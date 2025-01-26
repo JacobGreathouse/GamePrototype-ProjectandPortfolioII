@@ -51,11 +51,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   rb: {fileID: 2808864441738590244}
-  damageAmount: 3
+  damageAmount: 5
   speed: 65
   destroyTime: 6
   maxHits: 0
   isAOE: 0
+  isMissile: 0
+  turnRate: 0
+  maxTurnAngle: 15
   triggerRadius: 0
   AOETriggerRadius: 0
   audPlayer: {fileID: 0}
