@@ -66,6 +66,8 @@ MonoBehaviour:
   hitEffect: {fileID: 0}
   audPlayer: {fileID: 3032470040818418131}
   impactSound:
+  - {fileID: 8300000, guid: 6ba499706fc0ada4a86f506c4eaa4d7a, type: 3}
+  lavaSound:
   - {fileID: 8300000, guid: 0dd6be8070e6dfc4cbbe9a065ef6446a, type: 3}
   impactSoundVol: 1
   playerLvl: 0
@@ -164,7 +166,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
