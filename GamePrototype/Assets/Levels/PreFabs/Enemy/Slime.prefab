@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057025897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.304, y: -0.148, z: -0}
+  m_LocalPosition: {x: -0.28, y: -0.144, z: -0.002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -367,7 +367,7 @@ MonoBehaviour:
   shootRate: 1
   isMelee: 1
   meleeDamage: 4
-  meleeHitDistance: 1.5
+  meleeHitDistance: 0.4
   ignoreMask:
     serializedVersion: 2
     m_Bits: 128
