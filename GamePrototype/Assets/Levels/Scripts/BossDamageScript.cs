@@ -118,7 +118,7 @@ public class BossDamageScript : MonoBehaviour
             IDamage dmg = hitCollider.GetComponent<IDamage>();
             if (dmg != null && hitCollider.gameObject.tag != "Enemy")
             {
-                dmg.takeDamage(damageAmount);
+                dmg.takeDamage(damageAmount - 3);
             }
         }
     }
