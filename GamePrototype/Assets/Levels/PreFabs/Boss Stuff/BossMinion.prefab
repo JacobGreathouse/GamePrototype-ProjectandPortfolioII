@@ -1121,7 +1121,7 @@ MonoBehaviour:
   HPBar: {fileID: 4054631357140979138}
   shootPos: {fileID: 6126865058402154400}
   headPos: {fileID: 7057073014241428461}
-  HP: 10
+  HP: 6
   faceTargetSpeed: 50
   FOV: 90
   roamDist: 15
@@ -1145,6 +1145,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: eecf181bcb2006a4ebf9caa8210ed0f6, type: 3}
   audHurtVol: 0.5
   coinDrop: {fileID: 0}
+  canDropCoin: 0
 --- !u!195 &7057073014232117833
 NavMeshAgent:
   m_ObjectHideFlags: 0

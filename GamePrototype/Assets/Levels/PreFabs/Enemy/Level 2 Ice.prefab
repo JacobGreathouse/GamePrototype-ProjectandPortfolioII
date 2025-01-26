@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 1912768236620570106}
   - component: {fileID: 7462028608454451449}
   m_Layer: 0
-  m_Name: Enemy1 Ice 2
+  m_Name: Level 2 Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -521,7 +521,7 @@ MonoBehaviour:
   FOV: 90
   roamDist: 5
   animSpeedTrans: 3
-  bullet: {fileID: 2808864441738590270, guid: 8379857e461f2574b902908479131a76, type: 3}
+  bullet: {fileID: 2808864441738590270, guid: 749ca438f4e61564babcaf2dccd02c57, type: 3}
   shootRate: 0.35
   isMelee: 0
   meleeDamage: 0

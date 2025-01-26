@@ -2159,7 +2159,7 @@ MonoBehaviour:
   shootPos: {fileID: 4584515922631814307}
   headPos: {fileID: 1929315685692212510}
   SpawnPortal: {fileID: 0}
-  HP: 75
+  HP: 60
   faceTargetSpeed: 80
   stoppingDist: 2
   xpOnKill: 15

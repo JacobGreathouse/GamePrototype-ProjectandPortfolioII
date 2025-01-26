@@ -134,10 +134,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 7057073014241750745, guid: d741a63bf9245204eb15255960939d7b, type: 3}
   numToSpawn: 100
-  spawnSpeed: 3
+  spawnSpeed: 7
   spawnPos:
   - {fileID: 4526781598096245599}
   - {fileID: 4526781598791863088}
+  spawngroupSize: 0
 --- !u!33 &4526781598433691621
 MeshFilter:
   m_ObjectHideFlags: 0
