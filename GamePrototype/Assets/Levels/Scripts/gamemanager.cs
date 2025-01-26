@@ -28,7 +28,9 @@ public class gamemanager : MonoBehaviour
     public TMP_Text CurrentChainMaxText;
     public TMP_Text CurrentBurstText;
     public TMP_Text playerSPText;
-    public TMP_Text CurrentCoinText; 
+    public TMP_Text CurrentCoinText;
+    public TMP_Text CurrentPotionAmountStats;
+    public TMP_Text CurrentPotionAmountHud;
     public TMP_Text playerXPText;
     public TMP_Text playerLevelText;
     public Image playerHPBar;
@@ -271,7 +273,13 @@ public class gamemanager : MonoBehaviour
     }
     public void PlayerCoinUpdate()
     {
-        CurrentCoinText.text = playerScript.CoinCount.ToString("F0");
+        CurrentCoinText.text = playerScript.GetCoinCount().ToString("F0");
+    }
+
+    public void PotionUpdate()
+    {
+        CurrentPotionAmountStats.text = playerScript.GetHealthPotion().ToString("F0");
+        CurrentPotionAmountHud.text = playerScript.GetHealthPotion().ToString("F0");
     }
 
     public void LoadMap(int index)
