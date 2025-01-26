@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     int HPMax;
     int staffListPos;
     float currentMana;
-    int currentHP;
+    
 
 
     bool isShooting;
@@ -155,7 +155,19 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         {
             _motionVector = Vector3.zero; // reset the motion vector if not dodging
         }
-            
+        
+        if(Input.GetButtonDown("Heal") && HealthPotionCount > 0 && HP < HPMax)
+        {
+            int amountToHeal = 20;
+            if (HPMax - HP <= 20)
+                amountToHeal = HPMax - HP;
+
+            HP += amountToHeal;
+
+            HealthPotionCount -= 1;
+
+            updatePlayerUI();
+        }
 
         if (controller.isGrounded)
         {
@@ -406,6 +418,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         gamemanager.instance.PlayerChainUpdate();
         gamemanager.instance.PlayerAOEUpdate();
         gamemanager.instance.PlayerSPUpdate();
+        gamemanager.instance.PlayerCoinUpdate();
+        gamemanager.instance.PotionUpdate();
 
     }
     private void updatePlayerLevel()
@@ -530,15 +544,26 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         controller.enabled = true;
     }
 
-    public int CoinCount
+    public int GetCoinCount()
     {
-        get { return coinCount; }
-        set { coinCount = value; }
+        return coinCount;
     }
+    public void SetCoinCount(int value)
+    {
+        coinCount += value;
+        updatePlayerUI();
+    }
+
 
     public void setHealthPotion(int amount)
     {
         HealthPotionCount += amount;
+        updatePlayerUI();
+    }
+
+    public int GetHealthPotion()
+    {
+        return HealthPotionCount;
     }
 
     public int shootDamage

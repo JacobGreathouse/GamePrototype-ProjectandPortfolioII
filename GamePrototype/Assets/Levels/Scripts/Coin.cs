@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
@@ -21,7 +22,7 @@ public class Coin : MonoBehaviour
         if(other.CompareTag("Player"))
         {
 
-            gamemanager.instance.player.GetComponent<PlayerController>().CoinCount += 1;
+            gamemanager.instance.player.GetComponent<PlayerController>().SetCoinCount(1);
 
             Destroy(gameObject);
         }

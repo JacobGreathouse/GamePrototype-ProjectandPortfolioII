@@ -172,4 +172,12 @@ public class ButtonFunction : MonoBehaviour
         gamemanager.instance.levelSelectOpen();
     }
 
+    public void BuyHealthPotion()
+    {
+        if (gamemanager.instance.player.GetComponent<PlayerController>().GetCoinCount() >= 10)
+        {
+            gamemanager.instance.player.GetComponent<PlayerController>().setHealthPotion(1);
+            gamemanager.instance.player.GetComponent<PlayerController>().SetCoinCount(-10);
+        }
+    }
 }
