@@ -357,7 +357,7 @@ MonoBehaviour:
   HPBar: {fileID: 1071438424}
   shootPos: {fileID: 1057025898}
   headPos: {fileID: 5912886170333306072}
-  HP: 10
+  HP: 7
   faceTargetSpeed: 40
   FOV: 90
   roamDist: 6
@@ -413,7 +413,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.75
-  m_Speed: 1.5
+  m_Speed: 2.5
   m_Acceleration: 30
   avoidancePriority: 50
   m_AngularSpeed: 600

@@ -7,6 +7,7 @@ using static UnityEditor.PlayerSettings;
 
 public class EnemyAI : MonoBehaviour, IDamage
 {
+    [SerializeField] float DeathTimer;
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
@@ -213,7 +214,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         anim.SetTrigger("Death");
         
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(DeathTimer);
 
         Destroy(gameObject);
 

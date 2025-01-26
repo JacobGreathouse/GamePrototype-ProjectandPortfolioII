@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2808864441738590244}
   - component: {fileID: 6588444442817251349}
   m_Layer: 8
-  m_Name: Damage-Ice
+  m_Name: Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   rb: {fileID: 2808864441738590244}
-  damageAmount: 5
+  damageAmount: 6
   speed: 20
   destroyTime: 3
   maxHits: 0
@@ -66,6 +66,7 @@ MonoBehaviour:
   hitEffect: {fileID: 0}
   audPlayer: {fileID: 0}
   impactSound: []
+  lavaSound: []
   impactSoundVol: 1
   playerLvl: 0
   staffStats: {fileID: 0}
