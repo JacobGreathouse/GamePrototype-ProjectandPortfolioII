@@ -2158,11 +2158,11 @@ MonoBehaviour:
     m_Bits: 128
   shootPos: {fileID: 4584515922631814307}
   headPos: {fileID: 1929315685692212510}
-  staffToSpawn: {fileID: 939649492393260375, guid: 291375081626739479d699b6ee52902f, type: 3}
-  HP: 5
+  SpawnPortal: {fileID: 0}
+  HP: 75
   faceTargetSpeed: 80
   stoppingDist: 2
-  xpOnKill: 20
+  xpOnKill: 15
   animSpeedTrans: 8
   bulletnumbermin: 4
   bulletnumbermax: 8
@@ -2173,7 +2173,7 @@ MonoBehaviour:
   - {fileID: 2808864441738590270, guid: 2dd946fb32b49da4289c17763b222049, type: 3}
   - {fileID: 2808864441738590270, guid: 90928d4a72b9e984a9a3064ef004efb5, type: 3}
   - {fileID: 2521476272068865361, guid: dc0285f03c7283d49b2a0a3ea0d4c36d, type: 3}
-  shootRatemin: 0.75
+  shootRatemin: 1.25
   shootRatemax: 1.5
   canshootmagicmissle: 0
   audPlayer: {fileID: 1929489166044063686}
@@ -2247,11 +2247,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 0
+  m_Speed: 3.5
   m_Acceleration: 38
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 20000
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
