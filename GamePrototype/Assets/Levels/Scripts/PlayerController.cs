@@ -70,6 +70,11 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField][Range(0, 1)] float dodgeDuration;
     [SerializeField][Range(0, 5)] float dodgeCooldown;
 
+    [Header("----- Dodge Sounds -----")]
+    [SerializeField] AudioSource audDodge;
+    [SerializeField] AudioClip[] audDodging;
+    [SerializeField][Range(0, 1)] float audDodgeVol;
+
     [Header("----- Potion Drinkng Sounds -----")]
     [SerializeField] AudioSource audDrink;
     [SerializeField] AudioClip[] audLemmeGetSomeSip;
@@ -258,6 +263,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     IEnumerator Dodge()
     {
         Debug.Log("Is dodging");
+        audDodge.PlayOneShot(audDodging[Random.Range(0, 1)], audDodgeVol);
         dodgeDirection = moveDir;
         isDodging = true;
         int origLayer = gameObject.layer;
