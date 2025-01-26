@@ -2007,6 +2007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96127e6b6323d144ca838adb86da1115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathTimer: 1.5
   model: {fileID: 5886276147561604264}
   agent: {fileID: 8143079562956978592}
   anim: {fileID: 5839665746943172024}
