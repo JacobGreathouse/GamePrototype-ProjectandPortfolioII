@@ -13,6 +13,8 @@ public class DisapearingPlatform : MonoBehaviour
     bool _isActive = false;
     float _time = 0.0f;
 
+    bool _isVisible;
+
     public bool isActive 
     { 
         get 
@@ -31,37 +33,40 @@ public class DisapearingPlatform : MonoBehaviour
     {
         if (!_isCooling)
         {
-            if (_isActive)
-            {
-                _time += Time.deltaTime;
-                Debug.Log(_time);
-            }
-            else
-            {
-                _time = 0;
-            }
+            /* if (_isActive)
+             {
+                 _time += Time.deltaTime;
+                 Debug.Log(_time);
+             }
+             else
+             {
+                 _time = 0;
+             }*/
+
+            _time += Time.deltaTime;
 
             if (_time > _strength)
             {
-                _platform.SetActive(false);
+                _isVisible = !_isVisible;
+                _platform.SetActive(_isVisible);
                 _time = 0;
-                _isActive = false;
-                CoolDown(_respawnCooldown);
+                //_isActive = false;
+                StartCoroutine(CoolDown(_respawnCooldown));
+                
             }
         }
     }
 
     IEnumerator CoolDown(float time)
     {
-        if (!_isCooling)
-        {
+        //if (!_isCooling)
+        //{
             _isCooling = true;
             yield return new WaitForSeconds(time);
-
             _platform.SetActive(true);
             _time = 0.0f;
             _isCooling = false;
-        }
+        //}
     }
 
 
