@@ -174,6 +174,7 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
     IEnumerator shoot()
     {
         isShooting = true;
+
         anim.SetTrigger("Shoot");
 
         int bulletnumber = Random.Range(bulletnumbermin, bulletnumbermax);

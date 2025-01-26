@@ -15,7 +15,15 @@ public class SpikeTrap : MonoBehaviour
     [SerializeField] float _inTime;
     [SerializeField] int _dmg;
 
+    [Header("----- Spike Audio -----")]
+    [SerializeField] AudioSource audSpike;
+    [SerializeField] AudioClip[] audSpikeMove;
+    [SerializeField][Range(0, 1)] float audSpikeVol;
 
+    [Header("----- Hurt Audio -----")]
+    [SerializeField] AudioSource audHurt;
+    [SerializeField] AudioClip[] audHitPlayer;
+    [SerializeField][Range(0, 1)] float audHurtVol;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +56,7 @@ public class SpikeTrap : MonoBehaviour
     {
         _mode = SPIKEMODE.EXTENDING;
         _animator.SetTrigger("Extend");
+        audSpike.PlayOneShot(audSpikeMove[Random.Range(0, audSpikeMove.Length)], audSpikeVol);
         if (_outTime > 0)
         {
             StartCoroutine(RetractTimer(_outTime));
@@ -58,7 +67,8 @@ public class SpikeTrap : MonoBehaviour
     {
         _mode = SPIKEMODE.IDLE;
         _animator.SetTrigger("Retract");
-        if(_inTime > 0)
+        audSpike.PlayOneShot(audSpikeMove[Random.Range(0, audSpikeMove.Length)], audSpikeVol);
+        if (_inTime > 0)
         {
             StartCoroutine(ExtendTimer(_inTime));
         }
@@ -74,12 +84,14 @@ public class SpikeTrap : MonoBehaviour
             case SPIKEMODE.RETRACTING:
                 if ((!gamemanager.instance.playerScript.Controller.isGrounded) && gamemanager.instance.playerScript.VertMovement < -0.5f)
                 {
+                    audHurt.PlayOneShot(audHitPlayer[Random.Range(0, audHitPlayer.Length)], audHurtVol);
                     gamemanager.instance.playerScript.takeDamage(_dmg);
                 }
                 break;
             case SPIKEMODE.EXTENDING:
                 if (true) // the laziest code I've ever written - gabe
                 {
+                    audHurt.PlayOneShot(audHitPlayer[Random.Range(0, audHitPlayer.Length)], audHurtVol);
                     gamemanager.instance.playerScript.takeDamage(_dmg);
                 }
                 break;

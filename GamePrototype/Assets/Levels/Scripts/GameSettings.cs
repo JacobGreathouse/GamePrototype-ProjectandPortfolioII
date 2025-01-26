@@ -28,5 +28,10 @@ public class GameSettings : MonoBehaviour
         audioFeedback.PlayOneShot(audSFXFeedback[Random.Range(0, audSFXFeedback.Length)], audVol);
     }
 
+    public void SensitivitySlider(float val)
+    {
+        if(gamemanager.instance != null)
+            gamemanager.instance.sensitivityChanged((int)val);
+    }
 
 }

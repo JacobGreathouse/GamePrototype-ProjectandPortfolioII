@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System.Linq;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class Credits : MonoBehaviour
 {
-    [SerializeField] string path = "Assets/Levels/Scripts/Credits.txt";
+    
     [SerializeField] float scrollSpeed;
-
     [SerializeField] Font m_Font;
     [SerializeField] int headerSize;
     [SerializeField] int nameSize;
@@ -23,11 +23,22 @@ public class Credits : MonoBehaviour
     [SerializeField] GameObject CreditsScreen;
     [SerializeField] GameObject MainMenuScreen;
     [SerializeField] Button creditsButton;
+
     bool buttonPressed;
+    string path = "Assets/Levels/Scripts/Credits.txt";
+    
 
     public void Awake()
     {
+
+        if (!File.Exists(path))
+            path = Path.Combine(Application.dataPath, "Credits.txt");
+
+        string tempPath = Application.dataPath;
+        Debug.Log("dataPath : " + tempPath);
+
         StreamReader reader = new StreamReader(path);
+
         string line = "";
         bool newStart = false;
         while ((line = reader.ReadLine()) != null)
@@ -87,6 +98,20 @@ public class Credits : MonoBehaviour
         //if button click, rollcredits
         if (buttonPressed)
             rollCredits();
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            for (int i = 0; i < creditsText.Count; i++)
+            {
+                if (creditsText[i] != null)
+                {
+                    Destroy(creditsText[i]);
+                    creditsText[i] = null;
+                }
+            }
+                MainMenuScreen.SetActive(true);
+            CreditsScreen.SetActive(false);
+        }
     }
 
     public void CreditsButton()

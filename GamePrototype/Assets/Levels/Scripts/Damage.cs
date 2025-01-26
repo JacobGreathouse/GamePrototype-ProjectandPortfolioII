@@ -80,7 +80,7 @@ public class Damage : MonoBehaviour
         if (other.isTrigger)
             return;
 
-        if (isBunny && other.CompareTag("Enemy"))
+       /* if (isBunny && other.CompareTag("Enemy"))
         {
             // Destroy the enemy object
             Destroy(other.gameObject);
@@ -93,7 +93,7 @@ public class Damage : MonoBehaviour
 
             // Do not deal damage if it's a BunnyBomb
             return;
-        }
+        }*/
 
         IDamage dmg = other.GetComponent<IDamage>(); 
 
@@ -141,7 +141,7 @@ public class Damage : MonoBehaviour
             AOEDamage(other);
             Destroy(gameObject);
         }
-        if (other.CompareTag("LevelObject"))
+        if (other.CompareTag("LevelObject") && type == damageType.moving)
         {
             if (hitEffect != null)
             {
@@ -154,6 +154,7 @@ public class Damage : MonoBehaviour
                 AOEDamage(other);
                 Destroy(gameObject);
             }
+            Destroy(gameObject);
         }
     }
     public void Chain(Collider previousEnemy)

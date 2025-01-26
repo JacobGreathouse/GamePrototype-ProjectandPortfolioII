@@ -11,6 +11,8 @@ public class ButtonFunction : MonoBehaviour
     [SerializeField] AudioClip[] audButtonClick;
     [SerializeField][Range(0, 1)] float audButtonVol;
 
+
+
     public void resume()
     {
         StartCoroutine(playButtonClick());
@@ -53,12 +55,12 @@ public class ButtonFunction : MonoBehaviour
         yield return new WaitForSeconds(audButtonClick.Length);
     }
 
-    public void ContinueSave()
-    {
-        StartCoroutine(playButtonClick());
+    //public void ContinueSave()
+    //{
+    //    StartCoroutine(playButtonClick());
 
-        //need to implement
-    }
+    //    //need to implement
+    //}
 
     public void Credits()
     {
@@ -172,4 +174,12 @@ public class ButtonFunction : MonoBehaviour
         gamemanager.instance.levelSelectOpen();
     }
 
+    public void BuyHealthPotion()
+    {
+        if (gamemanager.instance.player.GetComponent<PlayerController>().GetCoinCount() >= 10)
+        {
+            gamemanager.instance.player.GetComponent<PlayerController>().setHealthPotion(1);
+            gamemanager.instance.player.GetComponent<PlayerController>().SetCoinCount(-10);
+        }
+    }
 }

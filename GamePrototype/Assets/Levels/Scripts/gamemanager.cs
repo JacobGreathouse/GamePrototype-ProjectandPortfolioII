@@ -28,7 +28,9 @@ public class gamemanager : MonoBehaviour
     public TMP_Text CurrentChainMaxText;
     public TMP_Text CurrentBurstText;
     public TMP_Text playerSPText;
-    public TMP_Text CurrentCoinText; 
+    public TMP_Text CurrentCoinText;
+    public TMP_Text CurrentPotionAmountStats;
+    public TMP_Text CurrentPotionAmountHud;
     public TMP_Text playerXPText;
     public TMP_Text playerLevelText;
     public Image playerHPBar;
@@ -61,6 +63,7 @@ public class gamemanager : MonoBehaviour
     [SerializeField][Range(0, 1)] float audPickupCoinVol;
 
 
+
     public bool isPaused = false;
     int maxHits;
     float AOETriggerRadius;
@@ -70,6 +73,9 @@ public class gamemanager : MonoBehaviour
     LoadingScreen _loadingScreenScript;
     int _currentMapIndex = -1;
     bool _isLoading = false;
+
+    //[Header("----- Sensitivity Preset -----")]
+    [SerializeField][Range(100, 600)] public int sensVal;
 
     // Start is called before the first frame update
     void Awake()
@@ -198,6 +204,11 @@ public class gamemanager : MonoBehaviour
         menuPause.SetActive(true);
     }
 
+    public void sensitivityChanged(int value)
+    {
+        sensVal = value;
+    }
+
     public void levelSelectOpen()
     {
         //menuActive = _menuDebugLevelSelect;
@@ -271,7 +282,12 @@ public class gamemanager : MonoBehaviour
     }
     public void PlayerCoinUpdate()
     {
-        CurrentCoinText.text = playerScript.CoinCount.ToString("F0");
+        CurrentCoinText.text = playerScript.GetCoinCount().ToString("F0");
+    }
+
+    public void PotionUpdate()
+    {       
+        CurrentPotionAmountHud.text = playerScript.GetHealthPotion().ToString("F0");
     }
 
     public void LoadMap(int index)
