@@ -7,6 +7,7 @@ Carly Willes
 Tobii
 !Ambient Music
 Vipperstorm
+"Mesmerizing Galaxy" by Kevin MacLeod from incompetech.com
 !Game Assets
 Pirate Coin by DavePixel from assetstore.unity.com
 Old Torch by Michele Marcelli from assetstore.unity.com
