@@ -58,7 +58,7 @@ public class BossSpawning : MonoBehaviour
             ParticleSystem particleInstance = Instantiate(spawnParticles, spawnPos[spawnInt].transform.position, Quaternion.identity);
             StartCoroutine(DestroyParticleSystemAfterDelay(particleInstance, 2f));
             spawnCount += spawngroupSize;
-            Instantiate(objectToSpawn, spawnPos[spawnInt].position, rotat);
+            Instantiate(objectToSpawn, spawnPos[spawnInt].position, rotat).transform.SetParent(gamemanager.instance.SpawnContainer.transform);
         }
         
 

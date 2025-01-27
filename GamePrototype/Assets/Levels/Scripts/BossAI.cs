@@ -194,7 +194,7 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
         {
             Quaternion rot = Quaternion.LookRotation(new Vector3(transform.rotation.x, 0, transform.rotation.z));
             Vector3 pos = new Vector3(transform.position.x, 5.0f, transform.position.z);
-            Instantiate(SpawnPortal, pos, rot);
+            Instantiate(SpawnPortal, pos, rot).transform.SetParent(gamemanager.instance.SpawnContainer.transform);
         }
     }
 
@@ -212,11 +212,11 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
         {
             Quaternion rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y - 1, playerDir.z + i));
             shootPos.rotation = rotat;
-            Instantiate(spellObject[spellToUse], shootPos.position, shootPos.rotation);
+            Instantiate(spellObject[spellToUse], shootPos.position, shootPos.rotation).transform.SetParent(gamemanager.instance.SpawnContainer.transform);
 
             rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y - 1, playerDir.z + (i + 2)));
             shootPos.rotation = rotat;
-            Instantiate(spellObject[spellToUse], shootPos.position, shootPos.rotation);
+            Instantiate(spellObject[spellToUse], shootPos.position, shootPos.rotation).transform.SetParent(gamemanager.instance.SpawnContainer.transform);
 
 
         }
@@ -236,7 +236,7 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
 
         Quaternion rotat = Quaternion.LookRotation(new Vector3(playerDir.x, playerDir.y - 1, playerDir.z));
         shootPos.rotation = rotat;
-        Instantiate(magicMissle, shootPos.position, shootPos.rotation);
+        Instantiate(magicMissle, shootPos.position, shootPos.rotation).transform.SetParent(gamemanager.instance.SpawnContainer.transform);
 
         magicMissleShot = false;
     }

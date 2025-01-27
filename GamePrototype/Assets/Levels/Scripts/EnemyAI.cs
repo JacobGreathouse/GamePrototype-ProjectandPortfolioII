@@ -224,7 +224,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         Vector3 pos = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
 
         if (canDropCoin)
-            Instantiate(coinDrop, pos, rot);
+            Instantiate(coinDrop, pos, rot).transform.SetParent(gamemanager.instance.SpawnContainer.transform);
 
        
 
@@ -235,7 +235,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         isShooting = true;
         anim.SetTrigger("Shoot");
 
-        Instantiate(bullet, shootPos.position, transform.rotation);
+        Instantiate(bullet, shootPos.position, transform.rotation).transform.SetParent(gamemanager.instance.SpawnContainer.transform);
         yield return new WaitForSeconds(shootRate);
 
         isShooting = false;

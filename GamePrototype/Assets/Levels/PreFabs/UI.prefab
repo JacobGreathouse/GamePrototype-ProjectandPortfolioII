@@ -1688,6 +1688,10 @@ MonoBehaviour:
   audSFXFeedback:
   - {fileID: 8300000, guid: 75d8b24afc38bdf4f965533c78ce9af9, type: 3}
   audVol: 1
+  MasterSlider: {fileID: 0}
+  MusicSlider: {fileID: 0}
+  SFXSlider: {fileID: 0}
+  SensSlider: {fileID: 0}
 --- !u!222 &417467183
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12233,6 +12237,7 @@ MonoBehaviour:
   allOrbsCol: {fileID: 6874410893197612736}
   _loadingScreen: {fileID: 4951705092658810464}
   _menuDebugLevelSelect: {fileID: 5980645982743803407}
+  _spawnContainerPrefab: {fileID: 1012688738219697965, guid: 60ca0ec5cd28dd14c8d6b0c2eab34c39, type: 3}
   HowToPlayMenu: {fileID: 1528255556}
   GameGoalMenu: {fileID: 73994875}
   goalCountText: {fileID: 1058368115130945013}
@@ -12271,6 +12276,7 @@ MonoBehaviour:
   audPickupCoin: []
   audPickupCoinVol: 0.5
   isPaused: 0
+  SpawnContainer: {fileID: 0}
   sensVal: 500
 --- !u!1 &1058368114744387288
 GameObject:
@@ -16570,7 +16576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3894559771218515571
 RectTransform:
   m_ObjectHideFlags: 0

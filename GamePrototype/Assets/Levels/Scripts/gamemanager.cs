@@ -20,6 +20,7 @@ public class gamemanager : MonoBehaviour
     [SerializeField] GameObject allOrbsCol;
     [SerializeField] GameObject _loadingScreen;
     [SerializeField] GameObject _menuDebugLevelSelect;
+    [SerializeField] GameObject _spawnContainerPrefab;
     public GameObject HowToPlayMenu;
     public GameObject GameGoalMenu;
 
@@ -78,6 +79,8 @@ public class gamemanager : MonoBehaviour
     LoadingScreen _loadingScreenScript;
     int _currentMapIndex = -1;
     bool _isLoading = false;
+
+    public GameObject SpawnContainer;
 
     //[Header("----- Sensitivity Preset -----")]
     [SerializeField][Range(100, 600)] public int sensVal;
@@ -304,7 +307,6 @@ public class gamemanager : MonoBehaviour
         _isLoading = true;
 
         StartCoroutine(LoadMapAsync(index));
-        //LoadMapAsync(index);
 
         _loadingScreenScript.LoadingText.SetActive(false);
         _loadingScreenScript.ContinueText.SetActive(true);
@@ -326,12 +328,20 @@ public class gamemanager : MonoBehaviour
             }
         }
 
+        if(SpawnContainer != null)
+        {
+            Destroy(SpawnContainer);
+            SpawnContainer = null;
+        }
+
         AsyncOperation loadProgress = SceneManager.LoadSceneAsync(index, LoadSceneMode.Additive);
 
         while (!loadProgress.isDone)
         {
             yield return new WaitForEndOfFrame();
         }
+
+        SpawnContainer = Instantiate(_spawnContainerPrefab);
 
         _currentMapIndex = index;
 
