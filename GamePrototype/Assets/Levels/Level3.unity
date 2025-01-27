@@ -624,7 +624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1929489166044063706, guid: b49fbbe5791916c44aed88a4dc44d652, type: 3}
       propertyPath: m_RootOrder
-      value: 64
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 1929489166044063706, guid: b49fbbe5791916c44aed88a4dc44d652, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25449,7 +25449,7 @@ GameObject:
   m_Name: Plat (1)
   m_TagString: LevelObject
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!135 &712639614571491046
@@ -26581,7 +26581,7 @@ GameObject:
   m_Name: Plat (3)
   m_TagString: LevelObject
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!33 &5297920224697886959
@@ -26652,7 +26652,7 @@ GameObject:
   m_Name: Plat
   m_TagString: LevelObject
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!135 &5599494721700813425
@@ -27894,7 +27894,7 @@ GameObject:
   m_Name: Plat (2)
   m_TagString: LevelObject
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &8832515591887921265
