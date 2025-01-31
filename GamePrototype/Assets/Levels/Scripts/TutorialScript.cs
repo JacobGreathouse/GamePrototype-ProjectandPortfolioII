@@ -25,6 +25,7 @@ public class TutorialScript : MonoBehaviour
         if(other.CompareTag("Player") && TutorialRan == false)
         {
             TutorialRan=true;
+            gamemanager.instance.menuActive = gamemanager.instance.HowToPlayMenu;
             gamemanager.instance.HowToPlayMenu.SetActive(true);
             gamemanager.instance.statePause();
         }

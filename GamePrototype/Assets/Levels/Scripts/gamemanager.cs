@@ -12,7 +12,7 @@ public class gamemanager : MonoBehaviour
     [SerializeField] int numOfOrbs;
     public GameObject allOrbsNotCol;
     [Header("----- Menu Options -----")]
-    GameObject menuActive;
+    public GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin, menuLose;
     [SerializeField] GameObject menuOptions;
@@ -104,7 +104,7 @@ public class gamemanager : MonoBehaviour
     {
         if (_isLoading)
         {
-            if (Input.GetButtonDown("Submit"))
+            if (Input.anyKeyDown)
             {
                 _loadingScreen.SetActive(false);
                 gamemanager.instance.stateUnpause(true);
@@ -117,7 +117,7 @@ public class gamemanager : MonoBehaviour
         {
             if (Input.GetButtonDown("Cancel"))
             {
-                if (menuActive == null)
+                if (menuActive == null && !_isLoading)
                 {
                     statePause();
                     menuActive = menuPause;
@@ -133,7 +133,7 @@ public class gamemanager : MonoBehaviour
                     optionsClose();
                 }
             }
-            if (Input.GetButtonDown("Stats"))
+            if (Input.GetButtonDown("Stats") && !_isLoading)
             {
                 if (menuActive == null)
                 {
@@ -349,5 +349,4 @@ public class gamemanager : MonoBehaviour
 
         playerScript.WarpPosition(SP.transform.position, SP.transform.rotation);
     }
-
 }

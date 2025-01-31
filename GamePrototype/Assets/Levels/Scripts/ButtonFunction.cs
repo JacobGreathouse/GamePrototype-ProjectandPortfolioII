@@ -178,6 +178,7 @@ public class ButtonFunction : MonoBehaviour
     {
         gamemanager.instance.GameGoalMenu.SetActive(false);
         gamemanager.instance.stateUnpause();
+        gamemanager.instance.menuActive = null;
     }
 
     public void OpenLevelSelect()
