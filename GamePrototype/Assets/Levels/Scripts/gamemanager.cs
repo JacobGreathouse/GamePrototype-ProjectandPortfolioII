@@ -104,7 +104,7 @@ public class gamemanager : MonoBehaviour
     {
         if (_isLoading)
         {
-            if (Input.anyKeyDown)
+            if (Input.GetButtonDown("Submit"))
             {
                 _loadingScreen.SetActive(false);
                 gamemanager.instance.stateUnpause(true);
@@ -153,6 +153,7 @@ public class gamemanager : MonoBehaviour
 
     public void statePause()
     {
+        playerScript.enabled = false;
         isPaused = true;
         Time.timeScale = 0;
         Cursor.visible = true;
@@ -160,6 +161,7 @@ public class gamemanager : MonoBehaviour
     }
     public void stateUnpause(bool ignoreMenu = false)
     {
+        playerScript.enabled = true;
         isPaused = false;
         Time.timeScale = timeScaleOrig;
         Cursor.visible = false;

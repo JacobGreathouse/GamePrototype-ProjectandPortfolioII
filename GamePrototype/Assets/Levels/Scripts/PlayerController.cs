@@ -142,15 +142,15 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDistance, Color.red);
+       
+        
+          movement();
+          sprint();
+          selectStaff();
 
+          UpdateController(_motionVector);
+        
 
-
-        movement();
-        sprint();
-        selectStaff();
-
-        UpdateController(_motionVector);
     }
 
     void movement()
