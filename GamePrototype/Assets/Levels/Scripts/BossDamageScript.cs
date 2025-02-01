@@ -40,7 +40,7 @@ public class BossDamageScript : MonoBehaviour
     {
         if (isMissile == true)
         {
-            Debug.Log("Firing missile...");
+            //Debug.Log("Firing missile...");
             StartCoroutine(HomingLogic()); //added homing logic for missile;
         }
     }
@@ -186,7 +186,7 @@ public class BossDamageScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("No enemies in range for homing.");
+            //Debug.Log("No enemies in range for homing.");
         }
     }
 }

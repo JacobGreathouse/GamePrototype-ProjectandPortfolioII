@@ -99,7 +99,7 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
         playerDir = gamemanager.instance.player.transform.position - headPos.position;
         angleToPlayer = Vector3.Angle(playerDir, transform.forward);
 
-        //Debug.DrawRay(headPos.position, playerDir);
+        Debug.DrawRay(headPos.position, playerDir);
 
         RaycastHit hit;
         if (isDead)

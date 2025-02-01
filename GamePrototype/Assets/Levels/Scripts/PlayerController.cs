@@ -98,11 +98,11 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     int HPMax;
     int staffListPos;
     float currentMana;
-    
+    float OGSpeed= 4.5F;
 
 
     bool isShooting;
-    bool isSprinting;
+    public bool isSprinting;
     bool isPlayingStep;
     bool canRegenMana = true;
 
@@ -117,6 +117,8 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     {
         HPOrig = HP;
         HPMax = HP;
+        //for some reason this just sets the speed to 0 going to just give the OGSpeed the hard value of what speed we've choosen
+        //OGSpeed = speed;
         currentMana = maxMana;
         _footScript = _foot.GetComponent<FootTrigger>();
         updatePlayerUI();
@@ -149,7 +151,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
           selectStaff();
 
           UpdateController(_motionVector);
-        
+          
 
     }
 
@@ -217,12 +219,12 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
         if (Input.GetButton("Fire1") && !isShooting && gamemanager.instance.isPaused == false)
         {
-            Debug.Log("Firing spell");
+            //Debug.Log("Firing spell");
             StartCoroutine(shootMagic());
 
 
         }
-        if (Input.GetButton("Dodge") && !isDodgeCooldown && !isDodging && controller.isGrounded)
+        if (Input.GetButton("Dodge") && !isDodgeCooldown && !isDodging)
         {
             StartCoroutine(Dodge());
         }
@@ -262,7 +264,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     IEnumerator Dodge()
     {
-        Debug.Log("Is dodging");
+        //Debug.Log("Is dodging");
         audDodge.PlayOneShot(audDodging[Random.Range(0, 1)], audDodgeVol);
         dodgeDirection = moveDir;
         isDodging = true;
@@ -299,6 +301,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     void sprint()
     {
+
         if (Input.GetButtonDown("Sprint"))
         {
             speed *= sprintMod;
@@ -306,9 +309,15 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         }
         else if (Input.GetButtonUp("Sprint"))
         {
-            speed /= sprintMod;
+            speed = OGSpeed;
             isSprinting = false;
         }
+
+    }
+    public void ResetSpeed()
+    {
+        isSprinting = false;
+        speed = OGSpeed;
     }
 
     IEnumerator shootMagic()
@@ -316,7 +325,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         isShooting = true;
         if (isMissile==true)
         {
-            Debug.Log("Firing missile");
+            //Debug.Log("Firing missile");
            
            for (int i = 0; i < burstCount; i++)
            {

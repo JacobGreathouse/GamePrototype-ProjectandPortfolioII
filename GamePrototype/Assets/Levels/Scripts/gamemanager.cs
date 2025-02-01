@@ -153,6 +153,7 @@ public class gamemanager : MonoBehaviour
 
     public void statePause()
     {
+
         playerScript.enabled = false;
         isPaused = true;
         Time.timeScale = 0;
@@ -161,6 +162,8 @@ public class gamemanager : MonoBehaviour
     }
     public void stateUnpause(bool ignoreMenu = false)
     {
+
+        playerScript.ResetSpeed();
         playerScript.enabled = true;
         isPaused = false;
         Time.timeScale = timeScaleOrig;

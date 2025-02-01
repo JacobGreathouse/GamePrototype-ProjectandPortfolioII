@@ -35,7 +35,7 @@ public class Credits : MonoBehaviour
             path = Path.Combine(Application.dataPath, "Credits.txt");
 
         string tempPath = Application.dataPath;
-        Debug.Log("dataPath : " + tempPath);
+        //Debug.Log("dataPath : " + tempPath);
 
         StreamReader reader = new StreamReader(path);
 

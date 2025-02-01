@@ -78,7 +78,7 @@ public class Damage : MonoBehaviour
         }
         if (isMissile == true)
         {
-            Debug.Log("Firing missile...");
+            //Debug.Log("Firing missile...");
             StartCoroutine(HomingLogic()); //added homing logic for missile;
         }
 
@@ -166,7 +166,7 @@ public class Damage : MonoBehaviour
     }
     public void Chain(Collider previousEnemy)
     {
-        Debug.Log("Is chaining");
+        //Debug.Log("Is chaining");
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, triggerRadius);
         bool foundEnemy = false;
         if (currentHits >= maxHits)
@@ -204,7 +204,7 @@ public class Damage : MonoBehaviour
     private void AOEDamage(Collider directHit)
     {
         damageAmount -= 2;
-        Debug.Log("is AOEing");
+        //Debug.Log("is AOEing");
         if (hitEffect != null)
         {
         ParticleSystem particleInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);
@@ -233,7 +233,7 @@ public class Damage : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("Homing logic is running...");
+            //Debug.Log("Homing logic is running...");
             HomeToNearestEnemy();
             yield return new WaitForSeconds(0.05f);
         }
@@ -293,7 +293,7 @@ public class Damage : MonoBehaviour
         }
         else
         {
-            Debug.Log("No enemies in range for homing.");
+            //Debug.Log("No enemies in range for homing.");
         }
     }
 

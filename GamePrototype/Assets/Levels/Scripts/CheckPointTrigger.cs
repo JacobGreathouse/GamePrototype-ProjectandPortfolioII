@@ -19,7 +19,7 @@ public class CheckPointTrigger : MonoBehaviour
         respawnSystem = FindObjectOfType<RespawnSystem>();
         if (respawnSystem == null)
         {
-            Debug.LogError("RespawnSystem not found in the scene!");
+            //Debug.LogError("RespawnSystem not found in the scene!");
         }
     }
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class CheckPointTrigger : MonoBehaviour
             audCheckPoint.PlayOneShot(audCheckPointHit[Random.Range(0, audCheckPointHit.Length)], audCheckVol);
 
             respawnSystem.SetActiveRespawnPoint(transform);
-            Debug.Log("Checkpoint reached: " + transform.position);
+            //Debug.Log("Checkpoint reached: " + transform.position);
             gamemanager.instance.respawnButton.SetActive(true);
         }
     }

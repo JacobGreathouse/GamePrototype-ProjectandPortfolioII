@@ -17,10 +17,10 @@ public class RespawnSystem : MonoBehaviour
         {
             activeRespawnPoint = respawnPoints[0];
         }
-        else
+        /*else
         {
             Debug.LogError("No respawn points set in the RespawnSystem.");
-        }
+        }*/
     }
     
     public void SetActiveRespawnPoint(Transform newRespawnPoint)
@@ -28,7 +28,7 @@ public class RespawnSystem : MonoBehaviour
         activeRespawnPoint = newRespawnPoint;
         ParticleSystem particleInstance = Instantiate(spawnParticles, activeRespawnPoint.transform.position, Quaternion.identity);
         StartCoroutine(DestroyParticleSystemAfterDelay(particleInstance, 2f));
-        Debug.Log("Active respawn point set to: " + activeRespawnPoint.position);
+        //Debug.Log("Active respawn point set to: " + activeRespawnPoint.position);
     }
     public void RespawnPlayer(GameObject player)
     {
@@ -41,7 +41,7 @@ public class RespawnSystem : MonoBehaviour
             }
             player.transform.position = activeRespawnPoint.position;
             player.transform.rotation = activeRespawnPoint.rotation;
-            Debug.Log("Player respawned at: " + activeRespawnPoint);
+            //Debug.Log("Player respawned at: " + activeRespawnPoint);
             
 
             if (playerController != null)
@@ -51,10 +51,10 @@ public class RespawnSystem : MonoBehaviour
             ParticleSystem particleInstance =  Instantiate(spawnParticles, player.transform.position, Quaternion.identity);
             StartCoroutine(DestroyParticleSystemAfterDelay(particleInstance, 2f));
         }
-        else
+        /*else
         {
             Debug.LogError("No active respawn point set!");  // Check if it's null
-        }
+        }*/
 
 
     }

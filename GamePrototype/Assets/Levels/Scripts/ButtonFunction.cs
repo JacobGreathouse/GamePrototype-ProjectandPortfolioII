@@ -36,7 +36,7 @@ public class ButtonFunction : MonoBehaviour
             if (respawnSystem != null)
             {
                 respawnSystem.RespawnPlayer(player);
-                Debug.Log("Player respawned.");
+                //Debug.Log("Player respawned.");
             }
         }
         gamemanager.instance.stateUnpause();
@@ -95,7 +95,7 @@ public class ButtonFunction : MonoBehaviour
 
     public void HPplus()
     {
-        if (CheckSkillPoints())
+        if (CheckSkillPoints(1))
         {
             StartCoroutine(playButtonClick());
 
@@ -106,18 +106,18 @@ public class ButtonFunction : MonoBehaviour
     }
     public void MPplus()
     {
-        if (CheckSkillPoints())
+        if (CheckSkillPoints(1))
         {
             StartCoroutine(playButtonClick());
 
-            gamemanager.instance.player.GetComponent<PlayerController>().PlayerMP=  5;
+            gamemanager.instance.player.GetComponent<PlayerController>().PlayerMP=  15;
             gamemanager.instance.player.GetComponent<PlayerController>()._SkillPoints = -1;
             gamemanager.instance.player.GetComponent<PlayerController>().updatePlayerUI();
         }
     }
     public void ATKplus()
     {
-        if (CheckSkillPoints())
+        if (CheckSkillPoints(1))
         {
             StartCoroutine(playButtonClick());
 
@@ -128,7 +128,7 @@ public class ButtonFunction : MonoBehaviour
     }
     public void Chainplus()
     {
-        if (CheckSkillPoints() && gamemanager.instance.player.GetComponent<PlayerController>().ChainMax <= 5)
+        if (CheckSkillPoints(5) && gamemanager.instance.player.GetComponent<PlayerController>().ChainMax <= 5)
         {
             StartCoroutine(playButtonClick());
 
@@ -139,7 +139,7 @@ public class ButtonFunction : MonoBehaviour
     }
     public void AOEplus()
     {
-        if (CheckSkillPoints()&& gamemanager.instance.player.GetComponent<PlayerController>().AOERadius <= 9)
+        if (CheckSkillPoints(5)&& gamemanager.instance.player.GetComponent<PlayerController>().AOERadius <= 9)
         {
             StartCoroutine(playButtonClick());
 
@@ -150,7 +150,7 @@ public class ButtonFunction : MonoBehaviour
     }
     public void Missileplus()
     {
-        if (CheckSkillPoints() && gamemanager.instance.player.GetComponent<PlayerController>().BurstAmount <= 5)
+        if (CheckSkillPoints(5) && gamemanager.instance.player.GetComponent<PlayerController>().BurstAmount <= 5)
         {
             StartCoroutine(playButtonClick());
 
@@ -159,9 +159,10 @@ public class ButtonFunction : MonoBehaviour
             gamemanager.instance.player.GetComponent<PlayerController>().updatePlayerUI();
         }
     }
-    public bool CheckSkillPoints()
+    public bool CheckSkillPoints(int value)
     {
-        if (gamemanager.instance.player.GetComponent<PlayerController>()._SkillPoints > 0)
+
+        if (gamemanager.instance.player.GetComponent<PlayerController>()._SkillPoints >= value)
         {
             return true;
         }
