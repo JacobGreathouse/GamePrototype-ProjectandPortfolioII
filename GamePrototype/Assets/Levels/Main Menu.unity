@@ -1611,6 +1611,7 @@ MonoBehaviour:
   textDiv: 6
   CreditsScreen: {fileID: 581368843}
   MainMenuScreen: {fileID: 1138604272}
+  SettingsMenu: {fileID: 927699819}
   creditsButton: {fileID: 840626469}
 --- !u!1001 &576284032
 PrefabInstance:

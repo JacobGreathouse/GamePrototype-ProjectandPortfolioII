@@ -22,6 +22,7 @@ public class Credits : MonoBehaviour
 
     [SerializeField] GameObject CreditsScreen;
     [SerializeField] GameObject MainMenuScreen;
+    [SerializeField] GameObject SettingsMenu;
     [SerializeField] Button creditsButton;
 
     bool buttonPressed;
@@ -109,7 +110,8 @@ public class Credits : MonoBehaviour
                     creditsText[i] = null;
                 }
             }
-                MainMenuScreen.SetActive(true);
+            SettingsMenu.SetActive(false);
+            MainMenuScreen.SetActive(true);
             CreditsScreen.SetActive(false);
         }
     }

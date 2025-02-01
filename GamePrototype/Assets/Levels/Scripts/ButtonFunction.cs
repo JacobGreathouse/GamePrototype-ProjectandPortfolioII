@@ -91,6 +91,7 @@ public class ButtonFunction : MonoBehaviour
         StartCoroutine(playButtonClick());
         if (gamemanager.instance != null)
             gamemanager.instance.optionsClose();
+
     }
 
     public void HPplus()
