@@ -23,6 +23,13 @@ public class CameraController : MonoBehaviour
     {
         // get input
         int sensVal = gamemanager.instance.sensVal;
+
+        if(Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            sensVal = (int)((float)sensVal * 0.15);
+        }
+
+
         float mouseX = Input.GetAxis("Mouse X") * sensVal * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * sensVal * Time.deltaTime;
 

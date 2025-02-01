@@ -20,10 +20,12 @@ public class GameSettings : MonoBehaviour
     bool playsound = false;
     private void Start()
     {
+
+
         masterVolSet(PlayerPrefs.GetFloat("MasterVolume"));
         musicVolSet(PlayerPrefs.GetFloat("MusicVolume"));
         SFXVolSet(PlayerPrefs.GetFloat("SFXVolume"));
-        SensitivitySlider(PlayerPrefs.GetFloat("Sens"));
+        SensitivitySlider(PlayerPrefs.GetInt("Sens"));
         
         MasterSlider.Equals(PlayerPrefs.GetFloat("MasterVolume"));
         MusicSlider.Equals(PlayerPrefs.GetFloat("MusicVolume"));
@@ -33,8 +35,8 @@ public class GameSettings : MonoBehaviour
         MusicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
         SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume");
 
-        if (SensSlider != null)
-            SensSlider.value = PlayerPrefs.GetFloat("Sens");
+        //if (SensSlider != null)
+        SensSlider.value = PlayerPrefs.GetInt("Sens");
 
         playsound = true;
     }
@@ -68,11 +70,21 @@ public class GameSettings : MonoBehaviour
 
     public void SensitivitySlider(float val)
     {
+
+        //int convertSense = (int)((val * 500) + 100);
+        //Debug.Log(convertSense.ToString() + " ||| " + val.ToString());
+        PlayerPrefs.SetInt("Sens", (int)val);
+        PlayerPrefs.Save();
+
         if (gamemanager.instance != null)
         {
+            // normalize sensitivity as an int between 100 and 600
+
+
             gamemanager.instance.sensitivityChanged((int)val);
-            PlayerPrefs.SetFloat("Sens", val);
-            PlayerPrefs.Save();
+
+            //gamemanager.instance.sensitivityChanged((int)val);
+
         }
     }
 
