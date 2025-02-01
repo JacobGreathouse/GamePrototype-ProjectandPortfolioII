@@ -118,6 +118,10 @@ public class Damage : MonoBehaviour
             particleInstance.Play();
             Destroy(particleInstance.gameObject, particleInstance.main.duration);
             }
+            if (isMissile==true)
+            {
+                Destroy(gameObject);
+            }
             if (isBolt==true)
             {
                 currentHits++;
@@ -291,10 +295,10 @@ public class Damage : MonoBehaviour
                 rb.velocity = direction * speed;
             }
         }
-        else
+        /*else
         {
-            //Debug.Log("No enemies in range for homing.");
-        }
+            Debug.Log("No enemies in range for homing.");
+        }*/
     }
 
 }

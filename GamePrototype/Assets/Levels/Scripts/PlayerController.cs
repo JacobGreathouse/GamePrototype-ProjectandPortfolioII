@@ -346,13 +346,13 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
                 }
            }
         }
-        if (isBunny == true)
+        /*if (isBunny == true)
         {
             audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
             GameObject newProjectile = Instantiate(bunnyBomb, shootPos.position, Camera.main.transform.rotation);
             newProjectile.GetComponent<Damage>().Fire();
             UseMana(spellcost);
-        }
+        }*/
         // shoot code goes
         if (isBolt == true && currentMana >= spellcost)
         {
