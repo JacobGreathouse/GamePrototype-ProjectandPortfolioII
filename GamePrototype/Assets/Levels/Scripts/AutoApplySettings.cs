@@ -16,10 +16,10 @@ public class AutoApplySettings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float masterVol = PlayerPrefs.GetFloat("MasterVolume");
-        float musicVol = PlayerPrefs.GetFloat("MusicVolume");
-        float sfxVol = PlayerPrefs.GetFloat("SFXVolume");
-        int sensLevel = PlayerPrefs.GetInt("Sens");
+        float masterVol = PlayerPrefs.GetFloat("MasterVolume", 0.8f);
+        float musicVol = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
+        float sfxVol = PlayerPrefs.GetFloat("SFXVolume", 0.75f);
+        int sensLevel = PlayerPrefs.GetInt("Sens", 300);
 
         _audioMixer.SetFloat("Master", Mathf.Log10(masterVol) * 20);
         _audioMixer.SetFloat("Music", Mathf.Log10(musicVol) * 20);

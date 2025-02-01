@@ -22,21 +22,21 @@ public class GameSettings : MonoBehaviour
     {
 
 
-        masterVolSet(PlayerPrefs.GetFloat("MasterVolume"));
-        musicVolSet(PlayerPrefs.GetFloat("MusicVolume"));
-        SFXVolSet(PlayerPrefs.GetFloat("SFXVolume"));
-        SensitivitySlider(PlayerPrefs.GetInt("Sens"));
+        masterVolSet(PlayerPrefs.GetFloat("MasterVolume", 0.8f));
+        musicVolSet(PlayerPrefs.GetFloat("MusicVolume", 0.75f));
+        SFXVolSet(PlayerPrefs.GetFloat("SFXVolume", 0.75f));
+        SensitivitySlider(PlayerPrefs.GetInt("Sens", 300));
         
-        MasterSlider.Equals(PlayerPrefs.GetFloat("MasterVolume"));
-        MusicSlider.Equals(PlayerPrefs.GetFloat("MusicVolume"));
-        SFXSlider.Equals(PlayerPrefs.GetFloat("SFXVolume"));
+        MasterSlider.Equals(PlayerPrefs.GetFloat("MasterVolume", 0.8f));
+        MusicSlider.Equals(PlayerPrefs.GetFloat("MusicVolume", 0.75f));
+        SFXSlider.Equals(PlayerPrefs.GetFloat("SFXVolume", 0.75f));
 
-        MasterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
-        MusicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
-        SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+        MasterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 0.8f);
+        MusicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
+        SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0.75f);
 
         //if (SensSlider != null)
-        SensSlider.value = PlayerPrefs.GetInt("Sens");
+        SensSlider.value = PlayerPrefs.GetInt("Sens", 300);
 
         playsound = true;
     }
