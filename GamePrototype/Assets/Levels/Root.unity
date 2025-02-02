@@ -790,6 +790,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155750102}
   m_CullTransparentMesh: 1
+--- !u!1 &1237732759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1058368114679964374, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+  m_PrefabInstance: {fileID: 323531188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1237732761 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1058368114679964372, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}
+  m_PrefabInstance: {fileID: 323531188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237732759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4449b5e1a146eb439eab71119ab71b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1237732762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237732759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9189b384c3f7e244885294005825b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: 09fb510c98bb5b143ad07c77ebf572d1, type: 2}
+  _manager: {fileID: 1237732761}
 --- !u!224 &1528255557 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1528255557, guid: 6b06763729a0e5e4ca9611a5022af3cd, type: 3}

@@ -132,6 +132,7 @@ public class gamemanager : MonoBehaviour
                 }
                 else if (menuActive == menuOptions)
                 {
+                    
                     optionsClose();
                 }
             }
@@ -156,7 +157,13 @@ public class gamemanager : MonoBehaviour
             //checkLockState();
             if (Input.GetMouseButtonDown(0))
             {
-                //Cursor.lockState = CursorLockMode.Locked;
+                if (Application.platform == RuntimePlatform.WebGLPlayer)
+                {
+                    if (!isPaused)
+                    {
+                        Cursor.lockState = CursorLockMode.Locked;
+                    }
+                }
             }
         }
     }
