@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class WebGLMouseCapture : MonoBehaviour
 {
-    private void OnMouseDown()
+    private void Update()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        if(Input.GetMouseButtonDown(0))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }
