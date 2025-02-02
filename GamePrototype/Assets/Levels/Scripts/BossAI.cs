@@ -19,6 +19,8 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
     [SerializeField] Transform headPos;
 
     [SerializeField] GameObject SpawnPortal;
+    [SerializeField] GameObject Spawner;
+    [SerializeField] GameObject Bridge;
 
     [Header("----- Boss Stats -----")]
     [SerializeField] int HP;
@@ -172,6 +174,9 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
             isDead = true;
             this.GetComponent<NavMeshAgent>().speed = 0;
             agent.GetComponent<Animator>().StopPlayback();
+
+            Bridge.SetActive(true);
+            Destroy(Spawner);
 
             StartCoroutine(death());
         }

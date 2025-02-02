@@ -209,7 +209,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         {
             isDead = true;
             this.GetComponent<NavMeshAgent>().speed = 0;
-            this.GetComponent<Animator>().StopPlayback();
+            agent.GetComponent<Animator>().StopPlayback();
 
             StartCoroutine(death());
 
