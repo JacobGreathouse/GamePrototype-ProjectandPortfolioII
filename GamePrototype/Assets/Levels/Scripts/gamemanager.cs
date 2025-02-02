@@ -21,6 +21,8 @@ public class gamemanager : MonoBehaviour
     [SerializeField] GameObject _loadingScreen;
     [SerializeField] GameObject _menuDebugLevelSelect;
     [SerializeField] GameObject _spawnContainerPrefab;
+    [SerializeField] GameObject _webGLLockStateScreen;
+
     public GameObject HowToPlayMenu;
     public GameObject GameGoalMenu;
 
@@ -147,7 +149,15 @@ public class gamemanager : MonoBehaviour
                 }
             }
             if (!audPlayer.isPlaying)
+            {
                 audPlayer.PlayOneShot(audAmbient[Random.Range(0, audAmbient.Length)], audAmbientVol);
+            }
+
+            //checkLockState();
+            if (Input.GetMouseButtonDown(0))
+            {
+                //Cursor.lockState = CursorLockMode.Locked;
+            }
         }
     }
 
@@ -353,5 +363,22 @@ public class gamemanager : MonoBehaviour
         GameObject SP = GameObject.FindGameObjectWithTag("SpawnPoint");
 
         playerScript.WarpPosition(SP.transform.position, SP.transform.rotation);
+    }
+
+    private void checkLockState()
+    {
+        Debug.Log(Cursor.lockState);
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            
+            if (Cursor.lockState < CursorLockMode.Locked)
+            {
+                _webGLLockStateScreen.SetActive(true);
+            }
+            else
+            {
+                _webGLLockStateScreen.SetActive(false);
+            }
+        }
     }
 }

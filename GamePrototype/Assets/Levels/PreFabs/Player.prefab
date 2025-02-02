@@ -453,7 +453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972300ccf6b29b943b083a28f1c2cfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sens: 500
   lockVertMin: -90
   lockVertMax: 90
   invertY: 1
@@ -466,7 +465,7 @@ Camera:
   m_GameObject: {fileID: 6761757262042437366}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 3
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -578,7 +577,7 @@ MonoBehaviour:
   manaRegenRate: 1
   staffList: []
   staffModel: {fileID: 6759907273385067456}
-  shootDamage: 0
+  _shootDamage: 0
   shootDistance: 0
   shootRate: 0
   shootPos: {fileID: 658233001}
@@ -647,6 +646,13 @@ MonoBehaviour:
   dodgeDistance: 7
   dodgeDuration: 0.2
   dodgeCooldown: 0.5
+  audDodge: {fileID: 0}
+  audDodging: []
+  audDodgeVol: 0
+  audDrink: {fileID: 0}
+  audLemmeGetSomeSip: []
+  audSipVol: 0
+  isSprinting: 0
 --- !u!143 &6761757263595609191
 CharacterController:
   m_ObjectHideFlags: 0
