@@ -37,7 +37,7 @@ public class BossDoor : MonoBehaviour
         IOpen opn = other.GetComponent<IOpen>();
         if (opn != null && doorOpen == true)
         {
-            door.SetActive(true);
+            door.SetActive(false);
             
             //audDoor.PlayOneShot(audDoorOpen[Random.Range(0, audDoorOpen.Length)], audOpenVol);
         }
