@@ -33,7 +33,7 @@ public class Credits : MonoBehaviour
     {
 
         if (!File.Exists(path))
-            path = Path.Combine(Application.dataPath, "Credits.txt");
+            path = Path.Combine(Application.streamingAssetsPath, "Credits.txt");
 
         string tempPath = Application.dataPath;
         //Debug.Log("dataPath : " + tempPath);
