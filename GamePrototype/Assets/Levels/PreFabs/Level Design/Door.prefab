@@ -267,7 +267,7 @@ MonoBehaviour:
   audDoor: {fileID: 1249960722}
   audDoorOpen:
   - {fileID: 8300000, guid: 1e1185c3c91991d44a69dcaabd8e69ae, type: 3}
-  audOpenVol: 0.5
+  audOpenVol: 0.1
 --- !u!114 &6134418474946676926
 MonoBehaviour:
   m_ObjectHideFlags: 0

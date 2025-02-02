@@ -32,6 +32,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     [SerializeField] LayerMask ignoreMask;
     [SerializeField] int xpOnKill;
+    
 
     [Header("----- Hurt Sounds -----")]
     [SerializeField] AudioSource audEnemy;
@@ -221,13 +222,15 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         if (hitEffect != null)
         {
-            //if (audDying != null)
-                //audEnemy.PlayOneShot(audDying[Random.Range(0, audDying.Length)],audDeadVol);
+            if (audDying != null)
+                audEnemy.PlayOneShot(audDying[Random.Range(0, audDying.Length)],audDeadVol);
             ParticleSystem particleInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);
             particleInstance.Play();
             Destroy(particleInstance.gameObject, particleInstance.main.duration);
+            model.enabled = false;
         }
 
+        agent.GetComponent<CapsuleCollider>().enabled = false;
         anim.SetTrigger("Death");
         
         yield return new WaitForSeconds(DeathTimer);
