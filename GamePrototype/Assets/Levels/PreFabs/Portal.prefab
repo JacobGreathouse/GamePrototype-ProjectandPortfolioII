@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1466645558421677066}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1773287459357959400}
@@ -401,6 +401,7 @@ MonoBehaviour:
   _renderMesh: {fileID: 1773287459357959401}
   _audioSource: {fileID: 1773287460024228301}
   _teleportSound: {fileID: 8300000, guid: 21d0fb0cb62923c4f99e7034ba30c670, type: 3}
+  _animator: {fileID: 2935952665049280788}
   _exitNode: {fileID: 1773287459818511478}
   _sceneIndex: 0
   _SceneTransitionDelay: 0.5

@@ -112,16 +112,16 @@ public class gamemanager : MonoBehaviour
     {
         if (_isLoading)
         {
-            if (Input.GetButtonDown("Submit"))
-            {
+            //if (Input.GetButtonDown("Submit"))
+            //{
                 _loadingScreen.SetActive(false);
                 gamemanager.instance.stateUnpause(true);
                 _isLoading = false;
                 GameObject SpawnPoint = GameObject.FindWithTag("SpawnPoint");
-                gamemanager.instance.playerScript.WarpPosition(SpawnPoint.transform.position, SpawnPoint.transform.rotation);
-            }
+                //gamemanager.instance.playerScript.WarpPosition(SpawnPoint.transform.position, SpawnPoint.transform.rotation);
+            //}
         }
-        else
+        else 
         {
             
             if (Input.GetButtonDown(MenuKey))
@@ -178,7 +178,7 @@ public class gamemanager : MonoBehaviour
     {
 
         playerScript.ResetSpeed();
-        playerScript.enabled = true;
+        //playerScript.enabled = true;
         isPaused = false;
         Time.timeScale = timeScaleOrig;
         Cursor.visible = false;
@@ -329,6 +329,8 @@ public class gamemanager : MonoBehaviour
 
         StartCoroutine(LoadMapAsync(index));
 
+        
+
         _loadingScreenScript.LoadingText.SetActive(false);
         _loadingScreenScript.ContinueText.SetActive(true);
 
@@ -369,6 +371,8 @@ public class gamemanager : MonoBehaviour
         GameObject SP = GameObject.FindGameObjectWithTag("SpawnPoint");
 
         playerScript.WarpPosition(SP.transform.position, SP.transform.rotation);
+
+        
     }
 
     private void checkLockState()

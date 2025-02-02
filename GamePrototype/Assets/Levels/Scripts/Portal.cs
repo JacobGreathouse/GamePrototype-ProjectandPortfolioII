@@ -10,6 +10,8 @@ public class Portal : MonoBehaviour
 
     Collider _teleportCollider;
     enum PORTALTYPE {SCENE_LOCAL, SCENE_TRANSITION}
+    bool _isSpawned = false;
+
     bool _transitionMutex = false;
 
     // Inspector serializables -------------------------------------------------
@@ -22,6 +24,7 @@ public class Portal : MonoBehaviour
     [SerializeField] GameObject _renderMesh;
     [SerializeField] AudioSource _audioSource;
     [SerializeField] AudioClip _teleportSound;
+    [SerializeField] Animator _animator;
 
     [Header("~~~ Scene Local ~~~")]
     [SerializeField] GameObject _exitNode;
@@ -38,12 +41,32 @@ public class Portal : MonoBehaviour
     {
         //_teleportCollider = GetComponent<Collider>();
         _exitCam.transform.SetPositionAndRotation(_exitNode.transform.position, _exitNode.transform.rotation);
+
+        if(_type == PORTALTYPE.SCENE_TRANSITION)
+        {
+            if (!_isSpawned)
+            {
+                _animator.SetTrigger("Not_Spawned");
+                _teleportTrigger.SetActive(false);
+            }
+            else
+            {
+                _animator.SetTrigger("Idle");
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         _renderMesh.transform.LookAt(gamemanager.instance.player.transform);
+    }
+
+    public void Spawn()
+    {
+        _teleportTrigger.SetActive(true);
+        _animator.SetTrigger("Spawn");
+        _isSpawned = true;
     }
 
     public void Teleport()
@@ -61,7 +84,9 @@ public class Portal : MonoBehaviour
 
     IEnumerator DelayedSceneTransition(int index)
     {
-        yield return new WaitForSeconds(_SceneTransitionDelay);
+        gamemanager.instance.statePause();
+        yield return new WaitForSecondsRealtime(_SceneTransitionDelay);
+        //yield return new WaitForSeconds(_SceneTransitionDelay);
         gamemanager.instance.LoadMap(index);
         
     }

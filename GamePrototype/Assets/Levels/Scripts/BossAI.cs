@@ -192,9 +192,11 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
 
         if (SpawnPortal != null)
         {
-            Quaternion rot = Quaternion.LookRotation(new Vector3(transform.rotation.x, 0, transform.rotation.z));
+            /*Quaternion rot = Quaternion.LookRotation(new Vector3(transform.rotation.x, 0, transform.rotation.z));
             Vector3 pos = new Vector3(transform.position.x, 5.0f, transform.position.z);
-            Instantiate(SpawnPortal, pos, rot).transform.SetParent(gamemanager.instance.SpawnContainer.transform);
+            Instantiate(SpawnPortal, pos, rot).transform.SetParent(gamemanager.instance.SpawnContainer.transform);*/
+            SpawnPortal.transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z); ;
+            SpawnPortal.GetComponent<Portal>().Spawn();
         }
     }
 
