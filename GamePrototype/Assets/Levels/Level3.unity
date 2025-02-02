@@ -4774,6 +4774,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boos Door Key (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 712107277998745342, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1432217050872956193, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -8574,6 +8578,10 @@ PrefabInstance:
     - target: {fileID: 712107277998745342, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
       propertyPath: m_Name
       value: Boos Door Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 712107277998745342, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
@@ -13765,6 +13773,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08c0de9809ceb474f88a960e688e463e, type: 3}
+--- !u!1001 &1161781802
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2389213214798678163, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_Name
+      value: Boss Door Key (ani) (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_RootOrder
+      value: 416
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.429995
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 85.97536
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
 --- !u!1001 &1168480452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15404,6 +15469,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c739053059dab0541b5a45f04ee3f7f1, type: 3}
+--- !u!1001 &1296515406
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2389213214798678163, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_Name
+      value: Boss Door Key (ani)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389213214798678163, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_RootOrder
+      value: 414
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -52.925873
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 109.72391
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
 --- !u!1 &1302448835
 GameObject:
   m_ObjectHideFlags: 0
@@ -17364,6 +17490,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c739053059dab0541b5a45f04ee3f7f1, type: 3}
+--- !u!1001 &1477750511
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2389213214798678163, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_Name
+      value: Boss Door Key (ani) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_RootOrder
+      value: 415
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 29.360945
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.17818
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
 --- !u!1001 &1483963777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18411,6 +18594,10 @@ PrefabInstance:
     - target: {fileID: 712107277998745342, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
       propertyPath: m_Name
       value: Boos Door Key (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 712107277998745342, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b10773fe8ae1e5840aef4363829c3bea, type: 3}

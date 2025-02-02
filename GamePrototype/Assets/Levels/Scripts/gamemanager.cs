@@ -325,6 +325,8 @@ public class gamemanager : MonoBehaviour
         _loadingScreenScript.ContinueText.SetActive(false);
         _isLoading = true;
 
+        orbCount = 0;
+
         StartCoroutine(LoadMapAsync(index));
 
         _loadingScreenScript.LoadingText.SetActive(false);
