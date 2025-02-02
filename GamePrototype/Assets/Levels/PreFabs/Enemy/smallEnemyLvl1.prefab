@@ -1076,7 +1076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96127e6b6323d144ca838adb86da1115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeathTimer: 0
+  DeathTimer: 0.51
   model: {fileID: 7057073014227910479}
   agent: {fileID: 7057073014232117833}
   anim: {fileID: 7057073014232117837}
@@ -1106,7 +1106,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4b143ef1f43a8444e896b97d9a6af71d, type: 3}
   - {fileID: 8300000, guid: eecf181bcb2006a4ebf9caa8210ed0f6, type: 3}
   audHurtVol: 0.5
-  audDeath: {fileID: -7005525087230753664}
   audDying:
   - {fileID: 8300000, guid: 5c7b6d4002009e842bd2621585546d19, type: 3}
   - {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
