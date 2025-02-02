@@ -69,7 +69,7 @@ MonoBehaviour:
   impactSound:
   - {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
   lavaSound: []
-  impactSoundVol: 1
+  impactSoundVol: 0.3
   playerLvl: 0
   staffStats: {fileID: 0}
   bunnyModel: {fileID: 0}
