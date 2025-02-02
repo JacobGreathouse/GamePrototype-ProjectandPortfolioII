@@ -178,7 +178,6 @@ public class gamemanager : MonoBehaviour
     {
 
         playerScript.ResetSpeed();
-        playerScript.enabled = true;
         isPaused = false;
         Time.timeScale = timeScaleOrig;
         Cursor.visible = false;

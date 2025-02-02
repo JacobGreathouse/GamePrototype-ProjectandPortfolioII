@@ -107,8 +107,8 @@ public class Damage : MonoBehaviour
 
         if (dmg != null)
         {
-            if(audPlayer != null)
-                audPlayer.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)], impactSoundVol);
+            //if(impactSound != null)
+                //audPlayer.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)], impactSoundVol);
 
             if (other.tag != "Player")
                 damageAmount += (damageamountOG + gamemanager.instance.player.GetComponent<PlayerController>().shootDamage);
