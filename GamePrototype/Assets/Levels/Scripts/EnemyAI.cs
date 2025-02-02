@@ -221,8 +221,8 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         if (hitEffect != null)
         {
-
-            audEnemy.PlayOneShot(audDying[Random.Range(0, audDying.Length)],audDeadVol);
+            //if (audDying != null)
+                //audEnemy.PlayOneShot(audDying[Random.Range(0, audDying.Length)],audDeadVol);
             ParticleSystem particleInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);
             particleInstance.Play();
             Destroy(particleInstance.gameObject, particleInstance.main.duration);
