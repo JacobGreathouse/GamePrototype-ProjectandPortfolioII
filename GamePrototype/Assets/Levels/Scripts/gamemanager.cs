@@ -78,6 +78,8 @@ public class gamemanager : MonoBehaviour
     float timeScaleOrig;
     int orbCount;
 
+    string MenuKey = "Cancel";
+
     LoadingScreen _loadingScreenScript;
     int _currentMapIndex = -1;
     bool _isLoading = false;
@@ -90,6 +92,10 @@ public class gamemanager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+#if !UNITY_EDITOR && UNITY_WEBGL
+        WebGLInput.stickyCursorLock = false;
+        MenuKey = "Submit";
+#endif
         instance = this;
         timeScaleOrig = Time.timeScale;
         player = GameObject.FindWithTag("Player");
@@ -117,7 +123,8 @@ public class gamemanager : MonoBehaviour
         }
         else
         {
-            if (Input.GetButtonDown("Cancel"))
+            
+            if (Input.GetButtonDown(MenuKey))
             {
                 if (menuActive == null && !_isLoading)
                 {
@@ -154,17 +161,7 @@ public class gamemanager : MonoBehaviour
                 audPlayer.PlayOneShot(audAmbient[Random.Range(0, audAmbient.Length)], audAmbientVol);
             }
 
-            //checkLockState();
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (Application.platform == RuntimePlatform.WebGLPlayer)
-                {
-                    if (!isPaused)
-                    {
-                        Cursor.lockState = CursorLockMode.Locked;
-                    }
-                }
-            }
+            checkLockState();
         }
     }
 
@@ -374,11 +371,11 @@ public class gamemanager : MonoBehaviour
 
     private void checkLockState()
     {
-        Debug.Log(Cursor.lockState);
-        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        //Debug.Log(Cursor.lockState);
+        if (Application.platform == RuntimePlatform.WebGLPlayer && !isPaused)
         {
             
-            if (Cursor.lockState < CursorLockMode.Locked)
+            if (Cursor.lockState != CursorLockMode.Locked)
             {
                 _webGLLockStateScreen.SetActive(true);
             }
