@@ -6,12 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class ButtonFunction : MonoBehaviour
 {
+    [SerializeField] GameObject firstScreen;
+    [SerializeField] GameObject MainMenuScreen;
     [Header("----- Audio -----")]
     [SerializeField] AudioSource audButton;
     [SerializeField] AudioClip[] audButtonClick;
     [SerializeField][Range(0, 1)] float audButtonVol;
 
-
+    private void Update()
+    {
+        if (firstScreen != null && firstScreen.activeSelf)
+        {
+            FirstScreenClick();
+        }
+    }
 
     public void resume()
     {
@@ -61,6 +69,15 @@ public class ButtonFunction : MonoBehaviour
 
     //    //need to implement
     //}
+
+    public void FirstScreenClick()
+    {
+        if(Input.anyKeyDown)
+        {
+            firstScreen.SetActive(false);
+            MainMenuScreen.SetActive(true);
+        }
+    }
 
     public void Credits()
     {
