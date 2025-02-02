@@ -1174,6 +1174,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
+      propertyPath: shootSound.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761757263595609176, guid: 3bc249666c4cc8048b643da2be9f7c4d, type: 3}
       propertyPath: audDodging.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 44a3b6aed03258c439ec71050a687d80, type: 3}

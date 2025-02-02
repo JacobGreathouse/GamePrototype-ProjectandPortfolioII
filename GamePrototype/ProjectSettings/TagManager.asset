@@ -11,6 +11,8 @@ TagManager:
   - Chain
   - SpawnPoint
   - SpawnContainer
+  - Friend
+  - Skeleton
   layers:
   - Default
   - TransparentFX

@@ -506,10 +506,12 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         //shootDistance = staff.shootDistance;
         shootRate = staff.shootRate;
         spellcost = staff.spellcost;
+        shootSound = staff.shootSound;
         isBolt = staff.isBolt;
         isFire = staff.isFire;
         isBunny = staff.isBunny;
         isMissile = staff.isMissile;
+        shootSoundVol = staff.shootSoundVol;
 
         staffModel.GetComponent<MeshFilter>().sharedMesh = staff.model.GetComponent<MeshFilter>().sharedMesh;
         staffModel.GetComponent<MeshRenderer>().sharedMaterial = staff.model.GetComponent<MeshRenderer>().sharedMaterial;

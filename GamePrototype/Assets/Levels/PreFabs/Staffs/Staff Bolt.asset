@@ -19,7 +19,6 @@ MonoBehaviour:
   Missile: {fileID: 0}
   bunnyBomb: {fileID: 0}
   spellcost: 10
-  maxHits: 3
   isBolt: 1
   isFire: 0
   isMissile: 0
@@ -27,4 +26,5 @@ MonoBehaviour:
   hitEffect: {fileID: 0}
   shootSound:
   - {fileID: 8300000, guid: f1cb5d83282f2904a85f73111d068616, type: 3}
-  shootSoundVol: 0.3
+  - {fileID: 8300000, guid: a15c0f3fe74004cf89b51cfd5604f582, type: 3}
+  shootSoundVol: 0.2

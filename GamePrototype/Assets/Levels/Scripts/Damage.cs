@@ -107,7 +107,7 @@ public class Damage : MonoBehaviour
 
         if (dmg != null)
         {
-            // audPlayer.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)], impactSoundVol);
+            audPlayer.PlayOneShot(impactSound[Random.Range(0, impactSound.Length)], impactSoundVol);
             if (other.tag != "Player")
                 damageAmount += (damageamountOG + gamemanager.instance.player.GetComponent<PlayerController>().shootDamage);
             
@@ -137,6 +137,7 @@ public class Damage : MonoBehaviour
                     damageAmount -= 1;
                     if (damageAmount > 0)
                     {
+
                         Chain(other);
                     }
                     else

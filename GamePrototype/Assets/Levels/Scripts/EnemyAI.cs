@@ -38,8 +38,14 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] AudioClip[] audHurt;
     [SerializeField][Range(0, 1)] float audHurtVol;
 
+    [Header("----- Death Sounds -----")]
+    [SerializeField] AudioClip[] audDying;
+    [SerializeField][Range(0, 1)] float audDeadVol;
+    [Header("------------------------")]
     [SerializeField] GameObject coinDrop;
     [SerializeField] bool canDropCoin;
+
+    [SerializeField] ParticleSystem hitEffect;
 
     bool playerInRange;
     bool isDead = false;
@@ -212,6 +218,16 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     IEnumerator death()
     {
+
+        if (hitEffect != null)
+        {
+
+            audEnemy.PlayOneShot(audDying[Random.Range(0, audDying.Length)],audDeadVol);
+            ParticleSystem particleInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            particleInstance.Play();
+            Destroy(particleInstance.gameObject, particleInstance.main.duration);
+        }
+
         anim.SetTrigger("Death");
         
         yield return new WaitForSeconds(DeathTimer);

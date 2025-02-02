@@ -18521,6 +18521,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7057073014232117838, guid: 9768dbc8576280741860f65eb08559cc, type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 4596544553357837919, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
+    - target: {fileID: 7057073014232117838, guid: 9768dbc8576280741860f65eb08559cc, type: 3}
+      propertyPath: audDeadVol
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7057073014241444033, guid: 9768dbc8576280741860f65eb08559cc, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -18568,6 +18576,10 @@ PrefabInstance:
     - target: {fileID: 7057073014241750745, guid: 9768dbc8576280741860f65eb08559cc, type: 3}
       propertyPath: m_Name
       value: smallEnemyLvl1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057073014241750745, guid: 9768dbc8576280741860f65eb08559cc, type: 3}
+      propertyPath: m_TagString
+      value: Skeleton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9768dbc8576280741860f65eb08559cc, type: 3}

@@ -17,11 +17,14 @@ MonoBehaviour:
   lightning: {fileID: 0}
   fireball: {fileID: 0}
   Missile: {fileID: 4748813102613486742, guid: 2cacd4cc71a73c84f81d7151e9e7c0d3, type: 3}
+  bunnyBomb: {fileID: 0}
   spellcost: 5
   isBolt: 0
   isFire: 0
   isMissile: 1
+  isBunny: 0
   hitEffect: {fileID: 0}
   shootSound:
-  - {fileID: 8300000, guid: c91fcf414acc0344cb03b13996f1bf3b, type: 3}
-  shootSoundVol: 0.3
+  - {fileID: 8300000, guid: 87a2e502ddd174591af0e35f76e448a2, type: 3}
+  - {fileID: 8300000, guid: f08ce2b0c20924bfe844560b4770fe5a, type: 3}
+  shootSoundVol: 0.2
