@@ -1110,7 +1110,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
   - {fileID: 8300000, guid: 5c7b6d4002009e842bd2621585546d19, type: 3}
   - {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
-  audDeadVol: 0
+  audDeadVol: 0.8
   coinDrop: {fileID: 918173385136613785, guid: cba62f57dc35f1b4a9df2c36916460bc, type: 3}
   canDropCoin: 1
   hitEffect: {fileID: 4596544553357837919, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}

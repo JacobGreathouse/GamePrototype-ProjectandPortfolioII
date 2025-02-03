@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField] GameObject _foot;
 
     [Header("----- Stats -----")]
-    [SerializeField][Range(1, 5)] float speed;
+    [SerializeField][Range(1, 20)] float speed;
     [SerializeField][Range(1, 4)] float sprintMod;
     [SerializeField][Range(1, 3)] int jumpMax;
     [SerializeField][Range(5, 20)] int jumpSpeed;
@@ -541,7 +541,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         isFire = staffList[staffListPos].isFire;
         isMissile = staffList[staffListPos].isMissile;
         isBunny = staffList[staffListPos].isBunny;
-        AudioClip[] shootSound = staffList[staffListPos].shootSound;
+        shootSound = staffList[staffListPos].shootSound;
 
         float shootSoundVol = staffList[staffListPos].shootSoundVol;
 

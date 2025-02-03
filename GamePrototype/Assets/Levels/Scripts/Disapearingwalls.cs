@@ -37,4 +37,24 @@ public class Disapearingwalls : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.isTrigger) 
+            return;
+
+        if (other.CompareTag("Player"))
+        {
+
+            for (int i = 0; i < WallsToDisapear.Length && WallsToDisapear != null; i++)
+            {
+                WallsToDisapear[i].SetActive(true);
+            }
+
+            for (int i = 0; i < WallsToAppear.Length && WallsToAppear != null; i++)
+            {
+                WallsToAppear[i].SetActive(false);
+            }
+        }
+    }
 }
