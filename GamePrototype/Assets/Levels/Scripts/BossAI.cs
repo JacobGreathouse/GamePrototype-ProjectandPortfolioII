@@ -175,7 +175,12 @@ public class BossAI : MonoBehaviour, IDamage, IBoss
             this.GetComponent<NavMeshAgent>().speed = 0;
             agent.GetComponent<Animator>().StopPlayback();
 
-            Bridge.SetActive(true);
+
+            if (Bridge != null)
+            {
+                Bridge.SetActive(true);
+            }
+
             Destroy(Spawner);
 
             StartCoroutine(death());

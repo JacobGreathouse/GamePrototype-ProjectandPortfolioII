@@ -16051,6 +16051,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1929489166044063707, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
+      propertyPath: SpawnPortal
+      value: 
+      objectReference: {fileID: 1316853947}
     - target: {fileID: 1931608380181928726, guid: e206031b730ae3e4eaa801f5fe1519ea, type: 3}
       propertyPath: m_Name
       value: MiniBossLvl2
@@ -20002,6 +20006,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abd133e852c48e4489ed2812e70e12f4, type: 3}
+--- !u!1 &1316853947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1773287460024228288, guid: abd133e852c48e4489ed2812e70e12f4, type: 3}
+  m_PrefabInstance: {fileID: 1316853946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1319322471
 PrefabInstance:
   m_ObjectHideFlags: 0

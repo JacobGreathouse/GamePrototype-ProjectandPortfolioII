@@ -110,17 +110,17 @@ public class gamemanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_isLoading)
-        {
+        //if (!_isLoading)
+        //{
             //if (Input.GetButtonDown("Submit"))
             //{
-                _loadingScreen.SetActive(false);
-                gamemanager.instance.stateUnpause(true);
+                //_loadingScreen.SetActive(false);
+                //gamemanager.instance.stateUnpause(true);
                 //_isLoading = false;
-                GameObject SpawnPoint = GameObject.FindWithTag("SpawnPoint");
+                //GameObject SpawnPoint = GameObject.FindWithTag("SpawnPoint");
                 //gamemanager.instance.playerScript.WarpPosition(SpawnPoint.transform.position, SpawnPoint.transform.rotation);
             //}
-        }
+        //}
         //else 
         {
            
@@ -319,10 +319,29 @@ public class gamemanager : MonoBehaviour
 
     public void LoadMap(int index)
     {
-        gamemanager.instance.statePause();
         _loadingScreen.SetActive(true);
+        gamemanager.instance.statePause();
+        
         //_loadingScreenScript.LoadingText.SetActive(true);
         //_loadingScreenScript.ContinueText.SetActive(false);
+
+        if(index == 3)
+        {
+            _loadingScreenScript.Level2Pan.SetActive(true);
+            _loadingScreenScript.Level3Pan.SetActive(false);
+
+        } else if (index == 4)
+        {
+            _loadingScreenScript.Level2Pan.SetActive(false);
+            _loadingScreenScript.Level3Pan.SetActive(true);
+
+        }
+        else
+        {
+            _loadingScreenScript.Level2Pan.SetActive(false);
+            _loadingScreenScript.Level3Pan.SetActive(false);
+        }
+
         _isLoading = true;
 
         orbCount = 0;
@@ -333,6 +352,8 @@ public class gamemanager : MonoBehaviour
 
         //_loadingScreenScript.LoadingText.SetActive(false);
         //_loadingScreenScript.ContinueText.SetActive(true);
+
+        
 
 
     }
@@ -361,14 +382,12 @@ public class gamemanager : MonoBehaviour
 
         while (!loadProgress.isDone)
         {
-            for (int i = 0; i < 900000000; i++)
-            {
-            }
 
             yield return new WaitForEndOfFrame();
         }
 
-        
+        _loadingScreen.SetActive(false);
+        gamemanager.instance.stateUnpause(true);
 
         SpawnContainer = Instantiate(_spawnContainerPrefab);
 
