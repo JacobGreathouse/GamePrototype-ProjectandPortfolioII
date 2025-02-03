@@ -110,20 +110,20 @@ public class gamemanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_isLoading)
+        if (!_isLoading)
         {
             //if (Input.GetButtonDown("Submit"))
             //{
                 _loadingScreen.SetActive(false);
                 gamemanager.instance.stateUnpause(true);
-                _isLoading = false;
+                //_isLoading = false;
                 GameObject SpawnPoint = GameObject.FindWithTag("SpawnPoint");
                 //gamemanager.instance.playerScript.WarpPosition(SpawnPoint.transform.position, SpawnPoint.transform.rotation);
             //}
         }
-        else 
+        //else 
         {
-            
+           
             if (Input.GetButtonDown(MenuKey))
             {
                 if (menuActive == null && !_isLoading)
@@ -321,18 +321,18 @@ public class gamemanager : MonoBehaviour
     {
         gamemanager.instance.statePause();
         _loadingScreen.SetActive(true);
-        _loadingScreenScript.LoadingText.SetActive(true);
-        _loadingScreenScript.ContinueText.SetActive(false);
+        //_loadingScreenScript.LoadingText.SetActive(true);
+        //_loadingScreenScript.ContinueText.SetActive(false);
         _isLoading = true;
 
         orbCount = 0;
 
         StartCoroutine(LoadMapAsync(index));
 
-        
+        //_isLoading = false;
 
-        _loadingScreenScript.LoadingText.SetActive(false);
-        _loadingScreenScript.ContinueText.SetActive(true);
+        //_loadingScreenScript.LoadingText.SetActive(false);
+        //_loadingScreenScript.ContinueText.SetActive(true);
 
 
     }
@@ -361,8 +361,14 @@ public class gamemanager : MonoBehaviour
 
         while (!loadProgress.isDone)
         {
+            for (int i = 0; i < 900000000; i++)
+            {
+            }
+
             yield return new WaitForEndOfFrame();
         }
+
+        
 
         SpawnContainer = Instantiate(_spawnContainerPrefab);
 
@@ -372,7 +378,44 @@ public class gamemanager : MonoBehaviour
 
         playerScript.WarpPosition(SP.transform.position, SP.transform.rotation);
 
-        
+        playerScript.SetPlayerXP(10000); playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+        playerScript.SetPlayerXP(10000);
+
+        _isLoading = false;
     }
 
     private void checkLockState()

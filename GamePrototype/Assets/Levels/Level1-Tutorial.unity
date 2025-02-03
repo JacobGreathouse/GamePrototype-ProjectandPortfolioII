@@ -3893,6 +3893,10 @@ PrefabInstance:
       value: Wall (41)
       objectReference: {fileID: 0}
     - target: {fileID: 5509124704704992612, guid: c739053059dab0541b5a45f04ee3f7f1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509124704704992612, guid: c739053059dab0541b5a45f04ee3f7f1, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -6966,6 +6970,10 @@ PrefabInstance:
     - target: {fileID: 5509124704704992612, guid: c739053059dab0541b5a45f04ee3f7f1, type: 3}
       propertyPath: m_Name
       value: Wall (262)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509124704704992612, guid: c739053059dab0541b5a45f04ee3f7f1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5509124704704992612, guid: c739053059dab0541b5a45f04ee3f7f1, type: 3}
       propertyPath: m_NavMeshLayer
@@ -19765,6 +19773,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1929489166044063707, guid: 9de58337f310cde4e981273b51d789e1, type: 3}
+      propertyPath: SpawnPortal
+      value: 
+      objectReference: {fileID: 1263507149}
     - target: {fileID: 1931608380181928726, guid: 9de58337f310cde4e981273b51d789e1, type: 3}
       propertyPath: m_Name
       value: MiniBossLvl1
@@ -20448,6 +20460,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abd133e852c48e4489ed2812e70e12f4, type: 3}
+--- !u!1 &1263507149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1773287460024228288, guid: abd133e852c48e4489ed2812e70e12f4, type: 3}
+  m_PrefabInstance: {fileID: 1263507148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1264690845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31388,6 +31405,7 @@ Transform:
   - {fileID: 536975119}
   - {fileID: 1468897000}
   - {fileID: 170679416}
+  - {fileID: 6057145330008421765}
   - {fileID: 459812179}
   - {fileID: 922234985}
   - {fileID: 1153640419}
@@ -31402,7 +31420,6 @@ Transform:
   - {fileID: 687754972}
   - {fileID: 94251217}
   - {fileID: 1298005074}
-  - {fileID: 6057145330008421765}
   - {fileID: 72692500}
   - {fileID: 221820541}
   - {fileID: 821127228}
@@ -41248,7 +41265,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1961278118}
-  m_RootOrder: 292
+  m_RootOrder: 278
   m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
 --- !u!65 &6452717550145441415
 BoxCollider:
