@@ -397,42 +397,7 @@ public class gamemanager : MonoBehaviour
 
         playerScript.WarpPosition(SP.transform.position, SP.transform.rotation);
 
-        playerScript.SetPlayerXP(10000); playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
-        playerScript.SetPlayerXP(10000);
+        
 
         _isLoading = false;
     }

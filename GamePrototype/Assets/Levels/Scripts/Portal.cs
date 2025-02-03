@@ -40,7 +40,7 @@ public class Portal : MonoBehaviour
     void Start()
     {
         //_teleportCollider = GetComponent<Collider>();
-        _exitCam.transform.SetPositionAndRotation(_exitNode.transform.position, _exitNode.transform.rotation);
+        //_exitCam.transform.SetPositionAndRotation(_exitNode.transform.position, _exitNode.transform.rotation);
 
         if(_type == PORTALTYPE.SCENE_TRANSITION)
         {
