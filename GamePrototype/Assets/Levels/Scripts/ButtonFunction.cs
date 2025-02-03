@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class ButtonFunction : MonoBehaviour
 {
     [SerializeField] GameObject firstScreen;
     [SerializeField] GameObject MainMenuScreen;
+    
     [Header("----- Audio -----")]
     [SerializeField] AudioSource audButton;
     [SerializeField] AudioClip[] audButtonClick;
     [SerializeField][Range(0, 1)] float audButtonVol;
+
+    [Header("----- Buttons -----")]
+    GameObject activeButton;
+    [SerializeField] GameObject[] firstButton;
 
     private void Update()
     {
@@ -19,6 +26,27 @@ public class ButtonFunction : MonoBehaviour
         {
             FirstScreenClick();
         }
+
+        if(firstButton != null)
+        {
+            for (int i = 0; i < firstButton.Length && firstButton[i].activeSelf; i++)
+            {
+                if (activeButton == null)
+                {
+                    if (Input.GetKeyDown("down"))
+                    {
+                        if (firstButton != null)
+                        {
+                            activeButton = firstButton[i];
+                            EventSystem.current.SetSelectedGameObject(firstButton[i], new BaseEventData(EventSystem.current));
+                        }
+                    }
+                }
+
+            }
+        }
+        
+        
     }
 
     public void resume()
@@ -61,6 +89,7 @@ public class ButtonFunction : MonoBehaviour
     {
         audButton.PlayOneShot(audButtonClick[Random.Range(0, audButtonClick.Length)], audButtonVol);
         yield return new WaitForSeconds(audButtonClick.Length);
+        activeButton = null;
     }
 
     //public void ContinueSave()
