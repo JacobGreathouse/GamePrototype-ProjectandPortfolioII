@@ -18,7 +18,7 @@ GameObject:
   m_TagString: LevelObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 119
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8532326330477548265
 Transform:
@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 8110857630570307643}
   - component: {fileID: 8110857630570307647}
   - component: {fileID: 485974718144555607}
+  - component: {fileID: 1017731805322429588}
   m_Layer: 0
   m_Name: BossDoor
   m_TagString: LevelObject
@@ -163,6 +164,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 8110857630570307637}
+  audDoor: {fileID: 485974718144555607}
+  audDoorOpen:
+  - {fileID: 8300000, guid: 1e1185c3c91991d44a69dcaabd8e69ae, type: 3}
+  - {fileID: 8300000, guid: 04582aeb37238fc40b0e149143d56b40, type: 3}
+  audOpenVol: 0.1
+  _animator: {fileID: 1017731805322429588}
 --- !u!65 &8110857630570307643
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -201,7 +208,7 @@ AudioSource:
   m_GameObject: {fileID: 8110857630570307637}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2536300855172093662, guid: 09fb510c98bb5b143ad07c77ebf572d1, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -248,7 +255,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -288,3 +295,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1017731805322429588
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8110857630570307637}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8777eb75ac83e7340b6d78cdc64aa896, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class BossDoor : MonoBehaviour
@@ -8,9 +9,13 @@ public class BossDoor : MonoBehaviour
 
     bool doorOpen = false;
 
-    /*[SerializeField] AudioSource audDoor;
+    [SerializeField] AudioSource audDoor;
     [SerializeField] AudioClip[] audDoorOpen;
-    [SerializeField][Range(0, 1)] float audOpenVol;*/
+    [SerializeField][Range(0, 1)] float audOpenVol;
+
+
+
+    [SerializeField] Animator _animator;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,10 +23,11 @@ public class BossDoor : MonoBehaviour
             return;
 
         IOpen opn = other.GetComponent<IOpen>();
-        if (opn != null && gamemanager.instance.GetOrbCount() <= 0)
+        if (opn != null && gamemanager.instance.GetOrbCount() <= 10)
         {
             doorOpen = true;
-            door.SetActive(false);
+            _animator.SetBool("isOpen", true);
+            //door.SetActive(false);
             //audDoor.PlayOneShot(audDoorOpen[Random.Range(0, audDoorOpen.Length)], audOpenVol);
         }
         else if(opn != null && gamemanager.instance.GetOrbCount() > 0)
@@ -37,7 +43,8 @@ public class BossDoor : MonoBehaviour
         IOpen opn = other.GetComponent<IOpen>();
         if (opn != null && doorOpen == true)
         {
-            door.SetActive(false);
+            _animator.SetBool("isOpen", false);
+            //door.SetActive(false);
             
             //audDoor.PlayOneShot(audDoorOpen[Random.Range(0, audDoorOpen.Length)], audOpenVol);
         }
@@ -45,6 +52,18 @@ public class BossDoor : MonoBehaviour
         {
             StartCoroutine(message());
         }
+    }
+
+    public void playDoorSound()
+    {
+        
+        audDoor.PlayOneShot(audDoorOpen[0], audOpenVol);
+    }
+
+    public void playRumbleSound()
+    {
+        
+        audDoor.PlayOneShot(audDoorOpen[1]);
     }
 
     IEnumerator message()
