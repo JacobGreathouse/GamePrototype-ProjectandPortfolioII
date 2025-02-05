@@ -5821,6 +5821,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5670849947783501113, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -10166,6 +10170,10 @@ PrefabInstance:
     - target: {fileID: 945062359064760528, guid: c1c9bbf95f25bba4ea434c13dcf44148, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246460392993833591, guid: c1c9bbf95f25bba4ea434c13dcf44148, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8122190160570015709, guid: c1c9bbf95f25bba4ea434c13dcf44148, type: 3}
       propertyPath: m_Name
@@ -43049,7 +43057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8516598699080239725, guid: 08c0de9809ceb474f88a960e688e463e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 8516598699080239725, guid: 08c0de9809ceb474f88a960e688e463e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43057,7 +43065,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8516598699080239725, guid: 08c0de9809ceb474f88a960e688e463e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.75
+      value: 4.74
       objectReference: {fileID: 0}
     - target: {fileID: 8516598699080239725, guid: 08c0de9809ceb474f88a960e688e463e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -43518,6 +43526,10 @@ PrefabInstance:
     - target: {fileID: 2389213214798678163, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
       propertyPath: m_Name
       value: Boss Door Key (ani)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670849947783501113, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
       propertyPath: m_RootOrder

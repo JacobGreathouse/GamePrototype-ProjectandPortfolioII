@@ -13788,6 +13788,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss Door Key (ani) (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5670849947783501113, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
       propertyPath: m_RootOrder
       value: 416
@@ -15485,6 +15489,14 @@ PrefabInstance:
       value: Boss Door Key (ani)
       objectReference: {fileID: 0}
     - target: {fileID: 2389213214798678163, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184785645464530672, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_Range
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670849947783501113, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -17504,6 +17516,10 @@ PrefabInstance:
     - target: {fileID: 2389213214798678163, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
       propertyPath: m_Name
       value: Boss Door Key (ani) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670849947783501113, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6666005971953354654, guid: e24b493557e0cec428ed93b4156f0a22, type: 3}
       propertyPath: m_RootOrder
