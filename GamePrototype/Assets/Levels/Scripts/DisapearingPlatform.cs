@@ -6,14 +6,25 @@ public class DisapearingPlatform : MonoBehaviour
 {
     [SerializeField] float _strength;
     [SerializeField] float _respawnCooldown;
+    [SerializeField] float _timingOffset;
     [SerializeField] GameObject _platform;
     [SerializeField] GameObject _trigger;
+    [SerializeField] Animator _animator;
+    [SerializeField] AudioClip[] _sfx;
+    [SerializeField] AudioSource _audioSource;
+    
 
     bool _isCooling = false;
     bool _isActive = false;
-    float _time = 0.0f;
+    float _time;
 
     bool _isVisible;
+    bool _soundPlayed = false;
+
+    private void Start()
+    {
+        _time -= _timingOffset;
+    }
 
     public bool isActive 
     { 
@@ -31,42 +42,65 @@ public class DisapearingPlatform : MonoBehaviour
 
     private void Update()
     {
+        float rumbleAmt = calcRumble(_time, _strength);
+        _audioSource.volume = rumbleAmt;
+        if (rumbleAmt > 0.5f && !_soundPlayed)
+        {
+            _soundPlayed = true;
+            _audioSource.PlayOneShot(_sfx[0]);
+        }
+
+        _animator.SetFloat("Rumble", rumbleAmt);
+
+
         if (!_isCooling)
         {
-            /* if (_isActive)
-             {
-                 _time += Time.deltaTime;
-                 Debug.Log(_time);
-             }
-             else
-             {
-                 _time = 0;
-             }*/
-
+            
             _time += Time.deltaTime;
 
-            if (_time > _strength)
+            //_animator.SetFloat("Rumble", 0);
+
+            
+
+            if (_time > _strength )
             {
-                _isVisible = !_isVisible;
-                _platform.SetActive(_isVisible);
+
+                //_isVisible = !_isVisible;
+                //_platform.SetActive(false);
+                _animator.SetBool("isVisable", false);
+                
+                //_audioSource.pitch = 0.95f;
+                //_audioSource.PlayOneShot(_sfx[1]);
                 _time = 0;
-                //_isActive = false;
                 StartCoroutine(CoolDown(_respawnCooldown));
                 
             }
+        }
+        else
+        {
+            
+            //_animator.SetFloat("Rumble", 0);
         }
     }
 
     IEnumerator CoolDown(float time)
     {
-        //if (!_isCooling)
-        //{
-            _isCooling = true;
-            yield return new WaitForSeconds(time);
-            _platform.SetActive(true);
-            _time = 0.0f;
-            _isCooling = false;
-        //}
+
+        _isCooling = true;
+        yield return new WaitForSeconds(time);
+        //_platform.SetActive(true);
+        _animator.SetBool("isVisable", true);
+        _soundPlayed = false;
+        _audioSource.pitch = 0.90f;
+        _audioSource.PlayOneShot(_sfx[1]);
+        _time = 0.0f;
+        _isCooling = false;
+    }
+
+    private float calcRumble(float time, float max)
+    {
+        float normRumble = time / max;
+        return normRumble;
     }
 
 
