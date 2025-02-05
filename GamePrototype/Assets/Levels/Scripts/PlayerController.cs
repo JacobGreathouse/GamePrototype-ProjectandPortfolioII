@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     // int playerXP;
     // int playerLvl;
-    int HealthPotionCount;
+    int HealthPotionCount = 1;
     int SkillPoints;
     int coinCount;
     int jumpCount;
@@ -171,6 +171,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         
         if(Input.GetButtonDown("Heal") && HealthPotionCount > 0 && HP < HPMax)
         {
+            _animator.SetTrigger("Drink");
             audDrink.PlayOneShot(audLemmeGetSomeSip[Random.Range(0, audLemmeGetSomeSip.Length)], audSipVol);
             int amountToHeal = 20;
             if (HPMax - HP <= 20)
