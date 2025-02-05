@@ -182,7 +182,7 @@ public class gamemanager : MonoBehaviour
         isPaused = false;
         Time.timeScale = timeScaleOrig;
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
         if (!ignoreMenu && menuActive != null)
         { 
             menuActive.SetActive(false);
