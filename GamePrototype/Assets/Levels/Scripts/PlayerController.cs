@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
     [SerializeField] CharacterController controller;
     [SerializeField] LayerMask ignoreMask;
     [SerializeField] GameObject _foot;
+    [SerializeField] Animator _animator;
 
     [Header("----- Stats -----")]
     [SerializeField][Range(1, 20)] float speed;
@@ -259,11 +260,22 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
     void UpdateController(Vector3 Motion)
     {
+        if (controller.isGrounded)
+        {
+            _animator.SetFloat("x", Motion.x / 10);
+            _animator.SetFloat("y", Motion.y / 10);
+        }
+        else
+        {
+            _animator.SetFloat("x", 0);
+            _animator.SetFloat("y", 0);
+        }
         controller.Move(Motion * Time.deltaTime);
     }
 
     IEnumerator Dodge()
     {
+        _animator.SetTrigger("Dash");
         //Debug.Log("Is dodging");
         audDodge.PlayOneShot(audDodging[Random.Range(0, 1)], audDodgeVol);
         dodgeDirection = moveDir;
@@ -326,9 +338,12 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         if (isMissile==true)
         {
             //Debug.Log("Firing missile");
-           
-           for (int i = 0; i < burstCount; i++)
+            
+
+            for (int i = 0; i < burstCount; i++)
            {
+                _animator.SetTrigger("Shoot");
+
                 if (currentMana >= spellcost)
                 {
                     audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
@@ -356,6 +371,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         // shoot code goes
         if (isBolt == true && currentMana >= spellcost)
         {
+            _animator.SetTrigger("Shoot");
             // shoot code goes
             audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
             GameObject newProjectile = Instantiate(lightning, shootPos.position, Camera.main.transform.rotation);
@@ -364,6 +380,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         }
         else if (isFire == true && currentMana >= spellcost)
         {
+            _animator.SetTrigger("Shoot");
             // shoot code goes
             audPlayer.PlayOneShot(shootSound[Random.Range(0, shootSound.Length)], shootSoundVol);
             GameObject newProjectile = Instantiate(fireball, shootPos.position, Camera.main.transform.rotation);
@@ -517,6 +534,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         staffModel.GetComponent<MeshRenderer>().sharedMaterial = staff.model.GetComponent<MeshRenderer>().sharedMaterial;
 
         staffListPos = staffList.Count - 1;
+        _animator.SetTrigger("Swap");
     }
     void selectStaff()
     {
@@ -547,6 +565,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
 
         staffModel.GetComponent<MeshFilter>().sharedMesh = staffList[staffListPos].model.GetComponent<MeshFilter>().sharedMesh;
         staffModel.GetComponent<MeshRenderer>().sharedMaterial = staffList[staffListPos].model.GetComponent<MeshRenderer>().sharedMaterial;
+        _animator.SetTrigger("Swap");
     }
 
     public int GetplayerLvl()
