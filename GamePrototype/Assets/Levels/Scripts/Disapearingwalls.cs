@@ -6,6 +6,7 @@ public class Disapearingwalls : MonoBehaviour
 {
     [SerializeField] GameObject[] WallsToDisapear;
     [SerializeField] GameObject[] WallsToAppear;
+    [SerializeField] AudioSource Aud;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,7 @@ public class Disapearingwalls : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-
+            Aud.Play();
             for(int i = 0; i < WallsToDisapear.Length && WallsToDisapear != null; i++)
             {
                 WallsToDisapear[i].SetActive(false);
@@ -45,7 +46,7 @@ public class Disapearingwalls : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-
+            Aud.Play();
             for (int i = 0; i < WallsToDisapear.Length && WallsToDisapear != null; i++)
             {
                 WallsToDisapear[i].SetActive(true);

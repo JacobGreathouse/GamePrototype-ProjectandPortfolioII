@@ -23,7 +23,7 @@ public class BossDoor : MonoBehaviour
             return;
 
         IOpen opn = other.GetComponent<IOpen>();
-        if (opn != null && gamemanager.instance.GetOrbCount() <= 10)
+        if (opn != null && gamemanager.instance.GetOrbCount() <= 0)
         {
             doorOpen = true;
             _animator.SetBool("isOpen", true);
