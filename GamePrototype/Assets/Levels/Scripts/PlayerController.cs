@@ -468,7 +468,7 @@ public class PlayerController : MonoBehaviour, IDamage, IOpen
         gamemanager.instance.PotionUpdate();
 
     }
-    private void updatePlayerLevel()
+    public void updatePlayerLevel()
     {
         playerLvl += 1;
         playerXP -= lvlUpCost;

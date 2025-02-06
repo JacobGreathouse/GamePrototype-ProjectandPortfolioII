@@ -19,4 +19,12 @@ public class LevelSelectMenuFunctions : MonoBehaviour
         // close the panel
         gameObject.SetActive(false);
     }
+
+    public void LevelUp()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            gamemanager.instance.playerScript.updatePlayerLevel();
+        }
+    }
 }
