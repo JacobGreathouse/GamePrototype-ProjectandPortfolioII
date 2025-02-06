@@ -327,13 +327,24 @@ public class gamemanager : MonoBehaviour
 
         if(index == 3)
         {
+            _loadingScreenScript.Level1Pan.SetActive(false);
             _loadingScreenScript.Level2Pan.SetActive(true);
             _loadingScreenScript.Level3Pan.SetActive(false);
 
         } else if (index == 4)
         {
+            _loadingScreenScript.Level1Pan.SetActive(false);
+
             _loadingScreenScript.Level2Pan.SetActive(false);
             _loadingScreenScript.Level3Pan.SetActive(true);
+
+        }
+        else if (index == 2)
+        {
+            _loadingScreenScript.Level1Pan.SetActive(true);
+
+            _loadingScreenScript.Level2Pan.SetActive(false);
+            _loadingScreenScript.Level3Pan.SetActive(false);
 
         }
         else

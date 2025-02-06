@@ -223,7 +223,9 @@ public class ButtonFunction : MonoBehaviour
     public void ContinueButton()
     {
         gamemanager.instance.HowToPlayMenu.SetActive(false);
-        gamemanager.instance.GameGoalMenu.SetActive(true);
+        gamemanager.instance.stateUnpause();
+        gamemanager.instance.menuActive = null;
+       // gamemanager.instance.GameGoalMenu.SetActive(true);
     }
 
     public void ExitButton()

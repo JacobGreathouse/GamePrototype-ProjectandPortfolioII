@@ -670,6 +670,14 @@ PrefabInstance:
       propertyPath: HP
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 1929489166044063707, guid: b49fbbe5791916c44aed88a4dc44d652, type: 3}
+      propertyPath: faceTargetSpeed
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929489166044063707, guid: b49fbbe5791916c44aed88a4dc44d652, type: 3}
+      propertyPath: magicMissleTimer
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1931608380181928726, guid: b49fbbe5791916c44aed88a4dc44d652, type: 3}
       propertyPath: m_Name
       value: MiniBossLvl3
