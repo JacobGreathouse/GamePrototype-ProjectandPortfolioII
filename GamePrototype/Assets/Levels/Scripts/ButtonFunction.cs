@@ -84,9 +84,9 @@ public class ButtonFunction : MonoBehaviour
     public void NewSave()
     {
         StartCoroutine(playButtonClick());
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
 
-        //_introAni.Play();
+        _introAni.Play();
     }
 
     IEnumerator playButtonClick()
