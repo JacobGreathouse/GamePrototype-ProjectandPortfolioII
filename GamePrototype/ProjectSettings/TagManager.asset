@@ -14,6 +14,7 @@ TagManager:
   - Friend
   - Skeleton
   - ExitPortal
+  - IntroAnimation
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,7 @@ public class Portal : MonoBehaviour
     // private properties ----------------------------------------------------
 
     Collider _teleportCollider;
-    enum PORTALTYPE {SCENE_LOCAL, SCENE_TRANSITION}
+    enum PORTALTYPE {SCENE_LOCAL, SCENE_TRANSITION, CUTSCENE}
     bool _isSpawned = false;
 
     bool _transitionMutex = false;
@@ -54,12 +54,32 @@ public class Portal : MonoBehaviour
                 _animator.SetTrigger("Idle");
             }
         }
+
+        if (_type == PORTALTYPE.CUTSCENE)
+        {
+            if (!_isSpawned)
+            {
+                _animator.SetTrigger("Not_Spawned");
+                //_teleportTrigger.SetActive(false);
+            }
+            else
+            {
+                _animator.SetTrigger("Idle");
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        _renderMesh.transform.LookAt(gamemanager.instance.player.transform);
+        if (_type != PORTALTYPE.CUTSCENE)
+        {
+            _renderMesh.transform.LookAt(gamemanager.instance.player.transform);
+        }
+        else
+        {
+            _renderMesh.transform.LookAt(Camera.main.transform);
+        }
     }
 
     public void Spawn()

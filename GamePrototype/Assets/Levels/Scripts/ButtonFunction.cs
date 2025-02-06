@@ -10,6 +10,7 @@ public class ButtonFunction : MonoBehaviour
 {
     [SerializeField] GameObject firstScreen;
     [SerializeField] GameObject MainMenuScreen;
+    [SerializeField] IntroAnimationScript _introAni;
     
     [Header("----- Audio -----")]
     [SerializeField] AudioSource audButton;
@@ -19,6 +20,7 @@ public class ButtonFunction : MonoBehaviour
     [Header("----- Buttons -----")]
     GameObject activeButton;
     [SerializeField] GameObject[] firstButton;
+    
 
     private void Update()
     {
@@ -83,6 +85,8 @@ public class ButtonFunction : MonoBehaviour
     {
         StartCoroutine(playButtonClick());
         SceneManager.LoadScene(1);
+
+        //_introAni.Play();
     }
 
     IEnumerator playButtonClick()
